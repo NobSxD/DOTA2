@@ -1,0 +1,34 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<input type="hidden" id="__yoroi_connector_api_injected_type" value="prod" ><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+
+
+</head>
+<body>
+<header th:insert="blocks/header :: header">
+
+</header>
+<div class="container">
+    <form th:action="@{/login}" class="form-signin "method="post">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <p>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+        </p>
+        <p>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+        </p>
+
+        <button type="submit">Вход</button>
+    </form>
+    <h4>
+        <a href="/registration">Register</a>
+    </h4>
+</div>
+<footer th:insert="blocks/footer :: footer"></footer>
+</body></html>

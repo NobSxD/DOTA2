@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/fon.css}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+              crossorigin="anonymous">
+    <title>Главня</title>
+</head>
+
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+            <div id="blokc" class="fon">
+                <div th:insert="blocks/blokcMenyTop :: div"></div>
+                    <div class="border border-dark" id="pading">
+                        <h1>Auto Chess — новейшая соревновательная многопользовательская стратегия, разработанная Drodo и Dragonest Co.Ltd, изданная и технически поддерживаемая Dragonest Co.Ltd.</h1>
+                        <h2>Auto Chess</h2>
+                        <t>Auto Chess — это оригинальный автобатлер, разработанный совместно компаниями Dragonest Co.Ltd и Drodo Studio, и изданный Dragonest Co.Ltd.
+                            С момента своего выхода Auto Chess оказывает значительное влияние на игровую индустрию во всём мире благодаря новизне игрового процесса и стратегическим соревновательным функциям. Игра уже обзавелась десятками миллионов поклонников по всему миру. Здесь каждый может соревноваться в сетевых битвах с другими игроками со всего мира и наслаждаться совершенной новой соревновательной стратегией.
+                            Оригинальный игровой процесс, новаторский автобатлер
+                            Auto Chess — инновационный игровой мод, созданный Drodo Studio, — открыл для онлайн-игр новое измерение. Здесь вам доступен самый подлинный контент и самый чистый игровой режим, присущие только этому жанру.
+                            Возможность играть на трёх платформах, всемирно известная онлайн-игра
+                            Мы воплотили давнюю мечту всех — объединили игроков с разных платформ, и теперь все они могут играть друг с другом когда угодно и где угодно, какой бы платформой ни пользовались — консолью, ПК и мобильными устройствами. Состязайтесь с друзьями со всего мира — во вселенной Auto Chess больше нет границ!
+                            Регулярные киберспортивные турниры с честной игрой
+                            Самая честная игра предлагает вам лучшие чемпионаты и международные турниры!
+                            Здесь каждое решение имеет значение, и важен каждый ваш шаг. Значительно повлиять на исход вы можете только своей стратегией. Так что будьте предельно внимательны. И приятной игры!</t>
+                    </div>
+            
+        </div>
+
+        
+        
+    
+
+<footer th:insert="blocks/footer :: footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+header{
+    background-color: black;
+}
+
+#blokc{
+   
+   margin-left: 15%;
+   margin-right: 15%;
+}
+
+logoimage{
+    width: 85px;
+    height: 240px;
+}
+
+.btn-group{
+margin-right: 50px;
+}
+.hrefA{
+    margin: 0px;
+    padding: 0px;
+}
+
+#pading{
+    background-color: whitesmoke;
+    padding: 20px;
+    
+    
+}
+.meny{
+background-color: #212529;
+margin-top: 20px ;
+}
+#autoches{
+    margin-left: 5%;
+    margin-right: auto;
+   
+}
+
+html{
+    
+    
+}
+table{border-collapse:collapse;
+table-layout: fixed;}
+tr,td{border:1px solid #aaa;}
+td,th{text-align:center;padding:5px 100px;}
+
+.container{
+    background-color: aliceblue;
+}
+footer{
+    clear:both;
+}
+#float{
+    float: left;
+}
+body{
+    padding-top: 0px;
+}
