@@ -22,7 +22,7 @@ public class ClassHeroController {
     @GetMapping("/admin/class")
     public String hero(Model model){
 
-        return "ClassHeroAdd";
+        return "userMenuTop/button2/admin/add/ClassHeroAdd";
     }
 
     @PostMapping("/admin/class")
@@ -34,6 +34,6 @@ public class ClassHeroController {
         classRepository.save(classHeroNew);
 
         classHeroService.saveClassHero(classHeroNew,file1);
-        return "redirect:/add/class";
+        return "redirect:/admin/class";
     }
 }

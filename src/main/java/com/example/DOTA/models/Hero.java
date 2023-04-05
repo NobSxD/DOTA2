@@ -22,6 +22,7 @@ public class Hero {
     private String nameHero;
     private String species;
     private String classHero;
+    private String classHero1;
     private String classHero2;
     private String classHero3;
     private String tirHero;
@@ -36,10 +37,11 @@ public class Hero {
         dateTime = LocalDateTime.now();
     }
 
-    public Hero(String nameHero, String species, String classHero, String classHero2, String classHero3, String tirHero) {
+    public Hero(String nameHero, String species, String classHero, String classHero1, String classHero2, String classHero3, String tirHero) {
         this.nameHero = nameHero;
         this.species = species;
         this.classHero = classHero;
+        this.classHero1 = classHero1;
         this.classHero2 = classHero2;
         this.classHero3 = classHero3;
         this.tirHero = tirHero;

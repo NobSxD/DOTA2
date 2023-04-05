@@ -25,7 +25,7 @@ public class SkillController {
     @GetMapping("/admin/skill")
     public String hero(Model model){
 
-        return "SkillAdd";
+        return "userMenuTop/button2/admin/add/SkillAdd";
     }
 
     @PostMapping("/admin/skill")
@@ -37,6 +37,6 @@ public class SkillController {
         skillRepository.save(skillNew);
 
         skillService.saveSkill(skillNew,file1);
-        return "redirect:/add/skill";
+        return "redirect:/admin/skill";
     }
 }

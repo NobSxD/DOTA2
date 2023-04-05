@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -27,8 +26,51 @@ public class HeroService {
     public List<Hero> listProducts() {
         return heroRepository.findAll();
     }
+    public boolean heroExistById(Long id) {
+        return heroRepository.existsById(id);
+    }
     public List<ImageHero> imageHeroList(Hero hero){
         return imageRepository.findByHero(hero);
+    }
+    public Hero getProductById(Long id) {
+        return heroRepository.findById(id).orElse(null);
+    }
+
+
+    public List<SortHero> heroDisplay(Long id){
+
+        Hero hero = getProductById(id);
+        imageHeroList(hero);
+
+         imageHeroList(hero);
+
+        List<SortHero> heroes = new ArrayList<>();
+
+
+            List<ImageHero> imgHeroList = imageHeroList(hero);
+            SortHero sortHero = new SortHero();
+            for (ImageHero s : imgHeroList) {
+
+                if (s.getName().equals("iconHero")) {
+                    sortHero.setIconHero(s.getId());
+                    sortHero.setHero(s.getHero());
+                }
+                if (s.getName().equals("iconSpecies")) {
+                    sortHero.setIconSpecies(s.getId());
+                    sortHero.setHero(s.getHero());
+                }
+                if (s.getName().equals("iconClassHero")) {
+                    sortHero.setIconClassHero(s.getId());
+                    sortHero.setHero(s.getHero());
+                }
+                if (s.getName().equals("iconClassHero1")) {
+                    sortHero.setIconClassHero1(s.getId());
+                    sortHero.setHero(s.getHero());
+                }
+            }
+            heroes.add(sortHero);
+
+        return heroes;
     }
 
 
@@ -69,9 +111,7 @@ public class HeroService {
         heroRepository.save(hero);
         return imageRepository.save(image);
     }
-    public Hero getProductById(Long id) {
-        return heroRepository.findById(id).orElse(null);
-    }
+
 
 
 

@@ -1,3 +1,13 @@
+.fon{
+    background-image: url("/image/fon4.jpg");
+    object-fit: contain;
+     background-size: no-repeat;
+     background-attachment: fixed;
+     background-position: 50% 15%;
+     width: 100%;
+}
+
+
 header{
     background-color: black;
 }
@@ -13,9 +23,7 @@ logoimage{
     height: 240px;
 }
 
-.btn-group{
-margin-right: 50px;
-}
+
 .hrefA{
     margin: 0px;
     padding: 0px;
@@ -24,23 +32,13 @@ margin-right: 50px;
 #pading{
     background-color: whitesmoke;
     padding: 20px;
+    padding-bottom: 150px;
     
     
-}
-.meny{
-background-color: #212529;
-margin-top: 20px ;
-}
-#autoches{
-    margin-left: 5%;
-    margin-right: auto;
-   
 }
 
-html{
-    
-    
-}
+
+
 table{border-collapse:collapse;
 table-layout: fixed;}
 tr,td{border:1px solid #aaa;}
@@ -58,3 +56,26 @@ footer{
 body{
     padding-top: 0px;
 }
+
+
+#autoches{
+  border: 0;  
+  width: 100%;
+  border-radius: 0;
+}
+.btn.btn-dark{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.btn-group{
+    margin-top: 20px;
+    width: 20%;
+}
+.dropdown-menu{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+

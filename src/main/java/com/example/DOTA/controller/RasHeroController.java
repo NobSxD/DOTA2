@@ -21,7 +21,7 @@ public class RasHeroController {
     @GetMapping("/admin/ras")
     public String hero(Model model){
 
-        return "RasHero";
+        return  "userMenuTop/button2/admin/add/RasHero";
     }
 
     @PostMapping("/admin/ras")
@@ -33,6 +33,6 @@ public class RasHeroController {
         repository.save(rasHeroNew);
 
         rasHeroService.saveClassHero(rasHeroNew,file1);
-        return "redirect:/add/class";
+        return "redirect:/admin/class";
     }
 }

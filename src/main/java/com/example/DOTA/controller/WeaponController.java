@@ -21,7 +21,7 @@ public class WeaponController {
     @GetMapping("/admin/weapon")
     public String hero(Model model){
 
-        return "WeaponAdd";
+        return "userMenuTop/button2/admin/add/WeaponAdd";
     }
 
     @PostMapping("/admin/weapon")
@@ -38,6 +38,6 @@ public class WeaponController {
         weaponRepository.save(weaponNew);
 
         weaponService.saveWeapon(weaponNew,file1,file2,file3,file4);
-        return "redirect:/add/weapon";
+        return "redirect:/admin/weapon";
     }
 }
