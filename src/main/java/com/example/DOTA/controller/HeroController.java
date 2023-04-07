@@ -74,42 +74,14 @@ public class HeroController {
 
     @GetMapping("/admin/hero/edit")
     public String displayHeroAdmin(Model model) {
-
-        List<SortHero> sortHeroes = heroService.sortHeroes();
         List<SortHero> tir1 = new ArrayList<>();
         List<SortHero> tir2 = new ArrayList<>();
         List<SortHero> tir3 = new ArrayList<>();
         List<SortHero> tir4 = new ArrayList<>();
         List<SortHero> tir5 = new ArrayList<>();
         List<SortHero> tir6 = new ArrayList<>();
-        for (SortHero sortTir : sortHeroes) {
-            if (sortTir.getHero().getTirHero() == null){
-                tir4.add(sortTir);
-            } else {
-                if (sortTir.getHero().getTirHero().equals("ТИР 1") ||
-                        sortTir.getHero().getTirHero().equals("ТИР 2") ||
-                        sortTir.getHero().getTirHero().equals("ТИР 3") ||
-                        sortTir.getHero().getTirHero().equals("ТИР 4") ||
-                        sortTir.getHero().getTirHero().equals("ТИР 5")) {
 
-                    if (sortTir.getHero().getTirHero().equals("ТИР 1")) {
-                        tir1.add(sortTir);
-                    }
-                    if (sortTir.getHero().getTirHero().equals("ТИР 2")) {
-                        tir2.add(sortTir);
-                    }
-                    if (sortTir.getHero().getTirHero().equals("ТИР 3")) {
-                        tir3.add(sortTir);
-                    }
-                    if (sortTir.getHero().getTirHero().equals("ТИР 4")) {
-                        tir4.add(sortTir);
-                    }
-                    if (sortTir.getHero().getTirHero().equals("ТИР 5")) {
-                        tir5.add(sortTir);
-                    }
-                } else tir6.add(sortTir);
-            }
-        }
+        heroService.sortHeroList(tir1,tir2,tir3,tir4,tir5,tir6);
 
 
         model.addAttribute("displayHeroTir1", tir1);
@@ -123,6 +95,12 @@ public class HeroController {
         return "userMenuTop/button2/admin/displayHero";
     }
 
+    @GetMapping("/admin/hero/delete/{id}")
+    public String delete(@PathVariable(value = "id")Long id){
+        heroService.deleteHero(id);
+        return "redirect:/admin/hero/edit";
+    }
+
 
     @GetMapping("/home/hero/{id}")
     public String heroDetailsHom(Model model, @PathVariable Long id) {
@@ -132,10 +110,27 @@ public class HeroController {
 
     @GetMapping("/home/hero")
     public String displayHeroUser(Model model) {
+        List<SortHero> tir1 = new ArrayList<>();
+        List<SortHero> tir2 = new ArrayList<>();
+        List<SortHero> tir3 = new ArrayList<>();
+        List<SortHero> tir4 = new ArrayList<>();
+        List<SortHero> tir5 = new ArrayList<>();
+        List<SortHero> tir6 = new ArrayList<>();
+
+        heroService.sortHeroList(tir1,tir2,tir3,tir4,tir5,tir6);
+
+
+        model.addAttribute("displayHeroTir1", tir1);
+        model.addAttribute("displayHeroTir2", tir2);
+        model.addAttribute("displayHeroTir3", tir3);
+        model.addAttribute("displayHeroTir4", tir4);
+        model.addAttribute("displayHeroTir5", tir5);
+
 
         model.addAttribute("imageHero", heroService.sortHeroes());
         return "userMenuTop/button2/hero";
     }
+
 
 
 }

@@ -186,4 +186,56 @@ public class HeroService {
     }
         return heroes;
     }
+
+    public void sortHeroList(List<SortHero> tir1, List<SortHero> tir2, List<SortHero> tir3, List<SortHero> tir4, List<SortHero> tir5, List<SortHero> tir6) {
+        List<SortHero> sortHeroes = sortHeroes();
+        for (SortHero sortTir : sortHeroes) {
+            if (sortTir.getHero().getTirHero() == null) {
+                tir4.add(sortTir);
+            } else {
+                if (sortTir.getHero().getTirHero().equals("ТИР 1") ||
+                        sortTir.getHero().getTirHero().equals("ТИР 2") ||
+                        sortTir.getHero().getTirHero().equals("ТИР 3") ||
+                        sortTir.getHero().getTirHero().equals("ТИР 4") ||
+                        sortTir.getHero().getTirHero().equals("ТИР 5")) {
+
+                    if (sortTir.getHero().getTirHero().equals("ТИР 1")) {
+                        tir1.add(sortTir);
+
+                    }
+                    if (sortTir.getHero().getTirHero().equals("ТИР 2")) {
+                        tir2.add(sortTir);
+
+                    }
+                    if (sortTir.getHero().getTirHero().equals("ТИР 3")) {
+                        tir3.add(sortTir);
+
+                    }
+                    if (sortTir.getHero().getTirHero().equals("ТИР 4")) {
+                        tir4.add(sortTir);
+
+                    }
+                    if (sortTir.getHero().getTirHero().equals("ТИР 5")) {
+                        tir5.add(sortTir);
+
+                    }
+                } else tir6.add(sortTir);
+
+            }
+        }
+
+    }
+
+    public void deleteHero(Long id){
+        Hero hero = getProductById(id);
+        List<ImageHero> imageHeroList = imageHeroList(hero);
+
+        for (ImageHero delete: imageHeroList
+             ) {
+            imageRepository.delete(delete);
+        }
+
+        heroRepository.delete(hero);
+
+    }
 }

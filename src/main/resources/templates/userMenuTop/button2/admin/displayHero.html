@@ -18,226 +18,223 @@
             <div class="border border-dark" id="pading">
 
                 <div class="inline-block-table">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th colspan="3">1$Фигуры
-                        </th>
-                    </tr>
-                    </thead>
+                    <table class="table table-borderless">
+                        <thead>
+                        <tr>
+                            <th colspan="3">1$Фигуры
+                            </th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr th:each="hero1 : ${displayHeroTir1}">
-                        <td>  <a th:href="'/admin/' +${hero1.hero.id}">
-                            <t th:text="${hero1.hero.nameHero}"></t>
-                        </a></td>
-
-                        <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
-
-                        <td>
-                            <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
+                        <tbody>
+                        <tr th:each="hero1 : ${displayHeroTir1}">
 
 
+                            <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
+
+                            <td><a th:href="'/admin/' +${hero1.hero.id}"  class="link-secondary">
+                                <t th:text="${hero1.hero.nameHero}"></t>
+                            </a></td>
+
+                            <td>
+                                <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
 
 
-                            <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                                <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
 
 
+                                <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
+                                     onerror="this.style.visibility = 'hidden'"></td>
 
-                            <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
-                                 onerror="this.style.visibility = 'hidden'"></td>
-
-                    </tr>
-
-
-                    </tbody>
-                </table>
-            </div>
-            <div class="inline-block-table">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th colspan="3">2$Фигуры
-                        </th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <tr th:each="hero1 : ${displayHeroTir2}">
-                        <td>  <a th:href="'/admin/' +${hero1.hero.id}">
-                            <t th:text="${hero1.hero.nameHero}"></t>
-                        </a></td>
-
-                        <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
-
-                        <td>
-                            <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
+                        </tr>
 
 
+                        </tbody>
+                    </table>
+                </div>
+                <div class="inline-block-table">
+                    <table class="table table-borderless">
+                        <thead>
+                        <tr>
+                            <th colspan="3">2$Фигуры
+                            </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="hero1 : ${displayHeroTir2}">
 
 
-                            <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                            <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
+
+                            <td><a th:href="'/admin/' +${hero1.hero.id}"  class="link-secondary">
+                                <t th:text="${hero1.hero.nameHero}"></t>
+                            </a></td>
+
+                            <td>
+                                <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
 
 
-
-                            <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
-                                 onerror="this.style.visibility = 'hidden'"></td>
-
-                    </tr>
+                                <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
 
 
-                    </tbody>
-                </table>
+                                <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
+                                     onerror="this.style.visibility = 'hidden'"></td>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
                 </div>
                 <div class="inline-block-table">
 
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th colspan="3">3$Фигуры
-                        </th>
-                    </tr>
-                    </thead>
+                    <table class="table table-borderless">
+                        <thead>
+                        <tr>
+                            <th colspan="3">3$Фигуры
+                            </th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr th:each="hero1 : ${displayHeroTir3}">
-                        <td>  <a th:href="'/admin/' +${hero1.hero.id}">
-                            <t th:text="${hero1.hero.nameHero}"></t>
-                        </a></td>
-
-                        <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
-
-                        <td>
-                            <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
+                        <tbody>
+                        <tr th:each="hero1 : ${displayHeroTir3}">
 
 
+                            <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
+
+                            <td><a th:href="'/admin/' +${hero1.hero.id}"  class="link-secondary">
+                                <t th:text="${hero1.hero.nameHero}"></t>
+                            </a></td>
+
+                            <td>
+                                <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
 
 
-                            <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                                <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
 
 
+                                <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
+                                     onerror="this.style.visibility = 'hidden'"></td>
 
-                            <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
-                                 onerror="this.style.visibility = 'hidden'"></td>
-
-                    </tr>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
                 </div>
 
                 <div class="inline-block-table">
 
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th colspan="3">4$Фигуры
-                        </th>
-                    </tr>
-                    </thead>
+                    <table class="table table-borderless">
+                        <thead>
+                        <tr>
+                            <th colspan="3">4$Фигуры
+                            </th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr th:each="hero1 : ${displayHeroTir4}">
-                        <td>  <a th:href="'/admin/' +${hero1.hero.id}">
-                            <t th:text="${hero1.hero.nameHero}"></t>
-                        </a></td>
-
-                        <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
-
-                        <td>
-                            <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
+                        <tbody>
+                        <tr th:each="hero1 : ${displayHeroTir4}">
 
 
+                            <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
+
+                            <td><a th:href="'/admin/' +${hero1.hero.id}"  class="link-secondary">
+                                <t th:text="${hero1.hero.nameHero}"></t>
+                            </a></td>
+
+                            <td>
+                                <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
 
 
-                            <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                                <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
 
 
+                                <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
+                                     onerror="this.style.visibility = 'hidden'"></td>
 
-                            <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
-                                 onerror="this.style.visibility = 'hidden'"></td>
-
-                    </tr>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="inline-block-table">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th colspan="3">5$Фигуры
-                        </th>
-                    </tr>
-                    </thead>
+                    <table class="table table-borderless">
+                        <thead>
+                        <tr>
+                            <th colspan="3">5$Фигуры
+                            </th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr th:each="hero1 : ${displayHeroTir5}">
-                        <td>  <a th:href="'/admin/' +${hero1.hero.id}">
-                            <t th:text="${hero1.hero.nameHero}"></t>
-                        </a></td>
-
-                        <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
-
-                        <td>
-                            <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
+                        <tbody>
+                        <tr th:each="hero1 : ${displayHeroTir5}">
 
 
+                            <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
+
+                            <td><a th:href="'/admin/' +${hero1.hero.id}"  class="link-secondary">
+                                <t th:text="${hero1.hero.nameHero}"></t>
+                            </a></td>
+
+                            <td>
+                                <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
 
 
-                            <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                                <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
 
 
+                                <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
+                                     onerror="this.style.visibility = 'hidden'"></td>
 
-                            <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
-                                 onerror="this.style.visibility = 'hidden'"></td>
-
-                    </tr>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
 
                 </div>
                 <div class="inline-block-table">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th colspan="5">Изменить тир
-                        </th>
-                    </tr>
-                    </thead>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th colspan="5">Изменить тир
+                            </th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr th:each="hero1 : ${displayHeroTir6}">
-                        <td>
-                        <a th:href="'/admin/' +${hero1.hero.id}">
-                            <t th:text="${hero1.hero.nameHero}"></t></a>
-                        </td>
-
-                        <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
-
-                        <td>
-                            <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
-                            <t th:text="${hero1.hero.classHero}"></t>
-                        </td>
-
-                        <td>
-                            <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
-                            <t th:text="${hero1.hero.classHero1}"></t>
-                        </td>
-                        <td>
-                            <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
-                                 onerror="this.style.visibility = 'hidden'"><t th:text="${hero1.hero.classHero2}"></t>
-                        </td>
-
-                    </tr>
+                        <tbody>
+                        <tr th:each="hero1 : ${displayHeroTir6}">
 
 
-                    </tbody>
-                </table>
+                            <td><img th:src="'/images/' + ${hero1.iconHero}"></td>
+
+                            <td><a th:href="'/admin/' +${hero1.hero.id}"  class="link-secondary">
+                                <t th:text="${hero1.hero.nameHero}"></t>
+                            </a></td>
+
+                            <td>
+                                <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
+                                <t th:text="${hero1.hero.classHero}"></t>
+                            </td>
+
+                            <td>
+                                <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                                <t th:text="${hero1.hero.classHero1}"></t>
+                            </td>
+                            <td>
+                                <img th:src="'/images/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px"
+                                     onerror="this.style.visibility = 'hidden'">
+                                <t th:text="${hero1.hero.classHero2}"></t>
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

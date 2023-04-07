@@ -83,6 +83,18 @@ display: inline-block
     width: 18%;
     display: inline-block;
 }
+.table-borderless{
+    border-collapse: collapse;
+}
+
+td {
+    border: none;
+}
+.badge.rounded-pill.bg-secondary{
+    width: 40%;
+    padding: 20px;
+    margin: 10px;
+}
 
 
 
