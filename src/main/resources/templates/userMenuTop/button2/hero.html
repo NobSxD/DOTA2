@@ -12,8 +12,8 @@
 <div class="container-fluid" id="t">
 
 
-    <div id="blokc" >
-        <div th:insert="blocks/blokcMenyTop :: div"></div>
+    <div id="blokc">
+        <div  class="top" th:insert="blocks/menuTop :: div"></div>
         <div class="border border-dark" id="pading">
 
             <table class="table">
@@ -36,28 +36,23 @@
                 <tr th:each="hero1 : ${imageHero}">
 
 
-
-
-
-
-
                     <td>
-                        <img  th:src="'/images/' + ${hero1.iconHero}">
-                            <t th:text="${hero1.hero.nameHero}"></t>
+                        <img th:src="'/images/' + ${hero1.iconHero}">
+                        <t th:text="${hero1.hero.nameHero}"></t>
                     </td>
 
 
-                    <td >
+                    <td>
                         <div>
-                        <img  th:src="'/images/' + ${hero1.iconSpecies}" height="20px" width="20px">
+                            <img th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
 
                         </div>
                         <div>
-                        <img  th:src="'/images/' + ${hero1.iconClassHero}" height="20px" width="20px">
+                            <img th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
 
                         </div>
                         <div>
-                        <img  th:src="'/images/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                            <img th:src="'/images/' + ${hero1.iconClassHero2}" height="20px" width="20px">
 
                         </div>
                     </td>

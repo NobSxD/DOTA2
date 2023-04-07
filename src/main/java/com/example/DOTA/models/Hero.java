@@ -1,13 +1,10 @@
 package com.example.DOTA.models;
 
-import com.example.DOTA.models.image.ImageHero;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Data
@@ -20,12 +17,12 @@ public class Hero {
     private Long id;
 
     private String nameHero;
-    private String species;
+    private String tirHero;
     private String classHero;
     private String classHero1;
     private String classHero2;
-    private String classHero3;
-    private String tirHero;
+
+    private String full_text;
 
     private LocalDateTime dateTime;
 
@@ -37,13 +34,12 @@ public class Hero {
         dateTime = LocalDateTime.now();
     }
 
-    public Hero(String nameHero, String species, String classHero, String classHero1, String classHero2, String classHero3, String tirHero) {
+    public Hero(String nameHero, String tirHero, String classHero, String classHero1, String classHero2, String full_text) {
         this.nameHero = nameHero;
-        this.species = species;
+        this.tirHero = tirHero;
         this.classHero = classHero;
         this.classHero1 = classHero1;
         this.classHero2 = classHero2;
-        this.classHero3 = classHero3;
-        this.tirHero = tirHero;
+        this.full_text = full_text;
     }
 }

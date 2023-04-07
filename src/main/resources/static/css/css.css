@@ -76,6 +76,14 @@ body{
     padding-left: 0px;
     padding-right: 0px;
 }
+table{
+display: inline-block
+}
+.inline-block-table{
+    width: 18%;
+    display: inline-block;
+}
+
 
 
 

@@ -7,7 +7,6 @@ import lombok.Data;
 public class SortHero {
     Hero hero = new Hero();
     Long iconHero;
-    Long iconSpecies;
     Long iconClassHero;
     Long iconClassHero1;
     Long iconClassHero2;

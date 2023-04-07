@@ -9,7 +9,7 @@
 <div class="container-fluid">
     <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
-            th:insert="blocks/navPanelAdmin ::div"></nav>
+             th:insert="blocks/menuRightAdmin ::div"></nav>
 
 
 
@@ -19,23 +19,40 @@
                 <p>вставте икону героя
                 <input type="file" name="iconHero">
                 </p>
+
                 <input type="text" name="hero" placeholder="Ведите имя героя" class="form-control"><br>
-                <input type="text" name="tear" placeholder="видите тир героя" class="form-control"><br>
-                <input type="text" name="classHero" placeholder="Ведите расу героя" class="form-control"><br>
+
+
+
+
+                <input name="tear" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="выберите тир героя"><br>
+                <datalist id="datalistOptions">
+                    <option value="ТИР 1">
+                    <option value="ТИР 2">
+                    <option value="ТИР 3">
+                </datalist>
+
+
+                <input type="text" name="classHero" list="datalistOptions" id="exampleDataList" placeholder="Ведите расу героя или класс" class="form-control"><br>
+                <datalist id="datalistOptions">
+                    <option value="ТИР 1">
+                    <option value="ТИР 2">
+                    <option value="ТИР 3">
+                </datalist>
+
+
+
                 <input type="text" name="classHero1" placeholder="Ведите класс героя" class="form-control"><br>
                 <input type="text" name="classHero2" placeholder="Ведите класс героя" class="form-control"><br>
-                <input type="text" name="classHero3" placeholder="Ведите класс героя" class="form-control"><br>
+
                 <p>вставте икону расы
-                <input type="file" name="iconSpecies" placeholder="вставте икону расы">
+                <input type="file" name="iconClassHero">
                 </p>
                 <p>вставте икону класса
-                <input type="file" name="iconClassHero" placeholder="вставте икону расы">
+                <input type="file" name="iconClassHero1">
                 </p>
                 <p>вставте икону класса
-                <input type="file" name="iconClassHero1" placeholder="вставте икону расы">
-                </p>
-                <p>вставте икону класса
-                    <input type="file" name="iconClassHero2" placeholder="вставте икону расы">
+                <input type="file" name="iconClassHero2" >
                 </p>
                 <textarea name="full_text" placeholder="Ведите полное описание героя" class="form-control"></textarea><br>
 

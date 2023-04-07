@@ -37,67 +37,77 @@ public class HeroService {
     }
 
 
-    public List<SortHero> heroDisplay(Long id){
+    public SortHero heroDisplay(Hero h){
 
-        Hero hero = getProductById(id);
-        imageHeroList(hero);
-
-         imageHeroList(hero);
-
-        List<SortHero> heroes = new ArrayList<>();
-
-
-            List<ImageHero> imgHeroList = imageHeroList(hero);
+        Hero hero = h;
+        List<ImageHero> imgHeroList = imageHeroList(hero);
             SortHero sortHero = new SortHero();
             for (ImageHero s : imgHeroList) {
 
                 if (s.getName().equals("iconHero")) {
                     sortHero.setIconHero(s.getId());
-                    sortHero.setHero(s.getHero());
-                }
-                if (s.getName().equals("iconSpecies")) {
-                    sortHero.setIconSpecies(s.getId());
-                    sortHero.setHero(s.getHero());
+                    sortHero.setHero(hero);
                 }
                 if (s.getName().equals("iconClassHero")) {
                     sortHero.setIconClassHero(s.getId());
-                    sortHero.setHero(s.getHero());
+                    sortHero.setHero(hero);
                 }
                 if (s.getName().equals("iconClassHero1")) {
                     sortHero.setIconClassHero1(s.getId());
                     sortHero.setHero(s.getHero());
+                    sortHero.setHero(hero);
+                }
+                if (s.getName().equals("iconClassHero2")) {
+                    sortHero.setIconClassHero1(s.getId());
+                    sortHero.setHero(hero);
                 }
             }
-            heroes.add(sortHero);
-
-        return heroes;
+        return sortHero;
     }
 
+    public SortHero heroDisplay2(Long id){
 
+        Hero hero = getProductById(id);
+        List<ImageHero> imgHeroList = imageHeroList(hero);
+        SortHero sortHero = new SortHero();
+        for (ImageHero s : imgHeroList) {
+
+            if (s.getName().equals("iconHero")) {
+                sortHero.setIconHero(s.getId());
+                sortHero.setHero(s.getHero());
+            }
+            if (s.getName().equals("iconClassHero")) {
+                sortHero.setIconClassHero(s.getId());
+                sortHero.setHero(s.getHero());
+            }
+            if (s.getName().equals("iconClassHero1")) {
+                sortHero.setIconClassHero1(s.getId());
+                sortHero.setHero(s.getHero());
+            }
+            if (s.getName().equals("iconClassHero2")) {
+                sortHero.setIconClassHero1(s.getId());
+                sortHero.setHero(s.getHero());
+            }
+        }
+        return sortHero;
+    }
 
 
     public void saveHero(Hero hero, MultipartFile file1, MultipartFile file2, MultipartFile file3, MultipartFile file4) throws IOException {
         if (file1.getSize() != 0) {
            toImageEntity(file1, hero);
-
         }
         if (file2.getSize() != 0) {
              toImageEntity(file2,hero);
-
-
         }
         if (file3.getSize() != 0) {
             toImageEntity(file3,hero);
-
-
         }
         if (file4.getSize() != 0) {
-             toImageEntity(file4,hero);
-
+            toImageEntity(file4,hero);
         }
 
     }
-
 
     private ImageHero toImageEntity(MultipartFile file, Hero hero) throws IOException {
         ImageHero image = new ImageHero();
@@ -112,10 +122,35 @@ public class HeroService {
         return imageRepository.save(image);
     }
 
+    public void editHero(Hero hero, MultipartFile file1, MultipartFile file2, MultipartFile file3, MultipartFile file4,
+                         SortHero sortHero) throws IOException {
+        if (file1.getSize() != 0) {
+            editToImageEntity(file1, hero, sortHero.getIconHero());
+        }
+        if (file2.getSize() != 0) {
+            editToImageEntity(file2,hero,sortHero.getIconClassHero());
+        }
+        if (file3.getSize() != 0) {
+            editToImageEntity(file3,hero,sortHero.getIconClassHero1());
+        }
+        if (file4.getSize() != 0) {
+            editToImageEntity(file4,hero,sortHero.getIconClassHero2());
+        }
+        heroRepository.save(hero);
+    }
 
+    private ImageHero editToImageEntity(MultipartFile file, Hero hero,Long id) throws IOException {
+        ImageHero image = new ImageHero();
+        image.setId(id);
+        image.setName(file.getName());
+        image.setOriginalFileName(file.getOriginalFilename());
+        image.setSize(file.getSize());
+        image.setContentType(file.getContentType());
+        image.setBytes(file.getBytes());
+        image.setHero(hero);
 
-
-
+        return imageRepository.save(image);
+    }
 
     public List<SortHero> sortHeroes(){
 
@@ -126,23 +161,25 @@ public class HeroService {
         for (Hero r : her) {
         List<ImageHero> imgHeroList = imageHeroList(r);
         SortHero sortHero = new SortHero();
+        sortHero.setHero(r);
         for (ImageHero s : imgHeroList) {
 
             if (s.getName().equals("iconHero")) {
                 sortHero.setIconHero(s.getId());
-                sortHero.setHero(s.getHero());
+
             }
-            if (s.getName().equals("iconSpecies")) {
-                sortHero.setIconSpecies(s.getId());
-                sortHero.setHero(s.getHero());
-            }
+
             if (s.getName().equals("iconClassHero")) {
                 sortHero.setIconClassHero(s.getId());
-                sortHero.setHero(s.getHero());
+
             }
             if (s.getName().equals("iconClassHero1")) {
                 sortHero.setIconClassHero1(s.getId());
-                sortHero.setHero(s.getHero());
+
+            }
+            if (s.getName().equals("iconClassHero2")) {
+                sortHero.setIconClassHero2(s.getId());
+
             }
         }
         heroes.add(sortHero);
