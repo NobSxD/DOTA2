@@ -1,6 +1,5 @@
 package com.example.DOTA.models.image;
 
-import com.example.DOTA.models.ClassHero;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,6 +21,6 @@ public class ImageClassHero {
     private boolean previewImage;
     @Lob
     private byte[] bytes;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private ClassHero classHero;
+    private String detals;
+
 }

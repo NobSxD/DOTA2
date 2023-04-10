@@ -22,12 +22,12 @@ public class HeroController {
     private final HeroService heroService;
 
 
-    @GetMapping("/admin/hero")
+    @GetMapping("/admin/add/hero")
     public String heroAdd(Model model) {
-        return "userMenuTop/button2/admin/add/heroAdd";
+        return "menu/button2/admin/hero/heroAdd";
     }
 
-    @PostMapping("/admin/hero")
+    @PostMapping("/admin/add/hero")
     public String saveHero(Model model,
                            @RequestParam String hero,
                            @RequestParam String tear,
@@ -44,10 +44,34 @@ public class HeroController {
         return "redirect:/admin/hero";
     }
 
-    @GetMapping("/admin/{id}")
-    public String detals(Model model, @PathVariable(value = "id") long id) {
-        model.addAttribute("editHero", heroService.heroDisplay2(id));
-        return "userMenuTop/button2/admin/edit/editHero";
+
+    @GetMapping("/admin/display/hero")
+    public String displayHeroAdmin(Model model) {
+        List<SortHero> tir1 = new ArrayList<>();
+        List<SortHero> tir2 = new ArrayList<>();
+        List<SortHero> tir3 = new ArrayList<>();
+        List<SortHero> tir4 = new ArrayList<>();
+        List<SortHero> tir5 = new ArrayList<>();
+        List<SortHero> tir6 = new ArrayList<>();
+
+        heroService.sortHeroList(tir1,tir2,tir3,tir4,tir5,tir6);
+
+
+        model.addAttribute("displayHeroTir1", tir1);
+        model.addAttribute("displayHeroTir2", tir2);
+        model.addAttribute("displayHeroTir3", tir3);
+        model.addAttribute("displayHeroTir4", tir4);
+        model.addAttribute("displayHeroTir5", tir5);
+        model.addAttribute("displayHeroTir6", tir6);
+
+
+        return "menu/button2/admin/hero/heroDisplay";
+    }
+
+    @GetMapping("/admin/detals/hero/{id}")
+    public String detalsAdmin(Model model, @PathVariable(value = "id") long id) {
+        model.addAttribute("detals", heroService.heroDisplay2(id));
+        return "menu/button2/admin/hero";
     }
 
     @PostMapping("/admin/{id}")
@@ -72,28 +96,7 @@ public class HeroController {
         return "redirect:/admin/hero/edit";
     }
 
-    @GetMapping("/admin/hero/edit")
-    public String displayHeroAdmin(Model model) {
-        List<SortHero> tir1 = new ArrayList<>();
-        List<SortHero> tir2 = new ArrayList<>();
-        List<SortHero> tir3 = new ArrayList<>();
-        List<SortHero> tir4 = new ArrayList<>();
-        List<SortHero> tir5 = new ArrayList<>();
-        List<SortHero> tir6 = new ArrayList<>();
 
-        heroService.sortHeroList(tir1,tir2,tir3,tir4,tir5,tir6);
-
-
-        model.addAttribute("displayHeroTir1", tir1);
-        model.addAttribute("displayHeroTir2", tir2);
-        model.addAttribute("displayHeroTir3", tir3);
-        model.addAttribute("displayHeroTir4", tir4);
-        model.addAttribute("displayHeroTir5", tir5);
-        model.addAttribute("displayHeroTir6", tir6);
-
-
-        return "userMenuTop/button2/admin/displayHero";
-    }
 
     @GetMapping("/admin/hero/delete/{id}")
     public String delete(@PathVariable(value = "id")Long id){

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Главня</title>
+</head>
+
+<body>
+<header th:insert="blocks/headerFooter/header :: header"></header>
+
+<div class="container-fluid" id="t">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+         th:insert="blocks/menuRightAdmin ::div"></nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="border border-dark" id="pading">
+
+        <div class="inline-block-table">
+          <table class="table table-borderless">
+            <thead>
+            <tr>
+              <th colspan="3">Абилка
+              </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="classHero : ${id}">
+
+
+              <td><img th:src="'/images/class/' + ${classHero.id}"></td>
+
+              <td><a th:href="'/home/class/' +${classHero.id}"  class="link-secondary">
+                <t th:text="${classHero.name}"></t>
+              </a></td>
+
+              <td>
+                <t th:text="${classHero.detals}"></t></td>
+
+            </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+    </main>
+  </div>
+  <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+</div>
+
+</body>
+</html>

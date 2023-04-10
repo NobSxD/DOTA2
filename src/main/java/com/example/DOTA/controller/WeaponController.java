@@ -18,13 +18,13 @@ import java.io.IOException;
 public class WeaponController {
     private final WeaponRepository weaponRepository;
     private final WeaponService weaponService;
-    @GetMapping("/admin/weapon")
+    @GetMapping("/admin/items")
     public String hero(Model model){
 
         return "userMenuTop/button2/admin/add/WeaponAdd";
     }
 
-    @PostMapping("/admin/weapon")
+    @PostMapping("/admin/items")
     public String save(Model model,
                        @RequestParam String weapon,
                        @RequestParam String species,
@@ -38,6 +38,6 @@ public class WeaponController {
         weaponRepository.save(weaponNew);
 
         weaponService.saveWeapon(weaponNew,file1,file2,file3,file4);
-        return "redirect:/admin/weapon";
+        return "redirect:/admin/items";
     }
 }

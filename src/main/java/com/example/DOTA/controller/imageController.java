@@ -1,6 +1,8 @@
 package com.example.DOTA.controller;
 
+import com.example.DOTA.models.image.ImageClassHero;
 import com.example.DOTA.models.image.ImageHero;
+import com.example.DOTA.repository.image.ImageRepositoryClass;
 import com.example.DOTA.repository.image.ImageRepositoryHero;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
@@ -14,12 +16,23 @@ import java.io.ByteArrayInputStream;
 
 @RestController
 @RequiredArgsConstructor
-public class imageControllerHero {
+public class imageController {
     private final ImageRepositoryHero imageRepositoryHero;
+    private final ImageRepositoryClass imageRepositoryClass;
 
-    @GetMapping("/images/{id}")
+    @GetMapping("/images/hero/{id}")
     private ResponseEntity<?> getImageByID(@PathVariable Long id){
         ImageHero imageHero = imageRepositoryHero.findById(id).orElse(null);
+        return ResponseEntity.ok()
+                .header("fileName", imageHero.getOriginalFileName())
+                .contentType(MediaType.valueOf(imageHero.getContentType()))
+                .contentLength(imageHero.getSize())
+                .body(new InputStreamResource(new ByteArrayInputStream(imageHero.getBytes())));
+    }
+
+    @GetMapping("/images/class/{id}")
+    private ResponseEntity<?> getImageByIDClass(@PathVariable Long id){
+        ImageClassHero imageHero = imageRepositoryClass.findById(id).orElse(null);
         return ResponseEntity.ok()
                 .header("fileName", imageHero.getOriginalFileName())
                 .contentType(MediaType.valueOf(imageHero.getContentType()))
