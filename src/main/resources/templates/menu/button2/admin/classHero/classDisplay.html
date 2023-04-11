@@ -32,14 +32,14 @@
 
               <td><img th:src="'/images/class/' + ${classHero.id}"></td>
 
-              <td><a th:href="'/admin/class/' +${classHero.id}"  class="link-secondary">
+              <td><a th:href="'/admin/detals/class/' +${classHero.id}"  class="link-secondary">
                 <t th:text="${classHero.name}"></t>
               </a></td>
 
               <td>
                 <t th:text="${classHero.detals}"></t></td>
-              <tb><a th:href="'/admin/class/edit/' + ${classHero.id}"></a></tb>
-              <tb><a th:href="'/admin/class/delete/' + ${classHero.id}"></a></tb>
+              <tb><a th:href="'/admin/class/edit/' + ${classHero.id}">Изменит</a></tb>
+              <tb><a th:href="'/admin/class/delete/' + ${classHero.id}">Удалить</a></tb>
 
             </tr>
 

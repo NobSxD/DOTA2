@@ -7,12 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
     @GetMapping("/")
     public String main(){
-        return "userMenuTop/button1/autoChess";
+        return "menu/button1/autoChess";
     }
 
     @GetMapping("/home")
     public String home(){
-        return "userMenuTop/button1/autoChess";
+        return "menu/button1/autoChess";
+    }
+
+    @GetMapping("/admin")
+    public String adminHome(){
+        return "menu/button1/autoChessAdmin";
     }
 
 

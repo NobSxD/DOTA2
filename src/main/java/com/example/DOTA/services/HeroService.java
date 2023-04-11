@@ -85,7 +85,7 @@ public class HeroService {
                 sortHero.setHero(s.getHero());
             }
             if (s.getName().equals("iconClassHero2")) {
-                sortHero.setIconClassHero1(s.getId());
+                sortHero.setIconClassHero2(s.getId());
                 sortHero.setHero(s.getHero());
             }
         }

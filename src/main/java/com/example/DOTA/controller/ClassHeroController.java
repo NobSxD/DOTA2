@@ -20,7 +20,7 @@ public class ClassHeroController {
 
     @GetMapping("/admin/class/add")
     public String add(){
-        return "/userMenuTop/button2/admin/add/ClassHeroAdd";
+        return "menu/button2/admin/classHero/classAdd";
     }
 
     @PostMapping("/admin/class/add")
@@ -35,35 +35,39 @@ public class ClassHeroController {
     }
 
 
-
-    @GetMapping("/admin/class/edit")
-    public String adminClass(Model model){
+    @GetMapping("/admin/display/class")
+    public String display(Model model){
         model.addAttribute("class" ,classHeroService.listClassHero());
-        return "/userMenuTop/button2/admin/edit/classDisplay";
+        return "menu/button2/admin/classHero/classDisplay";
     }
-    @GetMapping("/admin/class/delete/{id}")
+
+    @GetMapping("/admin/detals/class/{id}")
+    public String detals1(@PathVariable(value = "id") Long id, Model model){
+        model.addAttribute("id", classHeroService.classHero(id));
+        return "menu/button2/admin/classHero/classDetals";
+    }
+
+
+
+    @GetMapping("/admin/delete/class/{id}")
     public String delete(@PathVariable(value = "id")Long id){
         classHeroService.delete(classHeroService.classHero(id));
-        return "redirect:/admin/class";
-    }
-
-    @GetMapping("/admin/class/{id}")
-    public String idClassHeroAdmin(@PathVariable(value = "id") Long id, Model model){
-        model.addAttribute("id", classHeroService.classHero(id));
-        return "userMenuTop/button2/classDetals";
+        return "redirect:/admin/display/class";
     }
 
 
 
-    @GetMapping("/home/class")
-    public String classHero(Model model){
+
+
+    @GetMapping("/home/display/class")
+    public String displayUser(Model model){
         model.addAttribute("class" ,classHeroService.listClassHero());
-        return "userMenuTop/button2/displayClassHero";
+        return "menu/button2/user/classHero/classDisplay";
     }
 
-    @GetMapping("/home/class/{id}")
-    public String idClassHero(@PathVariable(value = "id") Long id, Model model){
+    @GetMapping("/home/detals/class/{id}")
+    public String detalsUser(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("id", classHeroService.classHero(id));
-        return "userMenuTop/button2/classDetals";
+        return "menu/button2/user/classHero/classDetals";
     }
 }

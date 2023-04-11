@@ -41,7 +41,7 @@ public class HeroController {
                            @RequestParam("iconClassHero2") MultipartFile file4) throws IOException {
         Hero heroNew = new Hero(hero, tear, classHero, classHero1, classHero2, full_text);
         heroService.saveHero(heroNew, file1, file2, file3, file4);
-        return "redirect:/admin/hero";
+        return "redirect:/admin/add/hero";
     }
 
 
@@ -71,10 +71,16 @@ public class HeroController {
     @GetMapping("/admin/detals/hero/{id}")
     public String detalsAdmin(Model model, @PathVariable(value = "id") long id) {
         model.addAttribute("detals", heroService.heroDisplay2(id));
-        return "menu/button2/admin/hero";
+        return "menu/button2/admin/hero/heroDetals";
     }
 
-    @PostMapping("/admin/{id}")
+    @GetMapping("/admin/edit/hero/{id}")
+    public String editIdHero(@PathVariable(value = "id") Long id, Model model){
+        model.addAttribute("detals", heroService.heroDisplay2(id));
+        return "menu/button2/admin/hero/heroEdit";
+    }
+
+    @PostMapping("/admin/edit/hero/{id}")
     public String editHero(@PathVariable(value = "id") long id,
                            @RequestParam String hero,
                            @RequestParam String tear,
@@ -87,31 +93,25 @@ public class HeroController {
                            @RequestParam("iconClassHero1") MultipartFile file3,
                            @RequestParam("iconClassHero2") MultipartFile file4) throws IOException {
         if (!heroService.heroExistById(id)) {
-            return "redirect:/admin/hero";
+            return "redirect:/admin/display/hero";
         }
         Hero heroHero = new Hero(hero, tear, classHero, classHero1, classHero2, full_text);
         heroHero.setId(id);
         heroService.editHero(heroHero, file1, file2, file3, file4, heroService.heroDisplay(heroHero));
 
-        return "redirect:/admin/hero/edit";
+        return "redirect:/admin/display/hero";
     }
 
 
 
-    @GetMapping("/admin/hero/delete/{id}")
+    @GetMapping("/admin/delete/hero/{id}")
     public String delete(@PathVariable(value = "id")Long id){
         heroService.deleteHero(id);
-        return "redirect:/admin/hero/edit";
+        return "redirect:/admin/display/hero";
     }
 
 
-    @GetMapping("/home/hero/{id}")
-    public String heroDetailsHom(Model model, @PathVariable Long id) {
-
-        return "userMenuTop/button2/hero";
-    }
-
-    @GetMapping("/home/hero")
+    @GetMapping("/home/display/hero")
     public String displayHeroUser(Model model) {
         List<SortHero> tir1 = new ArrayList<>();
         List<SortHero> tir2 = new ArrayList<>();
@@ -131,7 +131,14 @@ public class HeroController {
 
 
         model.addAttribute("imageHero", heroService.sortHeroes());
-        return "userMenuTop/button2/hero";
+        return "menu/button2/user/hero/heroDisplay";
+    }
+
+    @GetMapping("/home/display/hero/{id}")
+    public String heroDetailsHom(Model model, @PathVariable Long id) {
+        model.addAttribute("detals",heroService.getProductById(id));
+
+        return "menu/button2/user/hero/heroDetals";
     }
 
 

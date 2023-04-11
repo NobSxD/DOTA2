@@ -42,7 +42,11 @@
 
 
 
-                <input type="text" name="classHero1" placeholder="Ведите класс героя" class="form-control"><br>
+                <input th:each="${class : class}" type="text" name="classHero1" placeholder="Ведите класс героя" class="form-control"><br>
+                <datalist id="datalistOptions">
+                    <option th:value="class.name">
+                </datalist>
+
                 <input type="text" name="classHero2" placeholder="Ведите класс героя" class="form-control"><br>
 
                 <p>вставте икону расы
