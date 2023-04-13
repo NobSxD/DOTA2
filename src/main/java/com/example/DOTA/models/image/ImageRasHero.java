@@ -1,6 +1,5 @@
 package com.example.DOTA.models.image;
 
-import com.example.DOTA.models.RasHero;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,6 +19,5 @@ public class ImageRasHero {
     private boolean previewImage;
     @Lob
     private byte[] bytes;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private RasHero rasHero;
+    private String detals;
 }

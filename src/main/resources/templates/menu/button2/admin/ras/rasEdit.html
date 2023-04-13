@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<body>
+
+<header th:insert="blocks/headerFooter/header :: header">
+
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+             th:insert="blocks/menuRightAdmin ::div"></nav>
+
+
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <h1>Обнавление Расы</h1>
+            <form th:action="@{'/admin/edit/ras/' + ${ras.id}} " method="post" enctype="multipart/form-data">
+                <p>вставте икону расы
+                    <input type="file" name="iconClassHero" th:value="${iconClassHero}">
+                </p>
+                <input th:value="${ras.name}" type="text" name="className"  placeholder="Ведите имя класса" class="form-control"><br>
+
+                <textarea name="detals" th:text="${ras.detals}" class="form-control"></textarea><br>
+
+                <button type="submit" class="btn btn-success">Обновить</button>
+                <a th:href="@{'/admin/delete/ras/' + ${ras.id}}" class="btn btn-success">Удалить</a>
+            </form>
+
+        </main>
+
+    </div>
+</div>
+
+
+<footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+</body>
+
+</html>

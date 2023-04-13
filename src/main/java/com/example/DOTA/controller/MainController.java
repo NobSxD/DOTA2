@@ -17,21 +17,22 @@ public class MainController {
     private final ClassHeroService classHeroService;
     @GetMapping("/")
     public String main(Model model) throws SQLException, IOException {
+        model.addAttribute("sumHero",heroService.summaHero());
         model.addAttribute("sumClass",classHeroService.summaClass());
-        model.addAttribute("sum",heroService.summaHero());
         return "menu/button1/autoChess";
     }
 
     @GetMapping("/home")
     public String home(Model model){
-        model.addAttribute("sumClass",classHeroService.summaClass());
         model.addAttribute("sumHero",heroService.summaHero());
+        model.addAttribute("sumClass",classHeroService.summaClass());
         return "menu/button1/autoChess";
     }
 
     @GetMapping("/admin")
     public String adminHome(Model model){
-        model.addAttribute("sum",heroService.summaHero());
+        model.addAttribute("sumHero",heroService.summaHero());
+        model.addAttribute("sumClass",classHeroService.summaClass());
         return "menu/button1/autoChessAdmin";
     }
 

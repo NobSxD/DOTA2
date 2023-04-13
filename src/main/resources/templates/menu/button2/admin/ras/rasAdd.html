@@ -14,13 +14,13 @@
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <h1>Добавление расы</h1>
-            <form th:action="@{/admin/ras}" method="post" enctype="multipart/form-data">
+            <form th:action="@{/admin/add/ras}" method="post" enctype="multipart/form-data">
                 <p>вставте икону расы
-                <input type="file" name="iconRasHero">
+                <input type="file" name="iconClassHero">
                 </p>
-                <input type="text" name="rasHero" placeholder="Ведите имя расы" class="form-control"><br>
+                <input type="text" name="classHero" placeholder="Ведите имя класса" class="form-control"><br>
 
-                <textarea name="full_text" placeholder="Ведите полное описание расы" class="form-control"></textarea><br>
+                <textarea name="full_text" placeholder="Ведите полное описание класса" class="form-control"></textarea><br>
 
                 <button type="submit" class="btn btn-success">Добавить</button>
             </form>

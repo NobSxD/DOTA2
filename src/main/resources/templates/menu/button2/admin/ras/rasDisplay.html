@@ -21,26 +21,26 @@
           <table class="table table-borderless">
             <thead>
             <tr>
-              <th colspan="4">Классы
+              <th colspan="4">Расы
               </th>
             </tr>
             </thead>
 
             <tbody>
-            <tr th:each="classHero : ${class}">
+            <tr th:each="rasHero : ${ras}">
 
 
-              <td><img  th:if="${classHero.id}" th:src="'/images/class/' + ${classHero.id}"></td>
+              <td><img th:if="${rasHero.id}" th:src="'/images/ras/' + ${rasHero.id}"></td>
 
-              <td><a th:href="'/admin/detals/class/' +${classHero.id}"  class="link-secondary">
-                <t th:text="${classHero.name}"></t>
+              <td><a th:href="'/admin/detals/ras/' +${rasHero.id}"  class="link-secondary">
+                <t th:text="${rasHero.name}"></t>
               </a></td>
 
               <td>
-                <t th:text="${classHero.detals}"></t>
+                <t th:text="${rasHero.detals}"></t>
               </td>
-              <td><a th:href="'/admin/delete/class/' + ${classHero.id}">Удалить</a><br>
-                <a th:href="'/admin/edit/class/' + ${classHero.id}">Изменит</a></td>
+              <td><a th:href="'/admin/delete/ras/' + ${rasHero.id}">Удалить</a><br>
+                <a th:href="'/admin/edit/ras/' + ${rasHero.id}">Изменит</a></td>
 
             </tr>
 

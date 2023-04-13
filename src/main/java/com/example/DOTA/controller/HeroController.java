@@ -135,7 +135,7 @@ public class HeroController {
 
     @GetMapping("/home/display/hero/{id}")
     public String heroDetailsHom(Model model, @PathVariable Long id) {
-        model.addAttribute("detals",heroService.getProductById(id));
+        model.addAttribute("detals",heroService.heroDisplay2(id));
 
         return "menu/button2/user/hero/heroDetals";
     }
