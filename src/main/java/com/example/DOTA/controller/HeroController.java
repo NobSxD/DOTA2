@@ -1,6 +1,7 @@
 package com.example.DOTA.controller;
 
 import com.example.DOTA.models.Hero;
+import com.example.DOTA.services.ClassHeroService;
 import com.example.DOTA.services.HeroService;
 import com.example.DOTA.services.sort.SortHero;
 import lombok.RequiredArgsConstructor;
@@ -20,10 +21,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HeroController {
     private final HeroService heroService;
+    private final ClassHeroService imageClassHero;
 
 
     @GetMapping("/admin/add/hero")
     public String heroAdd(Model model) {
+        model.addAttribute("class", imageClassHero.findAll());
         return "menu/button2/admin/hero/heroAdd";
     }
 
@@ -35,12 +38,10 @@ public class HeroController {
                            @RequestParam String classHero1,
                            @RequestParam String classHero2,
                            @RequestParam String full_text,
-                           @RequestParam("iconHero") MultipartFile file1,
-                           @RequestParam("iconClassHero") MultipartFile file2,
-                           @RequestParam("iconClassHero1") MultipartFile file3,
-                           @RequestParam("iconClassHero2") MultipartFile file4) throws IOException {
+                           @RequestParam("iconHero") MultipartFile file1
+    )throws IOException {
         Hero heroNew = new Hero(hero, tear, classHero, classHero1, classHero2, full_text);
-        heroService.saveHero(heroNew, file1, file2, file3, file4);
+        heroService.saveHero(heroNew, file1);
         return "redirect:/admin/add/hero";
     }
 
@@ -76,6 +77,7 @@ public class HeroController {
 
     @GetMapping("/admin/edit/hero/{id}")
     public String editIdHero(@PathVariable(value = "id") Long id, Model model){
+        model.addAttribute("class", imageClassHero.findAll());
         model.addAttribute("detals", heroService.heroDisplay2(id));
         return "menu/button2/admin/hero/heroEdit";
     }
@@ -88,16 +90,13 @@ public class HeroController {
                            @RequestParam String classHero1,
                            @RequestParam String classHero2,
                            @RequestParam String full_text,
-                           @RequestParam("iconHero") MultipartFile file1,
-                           @RequestParam("iconClassHero") MultipartFile file2,
-                           @RequestParam("iconClassHero1") MultipartFile file3,
-                           @RequestParam("iconClassHero2") MultipartFile file4) throws IOException {
+                           @RequestParam("iconHero") MultipartFile file1) throws IOException {
         if (!heroService.heroExistById(id)) {
             return "redirect:/admin/display/hero";
         }
         Hero heroHero = new Hero(hero, tear, classHero, classHero1, classHero2, full_text);
         heroHero.setId(id);
-        heroService.editHero(heroHero, file1, file2, file3, file4, heroService.heroDisplay(heroHero));
+        heroService.editHero(heroHero, file1,heroService.heroDisplay(heroHero));
 
         return "redirect:/admin/display/hero";
     }

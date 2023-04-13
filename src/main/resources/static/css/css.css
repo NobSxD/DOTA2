@@ -14,8 +14,8 @@ header{
 
 #blokc{
    
-   margin-left: 15%;
-   margin-right: 15%;
+   margin-left: 5%;
+   margin-right: 5%;
 }
 
 logoimage{
@@ -40,9 +40,9 @@ logoimage{
 
 
 table{border-collapse:collapse;
-table-layout: fixed;}
+table-layout: auto;}
 tr,td{border:1px solid #aaa;}
-td,th{text-align:center;padding:5px 100px;}
+th{width: 20%;}
 
 .container{
     background-color: aliceblue;
@@ -70,7 +70,8 @@ body{
 
 .btn-group{
     margin-top: 20px;
-    width: 20%;
+    width: 303.5px;
+    
 }
 .dropdown-menu{
     padding-left: 0px;
@@ -80,8 +81,10 @@ table{
 display: inline-block
 }
 .inline-block-table{
-    width: 18%;
+    position: relative;
     display: inline-block;
+    width: 300px;
+    
 }
 .table-borderless{
     border-collapse: collapse;
@@ -95,7 +98,12 @@ td {
     padding: 20px;
     margin: 10px;
 }
+table tr td.td2:last-child {
+    word-break: break-word;
+}
 
-
+tb{
+    padding: 4px;
+}
 
 

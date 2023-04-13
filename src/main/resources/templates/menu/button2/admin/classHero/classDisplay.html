@@ -21,7 +21,7 @@
           <table class="table table-borderless">
             <thead>
             <tr>
-              <th colspan="3">Классы
+              <th colspan="4">Классы
               </th>
             </tr>
             </thead>
@@ -37,9 +37,10 @@
               </a></td>
 
               <td>
-                <t th:text="${classHero.detals}"></t></td>
-              <tb><a th:href="'/admin/class/edit/' + ${classHero.id}">Изменит</a></tb>
-              <tb><a th:href="'/admin/class/delete/' + ${classHero.id}">Удалить</a></tb>
+                <t th:text="${classHero.detals}"></t>
+              </td>
+              <td><a th:href="'/admin/delete/class/' + ${classHero.id}">Удалить</a><br>
+                <a th:href="'/admin/edit/class/' + ${classHero.id}">Изменит</a></td>
 
             </tr>
 

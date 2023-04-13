@@ -20,20 +20,32 @@
                     <input type="file" name="iconHero" th:value="${hero.iconHero}">
                 </p>
                 <input th:value="${hero.hero.nameHero}" type="text" name="hero"  placeholder="Ведите имя героя" class="form-control"><br>
-                <input th:value="${hero.hero.tirHero}" type="text" name="tear" placeholder="видите тир героя" class="form-control"><br>
-                <input th:value="${hero.hero.classHero}" type="text" name="classHero" placeholder="Ведите расу героя" class="form-control"><br>
-                <input th:value="${hero.hero.classHero1}" type="text" name="classHero1" placeholder="Ведите класс героя" class="form-control"><br>
-                <input th:value="${hero.hero.classHero2}" type="text" name="classHero2" placeholder="Ведите класс героя" class="form-control"><br>
-                <p>вставте икону класса
-                    <input   type="file" name="iconClassHero" placeholder="вставте икону расы">
-                </p>
-                <p>вставте икону класса
-                    <input   type="file" name="iconClassHero1" placeholder="вставте икону расы">
-                </p>
-                <p>вставте икону класса
-                    <input   type="file" name="iconClassHero2" placeholder="вставте икону расы">
-                </p>
-                <textarea th:value="${hero.hero.full_text}" name="full_text" placeholder="Ведите полное описание героя" class="form-control"></textarea><br>
+
+                <input th:value="${hero.hero.tirHero}" list="datalistOptions" type="text" name="tear" placeholder="видите тир героя" class="form-control"><br>
+                <datalist id="datalistOptions">
+                    <option value="ТИР 1">
+                    <option value="ТИР 2">
+                    <option value="ТИР 3">
+                    <option value="ТИР 4">
+                    <option value="ТИР 5">
+                </datalist>
+
+                <input th:value="${hero.hero.classHero}" list="datalistOptions1" type="text" name="classHero" placeholder="Ведите расу героя" class="form-control"><br>
+                <datalist id="datalistOptions1">
+                    <option th:each="class1 : ${ras}"> <t th:text="${class1.name}"></t></option>
+                </datalist>
+
+                <input th:value="${hero.hero.classHero1}" list="datalistOptions2" type="text" name="classHero1" placeholder="Ведите класс героя" class="form-control"><br>
+                <datalist id="datalistOptions2">
+                    <option th:each="class1 : ${class}"> <t th:text="${class1.name}"></t></option>
+                </datalist>
+
+                <input th:value="${hero.hero.classHero2}" list="datalistOptions3" type="text" name="classHero2" placeholder="Ведите класс героя" class="form-control"><br>
+                <datalist id="datalistOptions3">
+                    <option th:each="class1 : ${class}"> <t th:text="${class1.name}"></t></option>
+                </datalist>
+
+                <textarea  th:text="${hero.hero.full_text}" name="full_text" class="form-control"></textarea><br>
 
                 <button type="submit" class="btn btn-success">Обновить</button>
                 <a th:href="@{'/admin/delete/hero/' + ${hero.hero.id}}" class="btn btn-success">Удалить</a>

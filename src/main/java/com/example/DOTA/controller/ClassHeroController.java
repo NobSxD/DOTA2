@@ -18,12 +18,12 @@ public class ClassHeroController {
 
     private final ClassHeroService classHeroService;
 
-    @GetMapping("/admin/class/add")
+    @GetMapping("/admin/add/class")
     public String add(){
         return "menu/button2/admin/classHero/classAdd";
     }
 
-    @PostMapping("/admin/class/add")
+    @PostMapping("/admin/add/class")
     public String save(Model model,
                        @RequestParam String classHero,
                        @RequestParam String full_text,
@@ -31,7 +31,7 @@ public class ClassHeroController {
 
 
         classHeroService.saveClassHero(file1,classHero,full_text);
-        return "redirect:/admin/class/add";
+        return "redirect:/admin/add/class";
     }
 
 
@@ -52,6 +52,16 @@ public class ClassHeroController {
     @GetMapping("/admin/delete/class/{id}")
     public String delete(@PathVariable(value = "id")Long id){
         classHeroService.delete(classHeroService.classHero(id));
+        return "redirect:/admin/display/class";
+    }
+    @GetMapping("/admin/edit/class/{id}")
+    public String edit(@PathVariable(value = "id")Long id, Model model){
+        model.addAttribute("class",classHeroService.classHero(id));
+        return "menu/button2/admin/classHero/classEdit";
+    }
+    @PostMapping("/admin/edit/class/{id}")
+    public String update(@PathVariable(value = "id")Long id, @RequestParam String className,@RequestParam String detals, @RequestParam("iconClassHero") MultipartFile multipartFile) throws IOException {
+        classHeroService.updateClassHero(multipartFile,className,detals,id);
         return "redirect:/admin/display/class";
     }
 

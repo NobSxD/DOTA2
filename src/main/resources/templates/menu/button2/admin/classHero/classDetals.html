@@ -21,25 +21,26 @@
           <table class="table table-borderless">
             <thead>
             <tr>
-              <th colspan="3">Абилка
+              <th colspan="5">Класс
               </th>
             </tr>
             </thead>
 
             <tbody>
             <tr th:each="classHero : ${id}">
-              <form th:action="@{'/admin/class/' + ${classHero.id}} " method="post" enctype="multipart/form-data">
+              <form th:action="@{'/admin/edit/class/' + ${classHero.id}} " method="post" enctype="multipart/form-data">
 
               <td><img th:src="'/images/class/' + ${classHero.id}"></td>
 
-              <td><a th:href="'/home/class/' +${classHero.id}"  class="link-secondary">
+              <td>
                 <t th:text="${classHero.name}"></t>
-              </a></td>
+              </td>
 
               <td>
                 <t th:text="${classHero.detals}"></t></td>
-              <td><button type="submit" class="btn btn-success">Обновить</button>
-                <a th:href="@{'/admin/class/delete/' + ${classHero.id}}" class="btn btn-success">Удалить</a></td>
+                <td><button type="submit" >Изменить</button><br>
+                  <a th:href="@{'/admin/delete/class/' + ${classHero.id}}" >Удалить</a></td>
+
               </form>
             </tr>
 

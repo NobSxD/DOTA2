@@ -20,9 +20,18 @@ public class ClassHeroService {
 
     public void saveClassHero(MultipartFile file1, String name, String detals) throws IOException {
         if (file1.getSize() != 0) {
-            toImageEntity(file1, name, detals);
+            toImageEntitySave(file1, name, detals);
 
         }
+    }
+    public void updateClassHero(MultipartFile file1, String name, String detals, Long id) throws IOException {
+        if (file1.getSize() != 0) {
+            toImageEntityUpdate(file1, name, detals, id);
+        }
+        ImageClassHero imageClassHero = classHero(id);
+        imageClassHero.setName(name);
+        imageClassHero.setDetals(detals);
+        imageRepositoryClass.save(imageClassHero);
     }
     public List<ImageClassHero> listClassHero(){
         return imageRepositoryClass.findAll();
@@ -31,12 +40,29 @@ public class ClassHeroService {
        return imageRepositoryClass.findById(id).orElse(null);
 
     }
+    public List<ImageClassHero> findAll(){
+        return imageRepositoryClass.findAll();
+    }
+    public int summaClass(){
+        return listClassHero().size();
+    }
     public void delete(ImageClassHero imageClassHero){
         imageRepositoryClass.delete(imageClassHero);
     }
 
-    private ImageClassHero toImageEntity(MultipartFile file, String name, String detals) throws IOException {
+    private ImageClassHero toImageEntitySave(MultipartFile file, String name, String detals) throws IOException {
         ImageClassHero image = new ImageClassHero();
+        image.setOriginalFileName(file.getOriginalFilename());
+        image.setSize(file.getSize());
+        image.setContentType(file.getContentType());
+        image.setBytes(file.getBytes());
+        image.setName(name);
+        image.setDetals(detals);
+        return imageRepositoryClass.save(image);
+    }
+    private ImageClassHero toImageEntityUpdate(MultipartFile file, String name, String detals, Long id) throws IOException {
+        ImageClassHero image = new ImageClassHero();
+        image.setId(id);
         image.setOriginalFileName(file.getOriginalFilename());
         image.setSize(file.getSize());
         image.setContentType(file.getContentType());
