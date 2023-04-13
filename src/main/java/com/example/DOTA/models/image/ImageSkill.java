@@ -1,6 +1,5 @@
 package com.example.DOTA.models.image;
 
-import com.example.DOTA.models.Skill;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,6 +19,6 @@ public class ImageSkill {
     private boolean previewImage;
     @Lob
     private byte[] bytes;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Skill skill;
+    private String detals;
+
 }

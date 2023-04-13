@@ -3,11 +3,14 @@ package com.example.DOTA.controller;
 import com.example.DOTA.models.image.ImageClassHero;
 import com.example.DOTA.models.image.ImageHero;
 import com.example.DOTA.models.image.ImageRasHero;
+import com.example.DOTA.models.image.ImageSkill;
 import com.example.DOTA.repository.image.ImageRepositoryClass;
 import com.example.DOTA.repository.image.ImageRepositoryHero;
 import com.example.DOTA.repository.image.ImageRepositoryRasHero;
+import com.example.DOTA.services.ClassHeroService;
 import com.example.DOTA.services.HeroService;
 import com.example.DOTA.services.RasHeroService;
+import com.example.DOTA.services.SkillService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
@@ -22,9 +25,11 @@ import java.io.ByteArrayInputStream;
 @RequiredArgsConstructor
 public class imageController {
     private final ImageRepositoryHero imageRepositoryHero;
-    private final ImageRepositoryClass imageRepositoryClass;
+    private final ClassHeroService classHeroService;
 
     private final RasHeroService rasHeroService;
+
+    private final SkillService skillService;
 
     @GetMapping("/images/hero/{id}")
     private ResponseEntity<?> getImageByIDHero(@PathVariable Long id){
@@ -38,7 +43,7 @@ public class imageController {
 
     @GetMapping("/images/class/{id}")
     private ResponseEntity<?> getImageByIDClass(@PathVariable Long id){
-        ImageClassHero imageHero = imageRepositoryClass.findById(id).orElse(null);
+        ImageClassHero imageHero = classHeroService.classHero(id);
         return ResponseEntity.ok()
                 .header("fileName", imageHero.getOriginalFileName())
                 .contentType(MediaType.valueOf(imageHero.getContentType()))
@@ -53,5 +58,14 @@ public class imageController {
                 .contentType(MediaType.valueOf(imageHero.getContentType()))
                 .contentLength(imageHero.getSize())
                 .body(new InputStreamResource(new ByteArrayInputStream(imageHero.getBytes())));
+    }
+    @GetMapping("/images/skill/{id}")
+    private ResponseEntity<?> getImageByIDSkill(@PathVariable Long id){
+        ImageSkill imageSkill = skillService.skill(id);
+        return ResponseEntity.ok()
+                .header("fileName", imageSkill.getOriginalFileName())
+                .contentType(MediaType.valueOf(imageSkill.getContentType()))
+                .contentLength(imageSkill.getSize())
+                .body(new InputStreamResource(new ByteArrayInputStream(imageSkill.getBytes())));
     }
 }

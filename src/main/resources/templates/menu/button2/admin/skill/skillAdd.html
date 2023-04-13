@@ -13,14 +13,14 @@
 
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <h1>Добавление скил</h1>
-            <form th:action="@{/admin/skill}" method="post" enctype="multipart/form-data">
-                <p>вставте икону скила
-                <input type="file" name="iconSkill">
+            <h1>Добавление Абилки</h1>
+            <form th:action="@{/admin/add/skill}" method="post" enctype="multipart/form-data">
+                <p>вставте икону Абилки
+                <input type="file" name="iconClassHero">
                 </p>
-                <input type="text" name="skill" placeholder="Ведите имя скила" class="form-control"><br>
+                <input type="text" name="classHero" placeholder="Ведите имя класса" class="form-control"><br>
 
-                <textarea name="full_text" placeholder="Ведите полное описание скила" class="form-control"></textarea><br>
+                <textarea name="full_text" placeholder="Ведите полное описание класса" class="form-control"></textarea><br>
 
                 <button type="submit" class="btn btn-success">Добавить</button>
             </form>
