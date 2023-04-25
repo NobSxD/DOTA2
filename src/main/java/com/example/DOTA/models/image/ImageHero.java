@@ -23,4 +23,6 @@ public class ImageHero {
     private byte[] bytes;
     @ManyToOne(fetch = FetchType.EAGER)
     private Hero hero;
+
+
 }

@@ -12,16 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 @Service
 @Slf4j
@@ -50,9 +43,12 @@ public class HeroService  {
     public Hero getProductById(Long id) {
         return heroRepository.findById(id).orElse(null);
     }
+    public ImageHero findById(Long id){
+       return imageRepository.findById(id).orElse(null);
+    }
 
-   public int summaHero(){
-        return listProducts().size();
+   public long summaHero(){
+        return heroRepository.count();
    }
 
 

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<body>
+
+<header th:insert="blocks/headerFooter/header :: header">
+
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+             th:insert="blocks/menuRightAdmin ::div"></nav>
+
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <h1>Добавление гайда</h1>
+
+            <form th:action="'/admin/edit/guide/' + ${id}" method="post" enctype="multipart/form-data">
+                <div>
+                <p>редактируйте фотку 0</p>
+                <input th:if="${guide.imageGuides.size() >= 1}" type="file" th:name="iconGuid" th:value="${guide.imageGuides.get(0)}" th:text="${guide.imageGuides.get(0).getName}">
+                </div>
+
+
+                <div>
+                    <p>Добавте синергию</p>
+                    <input type="text" list="datalistOptions" id="exampleDataList" name="energising" placeholder="Добавте сенергию" th:value="${guide.energising}">
+                    <input type="text" list="datalistOptions" id="exampleDataList" name="energising1" placeholder="Добавте сенергию" th:value="${guide.energising1}">
+                    <input type="text" list="datalistOptions" id="exampleDataList" name="energising2" placeholder="Добавте сенергию" th:value="${guide.energising2}">
+                    <input type="text" list="datalistOptions" id="exampleDataList" name="energising3" placeholder="Добавте сенергию" th:value="${guide.energising3}">
+                    <input type="text" list="datalistOptions" id="exampleDataList" name="energising4" placeholder="Добавте сенергию" th:value="${guide.energising4}">
+
+                    <datalist id="datalistOptions">
+                        <option th:each="en : ${energising}" th:value="en.name"></option>
+
+                    </datalist>
+                </div>
+
+                <div>
+
+                <input type="text" name="name" placeholder="Ведите заголовок h1" class="form-control" th:value="${guide.name}"><br>
+
+                <textarea name="full_text" placeholder="Ведите описание гайда" class="form-control" th:text="${guide.full_text}" rows="20"></textarea><br>
+
+                <p>вставте новую доп фото если нужно 1
+
+                    <input th:if="${guide.imageGuides.size() >= 2}" type="file" name="icon1" th:value="${guide.imageGuides.get(1)}" th:text="${guide.imageGuides.get(1).getName}">
+                    <input th:if="${guide.imageGuides.size() < 2}" type="file" name="icon1">
+                </p>
+                <p>вставте новую доп фото если нужно 2
+
+                    <input th:if="${guide.imageGuides.size() >= 3}" type="file" name="icon2" th:value="${guide.imageGuides.get(2)}" th:text="${guide.imageGuides.get(2).getName}">
+                    <input th:if="${guide.imageGuides.size() < 3}" type="file" name="icon2">
+                </p>
+                </div>
+
+                <div>
+                <input type="text" name="h2" placeholder="Ведите заголовок h2" class="form-control" th:value="${guide.h2}"><br>
+
+                <textarea name="full_text2" placeholder="Ведите описание гайда" class="form-control" th:text="${guide.full_text2}" style="" rows="20"></textarea><br>
+
+                <p>вставте новую доп фото если нужно 3
+
+                    <input th:if="${guide.imageGuides.size() >= 4}" type="file" name="icon3" th:value="${guide.imageGuides.get(3)}" th:text="${guide.imageGuides.get(3).getName}">
+                    <input th:if="${guide.imageGuides.size() < 4}" type="file" name="icon3">
+                </p>
+                <p>вставте новую доп фото если нужно 4
+
+                    <input th:if="${guide.imageGuides.size() >= 5}" type="file" name="icon4" th:value="${guide.imageGuides.get(4)}" th:text="${guide.imageGuides.get(4).getName}">
+                    <input th:if="${guide.imageGuides.size() < 5}" type="file" name="icon4">
+                </p>
+                </div>
+
+                <div>
+                    <input type="text" name="h3" placeholder="Ведите заголовок h3" class="form-control"><br>
+
+                    <textarea name="full_text3" placeholder="Ведите описание гайда" class="form-control" rows="20"></textarea><br>
+
+                    <p>вставте икону доп фото если нужно 5
+
+                        <input th:if="${guide.imageGuides.size() >= 6}" type="file" name="icon5" th:value="${guide.imageGuides.get(5)}" th:text="${guide.imageGuides.get(5).getName}">
+                        <input th:if="${guide.imageGuides.size() < 6}" type="file" name="icon5">
+                    </p>
+                    <p>вставте икону доп фото если нужно 6
+
+                        <input th:if="${guide.imageGuides.size() >= 7}" type="file" name="icon6" th:value="${guide.imageGuides.get(6)}" th:text="${guide.imageGuides.get(6).getName}">
+                        <input th:if="${guide.imageGuides.size() < 7}" type="file" name="icon6">
+                    </p>
+                </div>
+
+                <div>
+                    <input type="text" name="h4" placeholder="Ведите заголовок h4" class="form-control"><br>
+
+                    <textarea name="full_text4" placeholder="Ведите описание гайда" class="form-control" rows="20"></textarea><br>
+
+                    <p>вставте икону доп фото если нужно 7
+
+                        <input th:if="${guide.imageGuides.size() >= 8}" type="file" name="icon7" th:value="${guide.imageGuides.get(7)}" th:text="${guide.imageGuides.get(7).getName}">
+                        <input th:if="${guide.imageGuides.size() < 8}" type="file" name="icon7">
+                    </p>
+                    <p>вставте икону доп фото если нужно 8
+
+                        <input th:if="${guide.imageGuides.size() >= 9}" type="file" name="icon8" th:value="${guide.imageGuides.get(8)}" th:text="${guide.imageGuides.get(8).getName}">
+                        <input th:if="${guide.imageGuides.size() < 9}" type="file" name="icon8">
+                    </p>
+                </div>
+
+
+
+                <h2>Сылка номер 1</h2>
+                <input type="text" name="hrefName1" placeholder="видите название сылку" class="form-control" th:value="${hrefName1}"><br>
+                <input type="text" name="href1" placeholder="вставте сылку" class="form-control" th:value="${href1}"><br>
+
+                <h2>Сылка номер 2</h2>
+                <input type="text" name="hrefName2" placeholder="видите название сылку" class="form-control" th:value="${hrefName2}"><br>
+                <input type="text" name="href2" placeholder="вставте сылку" class="form-control" th:value="${href2}"><br>
+
+                <h2>Сылка номер 3</h2>
+                <input type="text" name="hrefName3" placeholder="видите название сылку" class="form-control" th:value="${hrefName3}"><br>
+                <input type="text" name="href3" placeholder="вставте сылку" class="form-control" th:value="${href3}"><br>
+
+                <h2>Сылка номер 4</h2>
+                <input type="text" name="hrefName4" placeholder="видите название сылку" class="form-control"><br>
+                <input type="text" name="href4" placeholder="вставте сылку" class="form-control"><br>
+
+                <h2>Сылка номер 5</h2>
+                <input type="text" name="hrefName5" placeholder="видите название сылку" class="form-control"><br>
+                <input type="text" name="href5" placeholder="вставте сылку" class="form-control"><br>
+
+
+                <button type="submit" class="btn btn-success">Обновить</button>
+            </form>
+
+        </main>
+    </div>
+</div>
+
+
+<footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+</body>
+
+</html>

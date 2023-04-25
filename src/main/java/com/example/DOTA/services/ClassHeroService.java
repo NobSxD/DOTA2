@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -43,8 +42,8 @@ public class ClassHeroService {
     public List<ImageClassHero> findAll(){
         return imageRepositoryClass.findAll();
     }
-    public int summaClass(){
-        return listClassHero().size();
+    public long summaClass(){
+        return imageRepositoryClass.count();
     }
     public void delete(ImageClassHero imageClassHero){
         imageRepositoryClass.delete(imageClassHero);

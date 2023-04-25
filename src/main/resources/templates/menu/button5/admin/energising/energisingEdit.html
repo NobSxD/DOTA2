@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<body>
+
+<header th:insert="blocks/headerFooter/header :: header">
+
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+             th:insert="blocks/menuRightAdmin ::div"></nav>
+
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <h1>Добавление синергии</h1>
+            <form th:action="'/admin/edit/energising/' + ${energising.id}" method="post" enctype="multipart/form-data">
+                <p>вставте икону синергии
+                <input type="file"name="iconEnergising">
+                </p>
+                <div  name="i" th:text="${energising.energisingImage.id}"></div>
+                <input type="text" name="name" placeholder="Ведите имя синергии" class="form-control" th:value="${energising.name}"><br>
+
+                <textarea name="full_text" placeholder="Ведите полное описание синергии" class="form-control" rows="20" th:text="${energising.full_text}"></textarea><br>
+
+                <button type="submit" class="btn btn-success">Обновить</button>
+            </form>
+
+        </main>
+    </div>
+</div>
+
+
+<footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+</body>
+
+</html>

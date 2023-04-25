@@ -1,6 +1,5 @@
 package com.example.DOTA.services;
 
-import com.example.DOTA.models.image.ImageRasHero;
 import com.example.DOTA.models.image.ImageSkill;
 import com.example.DOTA.repository.image.ImageRepositorySkill;
 import lombok.RequiredArgsConstructor;
@@ -39,11 +38,8 @@ public class SkillService {
         return imageRepositorySkill.findById(id).orElse(null);
 
     }
-    public List<ImageSkill> findAll(){
-        return imageRepositorySkill.findAll();
-    }
-    public int summaClass(){
-        return listSkill().size();
+    public long summaSkill(){
+        return imageRepositorySkill.count();
     }
     public void deleteSkill(ImageSkill imageSkill){
         imageRepositorySkill.delete(imageSkill);

@@ -21,7 +21,7 @@
                 </p>
                 <input th:value="${skill.name}" type="text" name="className"  placeholder="Ведите имя класса" class="form-control"><br>
 
-                <textarea name="detals" th:text="${skill.detals}" class="form-control"></textarea><br>
+                <textarea name="detals" th:text="${skill.detals}" class="form-control" rows="20"></textarea><br>
 
                 <button type="submit" class="btn btn-success">Обновить</button>
                 <a th:href="'/admin/delete/skill/' + ${skill.id}" class="btn btn-success">Удалить</a>

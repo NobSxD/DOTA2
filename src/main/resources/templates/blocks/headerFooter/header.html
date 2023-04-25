@@ -1,55 +1,83 @@
 <html>
 <div th:fragment="header">
     <header>
+        <link th:href="@{/css/fon.css}" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
               crossorigin="anonymous">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-        <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+              crossorigin="anonymous">
+        <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet"
+              crossorigin="anonymous">
         <link th:href="@{/css/css.css}" rel="stylesheet">
 
+        <div  class="nav justify-content-center" id="blokc">
+        
 
-        <div class="nullpx">
-            <div class="container1">
-                <div>
-                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start dark">
-                        <a href="/" class="hrefA">
 
-                            <img src="/image/logo.jpg" width="240" height="85" id="float"/>
-                        </a>
 
-                        <div class="left">
-                            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                                <li>
-                                    <a href="/" class="nav-link text-secondary">
-                                        <svg class="bi d-block mx-auto mb-21" width="24" height="24">
-                                            <use xlink:href="#home"></use>
-                                        </svg>
-                                        Главная
-                                    </a>
-                                </li>
+            <div class="btn-group" >
+                
+                    <button type="button" class="badge rounded-pill bg-secondary" id="autoches"><a href="/home" style="color: #f2bf0b;">AuthoChes</a></button>
+                
 
-                                <li>
-                                    <a href="/admin/hero" class="nav-link text-white">
-                                        <svg class="bi d-block mx-auto mb-12" width="24" height="24">
-                                            <use xlink:href="#table"></use>
-                                        </svg>
-                                        История
-                                    </a>
-                                </li>
-                                <li><a href="https://www.twitch.tv/envy_chilling" class="text-decoration-none">
-                                    При подержки
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitch" viewBox="0 0 16 16">
-                      <path d="M3.857 0 1 2.857v10.286h3.429V16l2.857-2.857H9.57L14.714 8V0H3.857zm9.714 7.429-2.285 2.285H9l-2 2v-2H4.429V1.143h9.142v6.286z"></path>
-                      <path d="M11.857 3.143h-1.143V6.57h1.143V3.143zm-3.143 0H7.571V6.57h1.143V3.143z"></path>
-                    </svg>
-                                  </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <div class="btn-group">
+                <button type="button" id="autoches" class="badge rounded-pill bg-secondary"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">База знаний
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/home/display/hero">Герои</a></li>
+                    <li><a class="dropdown-item" href="/home/display/items">Предметы</a></li>
+                    <li><a class="dropdown-item" href="/home/display/skill">Скилы</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="/home/display/guide">Гайды</a></li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" id="autoches" class="badge rounded-pill bg-secondary"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">Правилы игры
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/home/display/whatgame">Механика игры</a></li>
+
+                </ul>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" id="autoches" class="badge rounded-pill bg-secondary"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">Новости
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/home/display/path">Патч Игры</a></li>
+                    <li><a class="dropdown-item" href="/home/display/updateweb">Обновление сайта</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" id="autoches"class="badge rounded-pill bg-secondary"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">Расы и класы
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/home/display/ras">Расы</a></li>
+                    <li><a class="dropdown-item" href="/home/display/class">Классы</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="/home/display/synergy">Синергии</a></li>
+                </ul>
+
+            </div>
+
         </div>
+
     </header>
 </div>
 </html>

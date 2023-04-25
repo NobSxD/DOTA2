@@ -3,6 +3,7 @@ package com.example.DOTA.models.image;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -20,5 +21,15 @@ public class ImageSkill {
     @Lob
     private byte[] bytes;
     private String detals;
+
+    private LocalDateTime dateTime;
+
+
+
+
+    @PrePersist
+    private void init(){
+        dateTime = LocalDateTime.now();
+    }
 
 }

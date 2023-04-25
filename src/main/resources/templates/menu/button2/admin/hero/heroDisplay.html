@@ -27,10 +27,10 @@
                         </tr>
                         </thead>
 
-                        <tbody th:each="hero1 : ${displayHeroTir1}">
+                        <tbody>
 
 
-                        <tr>
+                        <tr  th:each="hero1 : ${displayHeroTir1}">
                             <td><img th:src="'/images/hero/' + ${hero1.iconHero}">
                                 <a th:href="'/admin/edit/hero/' +${hero1.hero.id}">
                                     Изменить</a></td>

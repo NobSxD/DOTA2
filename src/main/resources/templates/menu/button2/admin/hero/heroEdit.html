@@ -45,7 +45,7 @@
                     <option th:each="class1 : ${class}"> <t th:text="${class1.name}"></t></option>
                 </datalist>
 
-                <textarea  th:text="${hero.hero.full_text}" name="full_text" class="form-control"></textarea><br>
+                <textarea  th:text="${hero.hero.full_text}" name="full_text" class="form-control" rows="20"></textarea><br>
 
                 <button type="submit" class="btn btn-success">Обновить</button>
                 <a th:href="@{'/admin/delete/hero/' + ${hero.hero.id}}" class="btn btn-success">Удалить</a>

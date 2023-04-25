@@ -20,6 +20,5 @@ public class ImageWeapon {
     private boolean previewImage;
     @Lob
     private byte[] bytes;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Weapon weapon;
+
 }

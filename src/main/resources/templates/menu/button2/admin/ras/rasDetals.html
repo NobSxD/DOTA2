@@ -1,62 +1,56 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:if="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <title>Главня</title>
+    <title>Главня</title>
 </head>
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
 
 <div class="container-fluid" id="t">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
-         th:insert="blocks/menuRightAdmin ::div"></nav>
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+             th:insert="blocks/menuRightAdmin ::div"></nav>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="border border-dark" id="pading">
-
-        <div class="inline-block-table">
-          <table class="table table-borderless">
-            <thead>
-            <tr>
-              <th colspan="5">Раса
-              </th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <tr th:each="rasHero : ${ras}">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="border border-dark" id="pading">
 
 
-              <td><img th:if="${rasHero.id}" th:src="'/images/ras/' + ${rasHero.id}"></td>
 
-              <td>
-                <t th:text="${rasHero.name}"></t>
-              </td>
-
-              <td>
-                <t th:text="${rasHero.detals}"></t></td>
-                <td> <a th:href="'/admin/edit/ras/' + ${rasHero.id}">Изменит</a><br>
-                  <a th:href="@{'/admin/delete/ras/' + ${rasHero.id}}" >Удалить</a></td>
-
-              </form>
-            </tr>
+                    <div th:each="rasHero : ${ras}">
 
 
-            </tbody>
-          </table>
-        </div>
+                        <t>Иконка -</t>
+                        <img th:if="${rasHero.energising.energisingImage}"
+                             th:src="'/images/energising/' + ${rasHero.energising.energisingImage.id}">
+                        <t th:text="${rasHero.name}"></t>
+                        <p if:th="${rasHero}" th:text="'id расы: ' +${rasHero.id}"></p>
+                        <p if:th="${rasHero.energising}" th:text="'id синергии: ' +${rasHero.energising.id}"></p>
+                        <p if:th="${rasHero.energising}" th:text="'имя синергии: ' +${rasHero.energising.name}"></p>
+                        <p if:th="${rasHero.energising}" th:text="'подробней о синергии: ' +${rasHero.energising.full_text}"></p>
+                        <p if:th="${rasHero.energising.energisingImage}"
+                           th:text="'id фотки: ' +${rasHero.energising.energisingImage.id}"></p>
+                        <p if:th="${rasHero.energising.energisingImage}"
+                           th:text="'имя фотк: ' +${rasHero.energising.energisingImage.name}"></p>
+                        <p if:th="${rasHero.energising.energisingImage}"
+                           th:text="'оригинальное имя фотки: ' +${rasHero.energising.energisingImage.originalFileName}"></p>
+                        <p if:th="${rasHero.energising.energisingImage}"
+                           th:text="'размер фотки в байтах: ' +${rasHero.energising.energisingImage.size} + 'b'"></p>
+                        <t><a th:href="'/admin/delete/ras/' + ${rasHero.id}">Удалить</a></t>
+                        <t><a th:href="'/admin/edit/ras/' + ${rasHero.id}">Изменит</a></t>
+
+                    </div>
 
 
-      </div>
-    </main>
-  </div>
-  <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-          crossorigin="anonymous"></script>
+            </div>
+        </main>
+    </div>
+    <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 </div>
 
 </body>

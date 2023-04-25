@@ -30,14 +30,14 @@
             <tr th:each="rasHero : ${ras}">
 
 
-              <td><img th:if="${rasHero.id}" th:src="'/images/ras/' + ${rasHero.id}"></td>
+              <td><img th:if="${rasHero.energising.energisingImage}" th:src="'/images/energising/' + ${rasHero.energising.energisingImage.id}"></td>
 
               <td><a th:href="'/admin/detals/ras/' +${rasHero.id}"  class="link-secondary">
                 <t th:text="${rasHero.name}"></t>
               </a></td>
 
               <td>
-                <t th:text="${rasHero.detals}"></t>
+                <t th:text="${rasHero.energising.full_text}"></t>
               </td>
               <td><a th:href="'/admin/delete/ras/' + ${rasHero.id}">Удалить</a><br>
                 <a th:href="'/admin/edit/ras/' + ${rasHero.id}">Изменит</a></td>

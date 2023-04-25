@@ -1,6 +1,7 @@
 package com.example.DOTA.controller;
 
-import com.example.DOTA.services.RasHeroService;
+import com.example.DOTA.services.EnergisingService;
+import com.example.DOTA.services.RasService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,39 +9,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 @Controller
 @RequiredArgsConstructor
-public class RasHeroController {
-    private final RasHeroService rasHeroService;
+public class RasController {
+    private final RasService rasHeroService;
+    private final EnergisingService energisingService;
 
     @GetMapping("/admin/add/ras")
-    public String add(){
+    private String add(Model model){
+        model.addAttribute("rassa", energisingService.allEnergising());
         return "menu/button2/admin/ras/rasAdd";
     }
 
     @PostMapping("/admin/add/ras")
-    public String save(Model model,
-                       @RequestParam String classHero,
-                       @RequestParam String full_text,
-                       @RequestParam("iconClassHero") MultipartFile file1) throws IOException {
-
-
-        rasHeroService.saveRasHero(file1,classHero,full_text);
+    private String save(@RequestParam String name) throws IOException {
+        rasHeroService.saveRasHero(name);
         return "redirect:/admin/add/ras";
     }
 
 
     @GetMapping("/admin/display/ras")
-    public String display(Model model){
+    private String display(Model model){
         model.addAttribute("ras" ,rasHeroService.listRasHero());
         return "menu/button2/admin/ras/rasDisplay";
     }
 
     @GetMapping("/admin/detals/ras/{id}")
-    public String detalsRas(@PathVariable(value = "id") Long id, Model model){
+    private String detalsRas(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("ras", rasHeroService.rasHero(id));
         return "menu/button2/admin/ras/rasDetals";
     }
@@ -48,18 +45,18 @@ public class RasHeroController {
 
 
     @GetMapping("/admin/delete/ras/{id}")
-    public String deleteRas(@PathVariable(value = "id")Long id){
+    private String deleteRas(@PathVariable(value = "id")Long id){
         rasHeroService.delete(rasHeroService.rasHero(id));
         return "redirect:/admin/display/ras";
     }
     @GetMapping("/admin/edit/ras/{id}")
-    public String editRas(@PathVariable(value = "id")Long id, Model model){
+    private String editRas(@PathVariable(value = "id")Long id, Model model){
         model.addAttribute("ras",rasHeroService.rasHero(id));
         return "menu/button2/admin/ras/rasEdit";
     }
     @PostMapping("/admin/edit/ras/{id}")
-    public String update(@PathVariable(value = "id")Long id, @RequestParam String className,@RequestParam String detals, @RequestParam("iconClassHero") MultipartFile multipartFile) throws IOException {
-        rasHeroService.updateRasHero(multipartFile,className,detals,id);
+    private String update(@PathVariable(value = "id")Long id, @RequestParam String name) throws IOException {
+        rasHeroService.updateRasHero(name,id);
         return "redirect:/admin/display/ras";
     }
 
@@ -68,13 +65,13 @@ public class RasHeroController {
 
 
     @GetMapping("/home/display/ras")
-    public String displayUser(Model model){
+    private String displayUser(Model model){
         model.addAttribute("ras" ,rasHeroService.listRasHero());
         return "menu/button2/user/ras/rasDisplay";
     }
 
     @GetMapping("/home/detals/ras/{id}")
-    public String detalsUser(@PathVariable(value = "id") Long id, Model model){
+    private String detalsUser(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("id", rasHeroService.rasHero(id));
         return "menu/button2/user/ras/rasDetals";
     }
