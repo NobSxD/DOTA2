@@ -111,4 +111,32 @@ public class WeaponController {
 
         return "redirect:/admin/display/items";
     }
+
+    @GetMapping("/home/display/items")
+    private String displayItemsHome(Model model) {
+        List<Weapon> tir1 = weaponService.weaponsTir("ТИР 1");
+        List<Weapon> tir2 = weaponService.weaponsTir("ТИР 2");
+        List<Weapon> tir3 = weaponService.weaponsTir("ТИР 3");
+        List<Weapon> tir4 = weaponService.weaponsTir("ТИР 4");
+        List<Weapon> tir5 = weaponService.weaponsTir("ТИР 5");
+
+
+
+
+        model.addAttribute("displayItemsTir1", tir1);
+        model.addAttribute("displayItemsTir2", tir2);
+        model.addAttribute("displayItemsTir3", tir3);
+        model.addAttribute("displayItemsTir4", tir4);
+        model.addAttribute("displayItemsTir5", tir5);
+
+
+
+        return "menu/button2/user/items/itemsDisplay";
+    }
+
+    @GetMapping("/home/detals/items/{id}")
+    private String detalsSkillHome(@PathVariable(value = "id") Long id, Model model) {
+        model.addAttribute("items", weaponService.weaponID(id));
+        return "menu/button2/user/items/itemsDetals";
+    }
 }

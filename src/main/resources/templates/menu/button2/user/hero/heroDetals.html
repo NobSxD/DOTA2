@@ -8,58 +8,55 @@
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
-
+<div class="border border-dark">
 <div class="container-fluid" id="t">
     <div class="row">
 
-            <div id="blokc">
 
-                    <table class="table table-borderless">
-                        <thead>
-                        <tr>
-                            <th colspan="3">Подробней о герои
-                            </th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr th:each="hero : ${detals}">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
 
-                            <td><img th:src="'/images/hero/' + ${hero.iconHero}"></td>
+                <div class="inline-block-table">
 
-                            <td>
-                                <t th:text="${hero.hero.nameHero}"></t>
-                            </td>
+                    <h2>Подробней о герои</h2>
 
-                            <td>
-                                <img th:src="'/images/ras/' + ${hero.iconClassHero}" height="20px" width="20px">
+                    <div th:if="${detals}">
+                        <div th:if="${detals.imageHero}">
+                            <img  th:src="'/images/hero/' + ${detals.imageHero.id}">
+                            <t th:text="${detals.nameHero}"></t>
+                            <t th:text="${detals.tirHero}"></t>
+                            <p th:text="${detals.full_text}"></p>
+                        </div>
+                        <div th:if="${detals.energising}">
+                            <img th:src="'/images/energising/' + ${detals.energising.energisingImage.id}" height="20px" width="20px">
+                            <a th:href="'/home/detals/energising/' +${detals.energising.id}"> <t th:text="${detals.energising.name}"></t></a>
+                            <p th:text="${detals.energising.full_text}"></p>
+                        </div>
+
+                        <div th:if="${detals.energising1}">
+                            <img th:src="'/images/energising/' + ${detals.energising1.energisingImage.id}" height="20px" width="20px">
+                            <a th:href="'/home/detals/energising/' +${detals.energising1.id}"> <t th:text="${detals.energising1.name}"></t></a>
+                            <p th:text="${detals.energising1.full_text}"></p>
+                        </div>
+
+                        <div th:if="${detals.energising2}">
+                            <img th:src="'/images/energising/' + ${detals.energising2.energisingImage.id}" height="20px" width="20px">
+                            <a th:href="'/home/detals/energising/' +${detals.energising2.id}"> <t th:text="${detals.energising2.name}"></t></a>
+                            <p th:text="${detals.energising2.full_text}"></p>
+                        </div>
+
+                    </div>
 
 
-                                <img th:src="'/images/class/' + ${hero.iconClassHero1}" height="20px" width="20px">
-
-
-                                <img th:src="'/images/class/' + ${hero.iconClassHero2}" alt="" height="20px" width="20px"
-                                     onerror="this.style.visibility = 'hidden'"></td>
-
-                            <td><t th:text="${hero.hero.full_text}"></t></td>
-                            <td><t th:text="${hero.hero.dateTime}"></t></td>
-
-
-                        </tr>
-
-
-                        </tbody>
-                    </table>
                 </div>
-            </div>
 
+        </main>
     </div>
     <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 </div>
-
+</div>
 </body>
 </html>

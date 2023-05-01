@@ -13,8 +13,8 @@
 
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <h1>Изменения птча</h1>
-            <form th:action="'/admin/edit/path/' + ${path.id}" method="post" enctype="multipart/form-data">
+            <h1>Изменения обновления </h1>
+            <form th:action="'/admin/edit/newWebSite/' + ${path.id}" method="post" enctype="multipart/form-data">
 
                 <input type="text" name="name" th:value="${path.name}" placeholder="Ведите имя Патча" class="form-control"><br>
 

@@ -3,7 +3,7 @@ package com.example.DOTA.controller;
 import com.example.DOTA.models.Hero;
 import com.example.DOTA.services.ClassHeroService;
 import com.example.DOTA.services.HeroService;
-import com.example.DOTA.services.sort.SortHero;
+import com.example.DOTA.services.RasService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,17 +21,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HeroController {
     private final HeroService heroService;
-    private final ClassHeroService imageClassHero;
+    private final RasService rasService;
+    private final ClassHeroService classHeroService;
+
 
 
     @GetMapping("/admin/add/hero")
-    public String heroAdd(Model model) {
-        model.addAttribute("class", imageClassHero.findAll());
+    private String heroAdd(Model model) {
+        model.addAttribute("ras", rasService.listRasHero());
+        model.addAttribute("class", classHeroService.listClassHero());
         return "menu/button2/admin/hero/heroAdd";
     }
 
     @PostMapping("/admin/add/hero")
-    public String saveHero(Model model,
+    private String saveHero(Model model,
                            @RequestParam String hero,
                            @RequestParam String tear,
                            @RequestParam String classHero,
@@ -40,22 +43,21 @@ public class HeroController {
                            @RequestParam String full_text,
                            @RequestParam("iconHero") MultipartFile file1
     )throws IOException {
-        Hero heroNew = new Hero(hero, tear, classHero, classHero1, classHero2, full_text);
-        heroService.saveHero(heroNew, file1);
+        heroService.saveHero(hero,tear,classHero,classHero1,classHero2,full_text, file1);
         return "redirect:/admin/add/hero";
     }
 
 
     @GetMapping("/admin/display/hero")
-    public String displayHeroAdmin(Model model) {
-        List<SortHero> tir1 = new ArrayList<>();
-        List<SortHero> tir2 = new ArrayList<>();
-        List<SortHero> tir3 = new ArrayList<>();
-        List<SortHero> tir4 = new ArrayList<>();
-        List<SortHero> tir5 = new ArrayList<>();
-        List<SortHero> tir6 = new ArrayList<>();
+    private String displayHeroAdmin(Model model) {
+        List<Hero> tir1 = new ArrayList<>();
+        List<Hero> tir2 = new ArrayList<>();
+        List<Hero> tir3 = new ArrayList<>();
+        List<Hero> tir4 = new ArrayList<>();
+        List<Hero> tir5 = new ArrayList<>();
+        List<Hero> tir6 = new ArrayList<>();
 
-        heroService.sortHeroList(tir1,tir2,tir3,tir4,tir5,tir6);
+        heroService.displayHero(tir1,tir2,tir3,tir4,tir5,tir6);
 
 
         model.addAttribute("displayHeroTir1", tir1);
@@ -70,20 +72,20 @@ public class HeroController {
     }
 
     @GetMapping("/admin/detals/hero/{id}")
-    public String detalsAdmin(Model model, @PathVariable(value = "id") long id) {
-        model.addAttribute("detals", heroService.heroDisplay2(id));
+    private String detalsAdmin(Model model, @PathVariable(value = "id") Long id) {
+        model.addAttribute("detals", heroService.getHeroById(id));
         return "menu/button2/admin/hero/heroDetals";
     }
 
     @GetMapping("/admin/edit/hero/{id}")
-    public String editIdHero(@PathVariable(value = "id") Long id, Model model){
-        model.addAttribute("class", imageClassHero.findAll());
-        model.addAttribute("detals", heroService.heroDisplay2(id));
+    private String editIdHero(@PathVariable(value = "id") Long id, Model model){
+
+        model.addAttribute("detals", heroService.getHeroById(id));
         return "menu/button2/admin/hero/heroEdit";
     }
 
     @PostMapping("/admin/edit/hero/{id}")
-    public String editHero(@PathVariable(value = "id") long id,
+    private String editHero(@PathVariable(value = "id") Long id,
                            @RequestParam String hero,
                            @RequestParam String tear,
                            @RequestParam String classHero,
@@ -94,9 +96,8 @@ public class HeroController {
         if (!heroService.heroExistById(id)) {
             return "redirect:/admin/display/hero";
         }
-        Hero heroHero = new Hero(hero, tear, classHero, classHero1, classHero2, full_text);
-        heroHero.setId(id);
-        heroService.editHero(heroHero, file1,heroService.heroDisplay(heroHero));
+
+        heroService.editHero(id,hero,tear,classHero,classHero1,classHero2,full_text,file1);
 
         return "redirect:/admin/display/hero";
     }
@@ -104,22 +105,22 @@ public class HeroController {
 
 
     @GetMapping("/admin/delete/hero/{id}")
-    public String delete(@PathVariable(value = "id")Long id){
+    private String delete(@PathVariable(value = "id")Long id){
         heroService.deleteHero(id);
         return "redirect:/admin/display/hero";
     }
 
 
     @GetMapping("/home/display/hero")
-    public String displayHeroUser(Model model) {
-        List<SortHero> tir1 = new ArrayList<>();
-        List<SortHero> tir2 = new ArrayList<>();
-        List<SortHero> tir3 = new ArrayList<>();
-        List<SortHero> tir4 = new ArrayList<>();
-        List<SortHero> tir5 = new ArrayList<>();
-        List<SortHero> tir6 = new ArrayList<>();
+    private String displayHeroUser(Model model) {
+        List<Hero> tir1 = new ArrayList<>();
+        List<Hero> tir2 = new ArrayList<>();
+        List<Hero> tir3 = new ArrayList<>();
+        List<Hero> tir4 = new ArrayList<>();
+        List<Hero> tir5 = new ArrayList<>();
+        List<Hero> tir6 = new ArrayList<>();
 
-        heroService.sortHeroList(tir1,tir2,tir3,tir4,tir5,tir6);
+        heroService.displayHero(tir1,tir2,tir3,tir4,tir5,tir6);
 
 
         model.addAttribute("displayHeroTir1", tir1);
@@ -128,15 +129,19 @@ public class HeroController {
         model.addAttribute("displayHeroTir4", tir4);
         model.addAttribute("displayHeroTir5", tir5);
 
-
-        model.addAttribute("imageHero", heroService.sortHeroes());
         return "menu/button2/user/hero/heroDisplay";
     }
 
     @GetMapping("/home/display/hero/{id}")
-    public String heroDetailsHom(Model model, @PathVariable Long id) {
-        model.addAttribute("detals",heroService.heroDisplay2(id));
+    private String heroDetailsHom(Model model, @PathVariable Long id) {
+        model.addAttribute("detals",heroService.getHeroById(id));
 
+        return "menu/button2/user/hero/heroDetals";
+    }
+
+    @GetMapping("/home/detals/hero/{id}")
+    private String detalsHome(Model model, @PathVariable(value = "id") Long id) {
+        model.addAttribute("detals", heroService.getHeroById(id));
         return "menu/button2/user/hero/heroDetals";
     }
 

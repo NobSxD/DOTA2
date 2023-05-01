@@ -1,13 +1,18 @@
 package com.example.DOTA.models;
 
+import com.example.DOTA.models.image.ImageHero;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "hero")
 
@@ -26,6 +31,18 @@ public class Hero {
 
     private LocalDateTime dateTime;
 
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Energising energising;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Energising energising1;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Energising energising2;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private ImageHero imageHero;
+
 
 
 
@@ -34,12 +51,4 @@ public class Hero {
         dateTime = LocalDateTime.now();
     }
 
-    public Hero(String nameHero, String tirHero, String classHero, String classHero1, String classHero2, String full_text) {
-        this.nameHero = nameHero;
-        this.tirHero = tirHero;
-        this.classHero = classHero;
-        this.classHero1 = classHero1;
-        this.classHero2 = classHero2;
-        this.full_text = full_text;
-    }
 }

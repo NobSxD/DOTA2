@@ -51,4 +51,10 @@ public class PathController {
         pathService.editPath(id,name, full_text);
         return "redirect:/admin/display/path";
     }
+
+    @GetMapping("/home/display/path")
+    private String displayHome(Model model){
+        model.addAttribute("path" ,pathService.pathAll());
+        return "menu/button4/user/path/pathDisplay";
+    }
 }

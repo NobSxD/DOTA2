@@ -1,6 +1,7 @@
 package com.example.DOTA.controller;
 
 import com.example.DOTA.services.ClassHeroService;
+import com.example.DOTA.services.EnergisingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,50 +19,48 @@ public class ClassHeroController {
 
     private final ClassHeroService classHeroService;
 
+    private final EnergisingService energisingService;
+
     @GetMapping("/admin/add/class")
-    public String add(){
-        return "menu/button2/admin/classHero/classAdd";
+    private String add(Model model){
+        model.addAttribute("class", energisingService.allEnergising());
+        return "menu/button2/admin/class/classAdd";
     }
 
     @PostMapping("/admin/add/class")
-    public String save(Model model,
-                       @RequestParam String classHero,
-                       @RequestParam String full_text,
-                       @RequestParam("iconClassHero") MultipartFile file1) throws IOException {
-
-
-        classHeroService.saveClassHero(file1,classHero,full_text);
+    private String save(@RequestParam String classHero) throws IOException {
+        classHeroService.saveClassHero(classHero);
         return "redirect:/admin/add/class";
     }
 
 
     @GetMapping("/admin/display/class")
-    public String display(Model model){
+    private String display(Model model){
         model.addAttribute("class" ,classHeroService.listClassHero());
-        return "menu/button2/admin/classHero/classDisplay";
+        return "menu/button2/admin/class/classDisplay";
     }
 
     @GetMapping("/admin/detals/class/{id}")
-    public String detals1(@PathVariable(value = "id") Long id, Model model){
-        model.addAttribute("id", classHeroService.classHero(id));
-        return "menu/button2/admin/classHero/classDetals";
+    private String detalsRas(@PathVariable(value = "id") Long id, Model model){
+        model.addAttribute("class", classHeroService.classHero(id));
+        return "menu/button2/admin/class/classDetals";
     }
 
 
 
     @GetMapping("/admin/delete/class/{id}")
-    public String delete(@PathVariable(value = "id")Long id){
-        classHeroService.delete(classHeroService.classHero(id));
+    private String deleteRas(@PathVariable(value = "id")Long id){
+        classHeroService.deleteClass(classHeroService.classHero(id));
         return "redirect:/admin/display/class";
     }
     @GetMapping("/admin/edit/class/{id}")
-    public String edit(@PathVariable(value = "id")Long id, Model model){
+    private String editRas(@PathVariable(value = "id")Long id, Model model){
         model.addAttribute("class",classHeroService.classHero(id));
-        return "menu/button2/admin/classHero/classEdit";
+        return "menu/button2/admin/class/classEdit";
     }
     @PostMapping("/admin/edit/class/{id}")
-    public String update(@PathVariable(value = "id")Long id, @RequestParam String className,@RequestParam String detals, @RequestParam("iconClassHero") MultipartFile multipartFile) throws IOException {
-        classHeroService.updateClassHero(multipartFile,className,detals,id);
+    private String update(@PathVariable(value = "id")Long id, @RequestParam String classHero) throws IOException {
+        classHeroService.updateClassHero(classHero,id);
         return "redirect:/admin/display/class";
     }
 
@@ -70,14 +69,14 @@ public class ClassHeroController {
 
 
     @GetMapping("/home/display/class")
-    public String displayUser(Model model){
+    private String displayUser(Model model){
         model.addAttribute("class" ,classHeroService.listClassHero());
-        return "menu/button2/user/classHero/classDisplay";
+        return "menu/button2/user/class/classDisplay";
     }
 
     @GetMapping("/home/detals/class/{id}")
-    public String detalsUser(@PathVariable(value = "id") Long id, Model model){
+    private String detalsUser(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("id", classHeroService.classHero(id));
-        return "menu/button2/user/classHero/classDetals";
+        return "menu/button2/user/class/classDetals";
     }
 }

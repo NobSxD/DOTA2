@@ -30,21 +30,21 @@
                         <tbody>
 
 
-                        <tr  th:each="hero1 : ${displayHeroTir1}">
-                            <td><img th:src="'/images/hero/' + ${hero1.iconHero}">
-                                <a th:href="'/admin/edit/hero/' +${hero1.hero.id}">
+                        <tr  th:each="hero : ${displayHeroTir1}">
+                            <td><img th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.id}">
+                                <a th:href="'/admin/edit/hero/' +${hero.id}">
                                     Изменить</a></td>
 
-                            <td><a th:href="'/admin/detals/hero/' +${hero1.hero.id}" class="link-secondary">
-                                <t th:text="${hero1.hero.nameHero}"></t>
-                            </a><a th:href="'/admin/delete/hero/' + ${hero1.hero.id}">Удалить</a></td>
+                            <td><a th:href="'/admin/detals/hero/' +${hero.id}" class="link-secondary">
+                                <t th:text="${hero.nameHero}"></t>
+                            </a><a th:href="'/admin/delete/hero/' + ${hero.id}">Удалить</a></td>
 
-                            <th><img th:if="${hero1.iconClassHero}" th:src="'/images/ras/' + ${hero1.iconClassHero}" height="20px" width="20px"></th>
+                            <th><img th:if="${hero.energising}" th:src="'/images/energising/' + ${hero.energising.energisingImage.id}" height="20px" width="20px"></th>
 
-                            <th><img th:if="${hero1.iconClassHero1}" th:src="'/images/class/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                            <th><img th:if="${hero.energising1}" th:src="'/images/energising/' + ${hero.energising1.energisingImage.id}" height="20px" width="20px">
 
                             </th>
-                            <th><img th:if="${hero1.iconClassHero2}" th:src="'/images/class/' + ${hero1.iconClassHero2}" alt="" height="20px">
+                            <th><img th:if="${hero.energising2}" th:src="'/images/energising/' + ${hero.energising2.energisingImage.id}" alt="" height="20px">
 
                             </th>
                         </tr>
@@ -67,25 +67,24 @@
                             </tr>
                             </thead>
 
-                            <tbody th:each="hero1 : ${displayHeroTir2}">
+                            <tbody>
 
 
-                            <tr>
-                                <td><img th:if="${hero1.iconHero}" th:src="'/images/hero/' + ${hero1.iconHero}">
-                                    <a th:href="'/admin/edit/hero/' +${hero1.hero.id}">
+                            <tr  th:each="hero : ${displayHeroTir2}">
+                                <td><img th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.id}">
+                                    <a th:href="'/admin/edit/hero/' +${hero.id}">
                                         Изменить</a></td>
 
-                                <td><a th:href="'/admin/detals/hero/' +${hero1.hero.id}" class="link-secondary">
-                                    <t th:text="${hero1.hero.nameHero}"></t>
-                                </a><a th:href="'/admin/delete/hero/' + ${hero1.hero.id}">Удалить</a></td>
+                                <td><a th:href="'/admin/detals/hero/' +${hero.id}" class="link-secondary">
+                                    <t th:text="${hero.nameHero}"></t>
+                                </a><a th:href="'/admin/delete/hero/' + ${hero.id}">Удалить</a></td>
 
-                                <th><img th:if="${hero1.iconClassHero}"  th:src="'/images/ras/' + ${hero1.iconClassHero}" height="20px" width="20px"></th>
+                                <th><img th:if="${hero.energising}" th:src="'/images/energising/' + ${hero.energising.energisingImage.id}" height="20px" width="20px"></th>
 
-                                <th><img th:if="${hero1.iconClassHero1}" th:src="'/images/class/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                                <th><img th:if="${hero.energising1}" th:src="'/images/energising/' + ${hero.energising1.energisingImage.id}" height="20px" width="20px">
 
                                 </th>
-                                <th><img th:if="${hero1.iconClassHero2}" th:src="'/images/class/' + ${hero1.iconClassHero2}" alt="" height="20px">
-
+                                <th><img th:if="${hero.energising2}" th:src="'/images/energising/' + ${hero.energising2.energisingImage.id}" alt="" height="20px">
 
                                 </th>
                             </tr>
@@ -108,24 +107,24 @@
                                 </tr>
                                 </thead>
 
-                                <tbody th:each="hero1 : ${displayHeroTir3}">
+                                <tbody>
 
 
-                                <tr>
-                                    <td><img th:if="${hero1.iconHero}" th:src="'/images/hero/' + ${hero1.iconHero}">
-                                        <a th:href="'/admin/edit/hero/' +${hero1.hero.id}">
+                                <tr  th:each="hero : ${displayHeroTir3}">
+                                    <td><img th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.id}">
+                                        <a th:href="'/admin/edit/hero/' +${hero.id}">
                                             Изменить</a></td>
 
-                                    <td><a th:href="'/admin/detals/hero/' +${hero1.hero.id}" class="link-secondary">
-                                        <t th:text="${hero1.hero.nameHero}"></t>
-                                    </a><a th:href="'/admin/delete/hero/' + ${hero1.hero.id}">Удалить</a></td>
+                                    <td><a th:href="'/admin/detals/hero/' +${hero.id}" class="link-secondary">
+                                        <t th:text="${hero.nameHero}"></t>
+                                    </a><a th:href="'/admin/delete/hero/' + ${hero.id}">Удалить</a></td>
 
-                                    <th><img th:if="${hero1.iconClassHero}"  th:src="'/images/ras/' + ${hero1.iconClassHero}" height="20px" width="20px"></th>
+                                    <th><img th:if="${hero.energising}" th:src="'/images/energising/' + ${hero.energising.energisingImage.id}" height="20px" width="20px"></th>
 
-                                    <th><img th:if="${hero1.iconClassHero1}" th:src="'/images/class/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                                    <th><img th:if="${hero.energising1}" th:src="'/images/energising/' + ${hero.energising1.energisingImage.id}" height="20px" width="20px">
 
                                     </th>
-                                    <th><img th:if="${hero1.iconClassHero2}" th:src="'/images/class/' + ${hero1.iconClassHero2}"  height="20px" width="20px">
+                                    <th><img th:if="${hero.energising2}" th:src="'/images/energising/' + ${hero.energising2.energisingImage.id}" alt="" height="20px">
 
                                     </th>
                                 </tr>
@@ -148,24 +147,24 @@
                                     </tr>
                                     </thead>
 
-                                    <tbody th:each="hero1 : ${displayHeroTir4}">
+                                    <tbody>
 
 
-                                    <tr>
-                                        <td><img th:if="${hero1.iconHero}" th:src="'/images/hero/' + ${hero1.iconHero}">
-                                            <a th:href="'/admin/edit/hero/' +${hero1.hero.id}">
+                                    <tr  th:each="hero : ${displayHeroTir4}">
+                                        <td><img th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.id}">
+                                            <a th:href="'/admin/edit/hero/' +${hero.id}">
                                                 Изменить</a></td>
 
-                                        <td><a th:href="'/admin/detals/hero/' +${hero1.hero.id}" class="link-secondary">
-                                            <t th:text="${hero1.hero.nameHero}"></t>
-                                        </a><a th:href="'/admin/delete/hero/' + ${hero1.hero.id}">Удалить</a></td>
+                                        <td><a th:href="'/admin/detals/hero/' +${hero.id}" class="link-secondary">
+                                            <t th:text="${hero.nameHero}"></t>
+                                        </a><a th:href="'/admin/delete/hero/' + ${hero.id}">Удалить</a></td>
 
-                                        <th><img th:if="${hero1.iconClassHero}" th:src="'/images/ras/' + ${hero1.iconClassHero}" height="20px" width="20px"></th>
+                                        <th><img th:if="${hero.energising}" th:src="'/images/energising/' + ${hero.energising.energisingImage.id}" height="20px" width="20px"></th>
 
-                                        <th><img th:if="${hero1.iconClassHero1}" th:src="'/images/class/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                                        <th><img th:if="${hero.energising1}" th:src="'/images/energising/' + ${hero.energising1.energisingImage.id}" height="20px" width="20px">
 
                                         </th>
-                                        <th><img th:if="${hero1.iconClassHero2}" th:src="'/images/class/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px">
+                                        <th><img th:if="${hero.energising2}" th:src="'/images/energising/' + ${hero.energising2.energisingImage.id}" alt="" height="20px">
 
                                         </th>
                                     </tr>
@@ -188,24 +187,24 @@
                                         </tr>
                                         </thead>
 
-                                        <tbody th:each="hero1 : ${displayHeroTir5}">
+                                        <tbody>
 
 
-                                        <tr>
-                                            <td><img th:if="${hero1.iconHero}" th:src="'/images/hero/' + ${hero1.iconHero}">
-                                                <a th:href="'/admin/edit/hero/' +${hero1.hero.id}">
+                                        <tr  th:each="hero : ${displayHeroTir5}">
+                                            <td><img th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.id}">
+                                                <a th:href="'/admin/edit/hero/' +${hero.id}">
                                                     Изменить</a></td>
 
-                                            <td><a th:href="'/admin/detals/hero/' +${hero1.hero.id}" class="link-secondary">
-                                                <t th:text="${hero1.hero.nameHero}"></t>
-                                            </a><a th:href="'/admin/delete/hero/' + ${hero1.hero.id}">Удалить</a></td>
+                                            <td><a th:href="'/admin/detals/hero/' +${hero.id}" class="link-secondary">
+                                                <t th:text="${hero.nameHero}"></t>
+                                            </a><a th:href="'/admin/delete/hero/' + ${hero.id}">Удалить</a></td>
 
-                                            <th><img th:if="${hero1.iconClassHero}" th:src="'/images/ras/' + ${hero1.iconClassHero}" height="20px" width="20px"></th>
+                                            <th><img th:if="${hero.energising}" th:src="'/images/energising/' + ${hero.energising.energisingImage.id}" height="20px" width="20px"></th>
 
-                                            <th><img th:if="${hero1.iconClassHero1}" th:src="'/images/class/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                                            <th><img th:if="${hero.energising1}" th:src="'/images/energising/' + ${hero.energising1.energisingImage.id}" height="20px" width="20px">
 
                                             </th>
-                                            <th><img th:if="${hero1.iconClassHero2}" th:src="'/images/class/' + ${hero1.iconClassHero2}" height="20px" width="20px">
+                                            <th><img th:if="${hero.energising2}" th:src="'/images/energising/' + ${hero.energising2.energisingImage.id}" alt="" height="20px">
 
                                             </th>
                                         </tr>
@@ -228,24 +227,24 @@
                                             </tr>
                                             </thead>
 
-                                            <tbody th:each="hero1 : ${displayHeroTir6}">
+                                            <tbody>
 
 
-                                            <tr>
-                                                <td><img th:if="${hero1.iconHero}" th:src="'/images/hero/' + ${hero1.iconHero}">
-                                                    <a th:href="'/admin/edit/hero/' +${hero1.hero.id}">
+                                            <tr  th:each="hero : ${displayHeroTir6}">
+                                                <td><img th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.id}">
+                                                    <a th:href="'/admin/edit/hero/' +${hero.id}">
                                                         Изменить</a></td>
 
-                                                <td><a th:href="'/admin/detals/hero/' +${hero1.hero.id}" class="link-secondary">
-                                                    <t th:text="${hero1.hero.nameHero}"></t>
-                                                </a><a th:href="'/admin/delete/hero/' + ${hero1.hero.id}">Удалить</a></td>
+                                                <td><a th:href="'/admin/detals/hero/' +${hero.id}" class="link-secondary">
+                                                    <t th:text="${hero.nameHero}"></t>
+                                                </a><a th:href="'/admin/delete/hero/' + ${hero.id}">Удалить</a></td>
 
-                                                <th><img th:if="${hero1.iconClassHero}"  th:src="'/images/ras/' + ${hero1.iconClassHero}" height="20px" width="20px"></th>
+                                                <th><img th:if="${hero.energising}" th:src="'/images/energising/' + ${hero.energising.energisingImage.id}" height="20px" width="20px"></th>
 
-                                                <th><img th:if="${hero1.iconClassHero1}" th:src="'/images/class/' + ${hero1.iconClassHero1}" height="20px" width="20px">
+                                                <th><img th:if="${hero.energising1}" th:src="'/images/energising/' + ${hero.energising1.energisingImage.id}" height="20px" width="20px">
 
                                                 </th>
-                                                <th><img th:if="${hero1.iconClassHero2}" th:src="'/images/class/' + ${hero1.iconClassHero2}" alt="" height="20px" width="20px">
+                                                <th><img th:if="${hero.energising2}" th:src="'/images/energising/' + ${hero.energising2.energisingImage.id}" alt="" height="20px">
 
                                                 </th>
                                             </tr>

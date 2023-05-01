@@ -31,7 +31,7 @@
                     <input type="text" list="datalistOptions" id="exampleDataList" name="energising4" placeholder="Добавте сенергию" th:value="${guide.energising4}">
 
                     <datalist id="datalistOptions">
-                        <option th:each="en : ${energising}" th:value="en.name"></option>
+                        <option th:each="en : ${energising}" th:value="${en.name}"></option>
 
                     </datalist>
                 </div>

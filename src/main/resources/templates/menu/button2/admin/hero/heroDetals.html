@@ -18,45 +18,37 @@
             <div class="border border-dark" id="pading">
 
                 <div class="inline-block-table">
-                    <table class="table table-borderless">
-                        <thead>
-                        <tr>
-                            <th colspan="6">Подробней о герои
-                            </th>
-                        </tr>
-                        </thead>
 
-                        <tbody>
-                        <tr th:each="hero : ${detals}">
+                    <h2>Подробней о герои</h2>
 
+                    <div th:if="${detals}">
+                        <div th:if="${detals.imageHero}">
+                            <img  th:src="'/images/hero/' + ${detals.imageHero.id}">
+                            <t th:text="${detals.nameHero}"></t>
+                            <t th:text="${detals.tirHero}"></t>
+                            <p th:text="${detals.full_text}"></p>
+                        </div>
+                        <div th:if="${detals.energising}">
+                            <img th:src="'/images/energising/' + ${detals.energising.energisingImage.id}" height="20px" width="20px">
+                            <a th:href="'/admin/detals/energising/' +${detals.energising.id}"> <t th:text="${detals.energising.name}"></t></a>
+                            <p th:text="${detals.energising.full_text}"></p>
+                        </div>
 
-                            <td><img th:src="'/images/hero/' + ${hero.iconHero}"></td>
+                        <div th:if="${detals.energising1}">
+                            <img th:src="'/images/energising/' + ${detals.energising1.energisingImage.id}" height="20px" width="20px">
+                            <a th:href="'/admin/detals/energising/' +${detals.energising1.id}"> <t th:text="${detals.energising1.name}"></t></a>
+                            <p th:text="${detals.energising1.full_text}"></p>
+                        </div>
 
-                            <td>
-                                <t th:text="${hero.hero.nameHero}"></t>
-                            </td>
+                        <div th:if="${detals.energising2}">
+                            <img th:src="'/images/energising/' + ${detals.energising2.energisingImage.id}" height="20px" width="20px">
+                            <a th:href="'/admin/detals/energising/' +${detals.energising2.id}"> <t th:text="${detals.energising2.name}"></t></a>
+                            <p th:text="${detals.energising2.full_text}"></p>
+                        </div>
 
-                            <td>
-                                <img th:src="'/images/ras/' + ${hero.iconClassHero}" height="20px" width="20px">
-
-
-                                <img th:src="'/images/class/' + ${hero.iconClassHero1}" height="20px" width="20px">
-
-
-                                <img th:src="'/images/class/' + ${hero.iconClassHero2}" alt="" height="20px" width="20px"
-                                     onerror="this.style.visibility = 'hidden'"></td>
-
-                            <td><t th:text="${hero.hero.full_text}"></t></td>
-                            <td><t th:text="${hero.hero.dateTime}"></t></td>
-
-                            <td><a th:href="'/admin/edit/hero/' +${hero.hero.id}" class="link-secondary"> Изменить
-                            </a></td>
-
-                        </tr>
+                    </div>
 
 
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </main>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Главня</title>
+</head>
+
+<body>
+<header th:insert="blocks/headerFooter/header :: header"></header>
+<div class="border border-dark">
+<div class="container-fluid" id="t">
+    <div class="row">
+
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+
+
+                <h2>Гайды:</h2><br>
+
+                <div><img th:if="${guide.imageGuides.size() >=1}"
+                          th:src="'/images/guide/' + ${guide.imageGuides.get(0).id}">
+                    <t2 th:text="${guide.name}" class="h2"></t2>
+                </div>
+                <div>
+                    <h2>Состоит из синергий</h2>
+                    <table class="notLine">
+                        <tbody>
+                        <tr>
+                            <th th:if="${guide.energising}" class="centr"><a class="link-success"
+                                                                             th:if="${image.size() >=1}"
+                                                                             th:href="'/home/detals/energising/' + ${image.get(0).id}">
+                                <t th:text="${guide.energising}" }></t>
+                            </a></th>
+                            <th th:if="${guide.energising1}" class="centr"><a class="link-success"
+                                                                              th:if="${image.size() >=2}"
+                                                                              th:href="'/home/detals/energising/' + ${image.get(1).id}">
+                                <t th:text="${guide.energising}" }></t>
+                            </a></th>
+                            <th th:if="${guide.energising2}" class="centr"><a class="link-success"
+                                                                              th:if="${image.size() >=3}"
+                                                                              th:href="'/home/detals/energising/' + ${image.get(2).id}">
+                                <t th:text="${guide.energising}" }></t>
+                            </a></th>
+                            <th th:if="${guide.energising3}" class="centr"><a class="link-success"
+                                                                              th:if="${image.size() >=4}"
+                                                                              th:href="'/home/detals/energising/' + ${image.get(3).id}">
+                                <t th:text="${guide.energising}" }></t>
+                            </a></th>
+                            <th th:if="${guide.energising4}" class="centr"><a class="link-success"
+                                                                              th:if="${image.size() >=5}"
+                                                                              th:href="'/home/detals/energising/' + ${image.get(4).id}">
+                                <t th:text="${guide.energising}" }></t>
+                            </a></th>
+                        </tr>
+
+                        <tr>
+                            <th><img th:if="${image.size() >=1}"
+                                     th:src="'/images/energising/' + ${image.get(0).energisingImage.id}"></th>
+                            <th><img th:if="${image.size() >=2}"
+                                     th:src="'/images/energising/' + ${image.get(1).energisingImage.id}"></th>
+                            <th><img th:if="${image.size() >=3}"
+                                     th:src="'/images/energising/' + ${image.get(2).energisingImage.id}"></th>
+                            <th><img th:if="${image.size() >=4}"
+                                     th:src="'/images/energising/' + ${image.get(3).energisingImage.id}"></th>
+                            <th><img th:if="${image.size() >=5}"
+                                     th:src="'/images/energising/' + ${image.get(4).energisingImage.id}"></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p th:text="${guide.full_text}"></p>
+                </div>
+
+                <div>
+                    <h2 th:text="${guide.h2}"></h2>
+                    <p th:text="${guide.full_text2}"></p>
+                    <img th:if="${guide.imageGuides.size() >=1}"
+                         th:src="'/images/guide/'+ ${guide.imageGuides.get(0).id}">
+                    <img th:if="${guide.imageGuides.size() >=2}"
+                         th:src="'/images/guide/'+ ${guide.imageGuides.get(1).id}">
+                </div>
+                <div>
+                    <h2 th:text="${guide.h3}"></h2>
+                    <p th:text="${guide.full_text3}"></p>
+                    <img th:if="${guide.imageGuides.size() >=3}"
+                         th:src="'/images/guide/'+ ${guide.imageGuides.get(2).id}">
+                    <img th:if="${guide.imageGuides.size() >=4}"
+                         th:src="'/images/guide/'+ ${guide.imageGuides.get(3).id}">
+                </div>
+                <div>
+                    <h2 th:text="${guide.h4}"></h2>
+                    <p th:text="${guide.full_text4}"></p>
+                    <img th:if="${guide.imageGuides.size() >=5}"
+                         th:src="'/images/guide/'+ ${guide.imageGuides.get(4).id}">
+                    <img th:if="${guide.imageGuides.size() >=6}"
+                         th:src="'/images/guide/'+ ${guide.imageGuides.get(5).id}">
+                </div>
+                <div>
+                <a th:href="${guide.href1}">
+                    <t th:text="${guide.nameHref1}"></t>
+                </a></div>
+
+                <div>
+                    <a th:href="${guide.href2}">
+                        <t th:text="${guide.nameHref2}"></t>
+                    </a></div>
+                <div>
+                    <a th:href="${guide.href3}">
+                        <t th:text="${guide.nameHref3}"></t>
+                    </a></div>
+                <div>
+                    <a th:href="${guide.href4}">
+                        <t th:text="${guide.nameHref4}"></t>
+                    </a></div>
+                <div>
+                    <a th:href="${guide.href5}">
+                        <t th:text="${guide.nameHref5}"></t>
+                    </a></div>
+
+
+
+        </main>
+    </div>
+</div>
+    <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+</div>
+</body>
+</html>

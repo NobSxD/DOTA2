@@ -1,18 +1,19 @@
 package com.example.DOTA.services;
 
+import com.example.DOTA.models.Energising;
 import com.example.DOTA.models.Hero;
-import com.example.DOTA.models.image.ImageClassHero;
 import com.example.DOTA.models.image.ImageHero;
 import com.example.DOTA.repository.HeroRepository;
-import com.example.DOTA.repository.image.ImageRepositoryClass;
 import com.example.DOTA.repository.image.ImageRepositoryHero;
-import com.example.DOTA.services.sort.SortHero;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,15 +21,14 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 
-public class HeroService  {
-    private final ImageRepositoryClass imageRepositoryClass;
+public class HeroService {
+
     private final ImageRepositoryHero imageRepository;
     private final HeroRepository heroRepository;
+    private final EnergisingService energisingService;
 
-   
 
-
-    public List<Hero> listProducts() {
+    public List<Hero> listHero() {
         return heroRepository.findAll();
     }
 
@@ -36,79 +36,113 @@ public class HeroService  {
         return heroRepository.existsById(id);
     }
 
+
+    public Hero getHeroById(Long id) {
+        return heroRepository.findById(id).orElse(null);
+    }
+
+    public Hero saveHero(Hero hero) {
+        return heroRepository.save(hero);
+    }
+
+    public long summaHero() {
+        return heroRepository.count();
+    }
+
     public List<ImageHero> imageHeroList(Hero hero) {
         return imageRepository.findByHero(hero);
     }
 
-    public Hero getProductById(Long id) {
-        return heroRepository.findById(id).orElse(null);
-    }
-    public ImageHero findById(Long id){
-       return imageRepository.findById(id).orElse(null);
+    public ImageHero findById(Long id) {
+        return imageRepository.findById(id).orElse(null);
     }
 
-   public long summaHero(){
-        return heroRepository.count();
-   }
-
-
-    public SortHero heroDisplay2(Long id) {
-
-        Hero hero = getProductById(id);
-        List<ImageHero> imageHero = imageRepository.findByHero(hero);
-        List<ImageClassHero> imgHeroList = imageRepositoryClass.findByName(hero.getClassHero());
-        List<ImageClassHero> imgHeroList1 = imageRepositoryClass.findByName(hero.getClassHero1());
-        List<ImageClassHero> imgHeroList2 = imageRepositoryClass.findByName(hero.getClassHero2());
-        SortHero sortHero = new SortHero();
-        sortHero.setHero(hero);
-        if (imageHero.size() > 0) {
-            sortHero.setIconHero(imageHero.get(0).getId());
-        }
-
-        if (imgHeroList.size() > 0) {
-            sortHero.setIconClassHero(imgHeroList.get(0).getId());
-        }
-        if (imgHeroList1.size() > 0) {
-            sortHero.setIconClassHero1(imgHeroList1.get(0).getId());
-        }
-        if (imgHeroList2.size() > 0) {
-            sortHero.setIconClassHero2(imgHeroList2.get(0).getId());
-        }
-
-        return sortHero;
+    public ImageHero saveImage(ImageHero imageHero) {
+        return imageRepository.save(imageHero);
     }
 
 
-    public void saveHero(Hero hero, MultipartFile file1) throws IOException {
+    //сохраняеим героя и делаем привязку к иконки героя и к расам и классам
+    public void saveHero(String name,
+                         String tear,
+                         String classHero,
+                         String classHero1,
+                         String classHero2,
+                         String full_text,
+                         MultipartFile file1) throws IOException {
+        List<Energising> energisingList = new ArrayList<>();
+        energisingList.add(energisingService.energisingName(classHero));
+        energisingList.add(energisingService.energisingName(classHero1));
+        energisingList.add(energisingService.energisingName(classHero2));
+
+        Hero hero = new Hero();
+        saveImage(toImageEntity(name, file1));
         if (file1.getSize() != 0) {
-            toImageEntity(file1, hero);
+            hero.setNameHero(name);
+            hero.setTirHero(tear);
+            hero.setClassHero(classHero);
+            hero.setClassHero1(classHero1);
+            hero.setClassHero2(classHero2);
+            hero.setFull_text(full_text);
+            hero.setDateTime(LocalDateTime.now());
+            hero.setImageHero(toImageEntity(name, file1));
+            if (energisingList.size()>=1){hero.setEnergising(energisingList.get(0));}
+            if (energisingList.size()>=2){hero.setEnergising1(energisingList.get(1));}
+            if (energisingList.size()>=3){hero.setEnergising2(energisingList.get(2));}
+            saveHero(hero);
+
+
         }
 
     }
 
-    public void editHero(Hero hero, MultipartFile file1, SortHero sortHero) throws IOException {
-        if (file1.getSize() != 0) {
-            editToImageEntity(file1, hero, sortHero.getIconHero());
-        }
-        heroRepository.save(hero);
-    }
-
-
-    private ImageHero toImageEntity(MultipartFile file, Hero hero) throws IOException {
+    private ImageHero toImageEntity(String name, MultipartFile file1) throws IOException {
         ImageHero image = new ImageHero();
-        image.setName(file.getName());
-        image.setOriginalFileName(file.getOriginalFilename());
-        image.setSize(file.getSize());
-        image.setContentType(file.getContentType());
-        image.setBytes(file.getBytes());
-        image.setHero(hero);
+        image.setName(name);
+        image.setOriginalFileName(file1.getOriginalFilename());
+        image.setSize(file1.getSize());
+        image.setContentType(file1.getContentType());
+        image.setBytes(file1.getBytes());
 
-        heroRepository.save(hero);
-        return imageRepository.save(image);
+        return image;
+    }
+
+    public void editHero(Long id,
+                         String name,
+                         String tear,
+                         String classHero,
+                         String classHero1,
+                         String classHero2,
+                         String full_text,
+                         MultipartFile file1) throws IOException {
+
+        List<Energising> energisingList = new ArrayList<>();
+        energisingList.add(energisingService.energisingName(classHero));
+        energisingList.add(energisingService.energisingName(classHero1));
+        energisingList.add(energisingService.energisingName(classHero2));
+
+        Hero hero = heroRepository.findById(id).orElse(null);
+
+            hero.setNameHero(name);
+            hero.setTirHero(tear);
+            hero.setClassHero(classHero);
+            hero.setClassHero1(classHero1);
+            hero.setClassHero2(classHero2);
+            hero.setFull_text(full_text);
+            hero.setDateTime(LocalDateTime.now());
+        if (file1.getSize() != 0) {
+            hero.setImageHero(editToImageEntity(file1, id));
+        }
+            if (energisingList.size()>=1){hero.setEnergising(energisingList.get(0));}
+            if (energisingList.size()>=2){hero.setEnergising1(energisingList.get(1));}
+            if (energisingList.size()>=3){hero.setEnergising2(energisingList.get(2));}
+            saveHero(hero);
+
+
     }
 
 
-    private ImageHero editToImageEntity(MultipartFile file, Hero hero, Long id) throws IOException {
+    private ImageHero editToImageEntity(MultipartFile file, Long id) throws IOException {
         ImageHero image = new ImageHero();
         image.setId(id);
         image.setName(file.getName());
@@ -116,99 +150,41 @@ public class HeroService  {
         image.setSize(file.getSize());
         image.setContentType(file.getContentType());
         image.setBytes(file.getBytes());
-        image.setHero(hero);
 
-        return imageRepository.save(image);
+        return image;
     }
 
-    public SortHero heroDisplay(Hero h) {
 
-        Hero hero = h;
-        List<ImageHero> imgHeroList = imageHeroList(hero);
-        SortHero sortHero = new SortHero();
-        for (ImageHero s : imgHeroList) {
+    public void displayHero(List<Hero> heroTir1, List<Hero> heroTir2, List<Hero> heroTir3, List<Hero> heroTir4, List<Hero> heroTir5, List<Hero> heroTir6) {
+        List<Hero> heroList = listHero();
+        for (Hero sortTir : heroList) {
+            if (sortTir.getTirHero().equals("ТИР 1") &&                                                                     //сортируем героев по тиру, ну в случаи есла админ указал не верный тир
+                    !sortTir.getTirHero().equals("ТИР 2") &&                                                                // то выводим это через 6 тир для админа, что бы была возможность исправить тир героя
+                    !sortTir.getTirHero().equals("ТИР 3") &&
+                    !sortTir.getTirHero().equals("ТИР 4") &&
+                    !sortTir.getTirHero().equals("ТИР 5")) {
 
-            if (s.getName().equals("iconHero")) {
-                sortHero.setIconHero(s.getId());
-                sortHero.setHero(hero);
-            }
+                if (sortTir.getTirHero().equals("ТИР 1")) {
+                    heroTir1.add(sortTir);
+                }
+                if (sortTir.getTirHero().equals("ТИР 2")) {
+                    heroTir2.add(sortTir);
+                }
+                if (sortTir.getTirHero().equals("ТИР 3")) {
+                    heroTir3.add(sortTir);
+                }
+                if (sortTir.getTirHero().equals("ТИР 4")) {
+                    heroTir4.add(sortTir);
+                }
+                if (sortTir.getTirHero().equals("ТИР 5")) {
+                    heroTir5.add(sortTir);
+                }
+            } else heroTir6.add(sortTir);
         }
-        return sortHero;
-    }
-
-    public List<SortHero> sortHeroes() {
-
-
-        List<Hero> her = listProducts();
-
-        List<SortHero> heroes = new ArrayList<>();
-
-        for (Hero r : her) {
-            List<ImageHero> imageHeroes = imageHeroList(r);
-            SortHero sortHero = new SortHero();
-            sortHero.setHero(r);
-            List<ImageClassHero> imageRasHero = imageRepositoryClass.findByName(r.getClassHero());
-            List<ImageClassHero> imageClassHero1 = imageRepositoryClass.findByName(r.getClassHero1());
-            List<ImageClassHero> imageClassHero2 = imageRepositoryClass.findByName(r.getClassHero2());
-            if (imageHeroes.size() > 0) {
-                sortHero.setIconHero(imageHeroes.get(0).getId());
-            }
-
-            if (imageRasHero.size() > 0) {
-                sortHero.setIconClassHero(imageRasHero.get(0).getId());
-            }
-            if (imageClassHero1.size() > 0) {
-                sortHero.setIconClassHero1(imageClassHero1.get(0).getId());
-            }
-            if (imageClassHero2.size() > 0) {
-                sortHero.setIconClassHero2(imageClassHero2.get(0).getId());
-            }
-            heroes.add(sortHero);
-        }
-        return heroes;
-    }
-
-    public void sortHeroList(List<SortHero> tir1, List<SortHero> tir2, List<SortHero> tir3, List<SortHero> tir4, List<SortHero> tir5, List<SortHero> tir6) {
-        List<SortHero> sortHeroes = sortHeroes();
-        for (SortHero sortTir : sortHeroes) {
-            if (sortTir.getHero().getTirHero() == null) {
-                tir4.add(sortTir);
-            } else {
-                if (sortTir.getHero().getTirHero().equals("ТИР 1") ||
-                        sortTir.getHero().getTirHero().equals("ТИР 2") ||
-                        sortTir.getHero().getTirHero().equals("ТИР 3") ||
-                        sortTir.getHero().getTirHero().equals("ТИР 4") ||
-                        sortTir.getHero().getTirHero().equals("ТИР 5")) {
-
-                    if (sortTir.getHero().getTirHero().equals("ТИР 1")) {
-                        tir1.add(sortTir);
-
-                    }
-                    if (sortTir.getHero().getTirHero().equals("ТИР 2")) {
-                        tir2.add(sortTir);
-
-                    }
-                    if (sortTir.getHero().getTirHero().equals("ТИР 3")) {
-                        tir3.add(sortTir);
-
-                    }
-                    if (sortTir.getHero().getTirHero().equals("ТИР 4")) {
-                        tir4.add(sortTir);
-
-                    }
-                    if (sortTir.getHero().getTirHero().equals("ТИР 5")) {
-                        tir5.add(sortTir);
-
-                    }
-                } else tir6.add(sortTir);
-
-            }
-        }
-
     }
 
     public void deleteHero(Long id) {
-        Hero hero = getProductById(id);
+        Hero hero = getHeroById(id);
         List<ImageHero> imageHeroList = imageHeroList(hero);
 
         for (ImageHero delete : imageHeroList

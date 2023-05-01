@@ -3,18 +3,17 @@
     background-image: url("/image/djaga2.png");
     object-fit: contain;
     background-size: auto;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
+
+
+
     color: #f2bf0b;
 }
 .secondary{
     background-image: url("/image/djaga2.png");
     object-fit: contain;
     background-size: auto;
-    background-position: center center;
+
     background-size: cover;
-    background-attachment: fixed;
     color: #f2bf0b;
     width:100%;
     height: 100%;
@@ -36,7 +35,7 @@ h3::first-letter{
     font-weight: 900;
 }
 .t1{
-    background-color: black;
+
     border-radius: 50px;
     padding-left: 16px;
     padding-right: 16px;
@@ -150,4 +149,6 @@ tb{
     padding: 4px;
 }
 
-
+.centr{
+    text-align: center;
+}

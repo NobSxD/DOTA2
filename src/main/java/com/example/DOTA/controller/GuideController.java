@@ -2,6 +2,7 @@ package com.example.DOTA.controller;
 
 import com.example.DOTA.services.EnergisingService;
 import com.example.DOTA.services.GuideService;
+import com.example.DOTA.services.ViewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import java.io.IOException;
 public class GuideController {
     private final GuideService guideService;
     private final EnergisingService energisingService;
+    private final ViewsService viewsService;
 
     @GetMapping("/admin/add/guide")
     private String guideAdd(Model model) {
@@ -86,6 +88,7 @@ public class GuideController {
 
     @GetMapping("/admin/edit/guide/{id}")
     private String guideEdit(Model model, @PathVariable(value = "id") Long id) {
+        model.addAttribute("energising", energisingService.allEnergising());
         model.addAttribute("guide", guideService.guideById(id));
         return "menu/button2/admin/guide/guideEdit";
     }
@@ -130,5 +133,19 @@ public class GuideController {
                 href4, hrefName5, href5, file1, file2, file3, file4, file5,
                 file6, file7, file8);
         return "redirect:/admin/display/guide";
+    }
+
+    @GetMapping("/home/display/guide")
+    private String displayGuideUser(Model model) {
+        model.addAttribute("guide", guideService.displayAll());
+        viewsService.viewsGuid();
+        return "menu/button2/user/guide/guideDisplay";
+    }
+
+    @GetMapping("/home/detals/guide/{id}")
+    private String detalsUser(Model model, @PathVariable(value = "id") Long id) {
+        model.addAttribute("image", guideService.energising(id));
+        model.addAttribute("guide", guideService.guideById(id));
+        return "menu/button2/user/guide/guideDetals";
     }
 }

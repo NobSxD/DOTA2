@@ -59,4 +59,16 @@ public class EnergisingController {
         energisingService.energisingParameterEdit(id,name,full_text,file1);
         return "redirect:/admin/display/energising";
     }
+
+    @GetMapping("/home/display/energising")
+    private String displayHome(Model model){
+        model.addAttribute("energising" ,energisingService.allEnergising());
+        return "menu/button5/user/energising/energisingDisplay";
+    }
+
+    @GetMapping("/home/detals/energising/{id}")
+    private String detalsEnergisingHome(@PathVariable(value = "id") Long id, Model model){
+        model.addAttribute("energising", energisingService.ByIdEnergising(id));
+        return "menu/button5/user/energising/energisingDetals";
+    }
 }

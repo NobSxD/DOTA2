@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Главня</title>
+</head>
+
+<body>
+<header th:insert="blocks/headerFooter/header :: header"></header>
+<div class="border border-dark">
+<div class="container-fluid" id="t">
+    <div class="row">
+
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+
+                <div class="inline-block-table">
+
+                    <h2>Подробней о предмете</h2>
+
+                        <div th:each="items1 : ${items}">
+
+
+                            <div><img th:src="'/images/items/' + ${items1.icon.id}"></div>
+
+
+                                <p th:text="${items1.name}"></p>
+
+                                <img th:if="${items1.items1}" th:src="'/images/items/' + ${items1.items1}"
+                                     height="20px" width="20px">
+
+                                <img th:if="${items1.items2}" th:src="'/images/items/' + ${items1.items2}"
+                                        height="20px" width="20px">
+
+                                <img th:if="${items1.items3}" th:src="'/images/items/' + ${items1.items3}"
+                                     height="20px" width="20px"></td>
+
+                            <p th:text="${items1.fullText}"></p>
+                            <p th:text="${items1.dateTime}"></p>
+
+
+                        </div>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+        </main>
+    </div>
+</div>
+    <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+</div>
+
+</body>
+</html>

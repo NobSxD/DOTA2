@@ -2,13 +2,15 @@ package com.example.DOTA.models.image;
 
 import com.example.DOTA.models.Hero;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Data
-
+@Setter
+@Getter
 @Table(name = "imageHero")
 public class ImageHero {
     @Id
@@ -21,7 +23,7 @@ public class ImageHero {
     private String contentType;
     @Lob
     private byte[] bytes;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Hero hero;
 
 

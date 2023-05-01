@@ -16,10 +16,6 @@ import java.io.ByteArrayInputStream;
 @RequiredArgsConstructor
 public class imageController {
     private final HeroService imageRepositoryHero;
-    private final ClassHeroService classHeroService;
-
-    private final RasService rasHeroService;
-
     private final SkillService skillService;
     private final WeaponService weaponService;
     private final GuideService guideService;
@@ -35,15 +31,6 @@ public class imageController {
                 .body(new InputStreamResource(new ByteArrayInputStream(imageHero.getBytes())));
     }
 
-    @GetMapping("/images/class/{id}")
-    private ResponseEntity<?> getImageByIDClass(@PathVariable Long id){
-        ImageClassHero imageHero = classHeroService.classHero(id);
-        return ResponseEntity.ok()
-                .header("fileName", imageHero.getOriginalFileName())
-                .contentType(MediaType.valueOf(imageHero.getContentType()))
-                .contentLength(imageHero.getSize())
-                .body(new InputStreamResource(new ByteArrayInputStream(imageHero.getBytes())));
-    }
 
     @GetMapping("/images/skill/{id}")
     private ResponseEntity<?> getImageByIDSkill(@PathVariable Long id){
