@@ -1,9 +1,11 @@
 package com.example.DOTA.controller;
 
 import com.example.DOTA.models.Hero;
+import com.example.DOTA.repository.ViewsRepository;
 import com.example.DOTA.services.ClassHeroService;
 import com.example.DOTA.services.HeroService;
 import com.example.DOTA.services.RasService;
+import com.example.DOTA.services.ViewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +25,8 @@ public class HeroController {
     private final HeroService heroService;
     private final RasService rasService;
     private final ClassHeroService classHeroService;
-
+    private final ViewsService viewsService;
+    private final ViewsRepository viewsRepository;
 
 
     @GetMapping("/admin/add/hero")
@@ -134,6 +137,7 @@ public class HeroController {
 
     @GetMapping("/home/display/hero/{id}")
     private String heroDetailsHom(Model model, @PathVariable Long id) {
+        viewsService.viewsHero();
         model.addAttribute("detals",heroService.getHeroById(id));
 
         return "menu/button2/user/hero/heroDetals";

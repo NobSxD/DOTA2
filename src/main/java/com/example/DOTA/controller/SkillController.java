@@ -1,6 +1,7 @@
 package com.example.DOTA.controller;
 
 import com.example.DOTA.services.SkillService;
+import com.example.DOTA.services.ViewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class SkillController {
     private final SkillService skillService;
+    private final ViewsService viewsService;
 
 
     @GetMapping("/admin/add/skill")
@@ -75,6 +77,7 @@ public class SkillController {
 
     @GetMapping("/home/detals/skill/{id}")
     private String detalsSkillUser(@PathVariable(value = "id") Long id, Model model) {
+        viewsService.viewsSkill();
         model.addAttribute("id", skillService.skill(id));
         return "menu/button2/user/skill/skillDetals";
     }

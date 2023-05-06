@@ -2,6 +2,7 @@ package com.example.DOTA.controller;
 
 import com.example.DOTA.services.ClassHeroService;
 import com.example.DOTA.services.EnergisingService;
+import com.example.DOTA.services.ViewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ public class ClassHeroController {
     private final ClassHeroService classHeroService;
 
     private final EnergisingService energisingService;
+    private final ViewsService viewsService;
 
     @GetMapping("/admin/add/class")
     private String add(Model model){
@@ -70,6 +72,7 @@ public class ClassHeroController {
 
     @GetMapping("/home/display/class")
     private String displayUser(Model model){
+        viewsService.viewsClass();
         model.addAttribute("class" ,classHeroService.listClassHero());
         return "menu/button2/user/class/classDisplay";
     }

@@ -1,6 +1,7 @@
 package com.example.DOTA.controller;
 
 import com.example.DOTA.services.PathService;
+import com.example.DOTA.services.ViewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class PathController {
     private final PathService pathService;
+    private final ViewsService viewsService;
 
     @GetMapping("/admin/add/path")
     private String add(Model model){
@@ -54,6 +56,7 @@ public class PathController {
 
     @GetMapping("/home/display/path")
     private String displayHome(Model model){
+        viewsService.viewsPath();
         model.addAttribute("path" ,pathService.pathAll());
         return "menu/button4/user/path/pathDisplay";
     }

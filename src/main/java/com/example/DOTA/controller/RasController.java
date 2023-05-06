@@ -2,6 +2,7 @@ package com.example.DOTA.controller;
 
 import com.example.DOTA.services.EnergisingService;
 import com.example.DOTA.services.RasService;
+import com.example.DOTA.services.ViewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import java.io.IOException;
 public class RasController {
     private final RasService rasHeroService;
     private final EnergisingService energisingService;
+    private final ViewsService viewsService;
 
     @GetMapping("/admin/add/ras")
     private String add(Model model){
@@ -66,6 +68,7 @@ public class RasController {
 
     @GetMapping("/home/display/ras")
     private String displayUser(Model model){
+        viewsService.viewsRas();
         model.addAttribute("ras" ,rasHeroService.listRasHero());
         return "menu/button2/user/ras/rasDisplay";
     }

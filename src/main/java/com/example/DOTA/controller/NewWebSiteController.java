@@ -2,6 +2,7 @@ package com.example.DOTA.controller;
 
 import com.example.DOTA.services.NewWebSiteService;
 import com.example.DOTA.services.PathService;
+import com.example.DOTA.services.ViewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class NewWebSiteController {
     private final NewWebSiteService newWebSiteService;
+    private final ViewsService viewsService;
 
     @GetMapping("/admin/add/newWebSite")
     private String add(Model model){
@@ -54,6 +56,7 @@ public class NewWebSiteController {
     }
     @GetMapping("/home/display/newWebSite")
     private String displayHome(Model model){
+        viewsService.viewsNewWeb();
         model.addAttribute("path" , newWebSiteService.pathAll());
         return "menu/button4/user/newWebSite/newWebSiteDisplay";
     }

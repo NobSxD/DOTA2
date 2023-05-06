@@ -1,6 +1,7 @@
 package com.example.DOTA.controller;
 
 import com.example.DOTA.services.EnergisingService;
+import com.example.DOTA.services.ViewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class EnergisingController {
     private final EnergisingService energisingService;
+    private final ViewsService viewsService;
 
     @GetMapping("/admin/add/energising")
     private String energisingAdd() {
@@ -62,6 +64,7 @@ public class EnergisingController {
 
     @GetMapping("/home/display/energising")
     private String displayHome(Model model){
+        viewsService.viewsEnergising();
         model.addAttribute("energising" ,energisingService.allEnergising());
         return "menu/button5/user/energising/energisingDisplay";
     }

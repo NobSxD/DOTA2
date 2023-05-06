@@ -1,7 +1,7 @@
 package com.example.DOTA.controller;
 
-import com.example.DOTA.models.Hero;
 import com.example.DOTA.models.Weapon;
+import com.example.DOTA.services.ViewsService;
 import com.example.DOTA.services.WeaponService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -20,6 +20,7 @@ import java.util.List;
 public class WeaponController {
 
     private final WeaponService weaponService;
+    private final ViewsService viewsService;
     @GetMapping("/admin/add/items")
     private String items(Model model){
         model.addAttribute("items", weaponService.weaponAll());
@@ -137,6 +138,8 @@ public class WeaponController {
     @GetMapping("/home/detals/items/{id}")
     private String detalsSkillHome(@PathVariable(value = "id") Long id, Model model) {
         model.addAttribute("items", weaponService.weaponID(id));
+        
+        viewsService.viewsItems();
         return "menu/button2/user/items/itemsDetals";
     }
 }

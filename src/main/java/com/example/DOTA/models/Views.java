@@ -18,4 +18,5 @@ public class Views {
     private Long id;
     private String name;
     private int views;
+    private String url;
 }
