@@ -22,5 +22,7 @@ public class ImageEnergising {
     private String contentType;
     @Lob
     private byte[] bytes;
+    
+
 
 }

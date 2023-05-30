@@ -9,7 +9,7 @@
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
 
-<div class="container-fluid" id="t">
+<div class="container-fluid centr-1400px fon-1400px" id="t">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
          th:insert="blocks/menuRightAdmin ::div"></nav>
@@ -28,15 +28,16 @@
 
             <tbody>
             <tr th:each="ability : ${path}">
-
-
-
-              <td>
-                <t th:text="${ability.name}"></t>
+              <td th:if="${ability}">
+                <div class="h2" th:text="${ability.name}"></div>
+                <div>
+                  <img th:src="'/images/hero/' + ${ability.id}" width="600px" height="600px">
+                </div>
+                <a class="nav-link px-2 text-yellow" th:href="'/admin/detals/path/ + ${ability.id}">Подробней о патче</a>
               </td>
-              <td>
-                <t th:text="${ability.full_text}"></t>
-              </td>
+
+
+
               <td><a th:href="'/admin/delete/path/' + ${ability.id}">Удалить</a><br>
                 <a th:href="'/admin/edit/path/' + ${ability.id}">Изменит</a></td>
 
@@ -51,7 +52,7 @@
       </div>
     </main>
   </div>
-  <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+  <footer th:insert="blocks/headerFooter/footer :: div"></footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>

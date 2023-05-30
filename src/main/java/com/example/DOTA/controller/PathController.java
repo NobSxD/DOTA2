@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
@@ -26,8 +27,9 @@ public class PathController {
     @PostMapping("/admin/add/path")
     private String save(Model model,
                         @RequestParam String name,
-                        @RequestParam String full_text) throws IOException {
-        pathService.savePath(name, full_text);
+                        @RequestParam String full_text,
+                        @RequestParam("fon") MultipartFile file) throws IOException {
+        pathService.savePath(name, full_text, file);
         return "redirect:/admin/add/path";
     }
 
@@ -49,8 +51,8 @@ public class PathController {
         return "menu/button4/admin/path/pathEdit";
     }
     @PostMapping("/admin/edit/path/{id}")
-    private String update(@PathVariable(value = "id")Long id, @RequestParam String name, @RequestParam String full_text) throws IOException {
-        pathService.editPath(id,name, full_text);
+    private String update(@PathVariable(value = "id")Long id, @RequestParam String name, @RequestParam String full_text,  @RequestParam("fon") MultipartFile file) throws IOException {
+        pathService.editPath(id,name, full_text, file);
         return "redirect:/admin/display/path";
     }
 

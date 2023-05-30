@@ -3,60 +3,212 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Главня</title>
+    <title>Предметы</title>
 </head>
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
-<div class="border border-dark">
-<div class="container-fluid" id="t">
-    <div class="row">
+<div class="centr-1400px fon-1400px">
+
+        <div class="row">
+            <div id="pading" th:if="${detals}">
+
+                <div class="grid">
+
+                    <div class="inline-600px">
+
+                        <h2>Подробней о предмете:</h2>
+                        <hr>
+
+                        <div>
+                            <div>
+                                <li class="list-inline-item"><img th:if="${detals.icon}"
+                                                                  th:src="'/images/items/' + ${detals.icon.id}"
+                                                                  height="40px" width="50px"></li>
+                                <t class="h2" th:text="${detals.name}"></t>
+                            </div>
+                            <br>
+                            <hr>
+                            <div>
+                                <li class="list-inline-item" th:if="${detals.weapons1}"><img
+                                        th:if="${detals.weapons1.icon}"
+                                        th:src="'/images/items/' + ${detals.weapons1.icon.id}"
+                                        height="30px" width="30px"> <a
+                                        th:href="'/home/detals/items/' +${detals.weapons1.id}"
+                                        class="nav-link px-2 text-yellow">
+                                    <t
+                                            th:text="${detals.weapons1.name}"></t>
+                                </a></li>
+                                <li class="list-inline-item" th:if="${detals.weapons2}"><img
+                                        th:if="${detals.weapons2.icon}"
+                                        th:src="'/images/items/' + ${detals.weapons2.icon.id}"
+                                        height="30px" width="30px"> <a
+                                        th:href="'/home/detals/items/' +${detals.weapons2.id}"
+                                        class="nav-link px-2 text-yellow">
+                                    <t
+                                            th:text="${detals.weapons2.name}"></t>
+                                </a></li>
+                                <li class="list-inline-item" th:if="${detals.weapons3}"><img
+                                        th:if="${detals.weapons3.icon}"
+                                        th:src="'/images/items/' + ${detals.weapons3.icon.id}"
+                                        height="30px" width="30px"> <a
+                                        th:href="'/home/detals/items/' +${detals.weapons3.id}"
+                                        class="nav-link px-2 text-yellow">
+                                    <t
+                                            th:text="${detals.weapons3.name}"></t>
+                                </a></li>
+                            </div>
+                            <hr>
+                            <p>
+                                <t class="padding-text" th:if="${detals.passiveSkill}"
+                                   th:text="${detals.passiveSkill}"></t>
+                            </p>
+
+                            <p>
+                                <t class="padding-text blue">Активная способность:</t>
+                                <t class="padding-text" th:if="${detals.activeSkill}"
+                                   th:text="${detals.activeSkill}"></t>
+                            </p>
 
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                            <p>
+                                <t class="padding-text" th:if="${detals.rangeAttack}"
+                                   th:text="${detals.rangeAttack}"></t>
+                            </p>
 
 
-                <div class="inline-block-table">
+                            <p th:if="${detals.kd}">
+                                <img th:src="@{/image/Background.png}" height="20px" width="20px">
+                                <t class="padding-text" th:text="${detals.kd}"></t>
+                            </p>
 
-                    <h2>Подробней о предмете</h2>
-
-                        <div th:each="items1 : ${items}">
-
-
-                            <div><img th:src="'/images/items/' + ${items1.icon.id}"></div>
+                        </div>
+                    </div>
 
 
-                                <p th:text="${items1.name}"></p>
+                </div>
+                <div class="grid" th:if="${detals.weapons1}">
+                    <div class="inline-px">
+                        <div >
+                            <div>
+                                <li class="list-inline-item"><img th:if="${detals.weapons1.icon}"
+                                                                  th:src="'/images/items/' + ${detals.weapons1.icon.id}"
+                                                                  height="40px" width="50px"></li>
+                                <t class="h2" th:text="${detals.weapons1.name}"></t>
+                            </div>
+                            <br>
+                            <hr>
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons1.passiveSkill}"
+                                   th:text="${detals.weapons1.passiveSkill}"></t>
+                            </p>
 
-                                <img th:if="${items1.items1}" th:src="'/images/items/' + ${items1.items1}"
-                                     height="20px" width="20px">
+                            <p>
+                                <t class="padding-text blue">Активная способность:</t>
+                                <t class="padding-text" th:if="${detals.weapons1.activeSkill}"
+                                   th:text="${detals.weapons1.activeSkill}"></t>
+                            </p>
 
-                                <img th:if="${items1.items2}" th:src="'/images/items/' + ${items1.items2}"
-                                        height="20px" width="20px">
 
-                                <img th:if="${items1.items3}" th:src="'/images/items/' + ${items1.items3}"
-                                     height="20px" width="20px"></td>
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons1.rangeAttack}"
+                                   th:text="${detals.weapons1.rangeAttack}"></t>
+                            </p>
 
-                            <p th:text="${items1.fullText}"></p>
-                            <p th:text="${items1.dateTime}"></p>
 
+                            <p th:if="${detals.weapons1.kd}">
+                                <img th:src="@{/image/Background.png}" height="20px" width="20px">
+                                <t class="padding-text" th:text="${detals.weapons1.kd}"></t>
+                            </p>
 
                         </div>
 
+                    </div>
 
-                        </tbody>
-                    </table>
+
+                    <div class="inline-px" th:if="${detals.weapons2}">
+                        <div >
+                            <div>
+                                <li class="list-inline-item"><img th:if="${detals.weapons2.icon}"
+                                                                  th:src="'/images/items/' + ${detals.weapons2.icon.id}"
+                                                                  height="40px" width="50px"></li>
+                                <t class="h2" th:text="${detals.weapons2.name}"></t>
+                            </div>
+                            <br>
+                            <hr>
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons2.passiveSkill}"
+                                   th:text="${detals.weapons2.passiveSkill}"></t>
+                            </p>
+
+                            <p>
+                                <t class="padding-text blue">Активная способность:</t>
+                                <t class="padding-text" th:if="${detals.weapons2.activeSkill}"
+                                   th:text="${detals.weapons2.activeSkill}"></t>
+                            </p>
+
+
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons2.rangeAttack}"
+                                   th:text="${detals.weapons2.rangeAttack}"></t>
+                            </p>
+
+
+                            <p th:if="${detals.weapons2.kd}">
+                                <img th:src="@{/image/Background.png}" height="20px" width="20px">
+                                <t class="padding-text" th:text="${detals.weapons2.kd}"></t>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div th:if="${detals.weapons3}" class="inline-px">
+                        <div>
+                            <div>
+                                <li class="list-inline-item"><img th:if="${detals.weapons3.icon}"
+                                                                  th:src="'/images/items/' + ${detals.weapons3.icon.id}"
+                                                                  height="40px" width="50px"></li>
+                                <t class="h2" th:text="${detals.weapons3.name}"></t>
+                            </div>
+                            <br>
+                            <hr>
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons3.passiveSkill}"
+                                   th:text="${detals.weapons3.passiveSkill}"></t>
+                            </p>
+
+                            <p>
+                                <t class="padding-text blue">Активная способность:</t>
+                                <t class="padding-text" th:if="${detals.weapons3.activeSkill}"
+                                   th:text="${detals.weapons3.activeSkill}"></t>
+                            </p>
+
+
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons3.rangeAttack}"
+                                   th:text="${detals.weapons3.rangeAttack}"></t>
+                            </p>
+
+
+                            <p th:if="${detals.weapons3.kd}">
+                                <img th:src="@{/image/Background.png}" height="20px" width="20px">
+                                <t class="padding-text" th:text="${detals.weapons3.kd}"></t>
+                            </p>
+
+                        </div>
+
+                    </div>
                 </div>
-
-        </main>
+            </div>
     </div>
 </div>
-    <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+    <footer th:insert="blocks/headerFooter/footer :: div"></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 
-</div>
 
 </body>
 </html>

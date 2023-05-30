@@ -1,0 +1,143 @@
+
+.list-inline-item1{
+    background-color: rgba(44, 44, 44, 1);
+    margin-top: 2px;
+    margin-right: 0;
+    width: 270px;
+}
+.tb-padding{
+    padding: 0;
+}
+#wh{
+    width: 350px;
+    height: 48px;
+}
+#wite{
+    color: white;
+    display:inline-block;
+    float: right;
+    padding: 8px;
+}
+.container-fluid1{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.padding-text{
+    padding-right: 8px;
+}
+.inline-600px{
+    width: 600px;
+    background-color: rgba(103, 118, 124, 1);
+    color: white;
+    padding: 12px;
+    border-radius:0.5cm;
+    border: solid #030303;
+    border-width:4px;
+}
+
+.inline-px{
+    max-width: 782px;
+    background-color: rgba(103, 118, 124, 1);
+    color: white;
+    padding: 12px;
+    border-radius:0.5cm;
+    border: solid #030303;
+    border-width:4px;
+    margin-bottom: 8px;
+}
+.padding-text.blue{
+    color: #1a1a72;
+}
+.padding-text.green{
+    color: #92ef92;
+}
+.mpK{
+    background-color: aqua;
+    border-radius: 40%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.mpK-pading{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-right: 4px;
+}
+.padding-text.sidebar{
+    color: #c1aeae;
+}
+.list-inline-item.bk{
+    background-color: rgba(44, 44, 44, 1);
+    margin-top: 2px;
+    margin-right: 0;
+}
+.grid{
+    display: inline-grid;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* remove the gap so it doesn't close */
+}
+.display-flex{
+    display: inline-grid;
+    background-color:rgb(41, 61, 87);
+}
+.btn-dark{
+    background-color:rgb(41, 61, 87);
+    border: none;
+}
+.color{
+    background-color: rgb(27, 43, 64);
+    display: inline-grid;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.pd300{
+    padding-left: 300px;
+}
+.dropdown-item{
+    color: aliceblue ;
+}
+.dropdown-menu{
+    background-color:rgb(60, 79, 104) ;
+}
+.rig{
+    padding: 4px;
+    width: 162px;
+    background-color: rgb(41, 61, 87);
+}
+.centr-1400px{
+    max-width: 1400px;
+    margin:0 auto;
+}
+.fon-1400px{
+    border: none;
+    background-color:#d9d9d9;
+    padding: 6px;
+}
+
+.tir1{
+    color:#788595;
+}
+.tir2{
+    color:#5f99d9;
+}
+.tir3{
+    color:#788595;
+}
+.tir4{
+    color:#d32de6;
+}
+.tir5{
+    color:#e4af3a;
+}
+.px-274{
+    width: 274px;
+}
+.px-1400{
+    width: 1400px;
+}
+.px-600{
+    width: 600px;
+}

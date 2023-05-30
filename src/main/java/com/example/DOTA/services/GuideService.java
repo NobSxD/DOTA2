@@ -216,7 +216,7 @@ public class GuideService {
                           MultipartFile file6,
                           MultipartFile file7,
                           MultipartFile file8) throws IOException {
-        Guide guide = new Guide();
+        Guide guide = guideById(id);
         guide.setId(id);
         guide.setName(name);
         guide.setEnergising(energising);

@@ -12,7 +12,7 @@ public class playController {
     @GetMapping("/home/display/whatgame")
     public String play(){
         viewsService.viewsPlay();
-        return "/menu/button3/user/play";
+        return "menu/button3/user/play";
     }
 
 }

@@ -7,50 +7,55 @@
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
               crossorigin="anonymous">
     <title>Главня</title>
+    <link rel="shortcut icon" th:href="@{/image/logo.png}" />
 </head>
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
-<div>
-            <div id="blokc">
+<div class="centr-1400px fon-1400px px-1400">
+    <div class="grid">
 
-                    <div id="pading">
-                        <article class="featured-article">	
-                            <ul  class="nav justify-content-center">
-                                <span class="badge rounded-pill bg-secondary"><a class="link-dark" href="/home/"><h3>Dota&nbsp;2 Auto Chess</h3></a></span>
-
-                            </ul>		
-
-                        
-                
-                            <ul  class="nav justify-content-center">
-                                <span class="badge rounded-pill bg-secondary"><a class="link-dark" href="/home/display/hero"><h3><i class="fa-solid fa-chess-pawn"></i><t class="t1">Герои<sup class="featured-article__tag__count" th:text="${sumHero}"></sup></t></h3></a></span>
-                                <span class="badge rounded-pill bg-secondary"><a class="link-dark" href="/home/display/items"><h3><t class="t1">Предметы<sup class="featured-article__tag__count" th:text="${sumItems}"></sup></t></h3></a></span>
-                            </ul>
-                            <ul  class="nav justify-content-center">
-                                <span class="badge rounded-pill bg-secondary"><a class="link-dark" href="/home/display/ras"><h3><t class="t1">Расы<sup class="featured-article__tag__count" th:text="${sumRas}"></sup></t></h3></a></span>
-                                <span class="badge rounded-pill bg-secondary"><a class="link-dark" href="/home/display/skill"><h3>Абилки<sup class="featured-article__tag__count" th:text="${sumSkill}"></sup></h3></a></span>
-                            </ul>
-                            <ul  class="nav justify-content-center">
-                                <span class="badge rounded-pill bg-secondary"><a class="link-dark" href="/home/display/class"><h3><t class="t1">Классы<sup class="featured-article__tag__count" th:text="${sumClass}"></sup></t></h3></a></span>
-                                <span class="badge rounded-pill bg-secondary"><a class="link-dark" href="/home/display/guide"><h3><t class="t1">Гайды<sup class="featured-article__tag__count" th:text="${guide}"></sup></t></h3></a></span>
-                            </ul>
-                            <ul  class="nav justify-content-center">
-                                <span class="badge rounded-pill bg-secondary"><a class="link-dark" href="/home/display/path"><h3><t class="t1">Патчи</t></h3></a></span>
-                                <span class="badge rounded-pill bg-secondary"><a class="link-dark" href="/home/display/whatgame"><h3><t class="t1">Механика игры</t></h3></a></span>
-                            </ul>
-
-                
-                        </article>
-                    </div>
-            
+    </div>
+    <div class="grid">
+        <div class="border border-dark" id="pading">
+  
+          <div class="inline-block-table">
+            <table class="table table-borderless">
+              <thead>
+              <tr>
+                <th colspan="4">Патч
+                </th>
+              </tr>
+              </thead>
+  
+              <tbody>
+              <tr th:each="ability : ${path}">
+                <td th:if="${ability}">
+                  <div class="h2" th:text="${ability.name}"></div>
+                  <div>
+                    <img th:src="'/images/hero/' + ${ability.id}" width="600px" height="600px">
+                  </div>
+                  <a class="nav-link px-2 text-yellow" th:href="'/home/detals/path/ + ${ability.id}">Подробней о патче</a>
+                </td>
+  
+  
+              </tr>
+  
+  
+              </tbody>
+            </table>
+          </div>
+  
+  
         </div>
+    </div>
+           
 
         
         
     
 </div>
-<footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+<footer th:insert="blocks/headerFooter/footer :: div"></footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>

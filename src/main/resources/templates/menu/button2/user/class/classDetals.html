@@ -8,30 +8,43 @@
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
-<div class="border border-dark">
-<div class="container-fluid" id="t">
-  <div class="row">
-
-        <div class="inline-block-table">
-          <div th:each="classHero : ${id}">
-
-          <br>
-            <t>Иконка -</t>
-            <img th:if="${classHero.energising.energisingImage}"
-                 th:src="'/images/energising/' + ${classHero.energising.energisingImage.id}">
-            <t th:text="${classHero.name}"></t>
-            <p if:th="${classHero.energising}" th:text="'имя синергии: ' +${classHero.energising.name}"></p>
-            <p if:th="${classHero.energising}" th:text="'подробней о синергии: ' +${classHero.energising.full_text}"></p>
-
-          </div>
-        </div>
+<div  class="centr-1400px fon-1400px px-1400">
 
 
-      </div>
-    </main>
-  </div>
-</div>
-  <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+
+
+
+              <div class="grid" th:each="detals : ${id}">
+
+
+                  <div class="inline-px">
+                      <div th:if="${detals}">
+                          <div>
+                              <div>
+                                  <img th:if="${detals.energising.energisingImage}" th:src="'/images/energising/' + ${detals.energising.energisingImage.get(0).id}">
+                                  <t th:text="${detals.energising.name}"></t>
+
+                              </div>
+                              <hr>
+                              <div>
+                                  <p th:text="${detals.energising.tip}"></p>
+                                  <p th:text="${detals.energising.ItWorks}"></p>
+                                  <p th:text="${detals.energising.buff}"></p>
+                                  <p th:text="${detals.energising.descriptionKlass}"></p>
+                                  <p th:text="${detals.energising.descriptionBuff}"></p>
+                                  <p th:text="${detals.energising.buffOne}"></p>
+                                  <p th:text="${detals.energising.buffTwo}"></p>
+                                  <p th:text="${detals.energising.buffThere}"></p>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+
+
+
+  <footer th:insert="blocks/headerFooter/footer :: div"></footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>

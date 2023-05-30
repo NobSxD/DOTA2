@@ -13,249 +13,255 @@
     <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
              th:insert="blocks/menuRightAdmin ::div"></nav>
-
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="border border-dark" id="pading">
 
-
-                    <tb>
-
-
-                        <div class="inline-block-table" display="flex">
-
-                            <table class="table table-borderless" style="width:19%;table-layout:fixed">
-                                <thead>
-                                <tr>
-                                    <th colspan="5" style="width:19%">1$Предметы
-                                    </th>
-                                </tr>
-                                </thead>
-
-                                <tbody th:each="items1 : ${displayItemsTir1}">
-
-
-                                <tr>
-                                    <td><img th:src="'/images/items/' + ${items1.icon.id}">
-                                        <a th:href="'/admin/edit/items/' +${items1.id}">
-                                            Изменить</a></td>
-
-                                    <td><a th:href="'/admin/detals/items/' +${items1.id}" class="link-secondary">
-                                        <t th:text="${items1.name}"></t>
-                                    </a><a th:href="'/admin/delete/items/' + ${items1.id}">Удалить</a></td>
-
-                                    <th><img th:if="${items1.items1}" th:src="'/images/items/' + ${items1.items1}"
-                                             height="20px" width="20px"></th>
-
-                                    <th><img th:if="${items1.items2}"
-                                             th:src="'/images/items/' + ${items1.items2}" height="20px" width="20px">
-
-                                    </th>
-                                    <th><img th:if="${items1.items3}"
-                                             th:src="'/images/items/' + ${items1.items3}"  height="20px"  width="20px">
-
-                                    </th>
-                                </tr>
-
-                                </tbody>
-
-                            </table>
-
-
-                        </div>
-                    </tb>
-                    <tb>
-
-
-                        <div class="inline-block-table" display="flex">
-
-                            <table class="table table-borderless" style="width:19%;table-layout:fixed">
-                                <thead>
-                                <tr>
-                                    <th colspan="5" style="width:19%">2$Предметы
-                                    </th>
-                                </tr>
-                                </thead>
-
-                                <tbody th:each="items1 : ${displayItemsTir2}">
-
-
-                                <tr>
-                                    <td><img th:src="'/images/items/' + ${items1.id}">
-                                        <a th:href="'/admin/edit/items/' +${items1.id}">
-                                            Изменить</a></td>
-
-                                    <td><a th:href="'/admin/detals/items/' +${items1.id}" class="link-secondary">
-                                        <t th:text="${items1.name}"></t>
-                                    </a><a th:href="'/admin/delete/items/' + ${items1.id}">Удалить</a></td>
-
-                                    <th><img th:if="${items1.items1}" th:src="'/images/items/' + ${items1.items1}"
-                                             height="20px" width="20px"></th>
-
-                                    <th><img th:if="${items1.items2}"
-                                             th:src="'/images/items/' + ${items1.items2}" height="20px" width="20px">
-
-                                    </th>
-                                    <th><img th:if="${items1.items3}"
-                                             th:src="'/images/items/' + ${items1.items3}"  height="20px"  width="20px">
-
-                                    </th>
-                                </tr>
-
-                                </tbody>
-
-                            </table>
-
-
-                        </div>
-                    </tb>
-
-                    <tb>
-
-
-                        <div class="inline-block-table" display="flex">
-
-                            <table class="table table-borderless" style="width:19%;table-layout:fixed">
-                                <thead>
-                                <tr>
-                                    <th colspan="5" style="width:19%">3$Предметы
-                                    </th>
-                                </tr>
-                                </thead>
-
-                                <tbody th:each="items1 : ${displayItemsTir3}">
-
-
-                                <tr>
-                                    <td><img th:src="'/images/items/' + ${items1.id}">
-                                        <a th:href="'/admin/edit/items/' +${items1.id}">
-                                            Изменить</a></td>
-
-                                    <td><a th:href="'/admin/detals/items/' +${items1.id}" class="link-secondary">
-                                        <t th:text="${items1.name}"></t>
-                                    </a><a th:href="'/admin/delete/items/' + ${items1.id}">Удалить</a></td>
-
-                                    <th><img th:if="${items1.items1}" th:src="'/images/items/' + ${items1.items1}"
-                                             height="20px" width="20px"></th>
-
-                                    <th><img th:if="${items1.items2}"
-                                             th:src="'/images/items/' + ${items1.items2}" height="20px" width="20px">
-
-                                    </th>
-                                    <th><img th:if="${items1.items3}"
-                                             th:src="'/images/items/' + ${items1.items3}"  height="20px"  width="20px">
-
-                                    </th>
-                                </tr>
-
-                                </tbody>
-
-                            </table>
-
-
-                        </div>
-                    </tb>
-
-                    <tb>
-
-
-                        <div class="inline-block-table" display="flex">
-
-                            <table class="table table-borderless" style="width:19%;table-layout:fixed">
-                                <thead>
-                                <tr>
-                                    <th colspan="5" style="width:19%">4$Предметы
-                                    </th>
-                                </tr>
-                                </thead>
-
-                                <tbody th:each="items1 : ${displayItemsTir4}">
-
-
-                                <tr>
-                                    <td><img th:src="'/images/items/name/' + ${items1.name}">
-                                        <a th:href="'/admin/edit/items/' +${items1.id}">
-                                            Изменить</a></td>
-
-                                    <td><a th:href="'/admin/detals/items/' +${items1.id}" class="link-secondary">
-                                        <t th:text="${items1.name}"></t>
-                                    </a><a th:href="'/admin/delete/items/' + ${items1.id}">Удалить</a></td>
-
-                                    <th><img th:if="${items1.items1}" th:src="'/images/items/' + ${items1.items1}"
-                                             height="20px" width="20px"></th>
-
-                                    <th><img th:if="${items1.items2}"
-                                             th:src="'/images/items/' + ${items1.items2}" height="20px" width="20px">
-
-                                    </th>
-                                    <th><img th:if="${items1.items3}"
-                                             th:src="'/images/items/' + ${items1.items3}"  height="20px"  width="20px">
-
-                                    </th>
-                                </tr>
-
-                                </tbody>
-
-                            </table>
-
-
-                        </div>
-                    </tb>
-
-                    <tb>
-
-
-                        <div class="inline-block-table" display="flex">
-
-                            <table class="table table-borderless" style="width:19%;table-layout:fixed">
-                                <thead>
-                                <tr>
-                                    <th colspan="5" style="width:19%">5$Предметы
-                                    </th>
-                                </tr>
-                                </thead>
-
-                                <tbody th:each="items1 : ${displayItemsTir5}">
-
-
-                                <tr>
-                                    <td><img th:src="'/images/items/' + ${items1.id}">
-                                        <a th:href="'/admin/edit/items/' +${items1.id}">
-                                            Изменить</a></td>
-
-                                    <td><a th:href="'/admin/detals/items/' +${items1.id}" class="link-secondary">
-                                        <t th:text="${items1.name}"></t>
-                                    </a><a th:href="'/admin/delete/items/' + ${items1.id}">Удалить</a></td>
-
-                                    <th><img th:if="${items1.items1}" th:src="'/images/items/' + ${items1.items1}"
-                                             height="20px" width="20px"></th>
-
-                                    <th><img th:if="${items1.items2}"
-                                             th:src="'/images/items/' + ${items1.items2}" height="20px" width="20px">
-
-                                    </th>
-                                    <th><img th:if="${items1.items3}"
-                                             th:src="'/images/items/' + ${items1.items3}"  height="20px"  width="20px">
-
-                                    </th>
-                                </tr>
-
-                                </tbody>
-
-                            </table>
-
-
-                        </div>
-                    </tb>
-
-
-
-
+        <div class="centr-1400px fon-1400px">
+
+
+            <div class="inline-block-table" display="flex">
+
+                <table class="table table-borderless">
+                    <thead>
+                    <tr>
+                        <th>1$ Предмет
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <tr>
+                        <td class="tb-padding">
+                            <div th:each="items : ${displayItemsTir1}" class="list-inline-item1">
+                                <li class="list-inline-item bk"><img th:if="${items.icon}"
+                                                                     th:src="'/images/items/' + ${items.icon.id}"
+                                                                     height="40px" width="50px"></li>
+                                <li class="list-inline-item bk"><a th:href="'/admin/detals/items/' +${items.id}"
+                                                                   class="nav-link px-2 text-yellow">
+                                    <t th:text="${items.name}"></t>
+                                </a></li>
+                                <li th:if="${items.weapons1}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons1.icon}"
+                                        th:src="'/images/items/' + ${items.weapons1.icon.id}"
+                                        height="30px" width="30px"></li>
+                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons2.icon}"
+                                        th:src="'/images/items/' + ${items.weapons2.icon.id}"
+                                        height="30px" width="30px"></li>
+                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons3.icon}"
+                                        th:src="'/images/items/' + ${items.weapons3.icon.id}"
+                                        height="30px" width="30px"></li>
+
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
+
+            <div class="inline-block-table" display="flex">
+
+                <table class="table table-borderless">
+                    <thead>
+                    <tr>
+                        <th>2$ Предмет
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <tr>
+                        <td class="tb-padding">
+                            <div th:each="items : ${displayItemsTir2}" class="list-inline-item1">
+                                <li class="list-inline-item bk"><img th:if="${items.icon}"
+                                                                     th:src="'/images/items/' + ${items.icon.id}"
+                                                                     height="40px" width="50px"></li>
+                                <li class="list-inline-item bk"><a th:href="'/admin/detals/items/' +${items.id}"
+                                                                   class="nav-link px-2 text-yellow">
+                                    <t th:text="${items.name}"></t>
+                                </a></li>
+                                <li th:if="${items.weapons1}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons1.icon}"
+                                        th:src="'/images/items/' + ${items.weapons1.icon.id}"
+                                        height="30px" width="30px"></li>
+                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons2.icon}"
+                                        th:src="'/images/items/' + ${items.weapons2.icon.id}"
+                                        height="30px" width="30px"></li>
+                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons3.icon}"
+                                        th:src="'/images/items/' + ${items.weapons3.icon.id}"
+                                        height="30px" width="30px"></li>
+
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
+
+
+            <div class="inline-block-table" display="flex">
+
+                <table class="table table-borderless">
+                    <thead>
+                    <tr>
+                        <th>3$ Предмет
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <tr>
+                        <td class="tb-padding">
+                            <div th:each="items : ${displayItemsTir3}" class="list-inline-item1">
+                                <li class="list-inline-item bk"><img th:if="${items.icon}"
+                                                                     th:src="'/images/items/' + ${items.icon.id}"
+                                                                     height="40px" width="50px"></li>
+                                <li class="list-inline-item bk"><a th:href="'/admin/detals/items/' +${items.id}"
+                                                                   class="nav-link px-2 text-yellow">
+                                    <t th:text="${items.name}"></t>
+                                </a></li>
+                                <li th:if="${items.weapons1}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons1.icon}"
+                                        th:src="'/images/items/' + ${items.weapons1.icon.id}"
+                                        height="30px" width="30px"></li>
+                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons2.icon}"
+                                        th:src="'/images/items/' + ${items.weapons2.icon.id}"
+                                        height="30px" width="30px"></li>
+                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons3.icon}"
+                                        th:src="'/images/items/' + ${items.weapons3.icon.id}"
+                                        height="30px" width="30px"></li>
+
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
+
+
+            <div class="inline-block-table" display="flex">
+
+                <table class="table table-borderless">
+                    <thead>
+                    <tr>
+                        <th>4$ Предмет
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <tr>
+                        <td class="tb-padding">
+                            <div th:each="items : ${displayItemsTir4}" class="list-inline-item1">
+                                <li class="list-inline-item bk"><img th:if="${items.icon}"
+                                                                     th:src="'/images/items/' + ${items.icon.id}"
+                                                                     height="40px" width="50px"></li>
+                                <li class="list-inline-item bk"><a th:href="'/admin/detals/items/' +${items.id}"
+                                                                   class="nav-link px-2 text-yellow">
+                                    <t th:text="${items.name}"></t>
+                                </a></li>
+                                <li th:if="${items.weapons1}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons1.icon}"
+                                        th:src="'/images/items/' + ${items.weapons1.icon.id}"
+                                        height="30px" width="30px"></li>
+                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons2.icon}"
+                                        th:src="'/images/items/' + ${items.weapons2.icon.id}"
+                                        height="30px" width="30px"></li>
+                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons3.icon}"
+                                        th:src="'/images/items/' + ${items.weapons3.icon.id}"
+                                        height="30px" width="30px"></li>
+
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
+
+
+            <div class="inline-block-table" display="flex">
+
+                <table class="table table-borderless">
+                    <thead>
+                    <tr>
+                        <th>5$ Предмет
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <tr>
+                        <td class="tb-padding">
+                            <div th:each="items : ${displayItemsTir5}" class="list-inline-item1">
+                                <li class="list-inline-item bk"><img th:if="${items.icon}"
+                                                                     th:src="'/images/items/' + ${items.icon.id}"
+                                                                     height="40px" width="50px"></li>
+                                <li class="list-inline-item bk"><a th:href="'/admin/detals/items/' +${items.id}"
+                                                                   class="nav-link px-2 text-yellow">
+                                    <t th:text="${items.name}"></t>
+                                </a></li>
+                                <li th:if="${items.weapons1}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons1.icon}"
+                                        th:src="'/images/items/' + ${items.weapons1.icon.id}"
+                                        height="30px" width="30px"></li>
+                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons2.icon}"
+                                        th:src="'/images/items/' + ${items.weapons2.icon.id}"
+                                        height="30px" width="30px"></li>
+                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
+                                        th:if="${items.weapons3.icon}"
+                                        th:src="'/images/items/' + ${items.weapons3.icon.id}"
+                                        height="30px" width="30px"></li>
+
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
 
 
             </table>
-            </div>
+
+        </div>
         </main>
-        <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+        <footer th:insert="blocks/headerFooter/footer :: div"></footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
                 crossorigin="anonymous"></script>

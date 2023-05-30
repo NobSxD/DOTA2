@@ -15,58 +15,213 @@
              th:insert="blocks/menuRightAdmin ::div"></nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="border border-dark" id="pading">
-
-                <div class="inline-block-table">
-                    <table class="table table-borderless">
-                        <thead>
-                        <tr>
-                            <th colspan="6">Подробней о предмете
-                            </th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr th:each="items1 : ${items}">
+            <div class="centr-1400px fon-1400px">
 
 
-                            <td><img th:src="'/images/items/' + ${items1.icon.id}"></td>
+                <div class="grid" th:if="${detals}">
 
-                            <td>
-                                <t th:text="${items1.name}"></t>
-                            </td>
+                    <div class="inline-600px">
 
-                            <td>
-                                <img th:if="${items1.items1}" th:src="'/images/items/' + ${items1.items1}"
-                                     height="20px" width="20px">
+                        <h2>Подробней о предмете:</h2>
+                        <hr>
+
+                        <div >
+                            <div>
+                                <li class="list-inline-item"><img th:if="${detals.icon}"
+                                                                  th:src="'/images/items/' + ${detals.icon.id}"
+                                                                  height="40px" width="50px"></li>
+                                <t class="h2" th:text="${detals.name}"></t>
+                            </div>
+                            <br>
+                            <hr>
+                            <div>
+                                <li class="list-inline-item" th:if="${detals.weapons1}"><img
+                                        th:if="${detals.weapons2.icon}"
+                                        th:src="'/images/items/' + ${detals.weapons1.icon.id}"
+                                        height="30px" width="30px"> <a
+                                        th:href="'/admin/detals/items/' +${detals.weapons1.id}"
+                                        class="nav-link px-2 text-yellow">
+                                    <t
+                                            th:text="${detals.weapons1.name}"></t>
+                                </a></li>
+                                <li class="list-inline-item" th:if="${detals.weapons2}"><img
+                                        th:if="${detals.weapons2.icon}"
+                                        th:src="'/images/items/' + ${detals.weapons2.icon.id}"
+                                        height="30px" width="30px"> <a
+                                        th:href="'/home/detals/items/' +${detals.weapons2.id}"
+                                        class="nav-link px-2 text-yellow">
+                                    <t
+                                            th:text="${detals.weapons2.name}"></t>
+                                </a></li>
+                                <li class="list-inline-item" th:if="${detals.weapons3}"><img
+                                        th:if="${detals.weapons2.icon}"
+                                        th:src="'/images/items/' + ${detals.weapons3.icon.id}"
+                                        height="30px" width="30px"> <a
+                                        th:href="'/admin/detals/items/' +${detals.weapons3.id}"
+                                        class="nav-link px-2 text-yellow">
+                                    <t
+                                            th:text="${detals.weapons3.name}"></t>
+                                </a></li>
+                            </div>
+                            <hr>
+                            <p>
+                                <t class="padding-text" th:if="${detals.passiveSkill}"
+                                   th:text="${detals.passiveSkill}"></t>
+                            </p>
+
+                            <p>
+                                <t class="padding-text blue">Активная способность:</t>
+                                <t class="padding-text" th:if="${detals.activeSkill}"
+                                   th:text="${detals.activeSkill}"></t>
+                            </p>
 
 
-                                <img th:if="${items1.items2}" th:src="'/images/items/' + ${items1.items2}"
-                                        height="20px" width="20px">
+                            <p>
+                                <t class="padding-text" th:if="${detals.rangeAttack}"
+                                   th:text="${detals.rangeAttack}"></t>
+                            </p>
 
 
-                                <img th:if="${items1.items3}" th:src="'/images/items/' + ${items1.items3}"
-                                     height="20px" width="20px"></td>
+                            <p th:if="${detals.kd}">
+                                <img th:src="@{/image/Background.png}" height="20px" width="20px">
+                                <t class="padding-text" th:text="${detals.kd}"></t>
+                            </p>
+                            <p>
+                                <t><a class="nav-link px-2 text-yellow" th:href="'/admin/delete/items/' + ${detals.id}">Удалить</a></t>
+                                <t><a class="nav-link px-2 text-yellow" th:href="'/admin/edit/items/' + ${detals.id}">Изменит</a></t>
+                            </p>
 
-                            <td><t th:text="${items1.fullText}"></t></td>
-                            <td><t th:text="${items1.dateTime}"></t></td>
-
-                            <td><a th:href="'/admin/edit/items/' +${items1.id}" class="link-secondary"> Изменить
-                            </a></td>
-
-                        </tr>
+                        </div>
+                    </div>
 
 
-                        </tbody>
-                    </table>
                 </div>
+                <div class="grid" th:if="${detals.weapons1}">
+                    <div class="inline-px">
+                        <div>
+                            <div>
+                                <li class="list-inline-item"><img th:if="${detals.weapons1.icon}"
+                                                                  th:src="'/images/items/' + ${detals.weapons1.icon.id}"
+                                                                  height="40px" width="50px"></li>
+                                <t class="h2" th:text="${detals.weapons1.name}"></t>
+                            </div>
+                            <br>
+                            <hr>
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons1.passiveSkill}"
+                                   th:text="${detals.weapons1.passiveSkill}"></t>
+                            </p>
+
+                            <p>
+                                <t class="padding-text blue">Активная способность:</t>
+                                <t class="padding-text" th:if="${detals.weapons1.activeSkill}"
+                                   th:text="${detals.weapons1.activeSkill}"></t>
+                            </p>
+
+
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons1.rangeAttack}"
+                                   th:text="${detals.weapons1.rangeAttack}"></t>
+                            </p>
+
+
+                            <p th:if="${detals.weapons1.kd}">
+                                <img th:src="@{/image/Background.png}" height="20px" width="20px">
+                                <t class="padding-text" th:text="${detals.weapons1.kd}"></t>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="inline-px" th:if="${detals.weapons2}">
+                        <div>
+                            <div>
+                                <li class="list-inline-item"><img th:if="${detals.weapons2.icon}"
+                                                                  th:src="'/images/items/' + ${detals.weapons2.icon.id}"
+                                                                  height="40px" width="50px"></li>
+                                <t class="h2" th:text="${detals.weapons2.name}"></t>
+                            </div>
+                            <br>
+                            <hr>
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons2.passiveSkill}"
+                                   th:text="${detals.weapons2.passiveSkill}"></t>
+                            </p>
+
+                            <p>
+                                <t class="padding-text blue">Активная способность:</t>
+                                <t class="padding-text" th:if="${detals.weapons2.activeSkill}"
+                                   th:text="${detals.weapons2.activeSkill}"></t>
+                            </p>
+
+
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons2.rangeAttack}"
+                                   th:text="${detals.weapons2.rangeAttack}"></t>
+                            </p>
+
+
+                            <p th:if="${detals.weapons2.kd}">
+                                <img th:src="@{/image/Background.png}" height="20px" width="20px">
+                                <t class="padding-text" th:text="${detals.weapons2.kd}"></t>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="inline-px" th:if="${detals.weapons3.id}">
+                        <div>
+                            <div>
+                                <li class="list-inline-item"><img th:if="${detals.weapons3.icon}"
+                                                                  th:src="'/images/items/' + ${detals.weapons3.icon.id}"
+                                                                  height="40px" width="50px"></li>
+                                <t class="h2" th:text="${detals.weapons3.name}"></t>
+                            </div>
+                            <br>
+                            <hr>
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons3.passiveSkill}"
+                                   th:text="${detals.weapons3.passiveSkill}"></t>
+                            </p>
+
+                            <p>
+                                <t class="padding-text blue">Активная способность:</t>
+                                <t class="padding-text" th:if="${detals.weapons3.activeSkill}"
+                                   th:text="${detals.weapons3.activeSkill}"></t>
+                            </p>
+
+
+                            <p>
+                                <t class="padding-text" th:if="${detals.weapons3.rangeAttack}"
+                                   th:text="${detals.weapons3.rangeAttack}"></t>
+                            </p>
+
+
+                            <p th:if="${detals.weapons3.kd}">
+                                <img th:src="@{/image/Background.png}" height="20px" width="20px">
+                                <t class="padding-text" th:text="${detals.weapons3.kd}"></t>
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
-        </main>
-    </div>
-    <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+
+
+
+</main>
+
+</div>
+<footer th:insert="blocks/headerFooter/footer :: div"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </div>
 
 </body>

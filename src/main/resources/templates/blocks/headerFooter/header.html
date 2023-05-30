@@ -11,23 +11,24 @@
         <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet"
               crossorigin="anonymous">
         <link th:href="@{/css/css.css}" rel="stylesheet">
-
-        <div  class="nav justify-content-center" id="blokc">
+        <link th:href="@{/css/energising.css}" rel="stylesheet">
         
 
+        <div  class="secondary" id="blokc">
+            <div class="centr-1400px">
 
 
-            <div class="btn-group" >
+
+            <div class="color" >
                 
-                    <button type="button" class="badge rounded-pill bg-secondary" id="autoches"><a href="/home" style="color: #f2bf0b;">AuthoChes</a></button>
-                
-
+                    <a href="/home"> <img th:src="@{/image/logo.png}" height="60px" width="138px"></a>
             </div>
-            <div class="btn-group">
-                <button type="button" id="autoches" class="badge rounded-pill bg-secondary"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">База знаний
-                </button>
+
+            <div class="display-flex pd300">
+            <div class="dropdown">
+                <a href="/home" class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    База знаний
+                </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/home/display/hero">Герои</a></li>
                     <li><a class="dropdown-item" href="/home/display/items">Предметы</a></li>
@@ -38,46 +39,49 @@
                     <li><a class="dropdown-item" href="/home/display/guide">Гайды</a></li>
                 </ul>
             </div>
-            <div class="btn-group">
-                <button type="button" id="autoches" class="badge rounded-pill bg-secondary"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">Правилы игры
-                </button>
+            </div>
+            <div class="display-flex">
+            <div class="dropdown">
+                <a href="/home" class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Об игре
+                </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/home/display/whatgame">Механика игры</a></li>
 
                 </ul>
             </div>
-
-            <div class="btn-group">
-                <button type="button" id="autoches" class="badge rounded-pill bg-secondary"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">Новости
-                </button>
+        </div>
+        <div class="display-flex">
+            <div class="dropdown">
+                <a href="/home" class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Новости
+                </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/home/display/path">Патч Игры</a></li>
-                    <li><a class="dropdown-item" href="/home/display/updateweb">Обновление сайта</a></li>
+                    <li><a class="dropdown-item" href="/home/display/newWebSite">Обновление сайта</a></li>
                 </ul>
             </div>
-
-            <div class="btn-group">
-                <button type="button" id="autoches"class="badge rounded-pill bg-secondary"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">Расы и класы
-                </button>
+            </div>
+            <div class="display-flex">
+            <div class="dropdown">
+                <a href="/home" class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Синергии
+                </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/home/display/ras">Расы</a></li>
                     <li><a class="dropdown-item" href="/home/display/class">Классы</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="/home/display/energising">Синергии</a></li>
+                    <li><a class="dropdown-item" href="/home/display/energising">Стоимость бана синергий</a></li>
                 </ul>
-
+                </div>
             </div>
-
+            </div>
         </div>
 
     </header>
+    
+
 </div>
 </html>

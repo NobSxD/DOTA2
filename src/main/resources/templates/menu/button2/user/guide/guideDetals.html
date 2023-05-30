@@ -8,12 +8,8 @@
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
-<div class="border border-dark">
-<div class="container-fluid" id="t">
-    <div class="row">
+<div class="centr-1400px fon-1400px">
 
-
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
 
 
@@ -57,15 +53,15 @@
 
                         <tr>
                             <th><img th:if="${image.size() >=1}"
-                                     th:src="'/images/energising/' + ${image.get(0).energisingImage.id}"></th>
+                                     th:src="'/images/energising/' + ${image.get(0).energisingImage.get(0).id}"></th>
                             <th><img th:if="${image.size() >=2}"
-                                     th:src="'/images/energising/' + ${image.get(1).energisingImage.id}"></th>
+                                     th:src="'/images/energising/' + ${image.get(1).energisingImage.get(0).id}"></th>
                             <th><img th:if="${image.size() >=3}"
-                                     th:src="'/images/energising/' + ${image.get(2).energisingImage.id}"></th>
+                                     th:src="'/images/energising/' + ${image.get(2).energisingImage.get(0).id}"></th>
                             <th><img th:if="${image.size() >=4}"
-                                     th:src="'/images/energising/' + ${image.get(3).energisingImage.id}"></th>
+                                     th:src="'/images/energising/' + ${image.get(3).energisingImage.get(0).id}"></th>
                             <th><img th:if="${image.size() >=5}"
-                                     th:src="'/images/energising/' + ${image.get(4).energisingImage.id}"></th>
+                                     th:src="'/images/energising/' + ${image.get(4).energisingImage.get(0).id}"></th>
                         </tr>
                         </tbody>
                     </table>
@@ -119,13 +115,10 @@
                     <a th:href="${guide.href5}">
                         <t th:text="${guide.nameHref5}"></t>
                     </a></div>
-
-
-
-        </main>
-    </div>
 </div>
-    <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+
+
+    <footer th:insert="blocks/headerFooter/footer :: div"></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>

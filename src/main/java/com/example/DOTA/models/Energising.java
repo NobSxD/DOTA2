@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,9 +18,18 @@ public class Energising {
     private Long id;
 
     private String name;
-    private String full_text;
+    private String tip;
+    private String ItWorks;
+    private String buff;
+    private String descriptionKlass;
+    private String descriptionBuff;
 
-    @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-     private ImageEnergising energisingImage;
+    private String buffOne;
+    private String buffTwo;
+    private String buffThere;
+    private String priceDelete;
+
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+     private List<ImageEnergising> energisingImage;
 
 }
