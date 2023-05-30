@@ -27,6 +27,7 @@ public class WeaponController {
         return "menu/button2/admin/items/itemsAdd";
     }
 
+
     @PostMapping("/admin/add/items")
     private String save(Model model,
                        @RequestParam String weapon,
@@ -34,9 +35,12 @@ public class WeaponController {
                        @RequestParam String items2,
                        @RequestParam String items3,
                        @RequestParam String tirWeapon,
-                       @RequestParam String full_text,
+                       @RequestParam String passiveSkill,
+                       @RequestParam String activeSkill,
+                       @RequestParam String rangeAttack,
+                       @RequestParam String kd,
                        @RequestParam("iconWeapon") MultipartFile file1) throws IOException {
-        weaponService.saveWeapon(weapon,tirWeapon,full_text,items1,items2,items3, file1);
+        weaponService.saveWeapon(weapon,tirWeapon,passiveSkill,activeSkill,rangeAttack,kd,items1,items2,items3, file1);
         return "redirect:/admin/add/items";
     }
 
@@ -69,28 +73,13 @@ public class WeaponController {
 
     @GetMapping("/admin/detals/items/{id}")
     private String detalsSkill(@PathVariable(value = "id") Long id, Model model) {
-        model.addAttribute("items", weaponService.weaponID(id));
+        model.addAttribute("detals", weaponService.weaponID(id));
         return "menu/button2/admin/items/itemsDetals";
     }
 
     @GetMapping("/admin/edit/items/{id}")
     public String editIdHero(@PathVariable(value = "id") Long id, Model model){
         Weapon weapons = weaponService.weaponID(id);
-
-        if (weaponService.imageWeaponExistById(weapons.getItems1())){
-            weaponService.imageById(weapons.getItems1());
-            model.addAttribute("items1", weaponService.imageById(weapons.getItems1()).getName());
-        }
-
-        if (weaponService.imageWeaponExistById(weapons.getItems2())){
-            weaponService.imageById(weapons.getItems2());
-            model.addAttribute("items2", weaponService.imageById(weapons.getItems2()).getName());
-        }
-        if (weaponService.imageWeaponExistById(weapons.getItems3())){
-            weaponService.imageById(weapons.getItems3());
-            model.addAttribute("items3", weaponService.imageById(weapons.getItems3()).getName());
-        }
-
         model.addAttribute("items", weapons);
         return "menu/button2/admin/items/itemsEdit";
     }
@@ -102,13 +91,16 @@ public class WeaponController {
                            @RequestParam String items2,
                            @RequestParam String items3,
                            @RequestParam String tirWeapon,
-                           @RequestParam String full_text,
+                           @RequestParam String passiveSkill,
+                           @RequestParam String activeSkill,
+                           @RequestParam String rangeAttack,
+                           @RequestParam String kd,
                            @RequestParam("iconWeapon") MultipartFile file1) throws IOException {
         if (!weaponService.weaponExistById(id)) {
             return "redirect:/admin/display/items";
         }
 
-        weaponService.editWeapon(weapon,tirWeapon, full_text, items1, items2, items3, file1, id);
+        weaponService.editWeapon(weapon,tirWeapon,passiveSkill,activeSkill,rangeAttack,kd,items1,items2,items3, file1, id);
 
         return "redirect:/admin/display/items";
     }
@@ -137,7 +129,7 @@ public class WeaponController {
 
     @GetMapping("/home/detals/items/{id}")
     private String detalsSkillHome(@PathVariable(value = "id") Long id, Model model) {
-        model.addAttribute("items", weaponService.weaponID(id));
+        model.addAttribute("detals", weaponService.weaponID(id));
         
         viewsService.viewsItems();
         return "menu/button2/user/items/itemsDetals";

@@ -3,60 +3,185 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Главня</title>
+    <title>Герои</title>
 </head>
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
-<div class="border border-dark">
-<div class="container-fluid" id="t">
-    <div class="row">
+<div class="centr-1400px fon-1400px">
+
+            <div th:if="${detals}">
+                <div class="grid">
+
+                    <div class="inline-600px">
+
+                        <h2>Подробней о герои:</h2>
+                        <hr>
+
+                        <div >
+                            <div>
+                                <li class="list-inline-item"><img th:if="${detals.imageHero}"
+                                                                  th:src="'/images/hero/' + ${detals.imageHero.get(0).id}"
+                                                                  height="40px" width="50px"></li>
+                                <t class="h2" th:text="${detals.nameHero}"></t>
+                            </div>
+                            <br>
+                            <p>
+                                <t class="padding-text green">Максимальное здоровье:</t>
+                                <t class="padding-text" th:if="${detals.max_xp}" th:text="${detals.max_xp}"></t>
+                            </p>
+
+                            <p>
+                                <t class="padding-text blue">Максимальная мана:</t>
+                                <t class="padding-text" th:if="${detals.max_mp}" th:text="${detals.max_mp}"></t>
+                            </p>
 
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                            <p>
+                                <img th:src="@{/image/atak.png}" height="20px" width="20px">
+                                <t class="padding-text sidebar">Урон:</t>
+                                <t class="padding-text" th:if="${detals.damage}" th:text="${detals.damage}"></t>
+                            </p>
+                            <p>
+                                <img th:src="@{/image/tick.png}" height="20px" width="20px">
+                                <t class="padding-text sidebar">Скорость атаки:</t>
+                                <t class="padding-text" th:if="${detals.speed_damage}"
+                                   th:text="${detals.speed_damage}"></t>
 
+                                <img th:src="@{/image/range.png}" height="20px" width="25px">
+                                <t class="padding-text sidebar">Дальность атаки:</t>
+                                <t class="padding-text" th:if="${detals.range_attack}"
+                                   th:text="${detals.range_attack}"></t>
 
-                <div class="inline-block-table">
+                            </p>
 
-                    <h2>Подробней о герои</h2>
+                            <p>
+                                <img th:src="@{/image/armor.png}" height="20px" width="20px">
+                                <t class="padding-text sidebar">Броня:</t>
+                                <t class="padding-text" th:if="${detals.armor}" th:text="${detals.armor}"></t>
+                                <img th:src="@{/image/mArmor.png}" height="20px" width="20px">
+                                <t class="padding-text sidebar"> Маг сопротивление:</t>
+                                <t class="padding-text" th:if="${detals.mag_resist}" th:text="${detals.mag_resist}"></t>
+                            </p>
+                            <hr>
 
-                    <div th:if="${detals}">
-                        <div th:if="${detals.imageHero}">
-                            <img  th:src="'/images/hero/' + ${detals.imageHero.id}">
-                            <t th:text="${detals.nameHero}"></t>
-                            <t th:text="${detals.tirHero}"></t>
-                            <p th:text="${detals.full_text}"></p>
+                            <p>
+                                <img th:if="${detals.imageHero}"
+                                     th:src="'/images/hero/' + ${detals.imageHero.get(1).id}" height="40px"
+                                     width="50px">
+                                <t class="padding-text" th:if="${detals.name_skill}" th:text="${detals.name_skill}"></t>
+                            </p>
+
+                            <p th:if="${detals.activation_skill}" th:text="${detals.activation_skill}"></p>
+                            <p th:if="${detals.full_text}" th:text="${detals.full_text}"></p>
+                            <p th:if="${detals.detals_skill1}" th:text="${detals.detals_skill1}"></p>
+                            <p th:if="${detals.detals_skill2}" th:text="${detals.detals_skill2}"></p>
+                            <p th:if="${detals.detals_skill3}" th:text="${detals.detals_skill3}"></p>
+                            <p th:if="${detals.detals_skill4}" th:text="${detals.detals_skill4}"></p>
+                            <p th:if="${detals.detals_skill5}" th:text="${detals.detals_skill5}"></p>
+                            <p th:if="${detals.detals_skill6}" th:text="${detals.detals_skill6}"></p>
+                            <p>
+                                <img th:src="@{/image/kd.png}" height="20px" width="20px">
+                                <t class="padding-text" th:if="${detals.cast_mp}" th:text="${detals.cast_mp}"></t>
+                                <img th:src="@{/image/Background.png}" height="20px" width="20px">
+                                <t class="padding-text" th:if="${detals.kd_skill}" th:text="${detals.kd_skill}"></t>
+                            </p>
+
                         </div>
-                        <div th:if="${detals.energising}">
-                            <img th:src="'/images/energising/' + ${detals.energising.energisingImage.id}" height="20px" width="20px">
-                            <a th:href="'/home/detals/energising/' +${detals.energising.id}"> <t th:text="${detals.energising.name}"></t></a>
-                            <p th:text="${detals.energising.full_text}"></p>
-                        </div>
-
-                        <div th:if="${detals.energising1}">
-                            <img th:src="'/images/energising/' + ${detals.energising1.energisingImage.id}" height="20px" width="20px">
-                            <a th:href="'/home/detals/energising/' +${detals.energising1.id}"> <t th:text="${detals.energising1.name}"></t></a>
-                            <p th:text="${detals.energising1.full_text}"></p>
-                        </div>
-
-                        <div th:if="${detals.energising2}">
-                            <img th:src="'/images/energising/' + ${detals.energising2.energisingImage.id}" height="20px" width="20px">
-                            <a th:href="'/home/detals/energising/' +${detals.energising2.id}"> <t th:text="${detals.energising2.name}"></t></a>
-                            <p th:text="${detals.energising2.full_text}"></p>
-                        </div>
-
                     </div>
 
 
                 </div>
+                <div class="grid" th:if="${detals.energising}">
+                    <div class="inline-px">
+                        <div>
+                            <div >
+                                <div>
+                                    <img th:if="${detals.energising.energisingImage}"
+                                         th:src="'/images/energising/' + ${detals.energising.energisingImage.get(0).id}">
+                                         <a th:href="'/home/detals/energising/' +${detals.energising.id}"
+                                        class="nav-link px-2 text-yellow">
+                                    <t class="h2" th:text="${detals.energising.name}"></t>
+                                    </a>
 
-        </main>
-    </div>
-    <footer th:insert="blocks/headerFooter/footer :: footer"></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-</div>
-</div>
+                                </div>
+                                <hr>
+                                <div>
+                                    <p th:text="${detals.energising.tip}"></p>
+                                    <p th:text="${detals.energising.ItWorks}"></p>
+                                    <p th:text="${detals.energising.buff}"></p>
+                                    <p th:text="${detals.energising.descriptionKlass}"></p>
+                                    <p th:text="${detals.energising.descriptionBuff}"></p>
+                                    <p th:text="${detals.energising.buffOne}"></p>
+                                    <p th:text="${detals.energising.buffTwo}"></p>
+                                    <p th:text="${detals.energising.buffThere}"></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="inline-px" th:if="${detals.energising1}">
+                        <div>
+                            <div>
+                                <div>
+                                    <img th:if="${detals.energising1.energisingImage}"
+                                         th:src="'/images/energising/' + ${detals.energising1.energisingImage.get(0).id}">
+                                         <a th:href="'/home/detals/energising/' +${detals.energising1.id}"
+                                        class="nav-link px-2 text-yellow">
+                                    <t class="h2" th:text="${detals.energising1.name}"></t>
+                                    </a>
+                                </div>
+                                <hr>
+                                <div>
+                                    <p th:text="${detals.energising1.tip}"></p>
+                                    <p th:text="${detals.energising1.ItWorks}"></p>
+                                    <p th:text="${detals.energising1.buff}"></p>
+                                    <p th:text="${detals.energising1.descriptionKlass}"></p>
+                                    <p th:text="${detals.energising1.descriptionBuff}"></p>
+                                    <p th:text="${detals.energising1.buffOne}"></p>
+                                    <p th:text="${detals.energising1.buffTwo}"></p>
+                                    <p th:text="${detals.energising1.buffThere}"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="inline-px" th:if="${detals.energising2}">
+                        <div>
+                            <div>
+                                <div>
+                                    <img th:if="${detals.energising2.energisingImage}"
+                                         th:src="'/images/energising/' + ${detals.energising2.energisingImage.get(0).id}">
+                                         <a th:href="'/home/detals/energising/' +${detals.energising2.id}"
+                                        class="nav-link px-2 text-yellow">
+                                    <t class="h2" th:text="${detals.energising2.name}"></t>
+                                    </a>
+                                </div>
+                                <hr>
+                                <div>
+                                    <p th:text="${detals.energising2.tip}"></p>
+                                    <p th:text="${detals.energising2.ItWorks}"></p>
+                                    <p th:text="${detals.energising2.buff}"></p>
+                                    <p th:text="${detals.energising2.descriptionKlass}"></p>
+                                    <p th:text="${detals.energising2.descriptionBuff}"></p>
+                                    <p th:text="${detals.energising2.buffOne}"></p>
+                                    <p th:text="${detals.energising2.buffTwo}"></p>
+                                    <p th:text="${detals.energising2.buffThere}"></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+<footer th:insert="blocks/headerFooter/footer :: div"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>

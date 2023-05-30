@@ -1,0 +1,30 @@
+body h1, body h2, body h3 {
+    line-height: 1.2;
+}
+.h1, h1 {
+    font-size: calc(26px + 1.6vw);
+    margin: 0;
+    font-family: Calibri Bold,Arial,serif;
+}
+body {
+    margin: 0;
+    color: #000000;
+    overflow: hidden;
+    font-family: calibri,georgia,serif;
+    min-height: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #f6f4f7;
+    letter-spacing: -.25px;
+}
+.article__content{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    min-height: 100%;
+    overflow-x: hidden;
+}

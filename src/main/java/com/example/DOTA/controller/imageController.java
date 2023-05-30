@@ -1,5 +1,6 @@
 package com.example.DOTA.controller;
 
+import com.example.DOTA.models.Path;
 import com.example.DOTA.models.image.*;
 import com.example.DOTA.services.*;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ public class imageController {
     private final WeaponService weaponService;
     private final GuideService guideService;
     private final EnergisingService energisingService;
+    private final PathService pathService;
 
     @GetMapping("/images/hero/{id}")
     private ResponseEntity<?> getImageByIDHero(@PathVariable Long id){
@@ -69,6 +71,15 @@ public class imageController {
                 .contentType(MediaType.valueOf(imageEnergising.getContentType()))
                 .contentLength(imageEnergising.getSize())
                 .body(new InputStreamResource(new ByteArrayInputStream(imageEnergising.getBytes())));
+    }
+    @GetMapping("/images/path/{id}")
+    private ResponseEntity<?> getImageByIDPath(@PathVariable Long id){
+        Path path = pathService.pathById(id);
+        return ResponseEntity.ok()
+                .header("fileName",path.getOriginalFileName())
+                .contentType(MediaType.valueOf(path.getContentType()))
+                .contentLength(path.getSize())
+                .body(new InputStreamResource(new ByteArrayInputStream(path.getBytes())));
     }
 
 

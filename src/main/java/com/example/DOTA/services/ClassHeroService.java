@@ -23,18 +23,22 @@ public class ClassHeroService {
         return repositoryClass.save(classHero);
     }
     public void saveClassHero(String name){
-        ClassHero classHero = new ClassHero();                                                                                         //берем название рассы из формы, по этому названию ищем данные в таблице синергия
-        classHero.setName(name);                                                                                             //и добавляем эти данные в бд
-        classHero.setEnergising(energisingService.energisingName(name));
-        saveRepoClass(classHero);
+        if(name.length() >0) {
+            ClassHero classHero = new ClassHero();                                                                                         //берем название рассы из формы, по этому названию ищем данные в таблице синергия
+            classHero.setName(name);                                                                                             //и добавляем эти данные в бд
+            classHero.setEnergising(energisingService.energisingName(name));
+            saveRepoClass(classHero);
+        }
     }
 
     public void updateClassHero(String name,Long id){
-        ClassHero classHero = new ClassHero();                                                                                         //обновляем данные в бд
-        classHero.setId(id);
-        classHero.setName(name);
-        classHero.setEnergising(energisingService.energisingName(name));
-        saveRepoClass(classHero);
+        if(name.length() >0) {
+            ClassHero classHero = classHero(id);                                                                                         //обновляем данные в бд
+            classHero.setId(id);
+            classHero.setName(name);
+            classHero.setEnergising(energisingService.energisingName(name));
+            saveRepoClass(classHero);
+        }
     }
     public List<ClassHero> listClassHero(){
         return repositoryClass.findAll();

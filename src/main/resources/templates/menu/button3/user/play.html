@@ -11,7 +11,7 @@
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
-<div class="article__content">
+<div class="article__content centr-1400px fon-1400px">
 
     <h1>Правила, интерфейс и управление</h1>
    <p class="article__summary ready">Подробное описание об <a class="ready" href="#interface">интерфейсе</a>, <a class="ready" href="#buttons">управлении</a>, <a class="ready" href="#gold">золоте</a>, <a class="ready" href="#heroes-shop">магазине героев</a>, <a class="ready" href="#level">уровнях героев</a>, расовых и классовых <a class="ready" href="#bonuses">бонусах</a>, <a class="ready" href="#heroes-pool">общем фонде героев</a>, <a class="ready" href="#rounds">раундах игры</a> и их фазах, <a class="ready" href="#items">предметах</a>, <a class="ready" href="#battle">битве</a>, <a class="ready" href="#mana">мане</a>, <a class="ready" href="#health">здоровье курьера</a>, <a class="ready" href="#endgame">конце игры</a>, <a class="ready" href="#commands">внутриигровых командах</a> и <a class="ready" href="#single">сингл-режиме</a>.</p>
@@ -118,12 +118,12 @@
 <p><img decoding="async" loading="lazy" class="heroes-shop" src="/images/auto-chess-heroes-shop.png" alt="heroes shop" title="heroes shop" width="805" height="175"></p>
 <p><span class="heroes-shop-desc">1</span> - 5 героев (с указанием названия, расы + класса и стоимости), которых может купить игрок в данный момент. При нажатии на героя он переместится на скамейку игрока и с его счёта будет списана стоимость героя, а бывшее место героя в магазине будет пустовать до следующего обновления витрины.<br>Если для покупки сейчас не хватает денег, то цена будет окрашена в красный цвет.</p>
 <p><span class="heroes-shop-desc heroes-shop-desc-2">2</span> - обновление витрины магазина героев (может быть вызвано нажатием <b>кнопки D</b>).</p>
-<p><span class="heroes-shop-desc heroes-shop-desc-3">3</span> - блокировка автоматического обновления витрины в начале нового раунда игры. В активном состоянии меняет внешний вид на иконку с закрытым замком - <img decoding="async" loading="lazy" class="link" src="/images/shop-locked.png" alt="shop re-roll locked" title="shop re-roll locked" width="32" height="32">. Данная функция предназначена для того, чтобы игрок мог выкупить всех необходимых ему героев, даже если у него не хватило времени или золота в этом раунде.<br>При попытке <b>платного</b> обновления витрины с включённой кнопкой, блокировка снимется и витрина обновится.</p>
+<p><span class="heroes-shop-desc heroes-shop-desc-3">3</span> - блокировка автоматического обновления витрины в начале нового раунда игры. В активном состоянии меняет внешний вид на иконку с закрытым замком - <img decoding="async" loading="lazy" class="link" src="#" alt="shop re-roll locked" title="shop re-roll locked" width="32" height="32">. Данная функция предназначена для того, чтобы игрок мог выкупить всех необходимых ему героев, даже если у него не хватило времени или золота в этом раунде.<br>При попытке <b>платного</b> обновления витрины с включённой кнопкой, блокировка снимется и витрина обновится.</p>
 <p><span class="heroes-shop-desc heroes-shop-desc-4">4</span> - закрытие окна магазина (может быть вызвано нажатием <b>кнопки Space</b>).<br><b>Важно!</b> При открытом окне магазина могут не работать команды управления героями и иногда невозможно вложить предметы в героев, так что лучше всегда закрывайте окно, если хотите произвести какие-либо другие действия.</p>
 
 <h2 id="level">Уровень героев и его повышение</h2>
 
-<p><img decoding="async" loading="lazy" class="heroes-levels" src="/images/heroes-levels-1-2-3.png" alt="heroes levels 1 2 3" title="heroes levels 1 2 3" width="484" height="444"></p>
+<p><img decoding="async" loading="lazy" class="heroes-levels" src="#" alt="heroes levels 1 2 3" title="heroes levels 1 2 3" width="484" height="444"></p>
 <p>Все герои могут быть 1, 2 и 3 уровня (<i>кроме мега-героев Necrolyte SSR и Chaos Knight SSR</i>).</p>
 
 <p>Показателем уровня является количество звёзд справа в названии героя: ★, ★★ или ★★★.</p>
@@ -223,7 +223,7 @@
 
 <p><span class="blocks blocks-desc block-3"></span> Последняя фаза под названием "<b>Битва</b>" (Battle) длится до 60 секунд:
 </p><ul class="patch-notes">
-<li>Если защищающийся игрок выигрывает сражение против другого игрока, то он получает 1 <img decoding="async" loading="lazy" class="link" src="/images/gold.png" alt="gold" title="gold" width="24" height="24"> золото.</li>
+<li>Если защищающийся игрок выигрывает сражение против другого игрока, то он получает 1 <img decoding="async" loading="lazy" class="link" src="#" alt="gold" title="gold" width="24" height="24"> золото.</li>
 <li>Если на всех полях сражения заканчиваются, то фаза тоже прекращается, даже если не закончилось отведённое время.</li>
 <li>По истечению таймера, если на каких-либо полях сражения не закончились, то они отмечаются ничьёй, причём это прерывает серию побед или поражений для защищающегося игрока.</li>
 </ul>
@@ -359,10 +359,6 @@
        <div class="date"><time datetime="2019-05-18T00:41">18&nbsp;мая&nbsp;2019&nbsp;года</time></div>
        <div class="category"><a href="https://auto-chess.ru/start/" title="Просмотреть все статьи категории Гайды и правила DAC">Гайды и правила DAC</a></div>
        <div class="shareme">
-           <span>Поделиться:</span>							<a href="https://vk.com/share.php?url=https%3A%2F%2Fauto-chess.ru%2Fstart%2Fbasic-rules%2F&amp;title=Правила,+интерфейс+и+управление" target="_blank"><svg class="vk" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>VK</title><path d="M11.701 18.771h1.437s.433-.047.654-.284c.21-.221.21-.63.21-.63s-.031-1.927.869-2.21c.887-.281 2.012 1.86 3.211 2.683.916.629 1.605.494 1.605.494l3.211-.044s1.682-.105.887-1.426c-.061-.105-.451-.975-2.371-2.76-2.012-1.861-1.742-1.561.676-4.787 1.469-1.965 2.07-3.166 1.875-3.676-.166-.48-1.26-.361-1.26-.361l-3.602.031s-.27-.031-.465.09c-.195.119-.314.391-.314.391s-.572 1.529-1.336 2.82c-1.623 2.729-2.268 2.879-2.523 2.699-.604-.391-.449-1.58-.449-2.432 0-2.641.404-3.75-.781-4.035-.39-.091-.681-.15-1.685-.166-1.29-.014-2.378.01-2.995.311-.405.203-.72.652-.539.675.24.03.779.146 1.064.537.375.506.359 1.636.359 1.636s.211 3.116-.494 3.503c-.495.262-1.155-.28-2.595-2.756-.735-1.26-1.291-2.67-1.291-2.67s-.105-.256-.299-.406c-.227-.165-.557-.225-.557-.225l-3.435.03s-.51.016-.689.24c-.166.195-.016.615-.016.615s2.686 6.287 5.732 9.453c2.79 2.902 5.956 2.715 5.956 2.715l-.05-.055z"></path></svg></a>
-           <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fauto-chess.ru%2Fstart%2Fbasic-rules%2F" target="_blank"><svg class="fb" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0"></path></svg></a>
-           <a href="https://twitter.com/intent/tweet?source=webclient&amp;original_referer=https%3A%2F%2Fauto-chess.ru%2Fstart%2Fbasic-rules%2F&amp;text=Правила,+интерфейс+и+управление&amp;url=https%3A%2F%2Fauto-chess.ru%2Fstart%2Fbasic-rules%2F" target="_blank"><svg class="tw" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path></svg></a>
-           <a href="https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&amp;service=odnoklassniki&amp;st.shareUrl=https%3A%2F%2Fauto-chess.ru%2Fstart%2Fbasic-rules%2F" target="_blank"><svg class="ok" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Odnoklassniki</title><path d="M14.505 17.44c1.275-.29 2.493-.794 3.6-1.49.834-.558 1.058-1.686.5-2.52-.536-.802-1.604-1.044-2.435-.553-2.55 1.595-5.79 1.595-8.34 0-.847-.534-1.965-.28-2.5.565 0 .002 0 .004-.002.005-.534.847-.28 1.966.567 2.5l.002.002c1.105.695 2.322 1.2 3.596 1.488l-3.465 3.465c-.707.695-.72 1.83-.028 2.537l.03.03c.344.354.81.53 1.274.53.465 0 .93-.176 1.275-.53L12 20.065l3.404 3.406c.72.695 1.87.676 2.566-.045.678-.703.678-1.818 0-2.52l-3.465-3.466zM12 12.388c3.42-.004 6.19-2.774 6.195-6.193C18.195 2.78 15.415 0 12 0S5.805 2.78 5.805 6.197c.005 3.42 2.776 6.19 6.195 6.192zm0-8.757c1.416.002 2.563 1.15 2.564 2.565 0 1.416-1.148 2.563-2.564 2.565-1.415-.002-2.562-1.148-2.565-2.564C9.437 4.78 10.585 3.633 12 3.63z"></path></svg></a>
        </div>
    </div>
 
@@ -370,7 +366,8 @@
                        
 </div>
 
-<footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+<footer th:insert="blocks/headerFooter/footer :: div"></footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>

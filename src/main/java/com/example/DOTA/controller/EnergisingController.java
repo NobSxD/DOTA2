@@ -24,10 +24,14 @@ public class EnergisingController {
         return "menu/button5/admin/energising/energisingAdd";
     }
 
+
     @PostMapping("/admin/add/energising")
-    private String energisingSave(@RequestParam String name, @RequestParam String full_text, @RequestParam("iconEnergising") MultipartFile file1
+    private String energisingSave(@RequestParam String name, @RequestParam String tip, @RequestParam String ItWorks, @RequestParam String buff,
+                                  @RequestParam String descriptionKlass, @RequestParam String descriptionBuff, @RequestParam String buffOne,
+                                  @RequestParam String buffTwo, @RequestParam String buffThere,@RequestParam String priceDelete
+            ,@RequestParam("iconEnergising") MultipartFile file1, @RequestParam("iconEnergising2") MultipartFile file2
     )throws IOException {
-    energisingService.energisingParameter(name,full_text,file1);
+    energisingService.energisingParameter(name,tip,ItWorks,buff,descriptionKlass,descriptionBuff,buffOne,buffTwo,buffThere,priceDelete, file1, file2);
         return "redirect:/admin/add/energising";
     }
 
@@ -56,9 +60,12 @@ public class EnergisingController {
     }
 
     @PostMapping("/admin/edit/energising/{id}")
-    private String update(@PathVariable(value = "id") Long id, @RequestParam String name, @RequestParam String full_text,
-                          @RequestParam("iconEnergising") MultipartFile file1) throws IOException {
-        energisingService.energisingParameterEdit(id,name,full_text,file1);
+    private String update(@PathVariable(value = "id") Long id,@RequestParam String name, @RequestParam String tip, @RequestParam String ItWorks, @RequestParam String buff,
+                          @RequestParam String descriptionKlass, @RequestParam String descriptionBuff, @RequestParam String buffOne,
+                          @RequestParam String buffTwo, @RequestParam String buffThere,@RequestParam String priceDelete,
+                          @RequestParam("iconEnergising") MultipartFile file1, @RequestParam("iconEnergising2") MultipartFile file2
+    )throws IOException {
+        energisingService.energisingParameterEdit(id,name,tip,ItWorks,buff,descriptionKlass,descriptionBuff,buffOne,buffTwo,buffThere,priceDelete, file1, file2);
         return "redirect:/admin/display/energising";
     }
 

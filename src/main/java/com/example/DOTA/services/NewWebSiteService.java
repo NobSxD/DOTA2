@@ -33,7 +33,7 @@ public class NewWebSiteService {
     }
 
     public NewWebSite editNewWebSite(Long id, String name, String full_text){
-        NewWebSite newWebSite = new NewWebSite();
+        NewWebSite newWebSite = newWebSiteById(id);
         newWebSite.setId(id);
         newWebSite.setName(name);
         newWebSite.setFull_text(full_text);

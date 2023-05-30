@@ -1,14 +1,16 @@
 package com.example.DOTA.models;
 
 import com.example.DOTA.models.image.ImageWeapon;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Data
+@Setter
+@Getter
 @Table(name = "weapon")
 @NoArgsConstructor
 public class Weapon {
@@ -18,38 +20,30 @@ public class Weapon {
     private String name;
 
     private String tirWeapon;
-    private String fullText;
+    private String passiveSkill;
+    private String activeSkill;
+    private String rangeAttack;
+    private String kd;
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     private ImageWeapon icon;
-
-
-    private long items1;
-
-
-    private long items2;
-
-
-    private long items3;
-
     private LocalDateTime dateTime;
 
 
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "weapons_id1")
+    private Weapon weapons1;
+
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "weapons_id2")
+    private Weapon weapons2;
+
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "weapons_id3")
+    private Weapon weapons3;
 
 
-    @PrePersist
-    private void init(){
-        dateTime = LocalDateTime.now();
-    }
-
-    public Weapon(String name, String tirWeapon, String fullText, ImageWeapon icon, long items1, long items2, long items3) {
-        this.name = name;
-        this.tirWeapon = tirWeapon;
-        this.fullText = fullText;
-        this.icon = icon;
-        this.items1 = items1;
-        this.items2 = items2;
-        this.items3 = items3;
-    }
 }
 
 

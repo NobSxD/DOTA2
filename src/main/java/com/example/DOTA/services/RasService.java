@@ -23,18 +23,22 @@ public class RasService {
         return rasaRepository.save(rasa);
     }
     public void saveRasHero(String name){
-        Rasa rasa = new Rasa();                                                                                         //берем название рассы из формы, по этому названию ищем данные в таблице синергия
-        rasa.setName(name);                                                                                             //и добавляем эти данные в бд
-        rasa.setEnergising(energisingService.energisingName(name));
-        saveRepo(rasa);
+        if(name.length() >0) {
+            Rasa rasa = new Rasa();                                                                                         //берем название рассы из формы, по этому названию ищем данные в таблице синергия
+            rasa.setName(name);                                                                                             //и добавляем эти данные в бд
+            rasa.setEnergising(energisingService.energisingName(name));
+            saveRepo(rasa);
+        }
         }
 
     public void updateRasHero(String name,Long id){
-        Rasa rasa = new Rasa();                                                                                         //обновляем данные в бд
-        rasa.setId(id);
-        rasa.setName(name);
-        rasa.setEnergising(energisingService.energisingName(name));
-        saveRepo(rasa);
+        Rasa rasa = rasHero(id);                                                                                         //обновляем данные в бд
+        if(name.length() >0) {
+            rasa.setId(id);
+            rasa.setName(name);
+            rasa.setEnergising(energisingService.energisingName(name));
+            saveRepo(rasa);
+        }
     }
     public List<Rasa> listRasHero(){
         return rasaRepository.findAll();

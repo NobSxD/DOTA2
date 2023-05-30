@@ -17,7 +17,6 @@ public class ImageSkill {
     private String originalFileName;
     private Long size;
     private String contentType;
-    private boolean previewImage;
     @Lob
     private byte[] bytes;
     private String detals;

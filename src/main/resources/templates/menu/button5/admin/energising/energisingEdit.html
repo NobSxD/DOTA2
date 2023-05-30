@@ -13,15 +13,27 @@
 
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <h1>Добавление синергии</h1>
+            <h1>Изменение синергии</h1>
             <form th:action="'/admin/edit/energising/' + ${energising.id}" method="post" enctype="multipart/form-data">
                 <p>вставте икону синергии
                 <input type="file"name="iconEnergising">
                 </p>
-                <div  name="i" th:text="${energising.energisingImage.id}"></div>
+                <p>вставте фотку с деталями синергии
+                    <input type="file" name="iconEnergising2">
+                </p>
+                <div  name="i" th:text="${energising.energisingImage.get(0).id}"></div>
                 <input type="text" name="name" placeholder="Ведите имя синергии" class="form-control" th:value="${energising.name}"><br>
+                <input type="text" name="priceDelete" placeholder="Ведите цену удаление фигуры" class="form-control" th:value="${energising.priceDelete}"><br>
+                <input type="text" name="tip" placeholder="Ведите тип способности" class="form-control" th:value="${energising.tip}"><br>
+                <input type="text" name="ItWorks" placeholder="Ведите на кого дествует" class="form-control" th:value="${energising.ItWorks}"><br>
+                <input type="text" name="buff" placeholder="что получает Синергия" class="form-control" th:value="${energising.buff}"><br>
+                <input type="text" name="descriptionKlass" placeholder="Описание класса" class="form-control" th:value="${energising.descriptionKlass}"><br>
+                <input type="text" name="descriptionBuff" placeholder="На кого работает способность" class="form-control" th:value="${energising.descriptionBuff}">
+                <input type="text" name="buffOne" placeholder="Ведите первый бафф синергии" class="form-control" th:value="${energising.buffOne}"><br>
+                <input type="text" name="buffTwo" placeholder="Ведите второй бафф синергии" class="form-control" th:value="${energising.buffTwo}"><br>
+                <input type="text" name="buffThere" placeholder="Ведите третий бафф синергии" class="form-control" th:value="${energising.buffThere}"><br>
 
-                <textarea name="full_text" placeholder="Ведите полное описание синергии" class="form-control" rows="20" th:text="${energising.full_text}"></textarea><br>
+                
 
                 <button type="submit" class="btn btn-success">Обновить</button>
             </form>
@@ -31,7 +43,10 @@
 </div>
 
 
-<footer th:insert="blocks/headerFooter/footer :: footer"></footer>
+<footer th:insert="blocks/headerFooter/footer :: div"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -23,7 +23,7 @@ public class ImageHero {
     private String contentType;
     @Lob
     private byte[] bytes;
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     private Hero hero;
 
 

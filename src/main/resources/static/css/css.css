@@ -1,24 +1,28 @@
 
-.badge.rounded-pill.bg-secondary{
-    background-image: url("/image/djaga2.png");
-    object-fit: contain;
-    background-size: auto;
 
 
-
-    color: #f2bf0b;
+.badge.rounded-pill{
+    background-color: #172b53;
+    width: 40%;
+    padding: 20px;
+    margin: 10px;
 }
 .secondary{
-    background-image: url("/image/djaga2.png");
+    background-color:rgb(41, 61, 87);
     object-fit: contain;
     background-size: auto;
 
     background-size: cover;
-    color: #f2bf0b;
+    color: #dbdbdb;
     width:100%;
     height: 100%;
 }
-
+.text-yellow{
+    color: #dbdbdb;
+}
+.nav-item{
+    float: right;
+}
 .link-dark{
     color: rgb(255, 255, 255);
     
@@ -59,11 +63,6 @@ header{
    margin-top: auto;
 }
 
-logoimage{
-    width: 85px;
-    height: 240px;
-}
-
 
 .hrefA{
     margin: 0px;
@@ -72,8 +71,7 @@ logoimage{
 
 #pading{
     
-    padding: 20px;
-    padding-bottom: 150px;
+    padding: 8px;
     border: none;
     
 }
@@ -82,12 +80,12 @@ logoimage{
 
 table{border-collapse:collapse;
 table-layout: auto;}
-tr,td{border:1px solid #aaa;}
-th{width: 20%;}
+
 
 .container{
     background-color: aliceblue;
 }
+
 footer{
     clear:both;
 }
@@ -96,19 +94,13 @@ footer{
 }
 body{
     padding-top: 0px;
+    min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding-bottom: 0px;
 }
 
 
-#autoches{
-  border: 0;  
-  width: 100%;
-  border-radius: 0;
-  color: #f2bf0b;
-}
-.btn.btn-dark{
-    padding-left: 0px;
-    padding-right: 0px;
-}
 
 
 .btn-group{
@@ -126,29 +118,34 @@ display: inline-block
 .inline-block-table{
     position: relative;
     display: inline-block;
-    width: 300px;
+    width: 274.4px;
     
 }
 .table-borderless{
     border-collapse: collapse;
 }
 
-td {
-    border: none;
-}
-.badge.rounded-pill.bg-secondary{
-    width: 40%;
-    padding: 20px;
-    margin: 10px;
-}
+
 table tr td.td2:last-child {
     word-break: break-word;
 }
 
-tb{
-    padding: 4px;
-}
-
 .centr{
     text-align: center;
+}
+.popover{
+    max-width: 390px;
+    background-color:rgb(17, 24, 29);
+    }
+.table td{
+  padding: 0;
+    }
+.flex{
+    display: inline-block;
+}
+.inlin{
+    display: inline;
+}
+.nav-link{
+    display: inline;
 }
