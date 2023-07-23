@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -17,7 +21,7 @@ public class PathService {
     private final PathRepository pathRepository;
 
     public List<Path> pathAll(){
-        return pathRepository.findAll();
+        return pathRepository.findAll().stream().sorted(Comparator.comparing(Path::getId).reversed()).collect(Collectors.toList());
     }
     public void deletePath(Long id){
         pathRepository.deleteById(id);

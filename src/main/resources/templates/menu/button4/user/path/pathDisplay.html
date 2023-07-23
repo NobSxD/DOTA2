@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
   <meta charset="UTF-8">
 
-  <title>Главня</title>
+  <title>Патч</title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
                 <p th:text="${ability.name}"></p>
                 <img th:src="'/images/path/' + ${ability.id}" width="1350px">
               
-                <a class="nav-link px-2 text-yellow tir 3" th:href="'/home/detals/path/' +${ability.id}"><t> Подробней:-->тут</t></a>
+                <a class="nav-link px-2 text-yellow tir3" th:href="'/home/detals/path/' +${ability.id}"><t> Подробней:-->тут</t></a>
               </td>
               
 

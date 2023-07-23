@@ -30,7 +30,7 @@
             <tr th:each="rasHero : ${ras}">
 
 
-              <td><img th:if="${rasHero.energising.energisingImage}" th:src="'/images/energising/' + ${rasHero.energising.energisingImage.id}"></td>
+              <td><img th:if="${rasHero.energising.energisingImage}" th:src="'/images/energising/' + ${rasHero.energising.energisingImage.get(0).id}"></td>
 
               <td><a th:href="'/admin/detals/ras/' +${rasHero.id}"  class="link-secondary">
                 <t th:text="${rasHero.name}"></t>

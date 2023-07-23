@@ -38,6 +38,12 @@ public class PathController {
         model.addAttribute("path" ,pathService.pathAll());
         return "menu/button4/admin/path/pathDisplay";
     }
+    @GetMapping("/admin/detals/path/{id}")
+    private String detals(Model model,@PathVariable(value = "id") Long id){
+        viewsService.viewsPath();
+        model.addAttribute("path" ,pathService.pathById(id));
+        return "menu/button4/admin/path/pathDetals";
+    }
 
     @GetMapping("/admin/delete/path/{id}")
     private String delete(@PathVariable(value = "id")Long id){
@@ -61,5 +67,24 @@ public class PathController {
         viewsService.viewsPath();
         model.addAttribute("path" ,pathService.pathAll());
         return "menu/button4/user/path/pathDisplay";
+    }
+    @GetMapping("/home/detals/path/{id}")
+    private String detalsPath(Model model,@PathVariable(value = "id") Long id){
+        viewsService.viewsPath();
+        model.addAttribute("path" ,pathService.pathById(id));
+        return "menu/button4/user/path/pathDetals";
+    }
+
+    @GetMapping("/home")
+    private String displayMainHome(Model model){
+        viewsService.viewsPath();
+        model.addAttribute("path" ,pathService.pathAll());
+        return "menu/button1/autoChess";
+    }
+    @GetMapping("/")
+    private String displayMain(Model model){
+        viewsService.viewsPath();
+        model.addAttribute("path" ,pathService.pathAll());
+        return "menu/button1/autoChess";
     }
 }

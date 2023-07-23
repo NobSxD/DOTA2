@@ -1,0 +1,885 @@
+<html lang="ru"><input type="hidden" id="__yoroi_connector_api_injected_type" value="prod">
+<head><title>Конструктор стратегий DOTA 2 Auto-Chess</title>
+    <meta name="description"
+          content="Конструктор стратегий DOTA 2 Auto-Chess - интрумент для создания и сохранения комбинаций героев на игровом поле с отображением расовых и классовых бонусов.">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Конструктор стратегий DOTA 2 Auto-Chess">
+    <meta property="og:description"
+          content="Конструктор стратегий DOTA 2 Auto-Chess - интрумент для создания и сохранения комбинаций героев на игровом поле с отображением расовых и классовых бонусов.">
+    <meta property="og:image" content="https://auto-chess.ru/auto-chess-logo.png">
+    <meta property="og:url" content="https://auto-chess.ru/start/build-creator/">
+    <meta property="og:site_name" content="Auto-Chess.ru">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="image_src" href="/auto-chess-logo.png">
+    <meta name="theme-color" content="#000">
+    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+    <link rel="dns-prefetch" href="//s.w.org">
+    <link rel="stylesheet" href="/styles.css?v=1.64" media="all">
+    <link th:insert="blocks/headerFooter/logo :: link"/>
+    <script type="text/javascript" async=""
+            src="https://www.googletagmanager.com/gtag/js?id=G-GDPCDVX806&amp;cx=c&amp;_slc=1"></script>
+    <script async="" src="https://mc.yandex.ru/metrika/tag.js"></script>
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <link rel="canonical" href="https://auto-chess.ru/start/build-creator/">
+    <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7677149555991645",
+          enable_page_level_ads: true
+     });
+
+    </script>
+    <meta name="robots" content="max-image-preview:large">
+    <link th:href="@{/css/constryctor.css}" rel="stylesheet">
+    <link rel="stylesheet" id="classic-theme-styles-css"
+          href="https://auto-chess.ru/wp-includes/css/classic-themes.min.css?ver=6.2.2" type="text/css" media="all">
+
+</head>
+
+<body>
+<header th:insert="blocks/headerFooter/header :: header"></header>
+
+<main id="main" tabindex="-1">
+
+
+    <article class="block article" role="main">
+
+        <div class="container article-container">
+
+            <div class="row">
+
+                <div class="article__content">
+
+                    <h1>Конструктор стратегий</h1>
+                    <p class="article__summary ready">В конструкторе можно подобрать комбинации героев и посмотреть,
+                        какие бонусы получат дружественные и вражеские существа. Внизу генерится ссылка, чтобы игровой
+                        стратегией легко поделиться с друзьями.</p>
+
+
+                    <h3>Настройки конструктора</h3>
+                    
+                    <p id="builder_option_2" class="builder_options" data-cur-style="0"><input type="checkbox"
+                                                                                               disabled="disabled"
+                                                                                               checked="checked">Выбрать
+                        цвет шахматной доски: <span id="builder_options_color_0" class="checked"></span> <span
+                                id="builder_options_color_1"></span> <span id="builder_options_color_2"></span> <span
+                                id="builder_options_color_3"></span> <span id="builder_options_color_4"></span> <span
+                                id="builder_options_color_5"></span> <span id="builder_options_color_6"></span> <span
+                                id="builder_options_color_7"></span> <span id="builder_options_color_8"></span></p>
+                    
+
+                    <h3>Фильтры по расам и классам</h3>
+
+                    <div class="builder">
+                        <div id="builder-specie-all" class="builder-cell selected" data-cell-specie="all"
+                             data-current-specie="all">
+                            <div class="builder-cell-inner builder-cell-all">Все расы</div>
+                        </div>
+                        <div th:each="rass : ${ras}">
+                        <div class="builder-cell builder-cell-dac" th:data-cell-specie="${rass.name}">
+                                <div th:class="'builder-cell-inner chess-list_specie_'+${rass.name}"><img decoding="async" class="link"
+                                                                                       th:src="'/images/energising/' + ${rass.energising.energisingImage.get(0).id}"
+                                                                                       th:alt="${rass.name}" th:title="${rass.name}" width="32"
+                                                                                       height="32"><t th:text="${rass.name}"></t>
+                                </div>
+                            </div>
+
+                            
+
+                        </div>
+                        </div>
+                        <div class="builder">
+                            <div id="builder-class-all" class="builder-cell selected" data-cell-class="all" data-current-class="all"><div class="builder-cell-inner builder-cell-all">Все классы</div></div>
+                        
+                        <div th:each="class : ${class}">
+                        <div class="builder-cell builder-cell-dac" th:data-cell-class="${class.name}">
+                            <div th:class="'builder-cell-inner chess-list_class_'+${class.name}"><img decoding="async"
+                                                                                          loading="lazy" class="link"
+                                                                                          th:src="'/images/energising/' + ${class.energising.energisingImage.get(0).id}"
+                                                                                          th:alt="${class.name}" th:title="${class.name}" width="32"
+                                                                                          height="32"><t th:text="${class.name}"></t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <h3 id="choose-heroes">Выбор героев</h3>
+                    <div th:each="hero : ${displayHeroTir1}" class="list-inline-item">
+                    <div id="builder-hero" class="builder">
+                        <div class="builder-hero-cell builder-hero-cell-dac">
+                            <div class="builder-hero-cell-inner ui-draggable ui-draggable-handle"
+                                 th:data-builder-hero-inner="${hero.nameHero}" th:data-hero-specie="${hero.energising.name}" th:data-hero-class="${hero.energising1.name}"
+                                 th:data-hero-index="${hero.id}" data-hero-level="0">
+                                <div th:class="'icon-' + ${hero.energising.name}"><img  th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"> </div>
+                                <span class="chess-list_name1"><t th:text="${hero.nameHero}"></t> </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div th:each="hero : ${displayHeroTir2}" class="list-inline-item">
+                    <div id="builder-hero" class="builder">
+                        <div class="builder-hero-cell builder-hero-cell-dac">
+                            <div class="builder-hero-cell-inner ui-draggable ui-draggable-handle"
+                                 th:data-builder-hero-inner="${hero.nameHero}" th:data-hero-specie="${hero.classHero}" th:data-hero-class="${hero.classHero1}"
+                                 th:data-hero-index="${hero.id}" data-hero-level="0">
+                                <div th:class="'icon-' + ${hero.nameHero}"><img  th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"> </div>
+                                <span class="chess-list_name2"><t th:text="${hero.nameHero}"></t> </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div th:each="hero : ${displayHeroTir3}" class="list-inline-item">
+                    <div id="builder-hero" class="builder">
+                        <div class="builder-hero-cell builder-hero-cell-dac">
+                            <div class="builder-hero-cell-inner ui-draggable ui-draggable-handle"
+                                 th:data-builder-hero-inner="${hero.nameHero}" th:data-hero-specie="${hero.classHero}" th:data-hero-class="${hero.classHero1}"
+                                 th:data-hero-index="${hero.id}" data-hero-level="0">
+                                <div th:class="'icon-' + ${hero.nameHero}"><img  th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"> </div>
+                                <span class="chess-list_name3"><t th:text="${hero.nameHero}"></t> </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div th:each="hero : ${displayHeroTir4}" class="list-inline-item">
+                    <div id="builder-hero" class="builder">
+                        <div class="builder-hero-cell builder-hero-cell-dac">
+                            <div class="builder-hero-cell-inner ui-draggable ui-draggable-handle"
+                                 th:data-builder-hero-inner="${hero.nameHero}" th:data-hero-specie="${hero.classHero}" th:data-hero-class="${hero.classHero1}"
+                                 th:data-hero-index="${hero.id}" data-hero-level="0">
+                                <div th:class="'icon-' + ${hero.nameHero}"><img  th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"> </div>
+                                <span class="chess-list_name4"><t th:text="${hero.nameHero}"></t> </span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div th:each="hero : ${displayHeroTir5}" class="list-inline-item">
+                    <div id="builder-hero" class="builder">
+                        <div class="builder-hero-cell builder-hero-cell-dac">
+                            <div class="builder-hero-cell-inner ui-draggable ui-draggable-handle"
+                                 th:data-builder-hero-inner="${hero.nameHero}" th:data-hero-specie="${hero.classHero}" th:data-hero-class="${hero.classHero1}"
+                                 th:data-hero-index="${hero.id}" data-hero-level="0">
+                                <div th:class="'icon-' + ${hero.nameHero}"><img  th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"> </div>
+                                <span class="chess-list_name5"><t th:text="${hero.nameHero}"></t> </span></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                    <div class="wrapper_heroboard">
+
+                        <div id="heroboard_list-heroes">
+                            <h3>Герои</h3>
+                            <div class="empty-heroes common">Список пока пуст.</div>
+                            
+                                <div th:each="hero : ${displayHeroTir1}" th:id="'heroboard_list-heroes-'+${hero.nameHero}" class="common"><img decoding="async" class="link"
+                                    th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.get(0).id}" th:title="${hero.nameHero}"
+                                                                                    th:alt="${hero.nameHero}"> <t th:text="${hero.nameHero}"></t><span
+                                    th:id="'duplicate-' +${hero.nameHero} "></span></div>
+                           
+                            
+                                <div th:each="hero : ${displayHeroTir2}" th:id="'heroboard_list-heroes-'+${hero.nameHero}" class="uncommon"><img decoding="async" class="link"
+                                    th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.get(0).id}" th:title="${hero.nameHero}"
+                                                                                    th:alt="${hero.nameHero}"> <t th:text="${hero.nameHero}"></t><span
+                                    th:id="'duplicate-' +${hero.nameHero} "></span></div>
+                            
+                            
+                                <div th:each="hero : ${displayHeroTir3}" th:id="'heroboard_list-heroes-'+${hero.nameHero}" class="rare"><img decoding="async" class="link"
+                                    th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.get(0).id}" th:title="${hero.nameHero}"
+                                                                                    th:alt="${hero.nameHero}"> <t th:text="${hero.nameHero}"></t><span
+                                    th:id="'duplicate-' +${hero.nameHero} "></span></div>
+                           
+                            
+                                <div th:each="hero : ${displayHeroTir4}" th:id="'heroboard_list-heroes-'+${hero.nameHero}" class="mythical"><img decoding="async" class="link"
+                                    th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.get(0).id}" th:title="${hero.nameHero}"
+                                                                                    th:alt="${hero.nameHero}"> <t th:text="${hero.nameHero}"></t><span
+                                    th:id="'duplicate-' +${hero.nameHero} "></span></div>
+                            
+                            
+                                <div th:each="hero : ${displayHeroTir5}" th:id="'heroboard_list-heroes-'+${hero.nameHero}" class="epic"><img decoding="async" class="link"
+                                    th:if="${hero.imageHero}" th:src="'/images/hero/' + ${hero.imageHero.get(0).id}" th:title="${hero.nameHero}"
+                                                                                    th:alt="${hero.nameHero}"> <t th:text="${hero.nameHero}"></t><span
+                                    th:id="'duplicate-' +${hero.nameHero} "></span></div>
+                            
+                            
+                            
+                        </div>
+
+                        <div id="heroboard">
+                            <h3>Расстановка героев&nbsp;&nbsp;(<span data-heroboard-counter="">0</span>/10)</h3>
+                            <div class="heroboard_delete not-selected ui-droppable" data-builder-delete=""></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="1"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="2"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="3"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="4"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="5"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="6"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="7"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="8"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="9"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="10"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="11"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="12"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="13"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="14"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="15"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="16"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="17"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="18"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="19"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="20"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="21"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="22"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="23"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="24"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="25"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="26"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="27"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="28"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="29"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="30"></div>
+                            <div class="heroboard_block black ui-droppable" data-heroboard-block="31"></div>
+                            <div class="heroboard_block white ui-droppable" data-heroboard-block="32"></div>
+                        </div>
+
+                        <div id="heroboard_list-bonuses">
+                            <h3>Бонусы</h3>
+                            <div class="empty-bonuses common">Нет героев - нет бонусов!</div>
+                            <div class="still-no-bonuses common">Нет активных бонусов!</div>
+                            <table id="class-specie-bonuses">
+                                <tbody>
+									
+										<tr th:each="energising : ${en}" th:if="${energising.one != 0}" th:id="'heroboard_list-bonuses-' + ${energising.name} + ${energising.one}">
+											<td th:text="${energising.one}"></td>
+											<td class="bonus-icon"><img decoding="async" class="link"
+												th:src="'/images/energising/' + ${energising.energisingImage.get(0).id}" th:title="${energising.name}" th:alt="${energising.name}"></td>
+											<td th:text="${energising.buffOne}"></td>
+										</tr>
+										<tr th:each="energising : ${en}" th:if="${energising.two != 0}" th:id="'heroboard_list-bonuses-' + ${energising.name} + ${energising.two}">
+											<td th:text="${energising.two}"></td>
+											<td class="bonus-icon"><img decoding="async" class="link"
+												th:src="'/images/energising/' + ${energising.energisingImage.get(0).id}" th:title="${energising.name}" th:alt="${energising.name}"></td>
+											<td th:text="${energising.buffTwo}"></td>
+										</tr>
+										<tr th:each="energising : ${en}" th:if="${energising.there != 0}" th:id="'heroboard_list-bonuses-' + ${energising.name} + ${energising.there}">
+											<td th:text="${energising.there}"></td>
+											<td class="bonus-icon"><img decoding="async" class="link"
+												th:src="'/images/energising/' + ${energising.energisingImage.get(0).id}" th:title="${energising.name}" th:alt="${energising.name}"></td>
+											<td th:text="${energising.buffThere}"></td>
+										</tr>
+									
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <h3>Поделись ссылкой на комбинацию героев</h3>
+
+                    <div id="builder_link">
+                        <textarea onfocus="this.select()"
+                                  readonly="">https://auto-chess.ru/start/build-creator/</textarea>
+                    </div>
+
+                    <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+                    <script type="text/javascript"> var mobile_js = 0;
+var specie_bonus_levels = {ОРКИ:[2,4,6],ЗВЕРИ:[2,4,6],ОГРЫ:[2],НЕЖИТЬ:[2,4,6],ГОБЛИНЫ:[3,6],ТРОЛЛИ:[2,4,6],ЭЛЬФЫ:[3,6,9],ЭЛЕМЕНТАЛИ:[2,4],ЛЮДИ:[3,4,6],ДЕМОН:[1],ДРАКОНЫ:[3,5],НАГИ:[2,4],ДВОРФЫ:[1,2],САТИР:[1],БОГИ:[2,3,4],Акир:[2,4],ПАНДА:[1,2], КЕНТАВР:[2,4]};
+var class_bonus_levels = {warrior:[3,6,9],ДРУИДЫ:[2,4],МАГИ:[3,6,9],ОХОТНИКИ:[3,6,9],УБИЙЦЫ:[3,6,9],МЕХИ:[3,6],ШАМАН:[2,4,6],РЫЦАРИ:[2,4,6],ОХОТНИК_НА_ДЕМОНОВ:[1,2],ЧЕРНОКНИЖНИКИ:[2,4,6],ЖРЕЦЫ:[1,2,3],ВОЛШЕБНИКИ:[2,4],МОНК:[2,4]};
+function UpdateHeroboardCounters() {
+
+	var myheroes_list = [];
+	var myheroes_duplicates = [];
+	var myheroes_specie_list = [];
+	var myheroes_class_list = [];
+	var mybuilder_link = '';
+	var myheroes_class_bonuses = [];
+	var myheroes_specie_bonuses = [];
+
+	$('.builder-hero-cell').css('borderColor','#12181a');
+
+	$('#heroboard').find('[data-heroboard-block]:not(:empty)').each(function(){
+
+		if ( $(this).data('heroboard-block') > 32 ) {
+			return;
+		}
+
+		var myhero = $(this).find('.builder-hero-cell-inner').data('builder-hero-inner').toLowerCase();
+		var myhero_specie = $(this).find('.builder-hero-cell-inner').data('hero-specie');
+		var myhero_class = $(this).find('.builder-hero-cell-inner').data('hero-class');
+
+		mybuilder_link += $(this).data('heroboard-block') + '-' + $(this).find('.builder-hero-cell-inner').data('hero-index') + '-' + $(this).find('.builder-hero-cell-inner').attr('data-hero-level') + '-';
+
+		$('.builder-hero-cell div[data-hero-index=' + $(this).find('.builder-hero-cell-inner').data('hero-index') + ']').closest('.builder-hero-cell').css('borderColor','#f00');
+
+		if ( $.grep(myheroes_list, function (elem) { return elem === myhero; }).length > 0 ) {
+			myheroes_duplicates.push(myhero);
+			return;
+		} else {
+			myheroes_list.push(myhero);
+		}
+
+		myheroes_specie_list = $.merge(myheroes_specie_list, myhero_specie.split(' '));
+		myheroes_class_list.push(myhero_class);
+
+	});
+
+	$('#heroboard_list-heroes div').hide();
+	$('#heroboard_list-bonuses tr').hide();
+	$('#heroboard_list-bonuses-inactive div').hide();
+
+	var mystyle = $('#builder_option_2').attr('data-cur-style');
+	if ( mystyle != 0 && myheroes_list.length == 0 ) {
+		mystyle = '?style=' + mystyle;
+	} else if ( mystyle != 0 ) {
+		mystyle = '&style=' + mystyle;
+	} else {
+		mystyle = '';
+	}
+
+	if ( myheroes_list.length == 0 ) {
+
+		$('.empty-heroes').show();
+		$('.empty-bonuses').show();
+		$('.still-no-bonuses').hide();
+		$('[data-heroboard-counter]').html('0');
+		$('[data-builder-delete]').addClass('not-selected');
+		$('#builder_link textarea').html('/home/build-creator' + mystyle);
+
+	} else {
+
+		$('.empty-heroes').hide();
+		$('.empty-bonuses').hide();
+		$('.still-no-bonuses').show();
+		$('#heroboard_list-bonuses-inactive').show();
+		$('[data-heroboard-counter]').html($('[data-heroboard-block]:not(:empty)').length);
+		$('[data-builder-delete]').removeClass('not-selected');
+		$('#builder_link textarea').html('https://auto-chess.ru/start/build-creator/?heroes=' + mybuilder_link.slice(0,-1) + mystyle);
+
+		$.each(myheroes_list, function( k, v ) {
+
+			$('#heroboard_list-heroes-' + v).show();
+
+			var countDuplicates = $.grep(myheroes_duplicates, function (elem) { return elem === v; }).length + 1;
+			if ( countDuplicates > 1 ) {
+				$('#duplicate-'+ v).html(' x' + countDuplicates );
+			} else {
+				$('#duplicate-'+ v).html('');
+			}
+
+		});
+
+		if ( ( $.grep(myheroes_list, function (elem) { return elem === 'mobile_grand_herald'; }).length > 0 ) && ( $.grep(myheroes_list, function (elem) { return elem === 'mobile_grimtouch'; }).length > 0 ) ) {
+			wizards_active = 1;
+console.log('mobile_wizards');
+		} else if ( ( $.grep(myheroes_list, function (elem) { return elem === 'rubick'; }).length > 0 ) && ( $.grep(myheroes_list, function (elem) { return elem === 'grimstroke'; }).length > 0 ) ) {
+			wizards_active = 1;
+		} else if ( ( $.grep(myheroes_list, function (elem) { return elem === 'rubick'; }).length > 0 ) && ( $.grep(myheroes_list, function (elem) { return elem === 'lion'; }).length > 0 ) ) {
+			wizards_active = 1;
+		} else if ( ( $.grep(myheroes_list, function (elem) { return elem === 'grimstroke'; }).length > 0 ) && ( $.grep(myheroes_list, function (elem) { return elem === 'lion'; }).length > 0 ) ) {
+			wizards_active = 1;
+		} else {
+			wizards_active = 0;
+		}
+
+		if ( ( $.grep(myheroes_list, function (elem) { return elem === 'anti_mage'; }).length > 0 ) && ( $.grep(myheroes_list, function (elem) { return elem === 'terrorblade'; }).length > 0 ) ) {
+			vip_access_bonus_demons = 1;
+		} else {
+			vip_access_bonus_demons = 0;
+		}
+
+		if ( ( $.grep(myheroes_list, function (elem) { return elem === 'mobile_taboo_witcher'; }).length > 0 ) && ( $.grep(myheroes_list, function (elem) { return elem === 'mobile_fallen_witcher'; }).length > 0 ) ) {
+			mobile_vip_access_bonus_demons = 1;
+		} else {
+			mobile_vip_access_bonus_demons = 0;
+		}
+
+		$.each(myheroes_class_list.filter(function(item, pos) { return myheroes_class_list.indexOf(item) == pos; }), function( key, myclass ) {
+
+			var level = $.grep(myheroes_class_list, function (elem) { return elem === myclass; }).length;
+
+			if ( level >= 3 && wizards_active == 1 ) {
+				level++;
+			}
+
+			var class_bonus_level = 0;
+
+			$.each(class_bonus_levels[myclass], function(index, value){
+			   if ((class_bonus_level == 0 || Math.abs(this - level) < Math.abs(class_bonus_level - level)) && this <= level) class_bonus_level = this;
+			});
+
+			if (class_bonus_level > 0) {
+				$('.still-no-bonuses').hide();
+				$('#bonuses-inactive-' + myclass).hide();
+				$('#heroboard_list-bonuses-' + myclass + class_bonus_level ).show();
+				myheroes_class_bonuses.push(myclass + class_bonus_level);
+			} else {
+				$('#bonuses-inactive-' + myclass + '-counter').html(level);
+				$('#bonuses-inactive-' + myclass).show();
+			}
+
+		});
+
+		$.each(myheroes_specie_list.filter(function(item, pos) { return myheroes_specie_list.indexOf(item) == pos; }), function( key, myspecie ) {
+
+			var level = $.grep(myheroes_specie_list, function (elem) { return elem === myspecie; }).length;
+
+			if ( level >= 3 && wizards_active == 1 ) {
+				level++;
+			}
+
+			var specie_bonus_level = 0;
+
+			$.each(specie_bonus_levels[myspecie], function(index, value){
+			   if ((specie_bonus_level == 0 || Math.abs(this - level) < Math.abs(specie_bonus_level - level)) && this <= level) specie_bonus_level = this;
+			});
+
+			if (specie_bonus_level > 0) {
+
+				myheroes_specie_bonuses.push(myspecie + specie_bonus_level);
+
+				if ( myspecie == 'demon' && level > 1 && vip_access_bonus_demons == 0 ) {
+					myheroes_specie_bonuses.pop();
+				} else if ( myspecie == 'mobile_demon' && level > 1 && mobile_vip_access_bonus_demons == 0 ) {
+					myheroes_specie_bonuses.pop();
+				}
+			}
+
+			if ( myspecie == 'god' && myheroes_specie_bonuses.length > 1 ) {
+				$('#heroboard_list-bonuses-god1').hide();
+				$('#heroboard_list-bonuses-god2').hide();
+				$('#heroboard_list-bonuses-god3').hide();
+			} else if ( myspecie == 'mobile_divinity' && myheroes_specie_bonuses.length > 1 ) {
+				$('#heroboard_list-bonuses-mobile_divinity1').hide();
+				$('#heroboard_list-bonuses-mobile_divinity2').hide();
+			} else if ( myspecie == 'satyr' ) {
+				return;
+			} else if ( myspecie == 'demon' && level > 1 && vip_access_bonus_demons == 0 ) {
+                return;
+			} else if ( myspecie == 'mobile_demon' && level > 1 && mobile_vip_access_bonus_demons == 0 ) {
+                return;
+            } else if (specie_bonus_level > 0) {
+				$('.still-no-bonuses').hide();
+				$('#bonuses-inactive-' + myspecie).hide();
+				$('#heroboard_list-bonuses-' + myspecie + specie_bonus_level ).show();
+				if ( myspecie != 'god' ) {
+					$('#heroboard_list-bonuses-god1').hide();
+					$('#heroboard_list-bonuses-god2').hide();
+					$('#heroboard_list-bonuses-god3').hide();
+				}
+				if ( myspecie != 'mobile_divinity' ) {
+					$('#heroboard_list-bonuses-mobile_divinity1').hide();
+					$('#heroboard_list-bonuses-mobile_divinity2').hide();
+				}
+			} else {
+				$('#bonuses-inactive-' + myspecie + '-counter').html(level);
+				$('#bonuses-inactive-' + myspecie).show();
+			}
+
+		});
+
+	}
+
+}
+
+function ResetBuilderFilters () {
+	$('#builder-specie-all').attr('data-current-specie', 'all');
+	$('#builder-specie-all').removeClass('not-selected');
+	$('#builder-specie-all').addClass('selected');
+	$('#builder-specie-all').closest('.builder').children(".builder-cell").each( function () {
+		if ( $(this).attr('data-cell-specie') != 'all' ) { $(this).removeClass('selected'); $(this).removeClass('not-selected');	}
+	});
+	$('#builder-class-all').attr('data-current-class', 'all');
+	$('#builder-class-all').removeClass('not-selected');
+	$('#builder-class-all').addClass('selected');
+	$('#builder-class-all').closest('.builder').children(".builder-cell").each( function () {
+		if ( $(this).attr('data-cell-class') != 'all' ) {
+			$(this).removeClass('selected'); $(this).removeClass('not-selected');
+		}
+	});
+	$('#builder-hero').children(".builder-hero-cell").each( function () { $(this).removeClass('not-selected'); });
+}
+
+(function($){$(document).ready(function(){
+
+	$('#builder_option_1').click(function(event){
+
+		if($('#builder_option_3 input').prop("checked") == true) {
+			return;
+		}
+
+		if( event.target.tagName == 'A' ) {
+			return;
+		}
+
+		if( event.target.tagName != 'INPUT' ) {
+			if($('#builder_option_1 input').prop("checked") == true) {
+				$('#builder_option_1 input').prop("checked", false);
+			} else {
+				$('#builder_option_1 input').prop("checked", true);
+			}
+		}
+
+		$('.builder-cell-test').toggle();
+		$('.builder-hero-cell-test').toggle();
+
+		ResetBuilderFilters ();
+
+	});
+
+	$('#builder_option_2 span').click(function(){
+		var mystyle = $(this).attr('id').slice(-1);
+		var curstyle = $('#builder_option_2').attr('data-cur-style');
+		var mylink = $('#builder_link textarea').html();
+		if ( mystyle != curstyle ) {
+			$('#builder_option_2').attr('data-cur-style', mystyle);
+			$('#builder_options_color_' + curstyle).removeClass('checked');
+			$('#builder_options_color_' + mystyle).addClass('checked');
+			$('.heroboard_block').removeClass('style' + curstyle);
+			$('.heroboard_block').addClass('style' + mystyle);
+			if ( mystyle == 0 ) {
+				$('#builder_link textarea').html( mylink.slice(0,-8) );
+				if ( $('#builder_link textarea').html().indexOf('&') != -1 ) {
+					$('#builder_link textarea').html( mylink.slice(0,-12) );
+				}
+			} else if ( curstyle == 0 && $('#builder_link textarea').html().indexOf('heroes') == -1 ) {
+				$('#builder_link textarea').html( mylink + '?style=' + mystyle );
+			} else if ( curstyle == 0 ) {
+				$('#builder_link textarea').html( mylink + '&style=' + mystyle );
+			} else {
+				$('#builder_link textarea').html( mylink.slice(0,-1) + mystyle );
+			}
+		}
+	});
+
+	$('#builder_option_3').click(function(event){
+
+		if( event.target.tagName != 'INPUT' ) {
+			if($('#builder_option_3 input').prop("checked") == true) {
+				$('#builder_option_3 input').prop("checked", false);
+			} else {
+				$('#builder_option_3 input').prop("checked", true);
+			}
+		}
+
+		if($('#builder_option_3 input').prop("checked") == true) {
+			$('#builder_option_1 input').prop("disabled", true);
+			$('#builder_option_1 input').prop("checked", true);
+		} else {
+			$('#builder_option_1 input').prop("disabled", false);
+		}
+
+		$('.builder-cell-mobile').toggle();
+		$('.builder-hero-cell-mobile').toggle();
+		$('.builder-cell-dac').toggle();
+		$('.builder-hero-cell-dac').toggle();
+
+		$('.builder-cell-test').hide();
+		$('.builder-hero-cell-test').hide();
+
+		ResetBuilderFilters ();
+
+		var heroboard_temp = {};
+
+		$('#heroboard').find('[data-heroboard-block]:not(:empty)').each(function(){
+
+			var myhero = $(this).find('.builder-hero-cell-inner').data('hero-index');
+			var myindex = $(this).data('heroboard-block');
+			var mylevel = $(this).find('.builder-hero-cell-inner').data('hero-level');
+
+			if( $('#builder_option_3 input').prop("checked") == false ) {
+				myhero = Number.parseInt( myhero.slice(1) );
+			}
+
+			if( !isNaN(myhero) && !isNaN(myindex) && myindex >= 1 && myindex <= 32 && myhero >= 1 && myhero <= 71) {
+				heroboard_temp[myindex-1] = [];
+				if( $('#builder_option_3 input').prop("checked") == false ) {
+					heroboard_temp[myindex-1][0] = myhero;
+				} else {
+					heroboard_temp[myindex-1][0] = 'm' + String(myhero);
+				}
+				heroboard_temp[myindex-1][1] = mylevel;
+			} else {
+				heroboard_temp = {};
+				return false;
+			}
+
+		});
+
+		$('[data-heroboard-block]').html('');
+		UpdateHeroboardCounters();
+
+		if( Object.keys(heroboard_temp).length != 0) {
+			$.each(heroboard_temp, function(index, value){
+				var $clone = $('.builder-hero-cell div[data-hero-index=' + value[0] + ']').closest('.builder-hero-cell-inner').clone().removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').addClass('is-clone').attr('data-hero-level', value[1]);
+
+				if ( value[1] == 3 ) {
+					$clone.find('span').html('★★★');
+					$clone.addClass('builder-hero-cell-inner-stars');
+				} else if ( value[1] == 2 ) {
+					$clone.find('span').html('★★');
+					$clone.addClass('builder-hero-cell-inner-stars');
+				} else if ( value[1] == 1 ) {
+					$clone.find('span').html('★');
+					$clone.addClass('builder-hero-cell-inner-stars');
+				}
+
+				$('[data-heroboard-block]').eq(index).html($clone);
+				$clone.draggable({ revert:true, revertDuration:0 }).disableSelection();
+			});
+			UpdateHeroboardCounters();
+		}
+
+	});
+
+	$('.builder-cell').click(function(){
+
+		if ( !$(this).attr('data-cell-class') && !$(this).attr('data-cell-specie') ) {
+			return false;
+		} else if ( !$(this).attr('data-cell-class') ) {
+			var mytype = 'specie';
+			var myval = $(this).attr('data-cell-specie');
+			var curval = $('#builder-specie-all').attr('data-current-specie');
+		} else {
+			var mytype = 'class';
+			var myval = $(this).attr('data-cell-class');
+			var curval = $('#builder-class-all').attr('data-current-class');
+		}
+
+		if ( myval == 'all' && $(this).hasClass('not-selected') || myval != 'all' && $(this).hasClass('selected') ) {
+			$('#builder-'+mytype+'-all').attr('data-current-'+mytype, 'all');
+			$(this).closest('.builder').children(".builder-cell").each( function () {
+				if ( $(this).attr('data-cell-'+mytype) == 'all' ) {
+					$(this).removeClass('not-selected');
+					$(this).addClass('selected');
+				} else {
+					if ( $(this).attr('data-cell-'+mytype) == curval ) {
+						$(this).removeClass('selected')
+					} else {
+						$(this).removeClass('not-selected');
+					}
+				}
+			});
+		} else if ( myval != 'all' && !$(this).hasClass('selected') ) {
+			$('#builder-'+mytype+'-all').attr('data-current-'+mytype, myval);
+			$(this).closest('.builder').children(".builder-cell").each( function () {
+				if ( $(this).attr('data-cell-'+mytype) == myval ) {
+					$(this).removeClass('not-selected');
+					$(this).addClass('selected');
+				} else {
+					$(this).removeClass('selected');
+					$(this).addClass('not-selected');
+				}
+			});
+		} else {
+			return false;
+		}
+
+		var currentspecie = $('#builder-specie-all').attr('data-current-specie');
+		var currentclass = $('#builder-class-all').attr('data-current-class');
+
+		$('#builder-hero').children(".builder-hero-cell").each( function () {
+			if (currentspecie == 'all' && currentclass == 'all') {
+				$(this).removeClass('not-selected');
+			} else if ( currentspecie == 'all' ) {
+				if ( $(this).children('.builder-hero-cell-inner').attr('data-hero-class') !== currentclass && !$(this).hasClass('not-selected') ) {
+					$(this).addClass('not-selected');
+				} else if ( $(this).children('.builder-hero-cell-inner').attr('data-hero-class') == currentclass && $(this).hasClass('not-selected') ){
+					$(this).removeClass('not-selected');
+				}
+			} else if ( currentclass == 'all' ) {
+				if (  $(this).children('.builder-hero-cell-inner').attr('data-hero-specie').indexOf(currentspecie) == -1 && !$(this).hasClass('not-selected') ) {
+					$(this).addClass('not-selected');
+				} else if ( $(this).children('.builder-hero-cell-inner').attr('data-hero-specie').indexOf(currentspecie) !== -1 && $(this).hasClass('not-selected') ){
+					$(this).removeClass('not-selected');
+				}
+			} else {
+				if ( $(this).children('.builder-hero-cell-inner').attr('data-hero-specie').indexOf(currentspecie) == -1 || $(this).children('.builder-hero-cell-inner').attr('data-hero-class') !== currentclass ) {
+					$(this).addClass('not-selected');
+				} else if ( $(this).children('.builder-hero-cell-inner').attr('data-hero-specie').indexOf(currentspecie) !== -1 && $(this).children('.builder-hero-cell-inner').attr('data-hero-class') == currentclass && $(this).hasClass('not-selected') ){
+					$(this).removeClass('not-selected');
+				}
+			}
+		});
+
+	});
+
+	$('#heroboard').disableSelection();
+	$('[data-heroboard-block]').disableSelection();
+	$('[data-builder-hero-inner]').disableSelection();
+	$('.builder-hero-cell').disableSelection();
+
+	$(document).on('click', '[data-builder-hero-inner]', function() {
+		if ( $(this).hasClass('is-clone') ) {
+			if ( $(this).hasClass('builder-hero-cell-inner-stars') ) {
+				if ( $(this).find('span').html() == '★★★' || ( ( $(this).attr('data-hero-index') == 'm66' || $(this).attr('data-hero-index') == 66 ) && $(this).find('span').html() == '★★' ) ) {
+					$(this).removeClass('builder-hero-cell-inner-stars');
+					if( confirm("Вы действительно хотите удалить " + $(this).attr('data-builder-hero-inner').replace('_', ' ').replace('mobile ', '') + "?") ) {
+						$(this).detach();
+					} else {
+						$(this).find('span').html('');
+					}
+				} else {
+					$(this).find('span').append('★');
+				}
+			} else {
+				$(this).addClass('builder-hero-cell-inner-stars');
+				$(this).find('span').html('★');
+			}
+
+			var scounter = 0;
+			if ( $(this).find('span').html() == '★★★') { scounter = 3; } else if ( $(this).find('span').html() == '★★') { scounter = 2; } else if ( $(this).find('span').html() == '★') { scounter = 1; }
+			$(this).attr('data-hero-level', scounter);
+
+		} else {
+			var count = $('[data-heroboard-block]:not(:empty)').length;
+			if ( count >= 10 && typeof enemy_js == 'undefined' ) { return; }
+			var $clone = $(this).clone().removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').removeAttr('style').addClass('is-clone');
+			$('[data-heroboard-block]:empty').first().html($clone);
+			$clone.draggable({revert:true,revertDuration:0}).disableSelection();
+		}
+		UpdateHeroboardCounters();
+	});
+
+	$('[data-builder-hero-inner]').draggable({helper:"clone"}).disableSelection();
+
+	$('[data-heroboard-block]').droppable({
+		drop: function(e, ui) {
+			var $clone = ui.draggable.clone().removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').removeAttr('style');
+			var count = $('[data-heroboard-block]:not(:empty)').length;
+			if ( !$clone.hasClass('is-clone') ) {
+				if ( $(this).is(':empty') && count >= 10 && typeof enemy_js == 'undefined' ) {
+					return;
+				}
+				$clone.addClass('is-clone');
+			}
+			if( $(this).is(':empty') ) {
+				$(this).html($clone);
+				if ( ui.draggable.hasClass('is-clone') && $clone.hasClass('is-clone') ) { ui.draggable.remove(); }
+				$clone.draggable({ revert:true, revertDuration:0 }).disableSelection();
+				UpdateHeroboardCounters();
+			}
+		}
+	});
+
+	$('[data-heroboard-block]').droppable( "disable" );
+	$('[data-heroboard-block]').droppable( "enable" );
+
+	$(document).on('click', '[data-builder-delete]', function() {
+		if($('[data-heroboard-block]:not(:empty)').length > 0) {
+			if( confirm("Вы действительно хотите удалить всех героев?") ) {
+				$('[data-heroboard-block]').html('');
+				UpdateHeroboardCounters();
+			}
+		}
+	});
+
+	$('[data-builder-delete]').droppable({
+		accept: '.builder-hero-cell-inner.is-clone',
+		drop: function(e, ui) {
+			ui.draggable.remove();
+			UpdateHeroboardCounters();
+		}
+	});
+
+	$('[data-builder-delete]').bind( 'drop', function(e, ui) { UpdateHeroboardCounters(); } );
+
+	//$(document).on('dblclick', '[data-builder-hero-inner]', function() {
+	//	if ( $(this).hasClass('is-clone') ) {
+	//		if( confirm("Вы действительно хотите удалить " + $(this).attr('data-builder-hero-inner').replace('_', ' ') + "?") ) {
+	//			$(this).detach();
+	//			UpdateHeroboardCounters();
+	//		}
+	//	}
+	//});
+
+	if ( mobile_js == 1 ) {
+		$('#builder_option_3 input').prop("checked", true);
+		$('#builder_option_1 input').prop("disabled", true);
+
+		$('.builder-cell-mobile').toggle();
+		$('.builder-hero-cell-mobile').toggle();
+		$('.builder-cell-dac').toggle();
+		$('.builder-hero-cell-dac').toggle();
+	}
+
+	if ( typeof heroboard_js !== 'undefined' ) {
+
+		$.each(heroboard_js, function(index, value){
+			var $clone = $('.builder-hero-cell div[data-hero-index=' + value[0] + ']').closest('.builder-hero-cell-inner').clone().removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').addClass('is-clone').attr('data-hero-level', value[1]);
+
+			if ( value[1] == 3 ) {
+				$clone.find('span').html('★★★');
+				$clone.addClass('builder-hero-cell-inner-stars');
+			} else if ( value[1] == 2 ) {
+				$clone.find('span').html('★★');
+				$clone.addClass('builder-hero-cell-inner-stars');
+			} else if ( value[1] == 1 ) {
+				$clone.find('span').html('★');
+				$clone.addClass('builder-hero-cell-inner-stars');
+			}
+
+			$('[data-heroboard-block]').eq(index).html($clone);
+			$clone.draggable({ revert:true, revertDuration:0 }).disableSelection();
+		});
+		UpdateHeroboardCounters();
+	}
+
+});})(jQuery);
+
+                    </script>
+
+                    
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+</main>
+
+<footer th:insert="blocks/headerFooter/footer :: div"></footer>
+<script>
+	(function($){$(document).ready(function(){
+		$('#fast_links').click(function(){$('#fast_links_dropdown').slideToggle(400);});
+	});})(jQuery);
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-134335590-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(53658400, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/53658400" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+
+</body>
+</html>

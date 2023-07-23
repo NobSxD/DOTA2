@@ -1,6 +1,8 @@
 package com.example.DOTA.controller;
 
+import com.example.DOTA.models.Energising;
 import com.example.DOTA.services.EnergisingService;
+import com.example.DOTA.services.HeroService;
 import com.example.DOTA.services.ViewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,7 @@ import java.io.IOException;
 public class EnergisingController {
     private final EnergisingService energisingService;
     private final ViewsService viewsService;
+    private final HeroService heroService;
 
     @GetMapping("/admin/add/energising")
     private String energisingAdd() {
@@ -26,12 +29,10 @@ public class EnergisingController {
 
 
     @PostMapping("/admin/add/energising")
-    private String energisingSave(@RequestParam String name, @RequestParam String tip, @RequestParam String ItWorks, @RequestParam String buff,
-                                  @RequestParam String descriptionKlass, @RequestParam String descriptionBuff, @RequestParam String buffOne,
-                                  @RequestParam String buffTwo, @RequestParam String buffThere,@RequestParam String priceDelete
-            ,@RequestParam("iconEnergising") MultipartFile file1, @RequestParam("iconEnergising2") MultipartFile file2
+    private String energisingSave(Energising energising,
+                                  @RequestParam("iconEnergising") MultipartFile file1, @RequestParam("iconEnergising2") MultipartFile file2
     )throws IOException {
-    energisingService.energisingParameter(name,tip,ItWorks,buff,descriptionKlass,descriptionBuff,buffOne,buffTwo,buffThere,priceDelete, file1, file2);
+    energisingService.energisingParameter(energising, file1, file2);
         return "redirect:/admin/add/energising";
     }
 
@@ -60,12 +61,10 @@ public class EnergisingController {
     }
 
     @PostMapping("/admin/edit/energising/{id}")
-    private String update(@PathVariable(value = "id") Long id,@RequestParam String name, @RequestParam String tip, @RequestParam String ItWorks, @RequestParam String buff,
-                          @RequestParam String descriptionKlass, @RequestParam String descriptionBuff, @RequestParam String buffOne,
-                          @RequestParam String buffTwo, @RequestParam String buffThere,@RequestParam String priceDelete,
+    private String update(Energising energising,
                           @RequestParam("iconEnergising") MultipartFile file1, @RequestParam("iconEnergising2") MultipartFile file2
     )throws IOException {
-        energisingService.energisingParameterEdit(id,name,tip,ItWorks,buff,descriptionKlass,descriptionBuff,buffOne,buffTwo,buffThere,priceDelete, file1, file2);
+        energisingService.energisingParameterEdit(energising, file1, file2);
         return "redirect:/admin/display/energising";
     }
 
@@ -79,6 +78,8 @@ public class EnergisingController {
     @GetMapping("/home/detals/energising/{id}")
     private String detalsEnergisingHome(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("energising", energisingService.ByIdEnergising(id));
+        model.addAttribute("heroEn", heroService.displayHeroEnergising(id));
+
         return "menu/button5/user/energising/energisingDetals";
     }
 }

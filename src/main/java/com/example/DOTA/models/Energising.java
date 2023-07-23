@@ -28,8 +28,11 @@ public class Energising {
     private String buffTwo;
     private String buffThere;
     private String priceDelete;
+    private int one;
+    private int two;
+    private int there;
 
-    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
      private List<ImageEnergising> energisingImage;
 
 }

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Мана</title>
+    <link th:insert="blocks/headerFooter/logo :: link"/>
+</head>
+
+<body>
+<header th:insert="blocks/headerFooter/header :: header"></header>
+<div class="centr-1400px fon-1400px px-1400">
+
+
+    <div class="article__content">
+
+        <h1>Мана</h1>
+        <p class="article__summary ready">Подробное описание о том, для чего нужна мана, рассказ об <a class="ready"
+                                                                                                       href="#gain">источниках
+            маны</a> с формулами и <a class="ready" href="#items">список предметов</a>, увеличивающих прирост маны.</p>
+
+        <h2 id="mana">Общая информация о мане</h2>
+
+        <p>Все герои в начале каждого боя имеют по 0 маны, максимально они могут набрать - 100 единиц маны, после чего
+            происходит обнуление всего манапула и каст заклинания, цена которого у всех героев равна 100.</p>
+
+        <p>Есть герои без активных заклинаний, например, <img decoding="async" class="link" src="/image/drow_ranger.png"
+                                                              alt="drow ranger" title="drow ranger" width="24"
+                                                              height="24"> Drow Ranger или <img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                class="link"
+                                                                                                src="/image/troll_warlord.png"
+                                                                                                alt="troll warlord"
+                                                                                                title="troll warlord"
+                                                                                                width="24" height="24">
+            Troll Warlord, их пассивные способности действуют всегда.</p>
+
+        <p>Есть 3 источника получения маны в бою:</p>
+        <ul class="patch-notes">
+            <li>нанесение урона,</li>
+            <li>получение урона,</li>
+            <li><img decoding="async" loading="lazy" class="link" src="/image/crystal_maiden_brilliance_aura.png"
+                     alt="crystal maiden brilliance aura" title="crystal maiden brilliance aura" width="24" height="24">
+                Brilliance Aura от <img decoding="async" loading="lazy" class="link" src="/image/crystal_maiden.png"
+                                        alt="crystal maiden" title="crystal maiden" width="24" height="24"> Crystal
+                Maiden.
+            </li>
+        </ul>
+        <p></p>
+
+        <h2 id="gain">Источники получения маны</h2>
+
+        <p>1. <b>Нанесение урона</b> - самый долгий способ:</p>
+        <ul class="patch-notes">
+            <li>Герой получает ману, равную <b>20% нанесённого урона</b>, но <b>не более 10 единиц за 1 удар</b>.</li>
+            <li>Герои классов
+                <nobr><img data-index="17" class="link" src="/image/class_mage.png" alt="class mage" title="class mage"
+                           width="32" height="32"> <span>Mage</span></nobr>
+                ,
+                <nobr><img data-index="24" class="link" src="/image/class_warlock.png" alt="class warlock"
+                           title="class warlock" width="32" height="32"> <span>Warlock</span></nobr>
+                ,
+                <nobr><img data-index="21" class="link" src="/image/class_shaman.png" alt="class shaman"
+                           title="class shaman" width="32" height="32"> <span>Shaman</span></nobr>
+                и
+                <nobr><img data-index="28" class="link" src="/image/class_priest.png" alt="class priest"
+                           title="class priest" width="32" height="32"> <span>Priest</span></nobr>
+                получает ману, равную 40% нанесённого урона, но не более 20 единиц за 1 удар.
+            </li>
+            <li>Если удар был заблокирован щитом или являлся промахом, то мана не начисляется.</li>
+            <li>Получаемый размер маны может быть увеличен при помощи предметов, например, <img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                class="link"
+                                                                                                src="/image/void_stone.png"
+                                                                                                alt="void stone"
+                                                                                                title="void stone"
+                                                                                                width="32" height="24">
+                <a href="/home/display/items" target="_blank">Void Stone</a>.
+            </li>
+            <li>Мана начисляется за нанесение урона как в рукопашном бою, так и с заклинаний. Если заклинание поражает
+                несколько целей, то прирост маны от каждой цели учитывается отдельно.
+            </li>
+        </ul>
+        <p></p>
+
+        <p>2. <b>Получение урона</b> - самый быстрый способ:</p>
+        <ul class="patch-notes">
+            <li>При получении урона герой получает ману, равную <b>от 10% до 20% полученного урона</b> (выбирается
+                случайным образом), но <b>не больше 50 единиц за 1 удар</b>.
+            </li>
+            <li>Получаемый размер маны может быть увеличен при помощи предметов, например, <img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                class="link"
+                                                                                                src="/image/ultimate_orb.png"
+                                                                                                alt="ultimate orb"
+                                                                                                title="ultimate orb"
+                                                                                                width="32" height="24">
+                <a href="home/display/items" target="_blank">Ultimate Orb</a>.
+            </li>
+            <li>Мана начисляется за получение урона как в рукопашном бою, так и от заклинаний.</li>
+        </ul>
+        <p></p>
+
+        <p>3. <img decoding="async" loading="lazy" class="link" src="/image/crystal_maiden_brilliance_aura.png"
+                   alt="crystal maiden brilliance aura" title="crystal maiden brilliance aura" width="24" height="24">
+            <b>Brilliance Aura от</b> <img decoding="async" loading="lazy" class="link" src="/image/crystal_maiden.png"
+                                           alt="crystal maiden" title="crystal maiden" width="24" height="24"> <b>Crystal
+                Maiden</b>:</p>
+        <ul class="patch-notes">
+            <li>Каждые 2 секунды боя всем дружественным героям, стоящим в радиусе 800 единиц, добавляется мана.</li>
+            <li>Размер получаемой маны зависит от уровня <img decoding="async" loading="lazy" class="link"
+                                                              src="/image/crystal_maiden.png" alt="crystal maiden"
+                                                              title="crystal maiden" width="24" height="24"> Crystal
+                Maiden - 8/14/20 маны на 1, 2 и 3 уровнях соответственно.
+            </li>
+        </ul>
+        <p></p>
+
+        <h2 id="items">Предметы на ману</h2>
+
+        <h3>Предметы с бонусом от нанесения урона:</h3>
+
+        <ul class="patch-notes">
+            <li><span class="mana-bonus-percent">+50%</span><img decoding="async" loading="lazy"
+                                                                 class="link mana-bonus-logo" src="/image/crown.png"
+                                                                 alt="crown" title="crown" width="64" height="48">Crown
+            </li>
+            <li><span class="mana-bonus-percent">+50%</span><img decoding="async" loading="lazy"
+                                                                 class="link mana-bonus-logo" src="/image/dagon.png"
+                                                                 alt="dagon" title="dagon" width="64" height="48">Dagon
+            </li>
+            <li><span class="mana-bonus-percent">+50%</span><img decoding="async" loading="lazy"
+                                                                 class="link mana-bonus-logo" src="/image/dagon_2.png"
+                                                                 alt="dagon 2" title="dagon 2" width="64" height="48">Dagon
+                2
+            </li>
+            <li><span class="mana-bonus-percent">+50%</span><img decoding="async" loading="lazy"
+                                                                 class="link mana-bonus-logo" src="/image/dagon_3.png"
+                                                                 alt="dagon 3" title="dagon 3" width="64" height="48">Dagon
+                3
+            </li>
+            <li><span class="mana-bonus-percent">+50%</span><img decoding="async" loading="lazy"
+                                                                 class="link mana-bonus-logo" src="/image/dagon_4.png"
+                                                                 alt="dagon 4" title="dagon 4" width="64" height="48">Dagon
+                4
+            </li>
+            <li><span class="mana-bonus-percent">+50%</span><img decoding="async" loading="lazy"
+                                                                 class="link mana-bonus-logo" src="/image/dagon_5.png"
+                                                                 alt="dagon 5" title="dagon 5" width="64" height="48">Dagon
+                5
+            </li>
+            <li><span class="mana-bonus-percent">+100%</span><img decoding="async" loading="lazy"
+                                                                  class="link mana-bonus-logo"
+                                                                  src="/image/void_stone.png" alt="void stone"
+                                                                  title="void stone" width="64" height="48">Void Stone
+            </li>
+            <li><span class="mana-bonus-percent">+100%</span><img decoding="async" loading="lazy"
+                                                                  class="link mana-bonus-logo"
+                                                                  src="/image/mystic_staff.png" alt="mystic staff"
+                                                                  title="mystic staff" width="64" height="48">Mystic
+                Staff
+            </li>
+            <li><span class="mana-bonus-percent">+100%</span><img decoding="async" loading="lazy"
+                                                                  class="link mana-bonus-logo"
+                                                                  src="/image/scythe_of_vyse.png" alt="scythe of vyse"
+                                                                  title="scythe of vyse" width="64" height="48">Scythe
+                of Vyse
+            </li>
+            <li><span class="mana-bonus-percent">+200%</span><img decoding="async" loading="lazy"
+                                                                  class="link mana-bonus-logo"
+                                                                  src="/image/perseverance.png" alt="perseverance"
+                                                                  title="perseverance" width="64" height="48">Perseverance
+            </li>
+            <li><span class="mana-bonus-percent">+200%</span><img decoding="async" loading="lazy"
+                                                                  class="link mana-bonus-logo"
+                                                                  src="/image/battlefury.png" alt="battlefury"
+                                                                  title="battlefury" width="64" height="48">Battlefury
+            </li>
+            <li><span class="mana-bonus-percent">+300%</span><img decoding="async" loading="lazy"
+                                                                  class="link mana-bonus-logo"
+                                                                  src="/image/refresher_orb.png" alt="refresher orb"
+                                                                  title="refresher orb" width="64" height="48">Refresher
+                Orb
+            </li>
+
+        </ul>
+
+        <p><b>Не стакаются</b> одинаковые предметы, а также находящиеся в одной группе:</p>
+
+        <ul class="patch-notes">
+            <li><img decoding="async" loading="lazy" class="link" src="/image/crown.png" alt="crown" title="crown"
+                     width="32" height="24"> Crown, <img decoding="async" loading="lazy" class="link"
+                                                         src="/image/dagon.png" alt="dagon" title="dagon" width="32"
+                                                         height="24"> Dagon, <img decoding="async" loading="lazy"
+                                                                                  class="link" src="/image/dagon_2.png"
+                                                                                  alt="dagon 2" title="dagon 2"
+                                                                                  width="32" height="24"> Dagon 2, <img
+                    decoding="async" loading="lazy" class="link" src="/image/dagon_3.png" alt="dagon 3" title="dagon 3"
+                    width="32" height="24"> Dagon 3, <img decoding="async" loading="lazy" class="link"
+                                                          src="/image/dagon_4.png" alt="dagon 4" title="dagon 4"
+                                                          width="32" height="24"> Dagon 4, <img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                class="link"
+                                                                                                src="/image/dagon_5.png"
+                                                                                                alt="dagon 5"
+                                                                                                title="dagon 5"
+                                                                                                width="32" height="24">
+                Dagon 5
+            </li>
+            <li><img decoding="async" loading="lazy" class="link" src="/image/void_stone.png" alt="void stone"
+                     title="void stone" width="32" height="24"> Void Stone, <img decoding="async" loading="lazy"
+                                                                                 class="link"
+                                                                                 src="/image/mystic_staff.png"
+                                                                                 alt="mystic staff" title="mystic staff"
+                                                                                 width="32" height="24"> Mystic Staff,
+                <img decoding="async" loading="lazy" class="link" src="/image/scythe_of_vyse.png" alt="scythe of vyse"
+                     title="scythe of vyse" width="32" height="24"> Scythe of Vyse
+            </li>
+            <li><img decoding="async" loading="lazy" class="link" src="/image/perseverance.png" alt="perseverance"
+                     title="perseverance" width="32" height="24"> Perseverance, <img decoding="async" loading="lazy"
+                                                                                     class="link"
+                                                                                     src="/image/battlefury.png"
+                                                                                     alt="battlefury" title="battlefury"
+                                                                                     width="32" height="24"> Battlefury
+            </li>
+        </ul>
+
+        <p>Из разных групп предметы <b>стакаются</b> <b>умножением</b> и работают вместе, а одинаковые - нет.</p>
+
+        <p>Например, <img decoding="async" loading="lazy" class="link" src="/image/crown.png" alt="crown" title="crown"
+                          width="32" height="24"> Crown и <img decoding="async" loading="lazy" class="link"
+                                                               src="/image/void_stone.png" alt="void stone"
+                                                               title="void stone" width="32" height="24"> Void Stone
+            вместе дадут герою 1.5 * 2.0 = +300% маны с удара. Если перенести в инвентарь героя 2 единицы <img
+                    decoding="async" loading="lazy" class="link" src="/image/void_stone.png" alt="void stone"
+                    title="void stone" width="32" height="24"> Void Stone, то герой будет получать только +100% маны
+            дополнительно.</p>
+
+        <h3>Предметы с бонусом от получения урона:</h3>
+
+        <ul class="patch-notes">
+            <li><span class="mana-bonus-percent">+25%</span> <img decoding="async" loading="lazy"
+                                                                  class="link mana-bonus-logo"
+                                                                  src="/image/ultimate_orb.png" alt="ultimate orb"
+                                                                  title="ultimate orb" width="64" height="48">Ultimate
+                Orb
+            </li>
+            <li><span class="mana-bonus-percent">+25%</span> <img decoding="async" loading="lazy"
+                                                                  class="link mana-bonus-logo"
+                                                                  src="/image/blink_dagger.png" alt="blink dagger"
+                                                                  title="blink dagger" width="64" height="48">Blink
+                Dagger
+            </li>
+            <li><span class="mana-bonus-percent">+50%</span> <img decoding="async" loading="lazy"
+                                                                  class="link mana-bonus-logo"
+                                                                  src="/image/scythe_of_vyse.png" alt="scythe of vyse"
+                                                                  title="scythe of vyse" width="64" height="48">Scythe
+                of Vyse
+            </li>
+        </ul>
+
+        <p>Они <b>стакаются</b> между собой <b>суммированием</b>, а одинаковые - нет.</p>
+        <p>Например, <img decoding="async" loading="lazy" class="link" src="/image/ultimate_orb.png" alt="ultimate orb"
+                          title="ultimate orb" width="32" height="24"> Ultimate Orb и <img decoding="async"
+                                                                                           loading="lazy" class="link"
+                                                                                           src="/image/scythe_of_vyse.png"
+                                                                                           alt="scythe of vyse"
+                                                                                           title="scythe of vyse"
+                                                                                           width="32" height="24">
+            Scythe of Vyse вместе дадут герою +75% маны. Но, если положить в героя 2 штуки <img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                class="link"
+                                                                                                src="/image/ultimate_orb.png"
+                                                                                                alt="ultimate orb"
+                                                                                                title="ultimate orb"
+                                                                                                width="32" height="24">
+            Ultimate Orb, то герой будет получать только +25% маны дополнительно и +500 здоровья (бонусы по здоровью
+            стакаются).</p>
+
+        <p>Подробнее о предметах и их характеристиках и шансах выпадения читайте на странице "<a class="ready"
+                                                                                                 href="/home/display/items">Предметы
+            и сборные вещи</a>".</p>
+
+        <p>
+            <a href="https://auto-chess.ru/">Данные были взяты с этого сайта</a>
+        </p>
+
+
+
+
+    </div>
+</div>
+<footer th:insert="blocks/headerFooter/footer :: div"></footer>
+</body>
+</html>

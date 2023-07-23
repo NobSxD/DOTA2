@@ -17,49 +17,41 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="centr-1400px fon-1400px">
 
-        <div class="inline-block-table">
-          <table class="table table-borderless">
-            <thead>
-            <tr>
-              <th colspan="4">Классы
-              </th>
-            </tr>
-            </thead>
-
-            <tbody>
 
 
-            <tr th:each="classHero : ${class}">
+
+        <h1>Синергии:</h1> <br>
+        <h2><a href="/admin/display/hero">К фигурам</a></h2>
 
 
-              <td><img th:if="${classHero.energising.energisingImage}" th:src="'/images/energising/' + ${classHero.energising.energisingImage.id}"></td>
 
-              <td><a th:href="'/admin/detals/class/' +${classHero.id}"  class="link-secondary">
-                <t th:text="${classHero.name}"></t>
-              </a></td>
+        <div th:each="en : ${class}" class="list-inline-item" id="wh">
+          <div  th:if="${en.energising.energisingImage}" class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto" data-bs-trigger="hover focus" th:data-bs-content-id="examplePopover +${en.energising.id}">
+            <li class="list-inline-item bk"><img th:src="'/images/energising/' + ${en.energising.energisingImage.get(0).id}" height="40px" width="50px"></li>
+            <!--Modal-->
+            <div class="modal fade" th:id="examplePopover +${en.id}" tabindex="-1" aria-hidden="true">
 
-              <td>
-                <t th:text="${classHero.energising.full_text}"></t>
-              </td>
-              <td><a th:href="'/admin/delete/class/' + ${classHero.id}">Удалить</a><br>
-                <a th:href="'/admin/edit/class/' + ${classHero.id}">Изменит</a></td>
+              <img th:if="${en.energising.energisingImage}" th:src="'/images/energising/' + ${en.energising.energisingImage.get(1).id}">
 
-            </tr>
+            </div>
+          </div>>
+          <li class="list-inline-item bk"><a th:href="'/admin/detals/energising/' +${en.energising.id}"  class="nav-link px-2 text-yellow"><t th:text="${en.energising.name}"></t></a></li>
+          <span id="wite">
+          <li  class="list-inline-item bk"><img  th:src="@{/image/Screenshot_5.png}" height="20px" width="20px"></li>
+          <li  class="list-inline-item bk"><t th:if="${en.energising.priceDelete}" th:text="'x ' + ${en.energising.priceDelete}"></t></li>
+        </span>
 
 
-            </tbody>
-          </table>
         </div>
-
-
       </div>
     </main>
   </div>
+</div>
   <footer th:insert="blocks/headerFooter/footer :: div"></footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
-</div>
+
 
 </body>
 </html>

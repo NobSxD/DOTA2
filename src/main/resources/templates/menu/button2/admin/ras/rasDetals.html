@@ -24,20 +24,18 @@
 
                         <t>Иконка -</t>
                         <img th:if="${rasHero.energising.energisingImage}"
-                             th:src="'/images/energising/' + ${rasHero.energising.energisingImage.id}">
+                             th:src="'/images/energising/' + ${rasHero.energising.energisingImage.get(0).id}">
                         <t th:text="${rasHero.name}"></t>
                         <p if:th="${rasHero}" th:text="'id расы: ' +${rasHero.id}"></p>
                         <p if:th="${rasHero.energising}" th:text="'id синергии: ' +${rasHero.energising.id}"></p>
                         <p if:th="${rasHero.energising}" th:text="'имя синергии: ' +${rasHero.energising.name}"></p>
-                        <p if:th="${rasHero.energising}" th:text="'подробней о синергии: ' +${rasHero.energising.full_text}"></p>
-                        <p if:th="${rasHero.energising.energisingImage}"
-                           th:text="'id фотки: ' +${rasHero.energising.energisingImage.id}"></p>
-                        <p if:th="${rasHero.energising.energisingImage}"
-                           th:text="'имя фотк: ' +${rasHero.energising.energisingImage.name}"></p>
-                        <p if:th="${rasHero.energising.energisingImage}"
-                           th:text="'оригинальное имя фотки: ' +${rasHero.energising.energisingImage.originalFileName}"></p>
-                        <p if:th="${rasHero.energising.energisingImage}"
-                           th:text="'размер фотки в байтах: ' +${rasHero.energising.energisingImage.size} + 'b'"></p>
+
+
+                        <p if:th="${rasHero.energising}" th:text="'подробней о синергии: ' +${rasHero.energising.buffOne}"></p>
+                        <p if:th="${rasHero.energising}" th:text="'подробней о синергии: ' +${rasHero.energising.buffTwo}"></p>
+                        <p if:th="${rasHero.energising}" th:text="'подробней о синергии: ' +${rasHero.energising.buffThere}"></p>
+
+
                         <t><a th:href="'/admin/delete/ras/' + ${rasHero.id}">Удалить</a></t>
                         <t><a th:href="'/admin/edit/ras/' + ${rasHero.id}">Изменит</a></t>
 

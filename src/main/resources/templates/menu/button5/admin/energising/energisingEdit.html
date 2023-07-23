@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html>
 <body>
 
 <header th:insert="blocks/headerFooter/header :: header">
@@ -29,8 +29,16 @@
                 <input type="text" name="buff" placeholder="что получает Синергия" class="form-control" th:value="${energising.buff}"><br>
                 <input type="text" name="descriptionKlass" placeholder="Описание класса" class="form-control" th:value="${energising.descriptionKlass}"><br>
                 <input type="text" name="descriptionBuff" placeholder="На кого работает способность" class="form-control" th:value="${energising.descriptionBuff}">
+                <input th:if="${energising.one}" type="number" name="one" placeholder="xN" th:value="${energising.one}"><br>
+                <input th:if="${energising.one == 0}" type="number" name="one" placeholder="xN" class=""><br>
                 <input type="text" name="buffOne" placeholder="Ведите первый бафф синергии" class="form-control" th:value="${energising.buffOne}"><br>
+
+                <input th:if="${energising.two}" type="number" name="two" placeholder="xN" th:value="${energising.two}"><br>
+                <input th:if="${energising.two == 0}" type="number" name="two" placeholder="xN" class=""><br>
                 <input type="text" name="buffTwo" placeholder="Ведите второй бафф синергии" class="form-control" th:value="${energising.buffTwo}"><br>
+
+                <input th:if="${energising.there}" type="number" name="there" placeholder="xN" th:value="${energising.there}"><br>
+                <input th:if="${energising.there ==0}" type="number" name="there" placeholder="xN" class=""><br>
                 <input type="text" name="buffThere" placeholder="Ведите третий бафф синергии" class="form-control" th:value="${energising.buffThere}"><br>
 
                 

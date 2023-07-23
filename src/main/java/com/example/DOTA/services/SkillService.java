@@ -18,7 +18,7 @@ public class SkillService {
 
     public void saveSkill(MultipartFile file1, String name, String detals) throws IOException {
         if (file1.getSize() != 0) {
-            toImageEntitySave(file1, name, detals);
+            imageRepositorySkill.save(toImageEntitySave(file1, name, detals));
 
         }
     }
@@ -53,7 +53,7 @@ public class SkillService {
         image.setBytes(file.getBytes());
         image.setName(name);
         image.setDetals(detals);
-        return imageRepositorySkill.save(image);
+        return image;
     }
     private ImageSkill toImageEntityUpdate(MultipartFile file, String name, String detals, Long id) throws IOException {
         ImageSkill image = new ImageSkill();

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
     <meta charset="UTF-8">
 
-    <title>Главня</title>
+    <title>Синергия</title>
 </head>
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
 <div class="centr-1400px fon-1400px">
+    <div class="row">
 
-            <div class="grid" th:each="detals : ${energising}">
+            <div class="col-md-6" th:each="detals : ${energising}">
 
                 
                     <div class="inline-px">
@@ -37,8 +38,42 @@
                         </div>
                     </div>
             </div>
+        <div class="col-md-6">
 
 
+            <div class="inline-px" th:each="hero : ${heroEn}">
+                <div th:if="${hero}">
+                    <li class="list-inline-item"><img th:if="${hero.imageHero}"
+                                                         th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
+                                                         height="35px" width="40px"></li>
+                    <li class="list-inline-item"><a th:href="'/home/detals/hero/' +${hero.id}"
+                                                       class="nav-link px-2 text-yellow tir4">
+                        <t th:text="${hero.nameHero}"></t>
+                    </a></li>
+                    <span class="in-line">
+                                                <li th:if="${hero.energising}" class="list-inline-item bk"><a
+                                                        th:href="'/home/detals/energising/' +${hero.energising.id}"
+                                                ><img th:if="${hero.energising.energisingImage}"
+                                                      th:src="'/images/energising/' + ${hero.energising.energisingImage.get(0).id}"
+                                                      height="28px" width="28px"></a></li>
+                                                <li th:if="${hero.energising1}" class="list-inline-item bk"><a
+                                                        th:href="'/home/detals/energising/' +${hero.energising1.id}"
+                                                ><img th:if="${hero.energising1.energisingImage}"
+                                                      th:src="'/images/energising/' + ${hero.energising1.energisingImage.get(0).id}"
+                                                      height="28px" width="28px"></a></li>
+                                                <li th:if="${hero.energising2}" class="list-inline-item bk"><a
+                                                        th:href="'/home/detals/energising/' +${hero.energising2.id}"
+                                                ><img th:if="${hero.energising2.energisingImage}"
+                                                      th:src="'/images/energising/' + ${hero.energising2.energisingImage.get(0).id}"
+                                                      height="28px" width="28px"></a></li>
+                                                </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     </div>
 

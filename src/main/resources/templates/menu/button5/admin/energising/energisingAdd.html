@@ -1,5 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html>
+<head>
+    <title>Добавить синергию</title>
+</head>
 <body>
 
 <header th:insert="blocks/headerFooter/header :: header">
@@ -28,8 +31,11 @@
                 <input type="text" name="buff" placeholder="что получает Синергия" class="form-control"><br>
                 <input type="text" name="descriptionKlass" placeholder="Описание класса" class="form-control"><br>
                 <input type="text" name="descriptionBuff" placeholder="На кого работает способность" class="form-control"><br>
+                <input type="number" name="one" placeholder="xN" class=""><br>
                 <input type="text" name="buffOne" placeholder="Ведите первый бафф синергии" class="form-control"><br>
+                <input type="number" name="two" placeholder="xN" class=""><br>
                 <input type="text" name="buffTwo" placeholder="Ведите второй бафф синергии" class="form-control"><br>
+                <input type="number" name="there" placeholder="xN" class=""><br>
                 <input type="text" name="buffThere" placeholder="Ведите третий бафф синергии" class="form-control"><br>
 
                 <button type="submit" class="btn btn-success">Добавить</button>
