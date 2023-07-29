@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Главня</title>
+</head>
+
+<body>
+<header th:insert="blocks/headerFooter/header :: header"></header>
+<div class="centr-1400px fon-1400px px-1400">
+
+
+    <h2>Патч:</h2>
+
+            <div th:each="ability : ${path}" th:if="${ability}">
+              <p th:text="${ability.name}"></p>
+              <p th:text="${ability.full_text}"></p>
+              <img th:src="'/images/path/' + ${ability.id}" width="1350px">
+                <a class="nav-link px-2 text-yellow tir3" th:href="'/admin/delete/path/' + ${ability.id}"><t>Удалить</t></a><br>
+                <a class="nav-link px-2 text-yellow tir3" th:href="'/admin/edit/path/' + ${ability.id}"><t>Изменит</t></a>
+            </div>
+
+
+        </div>
+
+
+  <footer th:insert="blocks/headerFooter/footer :: div"></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+
+
+</body>
+</html>

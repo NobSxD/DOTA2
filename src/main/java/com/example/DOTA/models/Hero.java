@@ -4,6 +4,9 @@ import com.example.DOTA.models.image.ImageHero;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -56,6 +59,7 @@ public class Hero {
     @OneToOne(cascade = CascadeType.PERSIST)
     private Energising energising2;
 
+    @Fetch(FetchMode.SELECT)
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ImageHero> imageHero;
 

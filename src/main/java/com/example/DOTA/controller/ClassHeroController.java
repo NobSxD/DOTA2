@@ -51,7 +51,7 @@ public class ClassHeroController {
 
 
     @GetMapping("/admin/delete/class/{id}")
-    private String deleteRas(@PathVariable(value = "id")Long id){
+    private String deleteClass(@PathVariable(value = "id")Long id){
         classHeroService.deleteClass(classHeroService.classHero(id));
         return "redirect:/admin/display/class";
     }

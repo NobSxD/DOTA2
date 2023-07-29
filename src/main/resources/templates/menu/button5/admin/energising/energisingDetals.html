@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:if="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <meta charset="UTF-8">
 
-    <title>Главня</title>
+    <title>Детальней</title>
 </head>
 
 <body>
@@ -37,8 +37,8 @@
                                     <p th:text="${detals.buffOne}"></p>
                                     <p th:text="${detals.buffTwo}"></p>
                                     <p th:text="${detals.buffThere}"></p>
-                                    <t><a th:href="'/admin/delete/energising/' + ${en.id}">Удалить</a></t>
-                                    <t><a th:href="'/admin/edit/energising/' + ${en.id}">Изменит</a></t>
+                                    <t><a th:href="'/admin/delete/energising/' + ${detals.id}">Удалить</a></t>
+                                    <t><a th:href="'/admin/edit/energising/' + ${detals.id}">Изменит</a></t>
                                 </div>
                             </div>
 

@@ -1,7 +1,6 @@
 package com.example.DOTA.models;
 
 import com.example.DOTA.models.image.ImageGuide;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

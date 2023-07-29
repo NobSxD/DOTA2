@@ -1,87 +1,96 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <div th:fragment="header">
     <header>
-        <link th:href="@{/css/fon.css}" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
               crossorigin="anonymous">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
-              crossorigin="anonymous">
-        <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet"
-              crossorigin="anonymous">
-        <link th:href="@{/css/css.css}" rel="stylesheet">
-        <link th:href="@{/css/energising.css}" rel="stylesheet">
-        
 
-        <div  class="secondary" id="blokc">
-            <div class="centr-1400px">
+        <link th:href="@{/css/styles.css}" rel="stylesheet">
 
 
+        <div class="secondary" id="blokc">
+            <div class="centr-1400px row">
 
-            <div class="color" >
-                
-                    <a href="/home"> <img th:src="@{/image/logo.png}" height="60px" width="138px"></a>
-            </div>
 
-            <div class="display-flex pd300">
-            <div class="dropdown">
-                <a href="/home" class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    База знаний
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/home/display/hero">Герои</a></li>
-                    <li><a class="dropdown-item" href="/home/display/items">Предметы</a></li>
-                    <li><a class="dropdown-item" href="/home/display/skill">Скилы</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="/home/display/guide">Гайды</a></li>
-                </ul>
-            </div>
-            </div>
-            <div class="display-flex">
-            <div class="dropdown">
-                <a href="/home" class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Об игре
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/home/display/whatgame">Механика игры</a></li>
-
-                </ul>
-            </div>
-        </div>
-        <div class="display-flex">
-            <div class="dropdown">
-                <a href="/home" class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Новости
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/home/display/path">Патч Игры</a></li>
-                    <li><a class="dropdown-item" href="/home/display/newWebSite">Обновление сайта</a></li>
-                </ul>
-            </div>
-            </div>
-            <div class="display-flex">
-            <div class="dropdown">
-                <a href="/home" class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Синергии
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/home/display/ras">Расы</a></li>
-                    <li><a class="dropdown-item" href="/home/display/class">Классы</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="/home/display/energising">Стоимость бана синергий</a></li>
-                </ul>
+                <div class="col-6">
+                    <div class="color">
+                        <a href="/home"> <img th:src="@{/image/headerLogo.png}" height="60px" width="138px"></a>
+                    </div>
                 </div>
-            </div>
+                <div class="col-6 align-items-center">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <a href="/home" class="btn btn-dark dropdown-toggle" type="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    База знаний
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/home/display/hero">Герои</a></li>
+                                    <li><a class="dropdown-item" href="/home/display/items">Предметы</a></li>
+                                    <li><a class="dropdown-item" href="/home/display/skill">Скилы</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="/home/display/guide">Гайды</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <a href="/home" class="btn btn-dark dropdown-toggle" type="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    Об игре
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/home/display/whatgame">Механика игры</a></li>
+                                    <li><a class="dropdown-item" href="/home/income-gold">Золото</a></li>
+                                    <li><a class="dropdown-item" href="/home/mana">Мана</a></li>
+                                    <li><a class="dropdown-item" href="/home/ranks">Ранк</a></li>
+                                    <li><a class="dropdown-item" href="/home/courier-experience">Курьер-лвл</a></li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        
+                            <div class="col-md-3">
+                                <div class="dropdown">
+                                <a href="/home" class="btn btn-dark dropdown-toggle" type="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    Новости
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/home/display/path">Патч Игры</a></li>
+                                </ul>
+                                </div>
+                            </div>
+                       
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <a href="/home" class="btn btn-dark dropdown-toggle" type="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    Синергии
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/home/display/ras">Расы</a></li>
+                                    <li><a class="dropdown-item" href="/home/display/class">Классы</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="/home/display/energising">Стоимость бана
+                                        синергий</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
     </header>
-    
+
 
 </div>
 </html>

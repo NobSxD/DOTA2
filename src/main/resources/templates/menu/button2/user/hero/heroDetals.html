@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
     <meta charset="UTF-8">
-
-    <title>Герои</title>
+    <link th:insert="blocks/headerFooter/logo :: link"/>
+    <title th:text="${detals.nameHero}"></title>
 </head>
 
 <body>
@@ -83,7 +83,7 @@
                             <p>
                                 <img th:src="@{/image/kd.png}" height="20px" width="20px">
                                 <t class="padding-text" th:if="${detals.cast_mp}" th:text="${detals.cast_mp}"></t>
-                                <img th:src="@{/image/Background.png}" height="20px" width="20px">
+
                                 <t class="padding-text" th:if="${detals.kd_skill}" th:text="${detals.kd_skill}"></t>
                             </p>
 
