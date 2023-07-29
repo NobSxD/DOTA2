@@ -3,12 +3,12 @@ package com.example.DOTA.services;
 import com.example.DOTA.models.Energising;
 import com.example.DOTA.models.Guide;
 import com.example.DOTA.models.image.ImageGuide;
+import com.example.DOTA.repository.CrudRepo;
 import com.example.DOTA.repository.GuideRepository;
 import com.example.DOTA.repository.image.ImageRepositoryGuide;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -19,10 +19,13 @@ import java.util.List;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class GuideService {
+
+public class GuideService implements CrudRepo {
     private final ImageRepositoryGuide imageRepositoryGuide;
     private final GuideRepository guideRepository;
     private final EnergisingService energisingService;
+
+
 
     public Long countGuide() {
         return guideRepository.count();
@@ -43,9 +46,7 @@ public class GuideService {
         return imageRepositoryGuide.findById(id).orElse(null);
     }
 
-    public List<ImageGuide> imageGuideByGuide(Guide guide) {
-        return imageRepositoryGuide.findByGuide(guide);
-    }
+
 
 
 
@@ -85,29 +86,7 @@ public class GuideService {
         return energisings;
     }
 
-    public void saveGuide(String name,                                                                                      //добовляю параметры пришедшие из формы html для сохронениия
-                          String energising,
-                          String energising1,
-                          String energising2,
-                          String energising3,
-                          String energising4,
-                          String full_text,
-                          String h2,
-                          String full_text2,
-                          String h3,
-                          String full_text3,
-                          String h4,
-                          String full_text4,
-                          String hrefName1,
-                          String href1,
-                          String hrefName2,
-                          String href2,
-                          String hrefName3,
-                          String href3,
-                          String hrefName4,
-                          String href4,
-                          String hrefName5,
-                          String href5,
+    public void saveGuide(Guide guide,
                           MultipartFile file1,
                           MultipartFile file2,
                           MultipartFile file3,
@@ -116,33 +95,11 @@ public class GuideService {
                           MultipartFile file6,
                           MultipartFile file7,
                           MultipartFile file8) throws IOException {
-        Guide guide = new Guide();
-        guide.setName(name);
-        guide.setEnergising(energising);
-        guide.setEnergising1(energising1);
-        guide.setEnergising2(energising2);
-        guide.setEnergising3(energising3);
-        guide.setEnergising4(energising4);
-        guide.setFull_text(full_text);
-        guide.setH2(h2);
-        guide.setFull_text2(full_text2);
-        guide.setH2(h3);
-        guide.setFull_text3(full_text3);
-        guide.setH2(h4);
-        guide.setFull_text4(full_text4);
-        guide.setNameHref1(hrefName1);
-        guide.setHref1(href1);
-        guide.setNameHref2(hrefName2);
-        guide.setHref2(href2);
-        guide.setNameHref3(hrefName3);
-        guide.setHref3(href3);
-        guide.setNameHref4(hrefName4);
-        guide.setHref4(href4);
-        guide.setNameHref5(hrefName5);
-        guide.setHref5(href5);
-        guideRepository.save(guide);
+
+
 
         saveImageGuide(file1, file2, file3, file4, file5, file6, file7, file8, guide);
+
     }
 
     public void saveImageGuide(MultipartFile file1, MultipartFile file2, MultipartFile file3, MultipartFile file4, MultipartFile file5, MultipartFile file6, MultipartFile file7, MultipartFile file8, Guide guide) throws IOException {
@@ -329,8 +286,8 @@ public class GuideService {
     }
 
 
-    public void deleteGuideAndImages(Long id) {
-        //удоляем данные из БД
+    @Override
+    public void delete(Long id) {
         List<ImageGuide> guideList = imageRepositoryGuide.findByGuide(guideRepository.findById(id).orElse(null));
         for (ImageGuide delete : guideList
         ) {
@@ -339,6 +296,17 @@ public class GuideService {
         deleteGuide(id);
     }
 
-    public void views() {
+
+    @Override
+    public void save(Object o) {
+        Guide guide = (Guide) o;
+        guideRepository.save(guide);
     }
+
+    @Override
+    public void create(Object o) {
+
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.example.DOTA.controller;
 
+import com.example.DOTA.models.Guide;
 import com.example.DOTA.services.EnergisingService;
 import com.example.DOTA.services.GuideService;
 import com.example.DOTA.services.ViewsService;
@@ -28,43 +29,20 @@ public class GuideController {
     }
 
     @PostMapping("/admin/add/guide")
-    private String saveGuide(@RequestParam String name,
-                            @RequestParam String energising,
-                            @RequestParam String energising1,
-                            @RequestParam String energising2,
-                            @RequestParam String energising3,
-                            @RequestParam String energising4,
-                            @RequestParam String full_text,
-                            @RequestParam String h2,
-                            @RequestParam String full_text2,
-                            @RequestParam String h3,
-                            @RequestParam String full_text3,
-                            @RequestParam String h4,
-                            @RequestParam String full_text4,
-                            @RequestParam String hrefName1,
-                            @RequestParam String href1,
-                            @RequestParam String hrefName2,
-                            @RequestParam String href2,
-                            @RequestParam String hrefName3,
-                            @RequestParam String href3,
-                            @RequestParam String hrefName4,
-                            @RequestParam String href4,
-                            @RequestParam String hrefName5,
-                            @RequestParam String href5,
-                            @RequestParam("iconGuid") MultipartFile file1,
-                            @RequestParam("icon2") MultipartFile file2,
-                            @RequestParam("icon3") MultipartFile file3,
-                            @RequestParam("icon4") MultipartFile file4,
-                            @RequestParam("icon5") MultipartFile file5,
-                            @RequestParam("icon6") MultipartFile file6,
-                            @RequestParam("icon7") MultipartFile file7,
-                            @RequestParam("icon8") MultipartFile file8
+    private String saveGuide(Guide guide,
+                             @RequestParam("iconGuid") MultipartFile file1,
+                             @RequestParam("icon2") MultipartFile file2,
+                             @RequestParam("icon3") MultipartFile file3,
+                             @RequestParam("icon4") MultipartFile file4,
+                             @RequestParam("icon5") MultipartFile file5,
+                             @RequestParam("icon6") MultipartFile file6,
+                             @RequestParam("icon7") MultipartFile file7,
+                             @RequestParam("icon8") MultipartFile file8
     ) throws IOException {
-        guideService.saveGuide(name, energising, energising1, energising2, energising3,
-                energising4, full_text, h2, full_text2, h3, full_text3, h4, full_text4,
-                hrefName1, href1, hrefName2, href2, hrefName3, href3, hrefName4,
-                href4, hrefName5, href5, file1, file2, file3, file4, file5,
+
+        guideService.saveGuide(guide, file1, file2, file3, file4, file5,
                 file6, file7, file8);
+        guideService.save(guide);
         return "redirect:/admin/add/guide";
     }
 
@@ -82,7 +60,7 @@ public class GuideController {
 
     @GetMapping("/admin/delete/guide/{id}")
     private String delete(@PathVariable(value = "id") Long id) {
-        guideService.deleteGuideAndImages(id);
+        guideService.delete(id);
         return "redirect:/admin/display/guide";
     }
 
