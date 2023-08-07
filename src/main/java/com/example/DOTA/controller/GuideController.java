@@ -5,6 +5,7 @@ import com.example.DOTA.services.EnergisingService;
 import com.example.DOTA.services.GuideService;
 import com.example.DOTA.services.ViewsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -21,6 +24,9 @@ public class GuideController {
     private final GuideService guideService;
     private final EnergisingService energisingService;
     private final ViewsService viewsService;
+
+    @Value("${upload.path}")
+    private String uploadPath;
 
     @GetMapping("/admin/add/guide")
     private String guideAdd(Model model) {
@@ -40,15 +46,27 @@ public class GuideController {
                              @RequestParam("icon8") MultipartFile file8
     ) throws IOException {
 
-        guideService.saveGuide(guide, file1, file2, file3, file4, file5,
-                file6, file7, file8);
+
+            guide.setFilName1(guideService.multiple(file1));
+            guide.setFilName2(guideService.multiple(file2));
+            guide.setFilName3(guideService.multiple(file3));
+            guide.setFilName4(guideService.multiple(file4));
+            guide.setFilName5(guideService.multiple(file5));
+            guide.setFilName6(guideService.multiple(file6));
+            guide.setFilName7(guideService.multiple(file7));
+            guide.setFilName8(guideService.multiple(file8));
+
+
+
+
+
         guideService.save(guide);
         return "redirect:/admin/add/guide";
     }
 
     @GetMapping("/admin/display/guide")
     private String displayGuide(Model model) {
-        model.addAttribute("guide", guideService.displayAll());
+        model.addAttribute("guide", guideService.guidesAll());
         return "menu/button2/admin/guide/guideDisplay";
     }
 
@@ -72,30 +90,7 @@ public class GuideController {
     }
 
     @PostMapping("/admin/edit/guide/{id}")
-    private String guideEdit(@PathVariable(value = "id")Long id,
-                            @RequestParam String name,
-                             @RequestParam String energising,
-                             @RequestParam String energising1,
-                             @RequestParam String energising2,
-                             @RequestParam String energising3,
-                             @RequestParam String energising4,
-                             @RequestParam String full_text,
-                             @RequestParam String h2,
-                             @RequestParam String full_text2,
-                             @RequestParam String h3,
-                             @RequestParam String full_text3,
-                             @RequestParam String h4,
-                             @RequestParam String full_text4,
-                             @RequestParam String hrefName1,
-                             @RequestParam String href1,
-                             @RequestParam String hrefName2,
-                             @RequestParam String href2,
-                             @RequestParam String hrefName3,
-                             @RequestParam String href3,
-                             @RequestParam String hrefName4,
-                             @RequestParam String href4,
-                             @RequestParam String hrefName5,
-                             @RequestParam String href5,
+    private String guideEdit(Guide guide,
                              @RequestParam("iconGuid") MultipartFile file1,
                              @RequestParam("icon2") MultipartFile file2,
                              @RequestParam("icon3") MultipartFile file3,
@@ -105,17 +100,13 @@ public class GuideController {
                              @RequestParam("icon7") MultipartFile file7,
                              @RequestParam("icon8") MultipartFile file8
     ) throws IOException {
-        guideService.editGuide(id,name, energising, energising1, energising2, energising3,
-                energising4, full_text, h2, full_text2, h3, full_text3, h4, full_text4,
-                hrefName1, href1, hrefName2, href2, hrefName3, href3, hrefName4,
-                href4, hrefName5, href5, file1, file2, file3, file4, file5,
-                file6, file7, file8);
+        guideService.editGuide(guide);
         return "redirect:/admin/display/guide";
     }
 
     @GetMapping("/home/display/guide")
     private String displayGuideUser(Model model) {
-        model.addAttribute("guide", guideService.displayAll());
+        model.addAttribute("guide", guideService.guidesAll());
         viewsService.viewsGuid();
         return "menu/button2/user/guide/guideDisplay";
     }

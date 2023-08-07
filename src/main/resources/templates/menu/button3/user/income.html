@@ -8,392 +8,383 @@
 <header th:insert="blocks/headerFooter/header :: header"></header>
 
 
-        <article class="block article" role="main">
+<article class="block article" role="main">
 
-            <div class="container article-container">
+    <div class="container article-container">
 
-                <div class="row">
+        <div class="row">
 
-                    <div class="">
+            <div class="">
 
-                        <h1>Золото и инкам</h1>
-                        <p class="article__summary ready">Информация о золоте. Подробности об способах заработка золота:
-                            <a class="ready" href="#base-gold">базовый прирост</a>, <a class="ready" href="#income">инкам</a>,
-                            <a class="ready" href="#streak-bonus">бонус за серию побед или поражений</a>, <a
-                                    class="ready" href="#sell-heroes">продажа героев</a>, а также о способах потратить
-                            золото: <a class="ready" href="#buy-heroes">покупка героев</a>, <a class="ready"
-                                                                                               href="#re-roll">re-roll
-                                героев</a> и <a class="ready" href="#buy-exp">покупка опыта</a>.</p>
+                <h1>Золото и инкам</h1>
+                <p class="article__summary ready">Информация о золоте. Подробности об способах заработка золота:
+                    <a class="ready" href="#base-gold">базовый прирост</a>, <a class="ready" href="#income">инкам</a>,
+                    <a class="ready" href="#streak-bonus">бонус за серию побед или поражений</a>, <a class="ready" href="#sell-heroes">продажа героев</a>, а также о способах потратить
+                    золото: <a class="ready" href="#buy-heroes">покупка героев</a>, <a class="ready" href="#re-roll">re-roll
+                        героев</a> и <a class="ready" href="#buy-exp">покупка опыта</a>.</p>
 
-                        <h2>Общая информация о золоте</h2>
+                <h2>Общая информация о золоте</h2>
 
-                        <p><img decoding="async" class="link" src="/image/gold.png" alt="gold" title="gold" width="32"
-                                height="32"> Золото (Gold) - это единственный ресурс в игре.</p>
+                <p><img decoding="async" class="link" src="/image/gold.png" alt="gold" title="gold" width="32" height="32"> Золото (Gold) - это единственный ресурс в игре.</p>
 
-                        <p>На него можно покупать <a href="/start/heroes-table/">героев</a>, обновлять доску с героями
-                            (Re-Roll) или приобретать опыт.</p>
+                <p>На него можно покупать <a href="/start/heroes-table/">героев</a>, обновлять доску с героями
+                    (Re-Roll) или приобретать опыт.</p>
 
-                        <p>В начале игры на счету у всех игроков по 0 монет. Максимальный размер золота, который может
-                            иметь любой игрок, составляет 100 единиц. Максимальный доход - 14 золота за раунд. Как его
-                            получить - читайте ниже!</p>
+                <p>В начале игры на счету у всех игроков по 0 монет. Максимальный размер золота, который может
+                    иметь любой игрок, составляет 100 единиц. Максимальный доход - 14 золота за раунд. Как его
+                    получить - читайте ниже!</p>
 
-                        <h2 id="base-gold">Базовый прирост золота</h2>
+                <h2 id="base-gold">Базовый прирост золота</h2>
 
-                        <p>В начале каждого раунда игрок получает определённое количество золота, его размер меньше на
-                            начале, а начиная с 5 раунда он становится постоянным и не зависит от того, в этом раунде
-                            игрок встетится с нейтральными существами или же героями противника.</p>
+                <p>В начале каждого раунда игрок получает определённое количество золота, его размер меньше на
+                    начале, а начиная с 5 раунда он становится постоянным и не зависит от того, в этом раунде
+                    игрок встетится с нейтральными существами или же героями противника.</p>
 
-                        <table id="items-list" class="streak">
-                            <thead>
-                            <tr>
-                                <th>Раунд</th>
-                                <th>Базовый доход</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>+2</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>+3</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>+4</td>
-                            </tr>
-                            <tr>
-                                <td>5 и далее</td>
-                                <td>+5</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                <table id="items-list" class="streak">
+                    <thead>
+                    <tr>
+                        <th>Раунд</th>
+                        <th>Базовый доход</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>+1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>+2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>+3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>+4</td>
+                    </tr>
+                    <tr>
+                        <td>5 и далее</td>
+                        <td>+5</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                        <h2 id="income">Доход от имеющегося золота (Инкам)</h2>
+                <h2 id="income">Доход от имеющегося золота (Инкам)</h2>
 
-                        <p>В начале каждого раунда игрок получает 10% от золота, которое он имеет в данный момент.</p>
-                        <p>Этот доход округляется вниз до целого числа. Если у игрока будет 9 или менее монет, то он
-                            ничего дополнительно не получит.</p>
-                        <p>Максимальный доход такого типа составляет 5 золота. Следовательно, нет какого-либо смысла
-                            оставлять более 50 монет на конец раунда .</p>
+                <p>В начале каждого раунда игрок получает 10% от золота, которое он имеет в данный момент.</p>
+                <p>Этот доход округляется вниз до целого числа. Если у игрока будет 9 или менее монет, то он
+                    ничего дополнительно не получит.</p>
+                <p>Максимальный доход такого типа составляет 4 золота. Следовательно, нет какого-либо смысла
+                    оставлять более 40 монет на конец раунда .</p>
 
 
-                        <table id="items-list" class="streak">
-                            <thead>
-                            <tr>
-                                <th>Золото</th>
-                                <th>Инкам</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>0-9</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>от 10 до 19</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr>
-                                <td>от 20 до 29</td>
-                                <td>+2</td>
-                            </tr>
-                            <tr>
-                                <td>от 30 до 39</td>
-                                <td>+3</td>
-                            </tr>
-                            <tr>
-                                <td>от +40 </td>
-                                <td>+4</td>
-                            </tr>
+                <table id="items-list" class="streak">
+                    <thead>
+                    <tr>
+                        <th>Золото</th>
+                        <th>Инкам</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>0-9</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>от 10 до 19</td>
+                        <td>+1</td>
+                    </tr>
+                    <tr>
+                        <td>от 20 до 29</td>
+                        <td>+2</td>
+                    </tr>
+                    <tr>
+                        <td>от 30 до 39</td>
+                        <td>+3</td>
+                    </tr>
+                    <tr>
+                        <td>от +40 </td>
+                        <td>+4</td>
+                    </tr>
 
-                            </tbody>
-                        </table>
+                    </tbody>
+                </table>
 
-                        <h2 id="streak-bonus">Золото за серию побед или поражений</h2>
+                <h2 id="streak-bonus">Золото за серию побед или поражений</h2>
 
-                        <p>За каждую победу над героями противников дают 1 золото. За победу над монстрами игрок ничего
-                            не получает.</p>
+                <p>За каждую победу над героями противников дают 1 золото. За победу над монстрами игрок ничего
+                    не получает.</p>
 
-                        <p>После 3 последовательных выигрышей над героями противников игрок получит статус "Серия побед"
-                            и начнёт получать 1 дополнительное золото в конце каждого раунда. Продолжая побеждать можно
-                            повысить этот бонус до 3 дополнительных золотых монет. Победа в раундах с нейтральными
-                            существами не влияет на серию.</p>
+                <p>После 3 последовательных выигрышей над героями противников игрок получит статус "Серия побед"
+                    и начнёт получать 1 дополнительное золото в конце каждого раунда. Продолжая побеждать можно
+                    повысить этот бонус до 3 дополнительных золотых монет. Победа в раундах с нейтральными
+                    существами не влияет на серию.</p>
 
-                        <p>Работает такая же логика "Серия поражений", она включается и действует при последовательных
-                            поражениях.</p>
+                <p>Работает такая же логика "Серия поражений", она включается и действует при последовательных
+                    поражениях.</p>
 
-                        <table id="items-list" class="streak">
-                            <thead>
-                            <tr>
-                                <th>Кол-во побед / поражений</th>
-                                <th>Бонус к золоту</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>от 3 до 4</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr>
-                                <td>от 5 до 7</td>
-                                <td>+2</td>
-                            </tr>
-                            <tr>
-                                <td>8 и более</td>
-                                <td>+3</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                <table id="items-list" class="streak">
+                    <thead>
+                    <tr>
+                        <th>Кол-во побед / поражений</th>
+                        <th>Бонус к золоту</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>от 3 до 4</td>
+                        <td>+1</td>
+                    </tr>
+                    <tr>
+                        <td>от 5 до 7</td>
+                        <td>+2</td>
+                    </tr>
+                    <tr>
+                        <td>8 и более</td>
+                        <td>+3</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                        <h2 id="sell-heroes">Золото от продажи героев</h2>
+                <h2 id="sell-heroes">Золото от продажи героев</h2>
 
-                        <p>Ещё один способом получения золота является его возврат от продажи своих героев.</p>
+                <p>Ещё один способом получения золота является его возврат от продажи своих героев.</p>
 
-                        <p>К сожалению, вернуть полную стоимость получится только в случае продажи героев 1 уровня. При
-                            возврате фигур 2 и 3 уровней некоторая часть потраченных монет будет потеряна.</p>
+                <p>К сожалению, вернуть полную стоимость получится только в случае продажи героев 1 уровня. При
+                    возврате фигур 2 и 3 уровней некоторая часть потраченных монет будет потеряна.</p>
 
-                        <table class="refund">
-                            <thead>
-                            <tr>
-                                <th>Стоимость</th>
-                                <th>Уровень героя<br>(Stars)</th>
-                                <th>Золото<br>за продажу</th>
-                                <th>Потеря<br>от продажи</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr class="refund-common">
-                                <td rowspan="3">1</td>
-                                <td>★</td>
-                                <td>1</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-common">
-                                <td>★★</td>
-                                <td>3</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-common">
-                                <td>★★★</td>
-                                <td>5</td>
-                                <td>-4</td>
-                            </tr>
-                            <tr class="refund-uncommon">
-                                <td rowspan="3">2</td>
-                                <td>★</td>
-                                <td>2</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-uncommon">
-                                <td>★★</td>
-                                <td>4</td>
-                                <td>-2</td>
-                            </tr>
-                            <tr class="refund-uncommon">
-                                <td>★★★</td>
-                                <td>6</td>
-                                <td>-12</td>
-                            </tr>
-                            <tr class="refund-rare">
-                                <td rowspan="3">3</td>
-                                <td>★</td>
-                                <td>3</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-rare">
-                                <td>★★</td>
-                                <td>5</td>
-                                <td>-4</td>
-                            </tr>
-                            <tr class="refund-rare">
-                                <td>★★★</td>
-                                <td>7</td>
-                                <td>-20</td>
-                            </tr>
-                            <tr class="refund-mythical">
-                                <td rowspan="3">4</td>
-                                <td>★</td>
-                                <td>4</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-mythical">
-                                <td>★★</td>
-                                <td>6</td>
-                                <td>-6</td>
-                            </tr>
-                            <tr class="refund-mythical">
-                                <td>★★★</td>
-                                <td>8</td>
-                                <td>-28</td>
-                            </tr>
-                            <tr class="refund-epic">
-                                <td rowspan="3">5</td>
-                                <td>★</td>
-                                <td>5</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-epic">
-                                <td>★★</td>
-                                <td>7</td>
-                                <td>-8</td>
-                            </tr>
-                            <tr class="refund-epic">
-                                <td>★★★</td>
-                                <td>9</td>
-                                <td>-36</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                <table class="refund">
+                    <thead>
+                    <tr>
+                        <th>Стоимость</th>
+                        <th>Уровень героя<br>(Stars)</th>
+                        <th>Золото<br>за продажу</th>
+                        <th>Потеря<br>от продажи</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="refund-common">
+                        <td rowspan="3">1</td>
+                        <td>★</td>
+                        <td>1</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-common">
+                        <td>★★</td>
+                        <td>3</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-common">
+                        <td>★★★</td>
+                        <td>5</td>
+                        <td>-4</td>
+                    </tr>
+                    <tr class="refund-uncommon">
+                        <td rowspan="3">2</td>
+                        <td>★</td>
+                        <td>2</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-uncommon">
+                        <td>★★</td>
+                        <td>4</td>
+                        <td>-2</td>
+                    </tr>
+                    <tr class="refund-uncommon">
+                        <td>★★★</td>
+                        <td>6</td>
+                        <td>-12</td>
+                    </tr>
+                    <tr class="refund-rare">
+                        <td rowspan="3">3</td>
+                        <td>★</td>
+                        <td>3</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-rare">
+                        <td>★★</td>
+                        <td>5</td>
+                        <td>-4</td>
+                    </tr>
+                    <tr class="refund-rare">
+                        <td>★★★</td>
+                        <td>7</td>
+                        <td>-20</td>
+                    </tr>
+                    <tr class="refund-mythical">
+                        <td rowspan="3">4</td>
+                        <td>★</td>
+                        <td>4</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-mythical">
+                        <td>★★</td>
+                        <td>6</td>
+                        <td>-6</td>
+                    </tr>
+                    <tr class="refund-mythical">
+                        <td>★★★</td>
+                        <td>8</td>
+                        <td>-28</td>
+                    </tr>
+                    <tr class="refund-epic">
+                        <td rowspan="3">5</td>
+                        <td>★</td>
+                        <td>5</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-epic">
+                        <td>★★</td>
+                        <td>7</td>
+                        <td>-8</td>
+                    </tr>
+                    <tr class="refund-epic">
+                        <td>★★★</td>
+                        <td>9</td>
+                        <td>-36</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                        <p>Посмотрев таблицу, можно сделать вывод, что героев любой стоимости, поднятых до 2 уровня,
-                            можно спокойно продавать, ведь потери будут минимальны. Но если цена героя составляет 2 или
-                            более, то при получении 3 уровня лучше избавляться от них не стоит, так как это чревато
-                            большими потерями доступного золота.</p>
+                <p>Посмотрев таблицу, можно сделать вывод, что героев любой стоимости, поднятых до 2 уровня,
+                    можно спокойно продавать, ведь потери будут минимальны. Но если цена героя составляет 2 или
+                    более, то при получении 3 уровня лучше избавляться от них не стоит, так как это чревато
+                    большими потерями доступного золота.</p>
 
-                        <p>За героев класса
-                            <nobr><img data-index="16" class="link" src="/image/class_druid.png" alt="class druid"
-                                       title="class druid" width="32" height="32"> <span>Druid</span></nobr>
-                            возвращают немного меньше, но используя способность повышения уровня героев из 2 существ
-                            вместо 3, потери от продажи тоже значительно сокращаются:
-                        </p>
+                <p>За героев класса
+                    <nobr><img data-index="16" class="link" src="/image/class_druid.png" alt="class druid" title="class druid" width="32" height="32"> <span>Druid</span></nobr>
+                    возвращают немного меньше, но используя способность повышения уровня героев из 2 существ
+                    вместо 3, потери от продажи тоже значительно сокращаются:
+                </p>
 
-                        <table class="refund">
-                            <thead>
-                            <tr>
-                                <th>Герой</th>
-                                <th>Уровень<br>(Stars)</th>
-                                <th>Золото<br>за продажу</th>
-                                <th>Потеря<br>от продажи</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr class="refund-common">
-                                <td rowspan="3">
-                                    <nobr><img data-index="2" class="link" src="/image/enchantress.png"
-                                               alt="enchantress" title="enchantress" width="32" height="32"> Enchantress
-                                    </nobr>
-                                </td>
-                                <td>★</td>
-                                <td>1</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-common">
-                                <td>★★</td>
-                                <td>3</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr class="refund-common">
-                                <td>★★★</td>
-                                <td>4</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-uncommon">
-                                <td rowspan="3">
-                                    <nobr><img data-index="24" class="link" src="/image/furion.png" alt="furion"
-                                               title="furion" width="32" height="32"> Furion
-                                    </nobr>
-                                </td>
-                                <td>★</td>
-                                <td>2</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-uncommon">
-                                <td>★★</td>
-                                <td>4</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-uncommon">
-                                <td>★★★</td>
-                                <td>5</td>
-                                <td>-3</td>
-                            </tr>
-                            <tr class="refund-rare">
-                                <td rowspan="3">
-                                    <nobr><img data-index="22" class="link" src="/image/treant_protector.png"
-                                               alt="treant protector" title="treant protector" width="32" height="32">
-                                        Treant Protector
-                                    </nobr>
-                                </td>
-                                <td>★</td>
-                                <td>3</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-rare">
-                                <td>★★</td>
-                                <td>5</td>
-                                <td>-1</td>
-                            </tr>
-                            <tr class="refund-rare">
-                                <td>★★★</td>
-                                <td>6</td>
-                                <td>-6</td>
-                            </tr>
-                            <tr class="refund-mythical">
-                                <td rowspan="3">
-                                    <nobr><img data-index="52" class="link" src="/image/lone_druid.png" alt="lone druid"
-                                               title="lone druid" width="32" height="32"> Lone Druid
-                                    </nobr>
-                                </td>
-                                <td>★</td>
-                                <td>4</td>
-                                <td></td>
-                            </tr>
-                            <tr class="refund-mythical">
-                                <td>★★</td>
-                                <td>6</td>
-                                <td>-2</td>
-                            </tr>
-                            <tr class="refund-mythical">
-                                <td>★★★</td>
-                                <td>7</td>
-                                <td>-9</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                        <p>Как видно из таблице выше при продаже
-                            <nobr><img data-index="2" class="link" src="/image/enchantress.png" alt="enchantress"
-                                       title="enchantress" width="32" height="32"> Enchantress
+                <table class="refund">
+                    <thead>
+                    <tr>
+                        <th>Герой</th>
+                        <th>Уровень<br>(Stars)</th>
+                        <th>Золото<br>за продажу</th>
+                        <th>Потеря<br>от продажи</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="refund-common">
+                        <td rowspan="3">
+                            <nobr><img data-index="2" class="link" src="/image/enchantress.png" alt="enchantress" title="enchantress" width="32" height="32"> Enchantress
                             </nobr>
-                            2 уровня (★★), можно получить маленький приятный бонус - 1 дополнительное золото на любой
-                            стадии игры!
-                        </p>
+                        </td>
+                        <td>★</td>
+                        <td>1</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-common">
+                        <td>★★</td>
+                        <td>3</td>
+                        <td>+1</td>
+                    </tr>
+                    <tr class="refund-common">
+                        <td>★★★</td>
+                        <td>4</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-uncommon">
+                        <td rowspan="3">
+                            <nobr><img data-index="24" class="link" src="/image/furion.png" alt="furion" title="furion" width="32" height="32"> Furion
+                            </nobr>
+                        </td>
+                        <td>★</td>
+                        <td>2</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-uncommon">
+                        <td>★★</td>
+                        <td>4</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-uncommon">
+                        <td>★★★</td>
+                        <td>5</td>
+                        <td>-3</td>
+                    </tr>
+                    <tr class="refund-rare">
+                        <td rowspan="3">
+                            <nobr><img data-index="22" class="link" src="/image/treant_protector.png" alt="treant protector" title="treant protector" width="32" height="32">
+                                Treant Protector
+                            </nobr>
+                        </td>
+                        <td>★</td>
+                        <td>3</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-rare">
+                        <td>★★</td>
+                        <td>5</td>
+                        <td>-1</td>
+                    </tr>
+                    <tr class="refund-rare">
+                        <td>★★★</td>
+                        <td>6</td>
+                        <td>-6</td>
+                    </tr>
+                    <tr class="refund-mythical">
+                        <td rowspan="3">
+                            <nobr><img data-index="52" class="link" src="/image/lone_druid.png" alt="lone druid" title="lone druid" width="32" height="32"> Lone Druid
+                            </nobr>
+                        </td>
+                        <td>★</td>
+                        <td>4</td>
+                        <td></td>
+                    </tr>
+                    <tr class="refund-mythical">
+                        <td>★★</td>
+                        <td>6</td>
+                        <td>-2</td>
+                    </tr>
+                    <tr class="refund-mythical">
+                        <td>★★★</td>
+                        <td>7</td>
+                        <td>-9</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                        <h2 id="buy-heroes">Покупка героев</h2>
+                <p>Как видно из таблице выше при продаже
+                    <nobr><img data-index="2" class="link" src="/image/enchantress.png" alt="enchantress" title="enchantress" width="32" height="32"> Enchantress
+                    </nobr>
+                    2 уровня (★★), можно получить маленький приятный бонус - 1 дополнительное золото на любой
+                    стадии игры!
+                </p>
 
-                        <p>Чтобы купить героя, нужно открыть доску с героями, нажав на кнопку "Пробел" или иконку в виде
-                            5 шахматных фигур в верхнем левом углу экрана. После этого нажимаем на понравившегося героя
-                            и он перемещается в поле инвентаря.</p>
+                <h2 id="buy-heroes">Покупка героев</h2>
 
-                        <h2 id="re-roll">Re-Roll героев</h2>
+                <p>Чтобы купить героя, нужно открыть доску с героями, нажав на кнопку "Пробел" или иконку в виде
+                    5 шахматных фигур в верхнем левом углу экрана. После этого нажимаем на понравившегося героя
+                    и он перемещается на вашу скамейку героев.</p>
 
-                        <p>Чтобы обновить доску с героями, нужно нажать на иконку в виде шахматного ферзя со знаком плюс
-                            или кнопку "D" на клавиатуре. Данная процедура стоит 2 золота и может быть использована в
-                            любую фазу раунда.</p>
+                <h2 id="re-roll">Re-Roll героев</h2>
 
-                        <h2 id="buy-exp">Покупка опыта для курьера</h2>
+                <p>Чтобы обновить доску с героями, нужно нажать на иконку в виде шахматного ферзя со знаком плюс
+                    или кнопку "D" на клавиатуре. Данная процедура стоит 2 золота и может быть использована в
+                    любую фазу раунда.</p>
 
-                        <p>Чтобы повысить опыт курьера на 4 единицы, нужно нажать на иконку в виде книги со стрелкой или
-                            кнопку "F" на клавиатуре. Данная процедура стоит 4 золота. Как и Re-Roll героев, данной
-                            функцией можно воспользоваться в любой момент во время игры.</p>
-                        <p>
-                            <a href="https://auto-chess.ru/">Данные были взяты с этого сайта</a>
-                        </p>
+                <h2 id="buy-exp">Покупка опыта для курьера</h2>
 
+                <p>Чтобы повысить опыт курьера на 4 единицы, нужно нажать на иконку в виде книги со стрелкой или
+                    кнопку "F" на клавиатуре. Данная процедура стоит 4 золота. Как и Re-Roll героев, данной
+                    функцией можно воспользоваться в любой момент во время игры.</p>
+                <p>
+                    <a href="https://auto-chess.ru/">Данные были взяты с этого сайта</a>
+                </p>
 
-                    </div>
-
-                </div>
 
             </div>
 
-        </article>
+        </div>
+
+    </div>
+
+</article>
 
 
 <footer th:insert="blocks/headerFooter/footer :: div"></footer>

@@ -11,15 +11,10 @@
 <div class="article__content centr-1400px fon-1400px">
 
     <h1>Правила, интерфейс и управление:</h1>
-    <p class="article__summary ready">Подробное описание об <a class="ready" href="#interface">#интерфейсе</a>, <a
-            class="ready" href="#buttons">#управлении</a>, <a class="ready" href="#gold">#золоте</a>, <a class="ready"
-                                                                                                         href="#heroes-shop">#магазине
-        героев</a>, <a class="ready" href="#level">#уровнях героев</a>, расовых и классовых <a class="ready"
-                                                                                               href="#bonuses">#бонусах</a>,
+    <p class="article__summary ready">Подробное описание об <a class="ready" href="#interface">#интерфейсе</a>, <a class="ready" href="#buttons">#управлении</a>, <a class="ready" href="#gold">#золоте</a>, <a class="ready" href="#heroes-shop">#магазине
+        героев</a>, <a class="ready" href="#level">#уровнях героев</a>, расовых и классовых <a class="ready" href="#bonuses">#бонусах</a>,
         <a class="ready" href="#heroes-pool">#общем фонде героев</a>, <a class="ready" href="#rounds">#раундах игры</a>
-        и их фазах, <a class="ready" href="#items">#предметах</a>, <a class="ready" href="#battle">#битве</a>, <a
-                class="ready" href="#mana">#мане</a>, <a class="ready" href="#health">#здоровье курьера</a>, <a
-                class="ready" href="#endgame">#конце игры</a>, <a class="ready" href="#commands">#внутриигровых
+        и их фазах, <a class="ready" href="#items">#предметах</a>, <a class="ready" href="#battle">#битве</a>, <a class="ready" href="#mana">#мане</a>, <a class="ready" href="#health">#здоровье курьера</a>, <a class="ready" href="#endgame">#конце игры</a>, <a class="ready" href="#commands">#внутриигровых
             командах</a> и <a class="ready" href="#single">#сингл-режиме</a>.</p>
 
     <h2>Общая информация об игре</h2>
@@ -37,107 +32,90 @@
     <p>Интерфейс в Auto Chess достаточно прост и информативен:</p>
 
 
-    <p><img decoding="async" class="heroes-shop" th:src="@{/image/auto-chess-interface.png}" alt="auto chess interface"
-            title="auto chess interface" width="1408" height="650"></p>
+    <p><img decoding="async" class="heroes-shop" src="/image/auto-chess-interface.png" alt="auto chess interface" title="auto chess interface" width="1408" height="650"></p>
 
-    <p><span class="heroes-shop-desc heroes-shop-desc-1">1:</span> верхнее меню: страница с базовыми механиками игры,
+    <p><span class="heroes-shop-desc heroes-shop-desc-1">1:</span> Верхнее меню: страница с базовыми механиками игры,
         таблица героев, топ игроков и друзей, магазин курьеров.</p>
-    <p><span class="heroes-shop-desc heroes-shop-desc-2">2:</span> верхней информационный блок: магазин героев, раунд и
+    <p><span class="heroes-shop-desc heroes-shop-desc-2">2:</span> Верхней информационный блок: магазин героев, раунд и
         фаза, время до конца фазы, количество героев на боевом поле и максимальное допустимое количество, текущее
         имеющееся золото.</p>
     <p><span class="heroes-shop-desc heroes-shop-desc-3">3:</span> Магазин героев. Вы их можете купить.</p>
-    <p><span class="heroes-shop-desc heroes-shop-desc-4">4:</span> обновление витрины магазина героев (может быть
+    <p><span class="heroes-shop-desc heroes-shop-desc-4">4:</span> Обновление витрины магазина героев (может быть
         вызвано нажатием кнопки D).</p>
-    <p><span class="heroes-shop-desc heroes-shop-desc-5">5:</span> блокировка автоматического обновления витрины в
-        начале нового раунда игры. В активном состоянии меняет внешний вид на иконку с закрытым замком - <img
-                th:src="@{/image/shop-locked.png}" height="25px" width="25px"> Данная функция предназначена для того,
+    <p><span class="heroes-shop-desc heroes-shop-desc-5">5:</span> Блокировка автоматического обновления витрины в
+        начале нового раунда игры. В активном состоянии меняет внешний вид на иконку с закрытым замком - <img src="/image/shop-locked.png" height="25px" width="25px"> Данная функция предназначена для того,
         чтобы игрок мог выкупить всех необходимых ему героев, даже если у него не хватило времени или золота в этом
-        раунде..</p>
-    <p><span class="heroes-shop-desc heroes-shop-desc-6">6:</span> количество урона, нанесённого в прошлом бою, с
+        раунде.</p>
+    <p><span class="heroes-shop-desc heroes-shop-desc-6">6:</span> Количество урона, нанесённого в прошлом бою, с
         разбивкой по героям.</p>
-    <p><span class="heroes-shop-desc heroes-shop-desc-7">7:</span> итоги сражения между игроками ( <img
-            th:src="@{/image/защита.png}" height="25px" width="25px"> - победа стороны защиты, <img
-            th:src="@{/image/череп.png}" height="25px" width="25px"> - порожение).</p>
+    <p><span class="heroes-shop-desc heroes-shop-desc-7">7:</span> Итоги сражения между игроками ( <img src="/image/защита.png" height="25px" width="25px"> - победа стороны защиты, <img src="/image/череп.png" height="25px" width="25px"> - порожение).</p>
     <p><span class="heroes-shop-desc heroes-shop-desc-8">8:</span> список игроков с указанием его имени, ранга, текущего
         здоровья и уровня курьера, а также маны и золота (FAILED означает, что данный игрок уже выбыл из игры). Игроки
         упорядочиваются по количеству здоровья.</p>
-    <p><span class="heroes-shop-desc heroes-shop-desc-9">9:</span> фигуры которые находяться на скомейке и не участвуют
-        в бою</p>
-    <p><span class="heroes-shop-desc heroes-shop-desc-10">10:</span> меню курьера с указанием уровня, уровня здоровья и
-        золота (маны), предметов панели упровление и тд..</p>
-    <p><span class="heroes-shop-desc heroes-shop-desc-11">11:</span> миникарта</p>
-    <p><span class="heroes-shop-desc heroes-shop-desc-12">12:</span> вызов информационной панели обо всех игроках
+    <p><span class="heroes-shop-desc heroes-shop-desc-9">9:</span> Фигуры которые находяться на скомейке и не участвуют
+        в бою.</p>
+    <p><span class="heroes-shop-desc heroes-shop-desc-10">10:</span> Меню курьера с указанием уровня, уровня здоровья и
+        золота (маны), предметов панели упровление и т.д.</p>
+    <p><span class="heroes-shop-desc heroes-shop-desc-11">11:</span> Миникарта.</p>
+    <p><span class="heroes-shop-desc heroes-shop-desc-12">12:</span> Вызов информационной панели обо всех игроках
         (выставленные герои с указанием уровня, расовые и классовые бонусы, нанесённый урон и т.д.).</p>
-    <p><span class="heroes-shop-desc heroes-shop-desc-13">13:</span> закрытие окна магазина (может быть вызвано нажатием
+    <p><span class="heroes-shop-desc heroes-shop-desc-13">13:</span> Закрытие окна магазина (может быть вызвано нажатием
         кнопки Space).
         Важно! При открытом окне магазина могут не работать команды управления героями и иногда невозможно вложить
         предметы в героев, так что лучше всегда закрывайте окно, если хотите произвести какие-либо другие действия.</p>
 
+    <p><span class="heroes-shop-desc heroes-shop-desc-14">14:</span> Создание нового предмета.</p>
+
     <h2 id="buttons">Управление</h2>
 
-    <p>Для более конфортной игры в самом начале очень рекомендуется включить Quickcast в настройках DOTA 2.</p>
+    <p>Для более комфортной игры в самом начале очень рекомендуется включить Quickcast в настройках DOTA 2.</p>
 
-    <p>Основных кнопок управления всего 5:</p>
+    <p>Основных кнопок управления всего 7:</p>
 
     <div class="button">
-        <div class="button-icon"><img th:src="@{/image/q.png}"></div>
+        <div class="button-icon"><img src="/image/q.png"></div>
         <div class="button-title">Q</div>
         <div class="button-desc"> - перемещение героя по боевому полю, со скамейки на поле и с поля на скамейку.</div>
     </div>
     <div class="button">
-        <div class="button-icon button-icon-w"><img th:src="@{/image/w.png}"></div>
+        <div class="button-icon button-icon-w"><img src="/image/w.png"></div>
         <div class="button-title">W</div>
         <div class="button-desc"> - перемещение героев c боевого поля на первое свободное место скамейки (места ищутся
             слева направо).
         </div>
     </div>
     <div class="button">
-        <div class="button-icon button-icon-e"><img th:src="@{/image/e.png}"></div>
+        <div class="button-icon button-icon-e"><img src="/image/e.png"></div>
         <div class="button-title">E</div>
-        <div class="button-desc"> - удаление героя с поля или со скамейки, игроку будет <a class="ready"
-                                                                                           href="/home/income-gold"
-                                                                                           target="_blank">возвращена
+        <div class="button-desc"> - удаление героя с поля или со скамейки, игроку будет <a class="ready" href="/home/income-gold" target="_blank">возвращена
             часть стоимости героя</a>.
         </div>
     </div>
     <div class="button">
-        <div class="button-icon button-icon-d"><img th:src="@{/image/d.png}"></div>
+        <div class="button-icon button-icon-d"><img src="/image/d.png"></div>
         <div class="button-title">D</div>
-        <div class="button-desc"> - обновление витрины магазина героев. Команда платная, стоит 2 <img decoding="async"
-                                                                                                      loading="lazy"
-                                                                                                      class="link"
-                                                                                                      th:src="@{/image/gold.png}"
-                                                                                                      alt="gold"
-                                                                                                      title="gold"
-                                                                                                      width="24"
-                                                                                                      height="24">
+        <div class="button-desc"> - обновление витрины магазина героев. Команда платная, стоит 2 <img decoding="async" loading="lazy" class="link" src="/image/gold.png" alt="gold" title="gold" width="24" height="24">
             золота за 1 раз.
         </div>
     </div>
     <div class="button">
-        <div class="button-icon button-icon-f"><img th:src="@{/image/f.png}"></div>
+        <div class="button-icon button-icon-f"><img src="/image/f.png"></div>
         <div class="button-title">F</div>
-        <div class="button-desc"> - увеличение опыта курьера на 4 единицы. Команда платная, стоит 4 <img
-                decoding="async" loading="lazy" class="link" th:src="@{/image/gold.png}" alt="gold" title="gold"
-                width="24" height="24"> золота за 1 раз.
+        <div class="button-desc"> - увеличение опыта курьера на 4 единицы. Команда платная, стоит 4 <img decoding="async" loading="lazy" class="link" src="/image/gold.png" alt="gold" title="gold" width="24" height="24"> золота за 1 раз.
         </div>
     </div>
 
     <div class="button">
-        <div class="button-icon button-icon-f"><img th:src="@{/image/r.png}"></div>
+        <div class="button-icon button-icon-f"><img src="/image/r.png"></div>
         <div class="button-title"></div>
-        <div class="button-desc"> - разбор предметов(вытащит предметы из героя, доступно 1 раз до поевление крипов) <img
-                decoding="async" loading="lazy" class="link" th:src="@{/image/gold.png}" alt="gold" title="gold"
-                width="24" height="24"> золота за 1 раз.
+        <div class="button-desc"> - разбор предметов(вытащит предметы из героя, доступно 1 раз до появление крипов) <img decoding="async" loading="lazy" class="link" src="/image/gold.png" alt="gold" title="gold" width="24" height="24"> золота за 1 раз.
         </div>
     </div>
 
     <div class="button">
-        <div class="button-icon button-icon-f"><img th:src="@{/image/b.png}"></div>
+        <div class="button-icon button-icon-f"><img src="/image/b.png"></div>
         <div class="button-title"></div>
-        <div class="button-desc"> - бан синергии( удаляет из вашего пулла героев которые вам не нужны) <img
-                decoding="async" loading="lazy" class="link" th:src="@{/image/gold.png}" alt="gold" title="gold"
-                width="24" height="24"> золота за 1 раз.
+        <div class="button-desc"> - бан синергии( удаляет из вашего пулла героев которые вам не нужны) стоимость <img decoding="async" loading="lazy" class="link" src="/image/gold.png" alt="gold" title="gold" width="24" height="24"> золота определяется количеством персонажей в пуле.
         </div>
     </div>
 
@@ -145,7 +123,7 @@
     <p>Также есть 4 кнопки дополнительного управления:</p>
 
     <div class="button">
-        <div class="button-icon button-icon-open-shop"><img th:src="@{/image/пробел.png}"></div>
+        <div class="button-icon button-icon-open-shop"><img src="/image/пробел.png"></div>
         <div class="button-title">Space (Пробел)</div>
         <div class="button-desc"> - открытие или закрытие витрины магазина.</div>
     </div>
@@ -162,8 +140,7 @@
         <div class="button-desc"> - отображение текущего опыта курьера под его изображением в нижнем меню.</div>
     </div>
 
-    <p>К сожалению, командой Q невозможно сразу переместить героя с одного места скамейки на другое место скамейки. Для
-        этого придётся сначала переместить героя на боевое поле, а затем уже на новое место на скамейке.</p>
+
 
     <h2 id="gold">Золото</h2>
 
@@ -187,14 +164,12 @@
     </ul>
     <p></p>
 
-    <p>Подробнее о золоте, способах его заработать и потратить читайте на странице "<a class="ready"
-                                                                                       href="/home/income-gold/">Золото
+    <p>Подробнее о золоте, способах его заработать и потратить читайте на странице "<a class="ready" href="/home/income-gold/">Золото
         и инкам</a>".</p>
 
     <h2 id="level">Уровень героев и его повышение</h2>
 
-    <p><img decoding="async" loading="lazy" class="heroes-levels" th:src="@{/image/heroes-levels-1-2-3.png}"
-            alt="heroes levels 1 2 3" title="heroes levels 1 2 3" width="484" height="444"></p>
+    <p><img decoding="async" loading="lazy" class="heroes-levels" src="/image/heroes-levels-1-2-3.png" alt="heroes levels 1 2 3" title="heroes levels 1 2 3" width="484" height="444"></p>
     <p>Все герои могут быть 1, 2 и 3 уровня.</p>
 
     <p>Показателем уровня является количество звёзд справа в названии героя: ★, ★★ или ★★★.</p>
@@ -207,10 +182,7 @@
 
     <p>Ещё есть показатель <b>внутреннего уровня</b>, он отображается в нижнем левом углу под изображением героя (на
         изображении выше он равен 2, 4 и 5 соответственно). Изначально он равняется стоимости героя, при поднятии героя
-        до ★★ прибавляется ещё 2, а при ★★★ - ещё 2 (для героев класса <img decoding="async" loading="lazy" class="link"
-                                                                            src="/images/class_druid.png"
-                                                                            alt="class druid" title="class druid"
-                                                                            width="24" height="24"> Druid - +1 вместо
+        до ★★ прибавляется ещё 2, а при ★★★ - ещё 2 (для героев класса <img decoding="async" loading="lazy" class="link" src="/image/class_druid.png" alt="class druid" title="class druid" width="24" height="24"> Druid - +1 вместо
         +2). Этот показатель обычно используется для выбора цели заклинаний. Чем он выше, тем выше вероятность, что
         вражеские герои будут направлять свои заклинания именно на этого героя.</p>
 
@@ -219,75 +191,68 @@
     <p>Каждый герой имеет 1 или 2 расы и 1 класс. Когда игрок ставит на поле несколько различных героев одной расы или
         одного класса, то включается специальный расовый или классовый бонус. Они действуют только на союзные существа,
         то есть существа противника такой же расы или класса не получат бонус на боевом поле.</p>
-    <p>Например, 1 существо класса <img decoding="async" loading="lazy" class="link" th:src="@{/image/синергии.png}"
-                                        alt="class warrior" title="class warrior" width="220" height="45"> демон, Демон:
+    <p>Например, 1 существо класса <img decoding="async" loading="lazy" class="link" src="/image/синергии.png" alt="class warrior" title="class warrior" width="220" height="45"> демон, Демон:
         Физический урон, наносимый всеми дружественными Демонами, преобразуется в чистый урон со 100% эффективностью.
         +5% дополнительной эффективности для каждого демона, если на борту больше одного.</p>
-    <p><a th:href="@{/home/display/energising}">Подробней с синергиями можете ознакомиться тут:</a></p>
+    <p><a href="/home/display/energising">Подробней с синергиями можете ознакомиться тут:</a></p>
 
     <p>Количество установленных на боевом поле существ по расам и классам можно увидеть на специальных круглых иконках
-        над блоком с курьером: красные - расы, зелёные - классы. Наведя на иконку в выпадающем окне, отобразится полное
+        над блоком с курьером. Наведя на иконку в выпадающем окне, отобразится полное
         описание бонуса.</p>
     <p>Выбрав на игровом поле вражеского курьера также можно увидеть состав войск противника.</p>
 
 
     <h2 id="heroes-pool">Общий фонд героев</h2>
 
-    <p>Количество всех героев для всех игроков ограничено и зависит от их стоимости:</p>
+    <p>Количество героев для всех игроков один и зависит от их стоимости, точной информации о количестве фигур нет, снизу представлен примерный пулл шахматных фигур:</p>
 
     <ul class="patch-notes">
-        <li>1 <img class="link" th:src="@{/image/gold.png}" alt="золото" title="золото" width="32" height="32"> - 45
+        <li>1 <img class="link" src="/image/gold.png" alt="золото" title="золото" width="32" height="32"> - 18-21
             штук.
         </li>
-        <li>2 <img class="link" th:src="@{/image/gold.png}" alt="золото" title="золото" width="32" height="32"> - 30
+        <li>2 <img class="link" src="/image/gold.png" alt="золото" title="золото" width="32" height="32"> - 15-18
             штук.
         </li>
-        <li>3 <img class="link" th:src="@{/image/gold.png}" alt="золото" title="золото" width="32" height="32"> - 25
+        <li>3 <img class="link" src="/image/gold.png" alt="золото" title="золото" width="32" height="32"> - 12-15
             штук.
         </li>
-        <li>4 <img class="link" th:src="@{/image/gold.png}" alt="золото" title="золото" width="32" height="32"> - 15
+        <li>4 <img class="link" src="/image/gold.png" alt="золото" title="золото" width="32" height="32"> - 9-12
             штук.
         </li>
-        <li>5 <img class="link" th:src="@{/image/gold.png}" alt="золото" title="золото" width="32" height="32"> - 10
+        <li>5 <img class="link" src="/image/gold.png" alt="золото" title="золото" width="32" height="32"> - 9
             штук.
         </li>
     </ul>
 
-    <p>Это значит, что в общем фонде каждой игры всегда есть 45
+    <p>Это значит, что в общем фонде каждой игры всегда есть 18-21
         <nobr><img data-index="4" class="link" src="/image/акс.png" alt="акс" title="акс" width="32" height="25">
             <t class="tir1">Акс</t>
         </nobr>
         ,
-        30
-        <nobr><img data-index="2" class="link" th:src="@{/image/сларк.png}" alt="Slark" title="enchantress" width="32"
-                   height="25">
+        15-18
+        <nobr><img data-index="2" class="link" src="/image/сларк.png" alt="Slark" title="enchantress" width="32" height="25">
             <t class="tir2">Slark</t>
         </nobr>
-        , 25
-        <nobr><img data-index="16" class="link" th:src="@{/image/sf.png}" alt="Shadow Fiend" title="Shadow Fiend"
-                   width="32" height="25">
+        , 12-15
+        <nobr><img data-index="16" class="link" src="/image/sf.png" alt="Shadow Fiend" title="Shadow Fiend" width="32" height="25">
             <t class="tir3">Shadow Fiend</t>
         </nobr>
         ,
-        15
-        <nobr><img data-index="29" class="link" th:src="@{/image/cotl.png}" alt="Keeper of the Light"
-                   title="Keeper of the Light" width="25" height="32">
+        9-12
+        <nobr><img data-index="29" class="link" src="/image/cotl.png" alt="Keeper of the Light" title="Keeper of the Light" width="25" height="32">
             <t class="tir4">Keeper of the Light</t>
         </nobr>
         ,
-        и всего 10
-        <nobr><img data-index="42" class="link" th:src="@{/image/spectre.png}" alt="Spectre" title="Spectre" width="32"
-                   height="25">
+        и всего 9
+        <nobr><img data-index="42" class="link" src="/image/spectre.png" alt="Spectre" title="Spectre" width="32" height="25">
             <t class="tir5">Spectre</t>
         </nobr>
         . Так как для сбора героя 3 уровня (★★★) требуется 9 экземпляров, то из этого следует, что в игре одновременно
-        может собраться 3 штуки
-        <nobr><img data-index="14" class="link" th:src="@{/image/сларк.png}" alt="Slark" title="Slark" width="32"
-                   height="25"> Slark
+        может собраться 2 штуки
+        <nobr><img data-index="14" class="link" src="/image/сларк.png" alt="Slark" title="Slark" width="32" height="25"> Slark
         </nobr>
         ★★★ и только 1
-        <nobr><img data-index="44" class="link" th:src="@{/image/spectre.png}" alt="Spectre" title="Spectre" width="32"
-                   height="25">
+        <nobr><img data-index="44" class="link" src="/image/spectre.png" alt="Spectre" title="Spectre" width="32" height="25">
             <t class="tir5">Spectre</t>
         </nobr>
         ★★★.
@@ -319,25 +284,22 @@
         <tr>
             <td rowspan="2" style="text-align:left;background-color:#888;padding-left:4px"><b>Подготовка</b> (Preparing)
             </td>
-            <td style="text-align:left;background-color:#888;padding-left:4px"><b>Готовьтесь</b> (Prepare) <span
-                    class="blocks"></span></td>
-            <td style="background-color:#99f">30</td>
+            <td style="text-align:left;background-color:#888;padding-left:4px"><b>Готовьтесь</b> (Prepare) <span class="blocks"></span></td>
+            <td style="background-color:#99f">20</td>
             <td style="background-color:#44f"><b>да</b></td>
             <td style="background-color:#f0f"><b>да</b></td>
             <td style="background-color:#f80"><b>да</b></td>
         </tr>
         <tr>
-            <td style="text-align:left;background-color:#888;padding-left:4px"><b>Внимание</b> (Ready) <span
-                    class="blocks block-2"></span></td>
+            <td style="text-align:left;background-color:#888;padding-left:4px"><b>Внимание</b> (Ready) <span class="blocks block-2"></span></td>
             <td style="background-color:#99f">5</td>
             <td style="background-color:#44f">нет</td>
             <td style="background-color:#f0f"><b>да</b></td>
             <td style="background-color:#f80"><b>да</b></td>
         </tr>
         <tr>
-            <td colspan="2" style="text-align:left;background-color:#888;padding-left:4px"><b>Битва</b> (Battle) <span
-                    class="blocks block-3"></span></td>
-            <td style="background-color:#99f">60</td>
+            <td colspan="2" style="text-align:left;background-color:#888;padding-left:4px"><b>Битва</b> (Battle) <span class="blocks block-3"></span></td>
+            <td style="background-color:#99f">50</td>
             <td style="background-color:#44f">нет</td>
             <td style="background-color:#f0f"><b>да</b></td>
             <td style="background-color:#f80"><b>да</b>, только со скамейки</td>
@@ -378,17 +340,10 @@
     <p></p>
 
     <p><span class="blocks blocks-desc block-3"></span> Последняя фаза под названием "<b>Битва</b>" (Battle) длится до
-        60 секунд:
+        50 секунд:
     </p>
     <ul class="patch-notes">
-        <li>Если защищающийся игрок выигрывает сражение против другого игрока, то он получает 1 <img decoding="async"
-                                                                                                     loading="lazy"
-                                                                                                     class="link"
-                                                                                                     th:src="@{/image/gold.png}"
-                                                                                                     alt="gold"
-                                                                                                     title="gold"
-                                                                                                     width="24"
-                                                                                                     height="24">
+        <li>Если защищающийся игрок выигрывает сражение против другого игрока, то он получает 1 <img decoding="async" loading="lazy" class="link" src="/image/gold.png" alt="gold" title="gold" width="24" height="24">
             золото.
         </li>
         <li>Если на всех полях сражения заканчиваются, то фаза тоже прекращается, даже если не закончилось отведённое
@@ -411,21 +366,10 @@
     <p>В инвентаре героя действуют только те предметы, которые находятся в первых 6 слотах. В 3 дополнительных предметы
         просто хранятся.</p>
 
-    <p>Если курьером взять все предметы, входящие в рецепт сборного артефакта, то его сборка произойдёт автоматически. В
-        инвентаре героя автоматическая сборка происходит только в начале раунда, в самом начале фазы "Подготовка"
-        (Preparing).</p>
 
-    <p><img decoding="async" loading="lazy" class="heroes-shop" th:src="@{/image/show-combinations.png}"
-            alt="show combinations" title="show combinations" width="665" height="161"></p>
 
-    <p>Если нажать правой кнопкой мыши на предмете и затем выбрать в появившемся меню пункт "<b>Show Combinations</b>",
-        то в правом нижнем нижнем углу появится блок с рецептами для сборных вещей. Если же выбрать пункт "<b>Lock
-            Combining</b>", то это заблокирует данный предмет от автоматической сборки, если в инвентаре курьера
-        положить ещё предметы, входящие в рецепт.</p>
-
-    <p>Подробнее о предметах, их характеристиках и шансах выпадения читайте на странице "<a class="ready"
-                                                                                            href="/home/display/items">Предметы
-        и сборные вещи</a>".</p>
+    <p>Подробнее о предметах, их характеристиках и шансах выпадения читайте на странице "<a class="ready" href="/home/display/items">Предметы
+    </a>".</p>
 
     <h2 id="battle">Битва: перемещение, атака и выбор цели</h2>
 
@@ -436,24 +380,13 @@
             то цель будет выбрана случайно из них.
         </li>
         <li>Если рядом с героем игрока нет вражеских героев, то он найдёт самого близкого врага, переместится к нему и
-            начнёт его атаковать.<br>Тут есть исключение - герои класса <img decoding="async" loading="lazy"
-                                                                             class="link"
-                                                                             th:src="@{/image/class_assassin.png}"
-                                                                             alt="class assassin" title="class assassin"
-                                                                             width="24" height="24"> Assassin. Они при
+            начнёт его атаковать.<br>Тут есть исключение - герои класса <img decoding="async" loading="lazy" class="link" src="/image/class_assassin.png" alt="class assassin" title="class assassin" width="24" height="24"> Assassin. Они при
             отсутствии в радиусе атаки противников ищут их на самых дальних клетках сначала в текущем столбце, а потом в
             остальных клетках самой дальней строке, после чего прыгают на ближайшую свободную клетку, с которой они
             смогут атаковать цель.
         </li>
-        <li>Более приоритетными целями для атаки являются призванные существа, например, <img decoding="async"
-                                                                                              loading="lazy"
-                                                                                              class="link"
-                                                                                              th:src="@{/image/lone_druid_spirit_bear.png}"
-                                                                                              alt="lone druid spirit bear"
-                                                                                              title="lone druid spirit bear"
-                                                                                              width="24" height="24">
-            Spirit Bear от <img decoding="async" loading="lazy" class="link" th:src="@{/image/lone_druid.png}"
-                                alt="lone druid" title="lone druid" width="24" height="24"> Lone Druid.
+        <li>Более приоритетными целями для атаки являются призванные существа, например, <img decoding="async" loading="lazy" class="link" src="/image/lone_druid_spirit_bear.png" alt="lone druid spirit bear" title="lone druid spirit bear" width="24" height="24">
+            Spirit Bear от <img decoding="async" loading="lazy" class="link" src="/image/lone_druid.png" alt="lone druid" title="lone druid" width="24" height="24"> Lone Druid.
         </li>
         <li>Если в процессе боя герой был перемещён своим или чужим заклинанием на другую клетку, то он выберет себе
             новую ближайшую цель.
@@ -463,8 +396,7 @@
 
     <p>Любой герой независимо от расы и класса в бою наносит физический урон.</p>
 
-    <p>Но, например, существа расы <img decoding="async" loading="lazy" class="link" th:src="@{/image/specie_demon.png}"
-                                        alt="specie demon" title="specie demon" width="24" height="24"> Demon
+    <p>Но, например, существа расы <img decoding="async" loading="lazy" class="link" src="/image/specie_demon.png" alt="specie demon" title="specie demon" width="24" height="24"> Demon
         дополнительно к физическому урону наносят 50% чистого (Pure) урона.</p>
 
     <p>При нанесении урона героям противника или получении урона от врагов любой герой получает ману. После набора 100
@@ -482,16 +414,13 @@
     <ul class="patch-notes">
         <li><b>нанесение урона</b> - самый долгий способ,</li>
         <li><b>получение урона</b> - самый быстрый способ,</li>
-        <li><img decoding="async" loading="lazy" class="link" th:src="@{/image/crystal_maiden_brilliance_aura.png}"
-                 alt="crystal maiden brilliance aura" title="crystal maiden brilliance aura" width="24" height="24"> <b>Brilliance
-            Aura</b> от <img decoding="async" loading="lazy" class="link" th:src="@{/image/crystal_maiden.png}"
-                             alt="crystal maiden" title="crystal maiden" width="24" height="24"> Crystal Maiden.
+        <li><img decoding="async" loading="lazy" class="link" src="/image/crystal_maiden_brilliance_aura.png" alt="crystal maiden brilliance aura" title="crystal maiden brilliance aura" width="24" height="24"> <b>Brilliance
+            Aura</b> от <img decoding="async" loading="lazy" class="link" src="/image/crystal_maiden.png" alt="crystal maiden" title="crystal maiden" width="24" height="24"> Crystal Maiden.
         </li>
     </ul>
     <p></p>
 
-    <p>Подробнее о мане, способах и формулах её набора смотрите на специальной странице "<a class="ready"
-                                                                                            href="/home/mana">Мана</a>".
+    <p>Подробнее о мане, способах и формулах её набора смотрите на специальной странице "<a class="ready" href="/home/mana">Мана</a>".
     </p>
 
     <h2 id="health">Здоровье курьера и как снять здоровье у противника</h2>
@@ -507,90 +436,46 @@
     <p><b>Урон = 1 + [внутренний уровень существа] / 3</b>, затем полученное число округляется вверх до целого.</p>
     <p>
     </p>
-    <p>Например, выживший <img decoding="async" loading="lazy" class="link" src="/image/bounty_hunter.png"
-                               alt="bounty hunter" title="bounty hunter" width="24" height="24"> Bounty Hunter ★★★
-        нанесёт 2 урона, а <img decoding="async" loading="lazy" class="link" src="/image/keeper_of_the_light.png"
-                                alt="keeper of the light" title="keeper of the light" width="24" height="24"> Keeper of
+    <p>Например, выживший <img decoding="async" loading="lazy" class="link" src="/image/bounty_hunter.png" alt="bounty hunter" title="bounty hunter" width="24" height="24"> Bounty Hunter ★★★
+        нанесёт 2 урона, а <img decoding="async" loading="lazy" class="link" src="/image/keeper_of_the_light.png" alt="keeper of the light" title="keeper of the light" width="24" height="24"> Keeper of
         the Light ★★ - 3 урона.</p>
 
     <p><b>Призываемые существа</b>:</p>
     <ul class="patch-notes">
-        <li><img decoding="async" loading="lazy" class="link" src="/image/furion_force_of_nature.png"
-                 alt="lone druid spirit bear" title="lone druid spirit bear" width="24" height="24"> Force of Nature от
-            <img decoding="async" loading="lazy" class="link" src="/image/furion.png" alt="furion" title="furion"
-                 width="24" height="24"> Furion, <img decoding="async" loading="lazy" class="link"
-                                                      src="/image/lycan_summon_wolves.png" alt="lycan summon wolves"
-                                                      title="lycan summon wolves" width="24" height="24"> Wolves от <img
-                    decoding="async" loading="lazy" class="link" src="/image/lycan.png" alt="lycan" title="lycan"
-                    width="24" height="24"> Lycan, <img decoding="async" loading="lazy" class="link"
-                                                        src="/image/venomancer_plague_ward.png"
-                                                        alt="venomancer plague ward" title="venomancer plague ward"
-                                                        width="24" height="24"> Plague Ward от <img decoding="async"
-                                                                                                    loading="lazy"
-                                                                                                    class="link"
-                                                                                                    src="/image/venomancer.png"
-                                                                                                    alt="venomancer"
-                                                                                                    title="venomancer"
-                                                                                                    width="24"
-                                                                                                    height="24">
+        <li><img decoding="async" loading="lazy" class="link" src="/image/furion_force_of_nature.png" alt="lone druid spirit bear" title="lone druid spirit bear" width="24" height="24"> Force of Nature от
+            <img decoding="async" loading="lazy" class="link" src="/image/furion.png" alt="furion" title="furion" width="24" height="24"> Furion, <img decoding="async" loading="lazy" class="link" src="/image/lycan_summon_wolves.png" alt="lycan summon wolves" title="lycan summon wolves" width="24" height="24"> Wolves от <img decoding="async" loading="lazy" class="link" src="/image/lycan.png" alt="lycan" title="lycan" width="24" height="24"> Lycan, <img decoding="async" loading="lazy" class="link" src="/image/venomancer_plague_ward.png" alt="venomancer plague ward" title="venomancer plague ward" width="24" height="24"> Plague Ward от <img decoding="async" loading="lazy" class="link" src="/image/venomancer.png" alt="venomancer" title="venomancer" width="24" height="24">
             Venomancer имеют 1 внутренний уровень и наносят 1 единицу урона.
         </li>
-        <li><img decoding="async" loading="lazy" class="link" src="/image/lone_druid_spirit_bear.png"
-                 alt="lone druid spirit bear" title="lone druid spirit bear" width="24" height="24"> Spirit Bear от <img
-                decoding="async" loading="lazy" class="link" src="/image/lone_druid.png" alt="lone druid"
-                title="lone druid" width="24" height="24"> Lone Druid имеет 3 внутренний уровень, следовательно, наносит
+        <li><img decoding="async" loading="lazy" class="link" src="/image/lone_druid_spirit_bear.png" alt="lone druid spirit bear" title="lone druid spirit bear" width="24" height="24"> Spirit Bear от <img decoding="async" loading="lazy" class="link" src="/image/lone_druid.png" alt="lone druid" title="lone druid" width="24" height="24"> Lone Druid имеет 3 внутренний уровень, следовательно, наносит
             2 урона.
         </li>
     </ul>
     <p></p>
 
-    <p><b>Нейтральные существа</b>:</p>
+    <p><b>При поражении нетральным крипам вы не получаете урон по курьеру.</b>:</p>
 
-    <p>Самые слабые начальные существа имеют внутренний уровень, равный единице, и "кусают" на 1, а на существа с 45 и
-        50 раунда, если их не убить, нанесут по 4 урона каждый.</p>
+
 
     <h2 id="endgame">Конец игры</h2>
 
     <p>Когда в живых остаётся только 1 игрок, игра автоматически заканчивается и происходит пересчёт рейтинга всех
         участников.</p>
 
-    <p><img decoding="async" loading="lazy" class="heroes-shop" src="/image/auto-chess-final-table.png"
-            alt="auto chess final table" title="auto chess final table" width="1408" height="540"></p>
+    <p><img decoding="async" loading="lazy" class="heroes-shop" src="/image/auto-chess-final-table.png" alt="auto chess final table" title="auto chess final table" width="1408" height="540"></p>
 
-    <ul class="patch-notes">
-        <li><b>RANK</b> - занятое место в игре.</li>
-        <li><b>PLAYER</b> - данные об участниках с указанием нового <a class="ready" href="/start/ranks/">рейтинга
-            игроков</a> по результатам игры, зелёной или красной стрелкой показывается соответственно увеличение или
-            понижение очков опыта (MMR).
-        </li>
-        <li><b>LEVEL</b> - финальный уровень курьера.</li>
-        <li><b>LINEUP</b> - финальная сборка героев с указанием уровня каждого из них.</li>
-        <li><b>BUFF</b> - активные расовые и классовые бонусы в финальной сборке героев.</li>
-        <li><b>WORTH</b> - сумма стоимости героев в финальной сборке.</li>
-        <li><b>W-L</b> - количество побед и поражений в раундах.</li>
-        <li><b>DAMAGE</b> - урон, нанесённый курьерам всех противников.</li>
-        <li><b>DURATION</b> - время, проведённое в игре.</li>
-        <li><b>AWARD</b> - количество полученных <a class="ready" href="/start/candies/">конфет</a>.</li>
-        <li><img decoding="async" loading="lazy" class="link" src="/image/white_flag.png" alt="white flag"
-                 title="white flag" width="24" height="24"> - жалоба на игрока за нечестную игру, пожаловаться можно
-            только на 1 игрока.
-        </li>
-    </ul>
+
 
     <h2 id="commands">Внутриигровые команды</h2>
 
-    <p>Команды в игре обычно предназначены для вызова определённых функций и используются, в основном, разработчиками.
-        Чтобы активировать команду, нужно написать её в чат игры.</p>
 
-    <p>В Auto Chess есть 1 нормальная команда и несколько для убийства своего курьера:</p>
+
+    <p>В Auto Chess есть команды:</p>
 
     <p><b>-tp</b> - мгновенно переносит курьера игрока в центр боевого поля. Была сделана для исправления ошибок с
         застреванием и т.п. Но какое-то время назад использовалась игроками для увеличения времени, через которое
         наносится смертельный урон от существ противника - курьер загонялся в угол и в момент подлёта анимации урона
         вызывалась данная команда, позволяющая получить дополнительные миллисекунды перед смертью. Это иногда помогало
-        занять более высокое место, когда в раунде умирало сразу несколько участников. Однако данное использование
-        команды было закрыто разработчиками и теперь ничего не увеличивает. По некоторой информации команда и раньше
-        никак не помогала.
+        занять более высокое место, когда в раунде умирало сразу несколько участников.
 
     </p>
     <p>Также есть 13 командных слов, приводящих к мгновенной смерти курьера игрока, они часто используются для прикола
@@ -612,14 +497,12 @@
         <li>-ggsimida1</li>
     </ul>
 
-    <p>Ещё есть несколько команд, доступные только разработчикам игры, но о них особо смысла рассказывать нет.</p>
+
 
     <h2 id="single">Однопользовательская игра</h2>
 
     <p>Если вы хотите попробовать какую-то стратегию или просто потренироваться, но не хотите терять рейтинг, то можно
-        создать игру на 1 игрока. Для этого воспользуйтесь функцией создания закрытого лобби и нажмите старт. Тогда
-        после загрузки на экране отобразится текст "LOAD CLOAD LINEUP OK!" и вы будете единственным игроком, а все
-        остальные шахматные поля будут пустыми.</p>
+        создать игру на 1 игрока. Для этого воспользуйтесь функцией создания закрытого лобби через нажатие "Create custom lobby", выбрав map - "Casual_1x8" нажмите старт.
 
     <p>Игрок также будет встречаться с нейтральными существами и с героями противника, однако противник будет выбираться
         случайно.</p>
@@ -636,8 +519,7 @@
 
     <div id="post_details">
 
-        <div class="category"><a href="/home/display/guide/"
-                                 title="Просмотреть все статьи категории Гайды и правила DAC">Гайды и правила DAC</a>
+        <div class="category"><a href="/home/display/guide/" title="Просмотреть все статьи категории Гайды и правила DAC">Гайды и правила DAC</a>
         </div>
         <div class="shareme">
         </div>

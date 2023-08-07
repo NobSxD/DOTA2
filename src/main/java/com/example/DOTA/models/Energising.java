@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -20,6 +21,7 @@ public class Energising {
     private String name;
     private String tip;
     private String ItWorks;
+    @Size(max = 2000)
     private String buff;
     private String descriptionKlass;
     private String descriptionBuff;

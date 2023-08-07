@@ -65,15 +65,15 @@ public class ImageController {
                 .body(new InputStreamResource(new ByteArrayInputStream(imageWeapon.getBytes())));
     }
 
-    @GetMapping("/images/guide/{id}")
-    private ResponseEntity<?> getImageByIDGuide(@PathVariable Long id){
-        ImageGuide imageGuide =guideService.imageGuideById(id);
-        return ResponseEntity.ok()
-                .header("fileName", imageGuide.getOriginalFileName())
-                .contentType(MediaType.valueOf(imageGuide.getContentType()))
-                .contentLength(imageGuide.getSize())
-                .body(new InputStreamResource(new ByteArrayInputStream(imageGuide.getBytes())));
-    }
+//    @GetMapping("/images/guide/{id}")
+//    private ResponseEntity<?> getImageByIDGuide(@PathVariable Long id){
+//        ImageGuide imageGuide =guideService.imageGuideById(id);
+//        return ResponseEntity.ok()
+//                .header("fileName", imageGuide.getOriginalFileName())
+//                .contentType(MediaType.valueOf(imageGuide.getContentType()))
+//                .contentLength(imageGuide.getSize())
+//                .body(new InputStreamResource(new ByteArrayInputStream(imageGuide.getBytes())));
+//    }
 
 
     @GetMapping("/images/energising/{id}")

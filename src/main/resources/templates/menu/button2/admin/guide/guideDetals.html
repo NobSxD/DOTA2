@@ -30,10 +30,6 @@
             <tr>
 
 
-              <td th:each="imageList :${guide.imageGuides}"><img th:if="${imageList.id}" th:src="'/images/guide/' + ${imageList.id}"></td>
-
-
-
 
               <td>
                 <t th:text="${guide.full_text}"></t>

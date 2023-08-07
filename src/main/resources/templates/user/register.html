@@ -1,0 +1,37 @@
+<html>
+<input type="hidden" id="__yoroi_connector_api_injected_type" value="prod" ><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Please sign in</title>
+
+
+</head>
+<body>
+<header th:insert="blocks/headerFooter/header :: header">
+
+</header>
+<div class="fon-1400px container">
+  <form th:action="@{/registration}" class="form-signin "method="post">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <p>
+      <label for="username" class="sr-only">Username</label>
+      <input type="text" id="username" name="name" class="form-control" placeholder="Username" required="" autofocus="">
+    </p>
+    <p>
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Password min 4" min="4" required=""><br>
+      <input type="email"  name="email" class="form-control" placeholder="email" min="4" required=""><br>
+      <input type="number" name="phoneNumber" class="form-control" min="4" placeholder="tel">
+
+    </p>
+
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+  <h4>
+    <a href="/login">Войти</a>
+  </h4>
+</div>
+<footer th:insert="blocks/headerFooter/footer :: div"></footer>
+</body></html>
