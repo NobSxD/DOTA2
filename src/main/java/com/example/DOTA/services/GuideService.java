@@ -3,6 +3,7 @@ package com.example.DOTA.services;
 import com.example.DOTA.models.Energising;
 import com.example.DOTA.models.Guide;
 import com.example.DOTA.repository.GuideRepository;
+import com.example.DOTA.services.imageServices.SaveImageFileSystem;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -40,8 +41,7 @@ public class GuideService {
         guideRepository.deleteById(id);
     }
 
-    @Value("${upload.path}")
-    private String uploads;
+
 
 
 
@@ -83,19 +83,7 @@ public class GuideService {
     }
 
 
-    public String multiple(MultipartFile multipartFile) throws IOException {
-        String resultFileName = "";
-        if (multipartFile != null && !multipartFile.isEmpty()){
-            File uploadDir = new File(uploads);
-            if (!uploadDir.exists()){
-                uploadDir.mkdir();
-            }
-            String uuidFile = UUID.randomUUID().toString();
-            resultFileName = uuidFile + "." + multipartFile.getOriginalFilename();
-            multipartFile.transferTo(new File(uploads + "/" + resultFileName));
-        }
-        return resultFileName;
-    }
+
 
     public void editGuide(Guide guideDTO) throws IOException {
         Guide guide = guideById(guideDTO.getId());
@@ -131,7 +119,16 @@ public class GuideService {
 
 
 
-    public void delete(Long id) {
+    public void delete(Long id , String upload) {
+        Guide guide = guideById(id);
+        SaveImageFileSystem.delete(guide.getFilName1(), upload);
+        SaveImageFileSystem.delete(guide.getFilName2(), upload);
+        SaveImageFileSystem.delete(guide.getFilName3(), upload);
+        SaveImageFileSystem.delete(guide.getFilName4(), upload);
+        SaveImageFileSystem.delete(guide.getFilName5(), upload);
+        SaveImageFileSystem.delete(guide.getFilName6(), upload);
+        SaveImageFileSystem.delete(guide.getFilName7(), upload);
+        SaveImageFileSystem.delete(guide.getFilName8(), upload);
         deleteGuide(id);
     }
 

@@ -1,9 +1,12 @@
 package com.example.DOTA.controller;
 
 import com.example.DOTA.models.Weapon;
+import com.example.DOTA.services.GuideService;
 import com.example.DOTA.services.ViewsService;
 import com.example.DOTA.services.WeaponService;
+import com.example.DOTA.services.imageServices.SaveImageFileSystem;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,28 +22,22 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WeaponController {
 
+    @Value("${upload.path}")
+    private String uploadPath;
+
     private final WeaponService weaponService;
     private final ViewsService viewsService;
     @GetMapping("/admin/add/items")
-    private String items(Model model){
-        model.addAttribute("items", weaponService.weaponAll());
+    private String items(){
         return "menu/button2/admin/items/itemsAdd";
     }
 
 
     @PostMapping("/admin/add/items")
-    private String save(Model model,
-                       @RequestParam String weapon,
-                       @RequestParam String items1,
-                       @RequestParam String items2,
-                       @RequestParam String items3,
-                       @RequestParam String tirWeapon,
-                       @RequestParam String passiveSkill,
-                       @RequestParam String activeSkill,
-                       @RequestParam String rangeAttack,
-                       @RequestParam String kd,
+    private String save(Weapon weapon,
                        @RequestParam("iconWeapon") MultipartFile file1) throws IOException {
-        weaponService.saveWeapon(weapon,tirWeapon,passiveSkill,activeSkill,rangeAttack,kd,items1,items2,items3, file1);
+        weapon.setIcon(SaveImageFileSystem.multiple(file1, uploadPath ));
+        weaponService.saveWeapon(weapon);
         return "redirect:/admin/add/items";
     }
 
@@ -67,7 +64,7 @@ public class WeaponController {
     }
     @GetMapping("/admin/delete/items/{id}")
     private String deleteItems(@PathVariable(value = "id") Long id){
-        weaponService.deleteItems(id);
+        weaponService.deleteItems(id, uploadPath);
         return "redirect:/admin/display/items";
     }
 
@@ -85,22 +82,11 @@ public class WeaponController {
     }
 
     @PostMapping("/admin/edit/items/{id}")
-    public String editHero(@PathVariable(value = "id") long id,
-                           @RequestParam String weapon,
-                           @RequestParam String items1,
-                           @RequestParam String items2,
-                           @RequestParam String items3,
-                           @RequestParam String tirWeapon,
-                           @RequestParam String passiveSkill,
-                           @RequestParam String activeSkill,
-                           @RequestParam String rangeAttack,
-                           @RequestParam String kd,
+    public String editHero(Weapon weapon,
                            @RequestParam("iconWeapon") MultipartFile file1) throws IOException {
-        if (!weaponService.weaponExistById(id)) {
-            return "redirect:/admin/display/items";
-        }
 
-        weaponService.editWeapon(weapon,tirWeapon,passiveSkill,activeSkill,rangeAttack,kd,items1,items2,items3, file1, id);
+        weapon.setIcon(SaveImageFileSystem.multiple(file1, uploadPath));
+        weaponService.editWeapon(weapon);
 
         return "redirect:/admin/display/items";
     }

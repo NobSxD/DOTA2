@@ -9,13 +9,12 @@
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
 
-<div class="container-fluid" id="t">
+
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+    <nav class="col-md-2 sidebar-nav"
          th:insert="blocks/menuRightAdmin ::div"></nav>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="centr-1400px fon-1400px">
+    <div class="col-md-10 fon-1400px pd-50">
 
         <div class="inline-block-table">
           <table class="table table-borderless">
@@ -36,9 +35,6 @@
                 <t th:text="${rasHero.name}"></t>
               </a></td>
 
-              <td>
-                <t th:text="${rasHero.energising.full_text}"></t>
-              </td>
               <td><a th:href="'/admin/delete/ras/' + ${rasHero.id}">Удалить</a><br>
                 <a th:href="'/admin/edit/ras/' + ${rasHero.id}">Изменит</a></td>
 
@@ -51,13 +47,13 @@
 
 
       </div>
-    </main>
+
   </div>
   <footer th:insert="blocks/headerFooter/footer :: div"></footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
-</div>
+
 
 </body>
 </html>

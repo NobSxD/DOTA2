@@ -4,6 +4,7 @@ import com.example.DOTA.models.Guide;
 import com.example.DOTA.services.EnergisingService;
 import com.example.DOTA.services.GuideService;
 import com.example.DOTA.services.ViewsService;
+import com.example.DOTA.services.imageServices.SaveImageFileSystem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -14,9 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -47,17 +46,14 @@ public class GuideController {
     ) throws IOException {
 
 
-            guide.setFilName1(guideService.multiple(file1));
-            guide.setFilName2(guideService.multiple(file2));
-            guide.setFilName3(guideService.multiple(file3));
-            guide.setFilName4(guideService.multiple(file4));
-            guide.setFilName5(guideService.multiple(file5));
-            guide.setFilName6(guideService.multiple(file6));
-            guide.setFilName7(guideService.multiple(file7));
-            guide.setFilName8(guideService.multiple(file8));
-
-
-
+            guide.setFilName1(SaveImageFileSystem.multiple(file1, uploadPath));
+            guide.setFilName2(SaveImageFileSystem.multiple(file2, uploadPath));
+            guide.setFilName3(SaveImageFileSystem.multiple(file3, uploadPath));
+            guide.setFilName4(SaveImageFileSystem.multiple(file4, uploadPath));
+            guide.setFilName5(SaveImageFileSystem.multiple(file5, uploadPath));
+            guide.setFilName6(SaveImageFileSystem.multiple(file6, uploadPath));
+            guide.setFilName7(SaveImageFileSystem.multiple(file7, uploadPath));
+            guide.setFilName8(SaveImageFileSystem.multiple(file8, uploadPath));
 
 
         guideService.save(guide);
@@ -72,13 +68,14 @@ public class GuideController {
 
     @GetMapping("/admin/detals/guide/{id}")
     private String detals(Model model, @PathVariable(value = "id") Long id) {
+        model.addAttribute("image", guideService.energising(id));
         model.addAttribute("guide", guideService.guideById(id));
         return "menu/button2/admin/guide/guideDetals";
     }
 
     @GetMapping("/admin/delete/guide/{id}")
-    private String delete(@PathVariable(value = "id") Long id) {
-        guideService.delete(id);
+    private String delete(@PathVariable("id") Long id) {
+        guideService.delete(id, uploadPath);
         return "redirect:/admin/display/guide";
     }
 

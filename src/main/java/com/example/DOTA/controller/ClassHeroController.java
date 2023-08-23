@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
@@ -24,13 +23,12 @@ public class ClassHeroController {
     private final ViewsService viewsService;
 
     @GetMapping("/admin/add/class")
-    private String add(Model model){
-        model.addAttribute("class", energisingService.allEnergising());
+    private String add(){
         return "menu/button2/admin/class/classAdd";
     }
 
     @PostMapping("/admin/add/class")
-    private String save(@RequestParam String classHero) throws IOException {
+    private String add(@RequestParam String classHero) throws IOException {
         classHeroService.saveClassHero(classHero);
         return "redirect:/admin/add/class";
     }
@@ -43,7 +41,7 @@ public class ClassHeroController {
     }
 
     @GetMapping("/admin/detals/class/{id}")
-    private String detalsRas(@PathVariable(value = "id") Long id, Model model){
+    private String detailsClassAdmin(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("class", classHeroService.classHero(id));
         return "menu/button2/admin/class/classDetals";
     }
@@ -56,7 +54,7 @@ public class ClassHeroController {
         return "redirect:/admin/display/class";
     }
     @GetMapping("/admin/edit/class/{id}")
-    private String editRas(@PathVariable(value = "id")Long id, Model model){
+    private String editClass(@PathVariable(value = "id")Long id, Model model){
         model.addAttribute("class",classHeroService.classHero(id));
         return "menu/button2/admin/class/classEdit";
     }
@@ -71,14 +69,14 @@ public class ClassHeroController {
 
 
     @GetMapping("/home/display/class")
-    private String displayUser(Model model){
+    private String displayClass(Model model){
         viewsService.viewsClass();
         model.addAttribute("class" ,classHeroService.listClassHero());
         return "menu/button2/user/class/classDisplay";
     }
 
     @GetMapping("/home/detals/class/{id}")
-    private String detalsUser(@PathVariable(value = "id") Long id, Model model){
+    private String detailsClass(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("id", classHeroService.classHero(id));
         return "menu/button2/user/class/classDetals";
     }

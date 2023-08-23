@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:if="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <title>Главня</title>
+    <title>Главня</title>
 </head>
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
 
-<div class="container-fluid" id="t">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+
+<div class="row">
+    <nav class="col-md-2 sidebar-nav"
          th:insert="blocks/menuRightAdmin ::div"></nav>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="centr-1400px fon-1400px">
+    <div class="col-md-10 fon-1400px pd-50">
+
 
         <div class="inline-block-table">
-          <div th:each="classHero : ${class}">
+            <div th:each="classHero : ${class}">
 
 
-            <t>Иконка -</t>
-            <img th:if="${classHero.energising.energisingImage}"
-                 th:src="'/images/energising/' + ${classHero.energising.energisingImage.id}">
-            <t th:text="${classHero.name}"></t>
-            <p if:th="${classHero}" th:text="'id расы: ' +${classHero.id}"></p>
-            <p if:th="${classHero.energising}" th:text="'id синергии: ' +${classHero.energising.id}"></p>
-            <p if:th="${classHero.energising}" th:text="'имя синергии: ' +${classHero.energising.name}"></p>
-            <p if:th="${classHero.energising}" th:text="'подробней о синергии: ' +${classHero.energising.full_text}"></p>
-            <p if:th="${classHero.energising.energisingImage}"
-               th:text="'id фотки: ' +${classHero.energising.energisingImage.id}"></p>
-            <p if:th="${classHero.energising.energisingImage}"
-               th:text="'имя фотк: ' +${classHero.energising.energisingImage.name}"></p>
-            <p if:th="${classHero.energising.energisingImage}"
-               th:text="'оригинальное имя фотки: ' +${classHero.energising.energisingImage.originalFileName}"></p>
-            <p if:th="${classHero.energising.energisingImage}"
-               th:text="'размер фотки в байтах: ' +${classHero.energising.energisingImage.size} + 'b'"></p>
-            <t><a th:href="'/admin/delete/class/' + ${classHero.id}">Удалить</a></t>
-            <t><a th:href="'/admin/edit/class/' + ${classHero.id}">Изменит</a></t>
+                <t>Иконка -</t>
+                <img th:if="${classHero.energising.energisingImage}"
+                     th:src="'/images/energising/' + ${classHero.energising.energisingImage.id}">
+                <t th:text="${classHero.name}"></t>
+                <p if:th="${classHero}" th:text="'id расы: ' +${classHero.id}"></p>
+                <p if:th="${classHero.energising}" th:text="'id синергии: ' +${classHero.energising.id}"></p>
+                <p if:th="${classHero.energising}" th:text="'имя синергии: ' +${classHero.energising.name}"></p>
+                <p if:th="${classHero.energising}"
+                   th:text="'подробней о синергии: ' +${classHero.energising.full_text}"></p>
+                <p if:th="${classHero.energising.energisingImage}"
+                   th:text="'id фотки: ' +${classHero.energising.energisingImage.id}"></p>
+                <p if:th="${classHero.energising.energisingImage}"
+                   th:text="'имя фотк: ' +${classHero.energising.energisingImage.name}"></p>
+                <p if:th="${classHero.energising.energisingImage}"
+                   th:text="'оригинальное имя фотки: ' +${classHero.energising.energisingImage.originalFileName}"></p>
+                <p if:th="${classHero.energising.energisingImage}"
+                   th:text="'размер фотки в байтах: ' +${classHero.energising.energisingImage.size} + 'b'"></p>
+                <t><a th:href="'/admin/delete/class/' + ${classHero.id}">Удалить</a></t>
+                <t><a th:href="'/admin/edit/class/' + ${classHero.id}">Изменит</a></t>
 
-          </div>
+            </div>
         </div>
-
-
-      </div>
-    </main>
-  </div>
-  <footer th:insert="blocks/headerFooter/footer :: div"></footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-          crossorigin="anonymous"></script>
+    </div>
 </div>
+</div>
+<footer th:insert="blocks/headerFooter/footer :: div"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
 
 </body>
 </html>

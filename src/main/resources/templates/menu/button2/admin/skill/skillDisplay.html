@@ -9,55 +9,35 @@
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
 
-<div class="container-fluid" id="t">
+
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+    <nav class="col-md-2 sidebar-nav"
          th:insert="blocks/menuRightAdmin ::div"></nav>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="centr-1400px fon-1400px">
+    <div class="col-md-10 fon-1400px pd-50">
 
-        <div class="inline-block-table">
-          <table class="table table-borderless">
-            <thead>
-            <tr>
-              <th colspan="4">Абилка
-              </th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <tr th:each="ability : ${skill}">
+      <h2 colspan="4">Риликвия:</h2>
 
 
-              <td><img th:if="${ability.id}" th:src="'/images/skill/' + ${ability.id}"></td>
+      <div th:each="ability : ${skill}">
 
-              <td><a th:href="'/admin/detals/skill/' +${ability.id}"  class="link-secondary">
-                <t th:text="${ability.name}"></t>
-              </a></td>
+        <img th:if="${ability.id}" th:src="'/images/skill/' + ${ability.id}">
 
-              <td>
-                <t th:text="${ability.detals}"></t>
-              </td>
-              <td><a th:href="'/admin/delete/skill/' + ${ability.id}">Удалить</a><br>
-                <a th:href="'/admin/edit/skill/' + ${ability.id}">Изменит</a></td>
+          <t th:text="${ability.name}"></t>
 
-            </tr>
+        <p th:text="${ability.detals}"></p>
+              <div><span> <a th:href="'/admin/delete/skill/' + ${ability.id}">Удалить</a> </span>
+                <span><a th:href="'/admin/edit/skill/' + ${ability.id}">Изменит</a></span></div>
 
-
-            </tbody>
-          </table>
-        </div>
 
 
       </div>
-    </main>
+    </div>
   </div>
   <footer th:insert="blocks/headerFooter/footer :: div"></footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
-</div>
 
 </body>
 </html>

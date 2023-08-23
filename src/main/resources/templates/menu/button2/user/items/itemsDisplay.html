@@ -9,148 +9,74 @@
 
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
-<div class="centr-1400px fon-1400px">
-    <div class="row row-cols-auto">
+<div class="row fon-1400px">
+    <div class="col-md-12">
 
-        <div class="col"></div>
+        <div class="grid">
 
-        <div th:each="items : ${displayItemsTir1}" class="list-inline-item1">
-            <li class="list-inline-item bk"><img th:if="${items.icon}" th:src="'/images/items/' + ${items.icon.id}"
+            <div th:each="items : ${displayItemsTir1}" class="list-inline-item1">
+                <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${items.id}"><img th:if="${items.icon.length() > 0}" th:src="'/img/' + ${items.icon}"
                                                  height="37.5px" width="50px"></li>
-            <li class="list-inline-item bk"><a th:href="'/home/detals/items/' +${items.id}"
-                                               class="nav-link px-2 text-yellow tir1">
+
+                <div class="modal fade " th:id="examplePopover +${items.id}" tabindex="-1" aria-hidden="true">
+                 <div th:insert="menu/button2/user/items/detalsItems :: div"></div></div>
+                 <li class="list-inline-item bk tir1">
                 <t th:text="${items.name}"></t>
-            </a></li>
-            <span class="in-line">
-                                <li th:if="${items.weapons1}" class="list-inline-item bk"><img
-                                        th:if="${items.weapons1.icon}"
-                                        th:src="'/images/items/' + ${items.weapons1.icon.id}"
-                                        height="22.58px" width="30px"></li>
-                                <li th:if="${items.weapons2}" class="list-inline-item bk"><img
-                                        th:if="${items.weapons2.icon}"
-                                        th:src="'/images/items/' + ${items.weapons2.icon.id}"
-                                        height="22.58px" width="30px"></li>
-                                <li th:if="${items.weapons3}" class="list-inline-item bk"><img
-                                        th:if="${items.weapons3.icon}"
-                                        th:src="'/images/items/' + ${items.weapons3.icon.id}"
-                                        height="22.58px" width="30px"></li>
-                                </span>
+                </li>
 
 
+            </div>
         </div>
 
-    </div>
 
 
-    <div class="col">
+
+    <div class="grid">
 
         <div th:each="items : ${displayItemsTir2}" class="list-inline-item1">
-            <li class="list-inline-item bk"><img th:if="${items.icon}" th:src="'/images/items/' + ${items.icon.id}"
+            <li class="list-inline-item bk"><img th:if="${items.icon}" th:src="'/img/' + ${items.icon}"
                                                  height="37.5px" width="50px"></li>
-            <li class="list-inline-item bk"><a th:href="'/home/detals/items/' +${items.id}"
-                                               class="nav-link px-2 text-yellow tir2">
+            <li class="list-inline-item bk tir2">
                 <t th:text="${items.name}"></t>
-            </a></li>
-            <span class="in-line">
-                            <li th:if="${items.weapons1}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons1.icon}"
-                                    th:src="'/images/items/' + ${items.weapons1.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            <li th:if="${items.weapons2}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons2.icon}"
-                                    th:src="'/images/items/' + ${items.weapons2.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            <li th:if="${items.weapons3}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons3.icon}"
-                                    th:src="'/images/items/' + ${items.weapons3.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            </span>
-
+            </li>
 
         </div>
     </div>
 
 
-    <div class="col">
+    <div class="grid">
         <div th:each="items : ${displayItemsTir3}" class="list-inline-item1">
-            <li class="list-inline-item bk"><img th:if="${items.icon}" th:src="'/images/items/' + ${items.icon.id}"
+            <li class="list-inline-item bk"><img th:if="${items.icon}" th:src="'/img/' + ${items.icon}"
                                                  height="37.5px" width="50px"></li>
-            <li class="list-inline-item bk"><a th:href="'/home/detals/items/' +${items.id}"
-                                               class="nav-link px-2 text-yellow tir3">
+            <li class="list-inline-item bk tir3">
                 <t th:text="${items.name}"></t>
-            </a></li>
-            <span class="in-line">
-                            <li th:if="${items.weapons1}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons1.icon}"
-                                    th:src="'/images/items/' + ${items.weapons1.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            <li th:if="${items.weapons2}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons2.icon}"
-                                    th:src="'/images/items/' + ${items.weapons2.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            <li th:if="${items.weapons3}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons3.icon}"
-                                    th:src="'/images/items/' + ${items.weapons3.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            </span>
-
+            </li>
 
         </div>
 
     </div>
 
 
-    <div class="col">
+    <div class="grid">
 
         <div th:each="items : ${displayItemsTir4}" class="list-inline-item1">
-            <li class="list-inline-item bk"><img th:if="${items.icon}" th:src="'/images/items/' + ${items.icon.id}"
+            <li class="list-inline-item bk"><img th:if="${items.icon}" th:src="'/img/' + ${items.icon}"
                                                  height="37.5px" width="50px"></li>
-            <li class="list-inline-item bk"><a th:href="'/home/detals/items/' +${items.id}"
-                                               class="nav-link px-2 text-yellow tir4">
+            <li class="list-inline-item bk tir4">
                 <t th:text="${items.name}"></t>
-            </a></li>
-            <span class="in-line">
-                            <li th:if="${items.weapons1}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons1.icon}"
-                                    th:src="'/images/items/' + ${items.weapons1.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            <li th:if="${items.weapons2}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons2.icon}"
-                                    th:src="'/images/items/' + ${items.weapons2.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            <li th:if="${items.weapons3}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons3.icon}"
-                                    th:src="'/images/items/' + ${items.weapons3.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            </span>
+           </li>
+
         </div>
     </div>
 
 
-    <div class="col">
+    <div class="grid">
 
         <div th:each="items : ${displayItemsTir5}" class="list-inline-item1">
-            <li class="list-inline-item bk"><img th:if="${items.icon}" th:src="'/images/items/' + ${items.icon.id}"
+            <li class="list-inline-item bk"><img th:if="${items.icon}" th:src="'/img/' + ${items.icon}"
                                                  height="37.5px" width="50px"></li>
-            <li class="list-inline-item bk"><a th:href="'/home/detals/items/' +${items.id}"
-                                               class="nav-link px-2 text-yellow tir5">
-                <t th:text="${items.name}"></t>
-            </a></li>
-            <span class="in-line">
-                            <li th:if="${items.weapons1}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons1.icon}"
-                                    th:src="'/images/items/' + ${items.weapons1.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            <li th:if="${items.weapons2}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons2.icon}"
-                                    th:src="'/images/items/' + ${items.weapons2.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            <li th:if="${items.weapons3}" class="list-inline-item bk"><img
-                                    th:if="${items.weapons3.icon}"
-                                    th:src="'/images/items/' + ${items.weapons3.icon.id}"
-                                    height="22.58px" width="30px"></li>
-                            </span>
-
+            <li class="list-inline-item bk tir5">
+                <t th:text="${items.name}"></t></li>
 
         </div>
     </div>
@@ -163,6 +89,23 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+<script>
+    const exampleEl = document.getElementById('example')
+    const list = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    list.map((el) => {
+        let opts = {
+            animation: false,
+        }
+        if (el.hasAttribute('data-bs-content-id')) {
+            opts.content = document.getElementById(el.getAttribute('data-bs-content-id')).innerHTML;
+            opts.html = true;
+        }
+        new bootstrap.Popover(el, opts);
+    })
+</script>
+
 
 
 </body>

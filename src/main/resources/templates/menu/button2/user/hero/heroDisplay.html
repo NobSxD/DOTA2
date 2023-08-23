@@ -9,13 +9,13 @@
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
 <div>
-    <div class="centr-1400px fon-1400px">
-        <div class="row row-cols-auto">
+    <div class="row fon-1400px">
+        <div class="col-md-12">
 
 
-            <div class="col">
+            <div class="grid">
                     <div th:each="hero : ${displayHeroTir1}" class="list-inline-item1">
-                        <li class="list-inline-item bk btn" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
+                        <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
                                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
                                                              height="35px" width="40px"></li>
 
@@ -46,9 +46,9 @@
 
                </div>
 
-               <div class="col">
+               <div class="grid">
                     <div th:each="hero : ${displayHeroTir2}" class="list-inline-item1">
-                        <li class="list-inline-item bk btn" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
+                        <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
                                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
                                                              height="35px" width="40px"></li>
                         <div class="modal fade " th:id="examplePopover +${hero.id}" tabindex="-1" aria-hidden="true">
@@ -81,9 +81,9 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="grid">
                     <div th:each="hero : ${displayHeroTir3}" class="list-inline-item1">
-                        <li class="list-inline-item bk btn" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
+                        <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
                                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
                                                              height="35px" width="40px"></li>
 
@@ -115,9 +115,9 @@
                 </div>
                 </div>
 
-                <div class="col">
+                <div class="grid">
                     <div th:each="hero : ${displayHeroTir4}" class="list-inline-item1">
-                        <li class="list-inline-item bk btn" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
+                        <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
                                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
                                                              height="35px" width="40px"></li>
                         <div class="modal fade " th:id="examplePopover +${hero.id}" tabindex="-1" aria-hidden="true">
@@ -149,9 +149,9 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="grid">
                     <div th:each="hero : ${displayHeroTir5}" class="list-inline-item1">
-                        <li class="list-inline-item bk btn" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
+                        <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
                                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
                                                              height="35px" width="40px"></li>
 

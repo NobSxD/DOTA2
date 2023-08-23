@@ -24,27 +24,27 @@
                             <th th:if="${guide.energising}" class="centr"><a class="link-success"
                                                                              th:if="${image.size() >=1}"
                                                                              th:href="'/home/detals/energising/' + ${image.get(0).id}">
-                                <t th:text="${guide.energising}" }></t>
+                                <t th:text="${guide.energising}" ></t>
                             </a></th>
                             <th th:if="${guide.energising1}" class="centr"><a class="link-success"
                                                                               th:if="${image.size() >=2}"
                                                                               th:href="'/home/detals/energising/' + ${image.get(1).id}">
-                                <t th:text="${guide.energising1}" }></t>
+                                <t th:text="${guide.energising1}" ></t>
                             </a></th>
                             <th th:if="${guide.energising2}" class="centr"><a class="link-success"
                                                                               th:if="${image.size() >=3}"
                                                                               th:href="'/home/detals/energising/' + ${image.get(2).id}">
-                                <t th:text="${guide.energising2}" }></t>
+                                <t th:text="${guide.energising2}" ></t>
                             </a></th>
                             <th th:if="${guide.energising3}" class="centr"><a class="link-success"
                                                                               th:if="${image.size() >=4}"
                                                                               th:href="'/home/detals/energising/' + ${image.get(3).id}">
-                                <t th:text="${guide.energising3}" }></t>
+                                <t th:text="${guide.energising3}" ></t>
                             </a></th>
                             <th th:if="${guide.energising4}" class="centr"><a class="link-success"
                                                                               th:if="${image.size() >=5}"
                                                                               th:href="'/home/detals/energising/' + ${image.get(4).id}">
-                                <t th:text="${guide.energising4}" }></t>
+                                <t th:text="${guide.energising4}" ></t>
                             </a></th>
                         </tr>
 
@@ -70,25 +70,25 @@
                 <div>
                     <h2 th:text="${guide.h2}"></h2>
                     <p th:text="${guide.full_text2}"></p>
-                    <img th:if="${guide.filName2!= null}"
+                    <img th:if="${guide.filName2!= null && guide.filName2.length() > 0}"
                          th:src="'/img/' + ${guide.filName2}">
-                    <img th:if="${guide.filName3 != null}"
+                    <img th:if="${guide.filName3 != null && guide.filName3.length() > 0}"
                          th:src="'/img/' + ${guide.filName3}">
                 </div>
                 <div>
                     <h2 th:text="${guide.h3}"></h2>
                     <p th:text="${guide.full_text3}"></p>
-                    <img th:if="${guide.filName4 != null}"
+                    <img th:if="${guide.filName4 != null && guide.filName4.length() > 0}"
                          th:src="'/img/' + ${guide.filName4}">
-                    <img th:if="${guide.filName5 != null}"
+                    <img th:if="${guide.filName5 != null && guide.filName5.length() > 0}"
                          th:src="'/img/' + ${guide.filName5}">
                 </div>
                 <div>
                     <h2 th:text="${guide.h4}"></h2>
                     <p th:text="${guide.full_text4}"></p>
-                    <img th:if="${guide.filName6 != null}"
+                    <img th:if="${guide.filName6 != null && guide.filName6.length() > 0}"
                          th:src="'/img/' + ${guide.filName6}">
-                    <img th:if="${guide.filName7 != null}"
+                    <img th:if="${guide.filName7 != null && guide.filName7.length() > 0}"
                          th:src="'/img/' + ${guide.filName7}">
                 </div>
 
