@@ -35,7 +35,7 @@ public class ImageController {
     @GetMapping("/images/hero/{id}")
     private ResponseEntity<?> getImageByIDHero(@PathVariable Long id) throws IOException {
         ImageHero imageHero = heroService.getImageHero(id);
-    //    BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageHero.getBytes()));
+
 
         return ResponseEntity.ok()
                 .body(new InputStreamResource(new ByteArrayInputStream(imageHero.getBytes())));

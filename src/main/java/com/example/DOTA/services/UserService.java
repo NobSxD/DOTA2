@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+   private final PasswordEncoder passwordEncoder;
 
     public void save(User user){userRepository.save(user);}
     public List<User> list(){return userRepository.findAll();}
@@ -36,6 +36,8 @@ public class UserService {
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.getRoles().add(Role.ROLE_USER);
+        user.setEmail(user.getEmail());
+        user.setPhoneNumber(user.getPhoneNumber());
         log.info("Сохранение нового пользователя email: {}", nameUser);
         save(user);
         return true;

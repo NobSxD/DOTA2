@@ -66,19 +66,19 @@ public class PathController {
     private String displayHome(Model model){
         viewsService.viewsPath();
         model.addAttribute("path" ,pathService.pathAll());
-        return "/menu/button4/user/path/pathDisplay";
+        return "menu/button4/user/path/pathDisplay";
     }
 
     @GetMapping("/home")
     private String displayMainHome(Model model){
         viewsService.viewsPath();
         model.addAttribute("path" ,pathService.pathAll());
-        return "/menu/button1/autoChess";
+        return "menu/button1/autoChess";
     }
     @GetMapping("/")
     private String displayMain(Model model){
         viewsService.viewsPath();
         model.addAttribute("path" ,pathService.pathAll());
-        return "/menu/button1/autoChess";
+        return "menu/button1/autoChess";
     }
 }

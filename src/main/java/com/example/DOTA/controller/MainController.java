@@ -20,30 +20,7 @@ public class MainController {
     private final WeaponService weaponService;
 
     private final GuideService guideService;
-    private final ViewsService viewsService;
-//    @GetMapping("/")
-//    public String main(Model model) throws SQLException, IOException {
-//        model.addAttribute("sumSkill", skillService.summaSkill());
-//        model.addAttribute("sumRas", rasHeroService.summaRas());
-//        model.addAttribute("sumHero",heroService.summaHero());
-//        model.addAttribute("sumClass",classHeroService.summaClass());
-//        model.addAttribute("sumItems", weaponService.summaItems());
-//        model.addAttribute("guide", guideService.countGuide());
-//        viewsService.viewsMain();
-//        return "menu/button1/autoChess";
-//    }
 
-//    @GetMapping("/home")
-//    public String home(Model model){
-//        model.addAttribute("sumSkill", skillService.summaSkill());
-//        model.addAttribute("sumRas", rasHeroService.summaRas());
-//        model.addAttribute("sumHero",heroService.summaHero());
-//        model.addAttribute("sumClass",classHeroService.summaClass());
-//        model.addAttribute("sumItems", weaponService.summaItems());
-//        model.addAttribute("guide", guideService.countGuide());
-//        viewsService.viewsMainHome();
-//        return "menu/button1/autoChess";
-//    }
 
     @GetMapping("/admin")
     public String adminHome(Model model){

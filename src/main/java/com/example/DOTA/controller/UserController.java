@@ -52,7 +52,7 @@ public class UserController {
     @GetMapping("/login")
     public String login(Principal principal, Model model) {
         model.addAttribute("user", userService.getUserByPrincipal(principal));
-        return "/user/login";
+        return "user/login";
     }
 
     @GetMapping("/profile")
@@ -66,7 +66,7 @@ public class UserController {
     @GetMapping("/registration")
     public String registration(Principal principal, Model model) {
         model.addAttribute("user", userService.getUserByPrincipal(principal));
-        return "/user/register";
+        return "user/register";
     }
 
 
@@ -74,7 +74,7 @@ public class UserController {
     public String createUser(User user, Model model) {
         if (!userService.createUser(user)) {
             model.addAttribute("errorMessage", "Пользователь с email: " + user.getName() + " уже существует");
-            return "/user/register";
+            return "user/register";
         }
         return "redirect:/login";
     }

@@ -118,6 +118,6 @@ public class WeaponController {
         model.addAttribute("detals", weaponService.weaponID(id));
         
         viewsService.viewsItems();
-        return "menu/button2/user/items/itemsDetals";
+        return "menu/button2/user/items/detalsItems";
     }
 }
