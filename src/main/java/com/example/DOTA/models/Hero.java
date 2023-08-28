@@ -1,14 +1,14 @@
 package com.example.DOTA.models;
 
 import com.example.DOTA.models.image.ImageHero;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import javax.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.List;
 

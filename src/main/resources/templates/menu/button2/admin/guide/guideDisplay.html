@@ -9,55 +9,35 @@
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
 
-<div class="container-fluid" id="t">
+
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+    <nav class="col-md-2 sidebar-nav"
          th:insert="blocks/menuRightAdmin ::div"></nav>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="centr-1400px fon-1400px">
+    <div class="col-md-10 fon-1400px">
+      <h2>Стратегии игры:</h2>
+      <div class="row">
 
-        <div class="inline-block-table">
-          <table class="table table-borderless">
-            <thead>
-            <tr>
-              <th colspan="4">Гайды
-              </th>
-            </tr>
-            </thead>
+        <div class="col-md-4" th:each="guide : ${guide}">
 
-            <tbody>
-            <tr th:each="guide : ${guide}">
+          <ul class="inline-px">
+            <li><a th:href="'/admin/detals/guide/' +${guide.id}"  class="link-secondary"><img th:if="${guide.id}" th:src="'/img/' + ${guide.filName1}" width="60px" height="auto"></a></li>
 
+            <li>
+              <t th:text="${guide.name}"></t></li>
 
-              <td><img th:if="${guide.id}" th:src="'/images/guide/' + ${guide.id}"></td>
-
-              <td><a th:href="'/admin/detals/guide/' +${guide.guide.id}"  class="link-secondary">
-                <t th:text="${guide.guide.name}"></t>
-              </a></td>
-
-              <td>
-                <t th:text="${guide.guide.full_text}"></t>
-              </td>
-              <td><a th:href="'/admin/delete/guide/' + ${guide.guide.id}">Удалить</a><br>
-                <a th:href="'/admin/edit/guide/' + ${guide.guide.id}">Изменит</a></td>
-
-            </tr>
-
-
-            </tbody>
-          </table>
+            <li class="wrapper"><p class="demo-1" th:text="${guide.full_text}"></p></li>
+          </ul>
         </div>
-
-
       </div>
-    </main>
+
+    </div>
   </div>
   <footer th:insert="blocks/headerFooter/footer :: div"></footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
-</div>
+
 
 </body>
 </html>

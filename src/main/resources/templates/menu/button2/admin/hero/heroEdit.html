@@ -6,115 +6,143 @@
 
 </header>
 
-<div class="container-fluid">
-    <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
-             th:insert="blocks/menuRightAdmin ::div"></nav>
+
+<div class="row">
+    <nav class="col-md-2 sidebar-nav"
+         th:insert="blocks/menuRightAdmin ::div"></nav>
+
+    <div class="col-md-10 fon-1400px pd-50">
+        <h1>Обнавление Героя</h1>
+        <form th:action="'/admin/edit/hero/' + ${detals.id} " method="post" enctype="multipart/form-data">
+            <p>вставте икону героя
+                <input type="file" name="iconHero">
+            </p>
+            <p>вставте икону скила
+                <input type="file" name="iconHero1">
+            </p>
+
+            <div th:if="${detals}">
+                <input th:value="${detals.nameHero}" type="text" name="nameHero" placeholder="Ведите имя героя"
+                       class="form-control"><br>
+
+                <input th:value="${detals.tirHero}" list="datalistOptions" type="text" name="tirHero"
+                       placeholder="видите тир героя" class="form-control"><br>
+                <datalist id="datalistOptions">
+                    <option value="ТИР 1">
+                    <option value="ТИР 2">
+                    <option value="ТИР 3">
+                    <option value="ТИР 4">
+                    <option value="ТИР 5">
+                </datalist>
+
+                <input th:if="${detals.energising}" th:value="${detals.energising.name}" list="datalistOptions1"
+                       type="text" name="classHero" placeholder="Ведите расу героя" class="form-control"><br>
+                <input th:if="${detals.energising == null}" list="datalistOptions1" type="text" name="classHero"
+                       placeholder="Ведите расу героя" class="form-control"><br>
+                <datalist id="datalistOptions1">
+                    <option th:each="class1 : ${ras}">
+                        <t th:text="${class1.name}"></t>
+                    </option>
+                </datalist>
+
+                <input th:if="${detals.energising1}" th:value="${detals.energising1.name}" list="datalistOptions2"
+                       type="text" name="classHero1" placeholder="Ведите класс героя" class="form-control"><br>
+                <input th:if="${detals.energising1 == null}" list="datalistOptions1" type="text" name="classHero1"
+                       placeholder="Ведите расу героя" class="form-control"><br>
+                <datalist id="datalistOptions2">
+                    <option th:each="class1 : ${ras}">
+                        <t th:text="${class1.name}"></t>
+                    </option>
+                </datalist>
+
+                <input th:if="${detals.energising2}" th:value="${detals.energising2.name}" list="datalistOptions3"
+                       type="text" name="classHero2" placeholder="Ведите класс героя" class="form-control"><br>
+                <input th:if="${detals.energising2 == null}" list="datalistOptions1" type="text" name="classHero2"
+                       placeholder="Ведите расу героя" class="form-control"><br>
+                <datalist id="datalistOptions3">
+                    <option th:each="class1 : ${ras}">
+                        <t th:text="${class1.name}"></t>
+                    </option>
+                </datalist>
+                <input th:value="${detals.max_xp}" type="text" name="max_xp" placeholder="видите макс хп"
+                       class="form-control"><br>
 
 
-
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <h1>Обнавление Героя</h1>
-            <form th:action="'/admin/edit/hero/' + ${detals.id} " method="post" enctype="multipart/form-data">
-                <p>вставте икону героя
-                    <input type="file" name="iconHero">
-                </p>
-                <p>вставте икону скила
-                    <input type="file" name="iconHero1">
-                </p>
-
-                <div th:if="${detals}">
-                        <input  th:value="${detals.nameHero}" type="text" name="nameHero"  placeholder="Ведите имя героя" class="form-control"><br>
-
-                        <input th:value="${detals.tirHero}" list="datalistOptions" type="text" name="tirHero" placeholder="видите тир героя" class="form-control"><br>
-                        <datalist id="datalistOptions">
-                            <option value="ТИР 1">
-                            <option value="ТИР 2">
-                            <option value="ТИР 3">
-                            <option value="ТИР 4">
-                            <option value="ТИР 5">
-                        </datalist>
-
-                        <input th:if="${detals.energising}" th:value="${detals.energising.name}" list="datalistOptions1" type="text" name="classHero" placeholder="Ведите расу героя" class="form-control"><br>
-                        <input th:if="${detals.energising == null}" list="datalistOptions1" type="text" name="classHero" placeholder="Ведите расу героя" class="form-control"><br>
-                        <datalist id="datalistOptions1">
-                            <option th:each="class1 : ${ras}"> <t th:text="${class1.name}"></t></option>
-                        </datalist>
-
-                        <input th:if="${detals.energising1}" th:value="${detals.energising1.name}" list="datalistOptions2" type="text" name="classHero1" placeholder="Ведите класс героя" class="form-control"><br>
-                        <input th:if="${detals.energising1 == null}" list="datalistOptions1" type="text" name="classHero1" placeholder="Ведите расу героя" class="form-control"><br>
-                        <datalist id="datalistOptions2">
-                            <option th:each="class1 : ${ras}"> <t th:text="${class1.name}"></t></option>
-                        </datalist>
-
-                        <input th:if="${detals.energising2}" th:value="${detals.energising2.name}" list="datalistOptions3" type="text" name="classHero2" placeholder="Ведите класс героя" class="form-control"><br>
-                        <input th:if="${detals.energising2 == null}" list="datalistOptions1" type="text" name="classHero2" placeholder="Ведите расу героя" class="form-control"><br>
-                        <datalist id="datalistOptions3">
-                            <option th:each="class1 : ${ras}"> <t th:text="${class1.name}"></t></option>
-                        </datalist>
-                    <input th:value="${detals.max_xp}" type="text" name="max_xp" placeholder="видите макс хп" class="form-control"><br>
+                <input th:value="${detals.max_xp}" type="text" name="max_mp" placeholder="видите макс мп"
+                       class="form-control"><br>
 
 
-                    <input th:value="${detals.max_xp}" type="text" name="max_mp" placeholder="видите макс мп" class="form-control"><br>
+                <input th:value="${detals.damage}" type="text" name="damage" placeholder="видите урон"
+                       class="form-control"><br>
 
 
-                    <input th:value="${detals.damage}" type="text" name="damage" placeholder="видите урон" class="form-control"><br>
+                <input th:value="${detals.speed_damage}" type="text" name="speed_damage"
+                       placeholder="видите скорость атаки" class="form-control"><br>
 
 
-                    <input th:value="${detals.speed_damage}" type="text" name="speed_damage" placeholder="видите скорость атаки" class="form-control"><br>
+                <input th:value="${detals.range_attack}" type="text" name="range_attack"
+                       placeholder="видите дальность атаки" class="form-control"><br>
 
 
-                    <input th:value="${detals.range_attack}" type="text" name="range_attack" placeholder="видите дальность атаки" class="form-control"><br>
+                <input th:value="${detals.armor}" type="text" name="armor" placeholder="видите броню"
+                       class="form-control"><br>
 
 
-                    <input th:value="${detals.armor}" type="text" name="armor" placeholder="видите броню" class="form-control"><br>
+                <input th:value="${detals.mag_resist}" type="text" name="mag_resist"
+                       placeholder="видите магическое сопротивление" class="form-control"><br>
 
 
-                    <input th:value="${detals.mag_resist}" type="text" name="mag_resist" placeholder="видите магическое сопротивление" class="form-control"><br>
+                <input th:value="${detals.name_skill}" type="text" name="name_skill"
+                       placeholder="видите название скила у героя" class="form-control"><br>
 
 
-                    <input  th:value="${detals.name_skill}" type="text" name="name_skill" placeholder="видите название скила у героя" class="form-control"><br>
+                <input th:value="${detals.activation_skill}" type="text" name="activation_skill"
+                       placeholder="видите при каких условиях срабатывает способность" class="form-control"><br>
 
 
-                    <input th:value="${detals.activation_skill}" type="text" name="activation_skill" placeholder="видите при каких условиях срабатывает способность" class="form-control"><br>
+                <input th:value="${detals.full_text}" type="text" name="full_text"
+                       placeholder="ведите описание способности" class="form-control"><br>
 
 
-                    <input th:value="${detals.full_text}" type="text" name="full_text" placeholder="ведите описание способности" class="form-control"><br>
+                <input th:value="${detals.detals_skill1}" type="text" name="detals_skill1"
+                       placeholder="ведите описание способности" class="form-control"><br>
 
 
-                    <input th:value="${detals.detals_skill1}" type="text" name="detals_skill1" placeholder="ведите описание способности" class="form-control"><br>
+                <input th:value="${detals.detals_skill2}" type="text" name="detals_skill2"
+                       placeholder="ведите описание способности" class="form-control"><br>
 
 
-                    <input th:value="${detals.detals_skill2}" type="text" name="detals_skill2" placeholder="ведите описание способности" class="form-control"><br>
+                <input th:value="${detals.detals_skill3}" type="text" name="detals_skill3"
+                       placeholder="ведите описание способности" class="form-control"><br>
 
 
-                    <input th:value="${detals.detals_skill3}" type="text" name="detals_skill3" placeholder="ведите описание способности" class="form-control"><br>
+                <input th:value="${detals.detals_skill4}" type="text" name="detals_skill4"
+                       placeholder="ведите описание способности" class="form-control"><br>
 
 
-                    <input th:value="${detals.detals_skill4}" type="text" name="detals_skill4" placeholder="ведите описание способности" class="form-control"><br>
+                <input th:value="${detals.detals_skill5}" type="text" name="detals_skill5"
+                       placeholder="ведите описание способности" class="form-control"><br>
 
 
-                    <input th:value="${detals.detals_skill5}" type="text" name="detals_skill5" placeholder="ведите описание способности" class="form-control"><br>
+                <input th:value="${detals.detals_skill6}" type="text" name="detals_skill6"
+                       placeholder="ведите описание способности" class="form-control"><br>
 
 
-                    <input th:value="${detals.detals_skill6}" type="text" name="detals_skill6" placeholder="ведите описание способности" class="form-control"><br>
+                <input th:value="${detals.cast_mp}" type="text" name="cast_mp" placeholder="ведите стоимость каста маны"
+                       class="form-control"><br>
 
 
-                    <input th:value="${detals.cast_mp}" type="text" name="cast_mp" placeholder="ведите стоимость каста маны" class="form-control"><br>
+                <input th:value="${detals.kd_skill}" type="text" name="kd_skill" placeholder="ведите откат скилы"
+                       class="form-control"><br>
 
 
-                    <input th:value="${detals.kd_skill}" type="text" name="kd_skill" placeholder="ведите откат скилы" class="form-control"><br>
+                <button type="submit" class="btn btn-success">Обновить</button>
 
-
-
-                    <button type="submit" class="btn btn-success">Обновить</button>
-
-                </div>
-            </form>
-
-        </main>
+            </div>
+        </form>
 
     </div>
+
 </div>
 
 

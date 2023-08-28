@@ -17,7 +17,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class SkillController {
     private final SkillService skillService;
-    private final ViewsService viewsService;
+
 
 
     @GetMapping("/admin/add/skill")
@@ -75,10 +75,4 @@ public class SkillController {
         return "menu/button2/user/skill/skillDisplay";
     }
 
-    @GetMapping("/home/detals/skill/{id}")
-    private String detalsSkillUser(@PathVariable(value = "id") Long id, Model model) {
-        viewsService.viewsSkill();
-        model.addAttribute("id", skillService.skill(id));
-        return "menu/button2/user/skill/skillDetals";
-    }
 }

@@ -1,0 +1,74 @@
+
+
+    <div class="inline-px" >
+        <div>
+            <li class="list-inline-item"><img th:if="${hero.imageHero}"
+                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
+                                              height="40px" width="50px"></li>
+            <span class="h2" th:text="${hero.nameHero}"></span>
+        </div>
+        <br>
+        <p>
+            <span class="padding-text green">Максимальное здоровье:</span>
+            <span class="padding-text" th:if="${hero.max_xp}" th:text="${hero.max_xp}"></span>
+        </p>
+
+        <p>
+            <span class="padding-text blue">Максимальная мана:</span>
+            <span class="padding-text" th:if="${hero.max_mp}" th:text="${hero.max_mp}"></span>
+        </p>
+
+
+        <p>
+            <img th:src="@{/image/atak.png}" height="20px" width="20px">
+            <span class="padding-text sidebar">Урон:</span>
+            <span class="padding-text" th:if="${hero.damage}" th:text="${hero.damage}"></span>
+        </p>
+        <p>
+            <img th:src="@{/image/tick.png}" height="20px" width="20px">
+            <span class="padding-text sidebar">Скорость атаки:</span>
+            <span class="padding-text" th:if="${hero.speed_damage}"
+               th:text="${hero.speed_damage}"></span>
+
+            <img th:src="@{/image/range.png}" height="20px" width="25px">
+            <span class="padding-text sidebar">Дальность атаки:</span>
+            <span class="padding-text" th:if="${hero.range_attack}"
+               th:text="${hero.range_attack}"></span>
+
+        </p>
+
+        <p>
+            <img th:src="@{/image/armor.png}" height="20px" width="20px">
+            <span class="padding-text sidebar">Броня:</span>
+            <span class="padding-text" th:if="${hero.armor}" th:text="${hero.armor}"></span>
+            <img th:src="@{/image/mArmor.png}" height="20px" width="20px">
+            <span class="padding-text sidebar"> Маг сопротивление:</span>
+            <span class="padding-text" th:if="${hero.mag_resist}" th:text="${hero.mag_resist}"></span>
+        </p>
+        <hr>
+
+        <p>
+            <img th:if="${hero.imageHero}"
+                 th:src="'/images/hero/' + ${hero.imageHero.get(1).id}" height="40px"
+                 width="50px">
+            <span class="padding-text" th:if="${hero.name_skill}" th:text="${hero.name_skill}"></span>
+        </p>
+
+        <p th:if="${hero.activation_skill}" th:text="${hero.activation_skill}"></p>
+        <p th:if="${hero.full_text}" th:text="${hero.full_text}"></p>
+        <p th:if="${hero.detals_skill1}" th:text="${hero.detals_skill1}"></p>
+        <p th:if="${hero.detals_skill2}" th:text="${hero.detals_skill2}"></p>
+        <p th:if="${hero.detals_skill3}" th:text="${hero.detals_skill3}"></p>
+        <p th:if="${hero.detals_skill4}" th:text="${hero.detals_skill4}"></p>
+        <p th:if="${hero.detals_skill5}" th:text="${hero.detals_skill5}"></p>
+        <p th:if="${hero.detals_skill6}" th:text="${hero.detals_skill6}"></p>
+        <p>
+            <img th:src="@{/image/kd.png}" height="20px" width="20px">
+            <span class="padding-text" th:if="${hero.cast_mp}" th:text="${hero.cast_mp}"></span>
+
+            <span class="padding-text" th:if="${hero.kd_skill}" th:text="${hero.kd_skill}"></span>
+        </p>
+
+    </div>
+</div>
+

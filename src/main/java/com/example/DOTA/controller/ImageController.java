@@ -25,18 +25,17 @@ import java.io.IOException;
 public class ImageController {
     private final HeroService heroService;
     private final SkillService skillService;
-    private final WeaponService weaponService;
-    private final GuideService guideService;
+
     private final EnergisingService energisingService;
     private final PathService pathService;
 
 
 
-    @Cacheable("imgHero")
+
     @GetMapping("/images/hero/{id}")
     private ResponseEntity<?> getImageByIDHero(@PathVariable Long id) throws IOException {
         ImageHero imageHero = heroService.getImageHero(id);
-    //    BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageHero.getBytes()));
+
 
         return ResponseEntity.ok()
                 .body(new InputStreamResource(new ByteArrayInputStream(imageHero.getBytes())));
@@ -54,25 +53,6 @@ public class ImageController {
                 .contentType(MediaType.valueOf(imageSkill.getContentType()))
                 .contentLength(imageSkill.getSize())
                 .body(new InputStreamResource(new ByteArrayInputStream(imageSkill.getBytes())));
-    }
-    @GetMapping("/images/items/{id}")
-    private ResponseEntity<?> getImageByIDItems(@PathVariable Long id){
-        ImageWeapon imageWeapon = weaponService.imageById(id);
-        return ResponseEntity.ok()
-                .header("fileName", imageWeapon.getOriginalFileName())
-                .contentType(MediaType.valueOf(imageWeapon.getContentType()))
-                .contentLength(imageWeapon.getSize())
-                .body(new InputStreamResource(new ByteArrayInputStream(imageWeapon.getBytes())));
-    }
-
-    @GetMapping("/images/guide/{id}")
-    private ResponseEntity<?> getImageByIDGuide(@PathVariable Long id){
-        ImageGuide imageGuide =guideService.imageGuideById(id);
-        return ResponseEntity.ok()
-                .header("fileName", imageGuide.getOriginalFileName())
-                .contentType(MediaType.valueOf(imageGuide.getContentType()))
-                .contentLength(imageGuide.getSize())
-                .body(new InputStreamResource(new ByteArrayInputStream(imageGuide.getBytes())));
     }
 
 

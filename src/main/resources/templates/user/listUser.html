@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:insert="blocks/headerFooter/header :: header"></header>
+<div class="row">
+    <nav class="col-md-2 sidebar-nav"
+         th:insert="blocks/menuRightAdmin ::div"></nav>
+
+    <div class="col-md-10 fon-1400px pd-50">
+
+
+        <div class="col-md-10">
+            <table>
+                <tbody>
+                <th>id</th>
+                <th>имя</th>
+                <th>почта</th>
+                <th>телефон</th>
+                <th>роли</th>
+                <th>выбрать и добавить</th>
+                <th>выбрать и удалить</th>
+                </tbody>
+
+
+                <tr th:each="user : ${list}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.getName()}"></td>
+                    <td th:text="${user.getEmail()}"></td>
+                    <td th:text="${user.getPhoneNumber()}"></td>
+                    <td th:text="${user.getAuthorities()}"></td>
+                    <td>
+                        <form th:action="'/admin/add/role/' + ${user.id}" method="post" enctype="multipart/form-data">
+                            <select name="addRol">
+                                <option>ROLE_USER</option>
+                                <option>ROLE_MODER</option>
+                                <option>ROLE_ADMIN</option>
+                            </select>
+                            <button type="submit">добавить роль</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form th:action="'/admin/delete/role/' + ${user.id}" method="post"
+                              enctype="multipart/form-data"><select name="deleteRol">
+                            <option>ROLE_USER</option>
+                            <option>ROLE_MODER</option>
+                            <option>ROLE_ADMIN</option>
+                        </select>
+                            <button type="submit">удалить роль</button>
+                        </form>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<footer th:insert="blocks/headerFooter/footer :: div"></footer>
+</body>
+</html>

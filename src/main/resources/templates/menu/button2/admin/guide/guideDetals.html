@@ -9,60 +9,126 @@
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
 
-<div class="container-fluid" id="t">
+
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+    <nav class="col-md-2 sidebar-nav"
          th:insert="blocks/menuRightAdmin ::div"></nav>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="centr-1400px fon-1400px">
+    <div class="col-md-10 fon-1400px pd-50">
 
-        <div class="inline-block-table">
-          <table class="table table-borderless">
-            <thead>
-            <tr>
-              <th colspan="4">Гайды
-              </th>
-            </tr>
-            </thead>
+      <h2>Гайды:</h2><br>
 
-            <tbody>
-            <tr>
-
-
-              <td th:each="imageList :${guide.imageGuides}"><img th:if="${imageList.id}" th:src="'/images/guide/' + ${imageList.id}"></td>
-
-
-
-
-              <td>
-                <t th:text="${guide.full_text}"></t>
-              </td>
-              <td>
-                <t th:text="${guide.full_text2}"></t>
-                <a th:href="${guide.href1}"><t th:text="${guide.nameHref1}"></t></a>
-                <a th:href="${guide.href2}"><t th:text="${guide.nameHref2}"></t></a>
-                <a th:href="${guide.href3}"><t th:text="${guide.nameHref3}"></t></a>
-              </td>
-              <td><a th:href="'/admin/delete/guide/' + ${guide.id}">Удалить</a><br>
-                <a th:href="'/admin/edit/guide/' + ${guide.id}">Изменит</a></td>
-
-            </tr>
-
-
-            </tbody>
-          </table>
-        </div>
-
-
+      <div><img th:if="${guide.filName1 != null}"
+                th:src="'/img/' + ${guide.filName1}">
+        <t2 th:text="${guide.name}" class="h2"></t2>
       </div>
-    </main>
+      <div>
+        <h2>Состоит из синергий</h2>
+        <table class="notLine">
+          <tbody>
+          <tr>
+            <th th:if="${guide.energising}" class="centr"><a class="link-success"
+                                                             th:if="${image.size() >=1}"
+                                                             th:href="'/home/detals/energising/' + ${image.get(0).id}">
+              <t th:text="${guide.energising}" ></t>
+            </a></th>
+            <th th:if="${guide.energising1}" class="centr"><a class="link-success"
+                                                              th:if="${image.size() >=2}"
+                                                              th:href="'/home/detals/energising/' + ${image.get(1).id}">
+              <t th:text="${guide.energising1}" ></t>
+            </a></th>
+            <th th:if="${guide.energising2}" class="centr"><a class="link-success"
+                                                              th:if="${image.size() >=3}"
+                                                              th:href="'/home/detals/energising/' + ${image.get(2).id}">
+              <t th:text="${guide.energising2}" ></t>
+            </a></th>
+            <th th:if="${guide.energising3}" class="centr"><a class="link-success"
+                                                              th:if="${image.size() >=4}"
+                                                              th:href="'/home/detals/energising/' + ${image.get(3).id}">
+              <t th:text="${guide.energising3}" ></t>
+            </a></th>
+            <th th:if="${guide.energising4}" class="centr"><a class="link-success"
+                                                              th:if="${image.size() >=5}"
+                                                              th:href="'/home/detals/energising/' + ${image.get(4).id}">
+              <t th:text="${guide.energising4}"></t>
+            </a></th>
+          </tr>
+
+          <tr>
+            <th><img th:if="${image.size() >=1}"
+                     th:src="'/images/energising/' + ${image.get(0).energisingImage.get(0).id}"></th>
+            <th><img th:if="${image.size() >=2}"
+                     th:src="'/images/energising/' + ${image.get(1).energisingImage.get(0).id}"></th>
+            <th><img th:if="${image.size() >=3}"
+                     th:src="'/images/energising/' + ${image.get(2).energisingImage.get(0).id}"></th>
+            <th><img th:if="${image.size() >=4}"
+                     th:src="'/images/energising/' + ${image.get(3).energisingImage.get(0).id}"></th>
+            <th><img th:if="${image.size() >=5}"
+                     th:src="'/images/energising/' + ${image.get(4).energisingImage.get(0).id}"></th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p th:text="${guide.full_text}"></p>
+      </div>
+
+      <div>
+        <h2 th:text="${guide.h2}"></h2>
+        <p th:text="${guide.full_text2}"></p>
+        <img th:if="${guide.filName2!= null}"
+             th:src="'/img/' + ${guide.filName2}">
+        <img th:if="${guide.filName3 != null}"
+             th:src="'/img/' + ${guide.filName3}">
+      </div>
+      <div>
+        <h2 th:text="${guide.h3}"></h2>
+        <p th:text="${guide.full_text3}"></p>
+        <img th:if="${guide.filName4 != null}"
+             th:src="'/img/' + ${guide.filName4}">
+        <img th:if="${guide.filName5 != null}"
+             th:src="'/img/' + ${guide.filName5}">
+      </div>
+      <div>
+        <h2 th:text="${guide.h4}"></h2>
+        <p th:text="${guide.full_text4}"></p>
+        <img th:if="${guide.filName6 != null}"
+             th:src="'/img/' + ${guide.filName6}">
+        <img th:if="${guide.filName7 != null}"
+             th:src="'/img/' + ${guide.filName7}">
+      </div>
+
+
+      <div>
+        <a th:href="${guide.href1}">
+          <t th:text="${guide.nameHref1}"></t>
+        </a></div>
+
+      <div>
+        <a th:href="${guide.href2}">
+          <t th:text="${guide.nameHref2}"></t>
+        </a></div>
+      <div>
+        <a th:href="${guide.href3}">
+          <t th:text="${guide.nameHref3}"></t>
+        </a></div>
+      <div>
+        <a th:href="${guide.href4}">
+          <t th:text="${guide.nameHref4}"></t>
+        </a></div>
+      <div>
+        <a th:href="${guide.href5}">
+          <t th:text="${guide.nameHref5}"></t>
+        </a></div>
+    </div>
+
+    <a class="btn" th:href="'/admin/delete/guide/' + ${guide.id}">Удалить</a>
   </div>
   <footer th:insert="blocks/headerFooter/footer :: div"></footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
-</div>
+
 
 </body>
 </html>

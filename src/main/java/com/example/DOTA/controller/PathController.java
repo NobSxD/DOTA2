@@ -68,12 +68,6 @@ public class PathController {
         model.addAttribute("path" ,pathService.pathAll());
         return "menu/button4/user/path/pathDisplay";
     }
-    @GetMapping("/home/detals/path/{id}")
-    private String detalsPath(Model model,@PathVariable(value = "id") Long id){
-        viewsService.viewsPath();
-        model.addAttribute("path" ,pathService.pathById(id));
-        return "menu/button4/user/path/pathDetals";
-    }
 
     @GetMapping("/home")
     private String displayMainHome(Model model){

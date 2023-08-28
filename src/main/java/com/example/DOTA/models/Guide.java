@@ -1,14 +1,12 @@
 package com.example.DOTA.models;
 
-import com.example.DOTA.models.image.ImageGuide;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -26,14 +24,17 @@ public class Guide {
     private String energising2;
     private String energising3;
     private String energising4;
-
+    @Size(max = 8000)
     private String full_text;
 
     private String h2;
+    @Size(max = 8000)
     private String full_text2;
     private String h3;
+    @Size(max = 8000)
     private String full_text3;
     private String h4;
+    @Size(max = 8000)
     private String full_text4;
 
 
@@ -56,13 +57,24 @@ public class Guide {
     private int views;
     private LocalDateTime dateTime;
 
+
+
+    private String filName1;
+    private String filName2;
+    private String filName3;
+    private String filName4;
+    private String filName5;
+    private String filName6;
+    private String filName7;
+    private String filName8;
+
+
     @PrePersist
     private void init(){
         dateTime = LocalDateTime.now();
     }
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "guide")
 
-    private List<ImageGuide> imageGuides = new ArrayList<>();
+
 
 
 

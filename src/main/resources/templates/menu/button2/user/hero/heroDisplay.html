@@ -9,15 +9,18 @@
 <body>
 <header th:insert="blocks/headerFooter/header :: header"></header>
 <div>
-    <div class="centr-1400px fon-1400px">
-        <div class="row row-cols-auto">
+    <div class="row fon-1400px">
+        <div class="col-md-12">
 
 
-            <div class="col">
+            <div class="grid">
                     <div th:each="hero : ${displayHeroTir1}" class="list-inline-item1">
-                        <li class="list-inline-item bk"><img th:if="${hero.imageHero}"
+                        <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
                                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
                                                              height="35px" width="40px"></li>
+
+                        <div class="modal fade " th:id="examplePopover +${hero.id}" tabindex="-1" aria-hidden="true">
+                            <div th:insert="menu/button2/user/hero/detalsHeroInDespley :: div"></div></div>
                         <li class="list-inline-item bk"><a th:href="'/home/detals/hero/' +${hero.id}"
                                                            class="nav-link px-2 text-yellow tir1">
                             <t th:text="${hero.nameHero}"></t>
@@ -40,12 +43,17 @@
                                       height="28px" width="28px"></a></li>
                                 </span>
                     </div>
+
                </div>
-               <div class="col">
+
+               <div class="grid">
                     <div th:each="hero : ${displayHeroTir2}" class="list-inline-item1">
-                        <li class="list-inline-item bk"><img th:if="${hero.imageHero}"
+                        <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
                                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
                                                              height="35px" width="40px"></li>
+                        <div class="modal fade " th:id="examplePopover +${hero.id}" tabindex="-1" aria-hidden="true">
+                            <div th:insert="menu/button2/user/hero/detalsHeroInDespley :: div"></div></div>
+
                         <li class="list-inline-item bk"><a th:href="'/home/detals/hero/' +${hero.id}"
                                                            class="nav-link  text-yellow tir2">
                             <t th:text="${hero.nameHero}"></t>
@@ -73,11 +81,14 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="grid">
                     <div th:each="hero : ${displayHeroTir3}" class="list-inline-item1">
-                        <li class="list-inline-item bk"><img th:if="${hero.imageHero}"
+                        <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
                                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
                                                              height="35px" width="40px"></li>
+
+                        <div class="modal fade " th:id="examplePopover +${hero.id}" tabindex="-1" aria-hidden="true">
+                            <div th:insert="menu/button2/user/hero/detalsHeroInDespley :: div"></div></div>
                         <li class="list-inline-item bk"><a th:href="'/home/detals/hero/' +${hero.id}"
                                                            class="nav-link px-2 text-yellow tir3">
                             <t th:text="${hero.nameHero}"></t>
@@ -104,11 +115,14 @@
                 </div>
                 </div>
 
-                <div class="col">
+                <div class="grid">
                     <div th:each="hero : ${displayHeroTir4}" class="list-inline-item1">
-                        <li class="list-inline-item bk"><img th:if="${hero.imageHero}"
+                        <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
                                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
                                                              height="35px" width="40px"></li>
+                        <div class="modal fade " th:id="examplePopover +${hero.id}" tabindex="-1" aria-hidden="true">
+                            <div th:insert="menu/button2/user/hero/detalsHeroInDespley :: div"></div></div>
+
                         <li class="list-inline-item bk"><a th:href="'/home/detals/hero/' +${hero.id}"
                                                            class="nav-link px-2 text-yellow tir4">
                             <t th:text="${hero.nameHero}"></t>
@@ -135,11 +149,14 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="grid">
                     <div th:each="hero : ${displayHeroTir5}" class="list-inline-item1">
-                        <li class="list-inline-item bk"><img th:if="${hero.imageHero}"
+                        <li class="list-inline-item bk btn none" tabindex="0" data-bs-toggle="popover" data-bs-placement="auto"  data-bs-trigger="focus"  th:data-bs-content-id="examplePopover +${hero.id}"><img th:if="${hero.imageHero}"
                                                              th:src="'/images/hero/' + ${hero.imageHero.get(0).id}"
                                                              height="35px" width="40px"></li>
+
+                        <div class="modal fade " th:id="examplePopover +${hero.id}" tabindex="-1" aria-hidden="true">
+                            <div th:insert="menu/button2/user/hero/detalsHeroInDespley :: div"></div></div>
                         <li class="list-inline-item bk"><a th:href="'/home/detals/hero/' +${hero.id}"
                                                            class="nav-link px-2 text-yellow tir5">
                             <t th:text="${hero.nameHero}"></t>

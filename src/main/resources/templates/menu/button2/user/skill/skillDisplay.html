@@ -20,9 +20,8 @@
 
               <img th:if="${ability.id}" th:src="'/images/skill/' + ${ability.id}">
 
-              <a th:href="'/home/detals/skill/' +${ability.id}"  class="nav-link px-2 text-yellow tir3">
                 <t th:text="${ability.name}"></t>
-              </a>
+
               <p th:text="${ability.detals}"></p>
 
 

@@ -1,11 +1,10 @@
 package com.example.DOTA.models;
 
-import com.example.DOTA.models.image.ImageWeapon;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -26,22 +25,16 @@ public class Weapon {
     private String kd;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private ImageWeapon icon;
+
+    private String icon;
     private LocalDateTime dateTime;
 
+    @PrePersist
+    private void init(){
+        dateTime = LocalDateTime.now();
+    }
 
-    @OneToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "weapons_id1")
-    private Weapon weapons1;
 
-    @OneToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "weapons_id2")
-    private Weapon weapons2;
-
-    @OneToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "weapons_id3")
-    private Weapon weapons3;
 
 
 }

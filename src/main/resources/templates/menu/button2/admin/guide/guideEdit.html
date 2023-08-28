@@ -8,11 +8,10 @@
 
 <div class="container-fluid">
     <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+        <nav class="col-md-2 sidebar-nav"
              th:insert="blocks/menuRightAdmin ::div"></nav>
 
-
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="col-md-10 fon-1400px pd-50">
             <h1>Добавление гайда</h1>
 
             <form th:action="'/admin/edit/guide/' + ${id}" method="post" enctype="multipart/form-data">
@@ -24,11 +23,11 @@
 
                 <div>
                     <p>Добавте синергию</p>
-                    <input type="text" list="datalistOptions" id="exampleDataList" name="energising" placeholder="Добавте сенергию" th:value="${guide.energising}">
-                    <input type="text" list="datalistOptions" id="exampleDataList" name="energising1" placeholder="Добавте сенергию" th:value="${guide.energising1}">
-                    <input type="text" list="datalistOptions" id="exampleDataList" name="energising2" placeholder="Добавте сенергию" th:value="${guide.energising2}">
-                    <input type="text" list="datalistOptions" id="exampleDataList" name="energising3" placeholder="Добавте сенергию" th:value="${guide.energising3}">
-                    <input type="text" list="datalistOptions" id="exampleDataList" name="energising4" placeholder="Добавте сенергию" th:value="${guide.energising4}">
+                    <input type="text" list="datalistOptions"  name="energising" placeholder="Добавте сенергию" th:value="${guide.energising}">
+                    <input type="text" list="datalistOptions"  name="energising1" placeholder="Добавте сенергию" th:value="${guide.energising1}">
+                    <input type="text" list="datalistOptions"  name="energising2" placeholder="Добавте сенергию" th:value="${guide.energising2}">
+                    <input type="text" list="datalistOptions"  name="energising3" placeholder="Добавте сенергию" th:value="${guide.energising3}">
+                    <input type="text" list="datalistOptions"  name="energising4" placeholder="Добавте сенергию" th:value="${guide.energising4}">
 
                     <datalist id="datalistOptions">
                         <option th:each="en : ${energising}" th:value="${en.name}"></option>
@@ -131,7 +130,7 @@
                 <button type="submit" class="btn btn-success">Обновить</button>
             </form>
 
-        </main>
+        </div>
     </div>
 </div>
 

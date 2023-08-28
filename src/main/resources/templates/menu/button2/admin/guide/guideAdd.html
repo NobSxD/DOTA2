@@ -6,13 +6,11 @@
 
 </header>
 
-<div class="container-fluid">
     <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+        <nav class="col-md-2 sidebar-nav"
              th:insert="blocks/menuRightAdmin ::div"></nav>
 
-
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="col-md-10 fon-1400px pd-50">
             <h1>Добавление гайда</h1>
             <form th:action="@{/admin/add/guide}" method="post" enctype="multipart/form-data">
                 <p>вставте икону гайда
@@ -114,9 +112,9 @@
                 <button type="submit" class="btn btn-success">Добавить</button>
             </form>
 
-        </main>
+        </div>
     </div>
-</div>
+
 
 
 <footer th:insert="blocks/headerFooter/footer :: div"></footer>

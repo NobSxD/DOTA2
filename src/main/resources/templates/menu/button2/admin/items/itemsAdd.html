@@ -6,28 +6,24 @@
 
 </header>
 
-<div class="container-fluid">
+
     <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+        <nav class="col-md-2 sidebar-nav"
              th:insert="blocks/menuRightAdmin ::div"></nav>
 
-
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="col-md-10 fon-1400px pd-50">
             <h1>Добавление оружие</h1>
             <form th:action="@{/admin/add/items}" method="post" enctype="multipart/form-data">
                 <p>вставте икону предмета
                 <input type="file" name="iconWeapon">
                 </p>
-                <input type="text" name="weapon" placeholder="Ведите имя предмета" class="form-control"><br>
-                <input type="text" name="items1" list="datalistOptions1" placeholder="Ведите из чего собираються" class="form-control"><br>
+                <input type="text" name="name" placeholder="Ведите имя предмета" class="form-control"><br>
                 <datalist id="datalistOptions1">
                     <option th:each="weapon : ${items}"> <t th:text="${weapon.name}"></t></option>
                 </datalist>
 
 
-                <input type="text" name="items2" list="datalistOptions1" placeholder="Ведите из чего собираються" class="form-control"><br>
 
-                <input type="text" name="items3" list="datalistOptions1" placeholder="Ведите из чего собираються" class="form-control"><br>
 
 
                 <input type="text" name="tirWeapon" list="datalist"  id="exampleDataList" placeholder="Ведите тир предмета" class="form-control" required><br>
@@ -50,9 +46,9 @@
                 <button type="submit" class="btn btn-success">Добавить</button>
             </form>
 
-        </main>
+        </div>
     </div>
-</div>
+
 
 
 <footer th:insert="blocks/headerFooter/footer :: div"></footer>

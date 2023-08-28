@@ -1,0 +1,27 @@
+<div class="inline-px" >
+    <li class="list-inline-item bk"><img th:if="${items.icon.length() > 0}" th:src="'/img/' + ${items.icon}"
+                                         height="37.5px" width="50px"></li>
+
+        <div th:text="${items.name}"></div>
+
+
+
+        <div  th:text="${items.tirWeapon}"></div>
+
+
+
+        <div  th:text="${items.passiveSkill}"></div>
+
+
+
+        <div  th:text="${items.activeSkill}"></div>
+
+
+        <div  th:text="${items.rangeAttack}"></div>
+
+
+
+        <div  th:text="${items.kd}"></div>
+
+
+</div>

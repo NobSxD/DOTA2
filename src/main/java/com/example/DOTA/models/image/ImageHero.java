@@ -1,12 +1,11 @@
 package com.example.DOTA.models.image;
 
 import com.example.DOTA.models.Hero;
-import lombok.Data;
+import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+
 
 @Entity
 @Setter
