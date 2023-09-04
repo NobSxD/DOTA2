@@ -21,7 +21,7 @@ jobs:
       - name: Run command on remote server
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
-          host: ${{SSH_PRIVATE_HOST_DOTA2}}
+          host: "${{SSH_PRIVATE_HOST_DOTA}}"
           user: ${{SSH_PRIVATE_USER_DOTA2}}
           private_key: ${{SSH_PRIVATE_KEY_DOTA2}}
           command: |
