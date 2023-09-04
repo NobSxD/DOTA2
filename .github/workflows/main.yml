@@ -21,9 +21,9 @@ jobs:
       - name: Run command on remote server
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
-          host: 178.21.11.175
-          user: root
-          private_key: ${{SSH_PRIVATE_KEY_DOTA2}}
+          host: ${{secrets.SSH_PRIVATE_HOST_DOTA2}}
+          user: ${{secrets.SSH_PRIVATE_USER_DATA2}}
+          private_key: ${{secrets.SSH_PRIVATE_KEY_DOTA2}}
           command: |
             
             docker-compose down;
