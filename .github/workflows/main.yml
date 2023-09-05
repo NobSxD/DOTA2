@@ -11,8 +11,6 @@ jobs:
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
-          host: ${{secrets.SSH_PRIVATE_HOST_DOTA2}}
-          user: ${{secrets.SSH_PRIVATE_USER_DATA2}}
           key: ${{secrets.PRIVAT_178}}
           known_hosts: ${{secrets.KNOWN_HOST}}
           command: |
