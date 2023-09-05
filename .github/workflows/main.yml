@@ -3,9 +3,6 @@ on:
   push:
     branches: 
       - master
-  pull_request:
-    branches: ["main"]
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -17,8 +14,14 @@ jobs:
           user: ${{secrets.SSH_PRIVATE_USER_DATA2}}
           private_key: ${{secrets.SSH_PRIVATE_KEY_DOTA2}}
           command: |
-            
             docker-compose down;
             docker rmi nobsxd/dota
             docker-compose up -d --build;
+      - run: set -eu
+      - run: mkdir "$HOME/.ssh"
+      - run: echo "${{secrets.SSH_PRIVATE_KEY_DOTA2" > "$HOME/.ssh/key"
+      - run: chmod 600 "$HOME/.ssh/key"
+      # Build
+      - run: npm ci
+      - run: npm run build
          
