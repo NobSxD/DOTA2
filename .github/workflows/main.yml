@@ -16,7 +16,6 @@ jobs:
           key: ${{secrets.PRIVAT_178}}
           known_hosts: ${{secrets.KNOWN_HOST}}
           command: |
-          
             docker-compose down;
             docker rmi nobsxd/dota
             docker-compose up -d --build;
