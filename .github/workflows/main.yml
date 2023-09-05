@@ -13,7 +13,7 @@ jobs:
         with:
           host: ${{secrets.SSH_PRIVATE_HOST_DOTA2}}
           user: ${{secrets.SSH_PRIVATE_USER_DATA2}}
-          private_key: ${{secrets.SSH_PRIVATE_KEY_DOTA2}}
+          private_key: ${{secrets.PRIVAT_178}}
           command: |
             docker-compose down;
             docker rmi nobsxd/dota
