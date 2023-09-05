@@ -15,6 +15,7 @@ jobs:
           user: ${{secrets.SSH_PRIVATE_USER_DATA2}}
           private_key: ${{secrets.PRIVAT_178}}
           command: |
+          
             docker-compose down;
             docker rmi nobsxd/dota
             docker-compose up -d --build;
