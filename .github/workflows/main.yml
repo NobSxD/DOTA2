@@ -12,12 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker-compose up -d --build
     - name: Docker login
       run: docker login -u ${{secrets.DOCKER_TOKEN}}
-    - name: test docker
-      run: docker-compose up -d --build
-
+    
   deploy:
     runs-on: ubuntu-latest
     steps:
