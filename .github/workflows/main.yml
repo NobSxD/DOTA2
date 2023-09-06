@@ -17,6 +17,7 @@ jobs:
            
            command: |
              echo '--- START WORK ON REMOTE SERVER ---';
+             docker images
              
             
   
