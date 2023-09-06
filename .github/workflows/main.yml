@@ -14,7 +14,7 @@ jobs:
            host: ${{secrets.SSH_PRIVATE_HOST_DOTA2}}
            user: ${{secrets.SSH_PRIVATE_USER_DOTA2}}
            private_key: ${{secrets.SSH_PRIVATE_KEY_DOTA2}}
-           host_fingerprint: ${{secrets.PUBLIC_fingerprint}}
+           host_fingerprint: ${{secrets.PUBLIC_FINGERPRINT}}
            command: |
              echo '--- START WORK ON REMOTE SERVER ---';
              docker images
