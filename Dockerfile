@@ -1,5 +1,7 @@
 FROM openjdk:latest
-ARG JAR_FILE=target/DOTA-0.0.1-SNAPSHOT.jar
-WORKDIR /opt/app
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+COPY . /srv
+RUN cd /srv && chmod +x mvnw && ./mvnw clean package
+FROM openjdk:latest
+WORKDIR /srv
+COPY --from=build /srv/target/{JAR_NAME}.jar /srv/{JAR_NAME}.jar
+ENTRYPOINT exec java -jar /srv/{JAR_NAME}.jar
