@@ -1,7 +1,6 @@
 FROM openjdk:latest
-COPY . /opt/app
-RUN cd /opt/app && chmod +x mvnw && ./mvnw clean package
-FROM openjdk:latest
+RUN cd /opt/app && chmod +x mvn && ./mvn clean package
+ARG JAR_FILE=/opt/app/target/DOTA-0.0.1-SNAPSHOT.jar
 WORKDIR /opt/app
-COPY --from=build /opt/app/target/${JAR_NAME}.jar /opt/app/${JAR_NAME}.jar
-ENTRYPOINT exec java -jar /opt/app/{JAR_NAME}.jar
+COPY  ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
