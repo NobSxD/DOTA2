@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<properties>
 		<java.version>17</java.version>
-
+		<snakeyaml.version>2.0</snakeyaml.version>
 		<my.hibernate.version>6.2.7.Final</my.hibernate.version>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
@@ -28,7 +28,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version> 6.0.9</version>
 		</dependency>
 
 		<dependency>
@@ -56,11 +55,7 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
 
-		</dependency>
 
 		<!-- HIBERNATE -->
 		<dependency>
@@ -107,9 +102,10 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>2.1.214</version>
+			<version>2.2.222</version>
 			<scope>test</scope>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
