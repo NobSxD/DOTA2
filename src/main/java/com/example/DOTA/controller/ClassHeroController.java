@@ -3,6 +3,8 @@ package com.example.DOTA.controller;
 import com.example.DOTA.services.ClassHeroService;
 import com.example.DOTA.services.EnergisingService;
 import com.example.DOTA.services.ViewsService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,31 +19,30 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class ClassHeroController {
 
-    private final ClassHeroService classHeroService;
 
-    private final EnergisingService energisingService;
+    private final ClassHeroService classHeroService;
     private final ViewsService viewsService;
 
     @GetMapping("/admin/add/class")
-    private String add(){
+    public String add(){
         return "menu/button2/admin/class/classAdd";
     }
 
     @PostMapping("/admin/add/class")
-    private String add(@RequestParam String classHero) throws IOException {
+    public String add(@RequestParam String classHero) throws IOException {
         classHeroService.saveClassHero(classHero);
         return "redirect:/admin/add/class";
     }
 
 
     @GetMapping("/admin/display/class")
-    private String display(Model model){
+    public String display(Model model){
         model.addAttribute("class" ,classHeroService.listClassHero());
         return "menu/button2/admin/class/classDisplay";
     }
 
     @GetMapping("/admin/detals/class/{id}")
-    private String detailsClassAdmin(@PathVariable(value = "id") Long id, Model model){
+    public String detailsClassAdmin(@PathVariable(value = "id") Long id, Model model){
         model.addAttribute("class", classHeroService.classHero(id));
         return "menu/button2/admin/class/classDetals";
     }
@@ -49,17 +50,17 @@ public class ClassHeroController {
 
 
     @GetMapping("/admin/delete/class/{id}")
-    private String deleteClass(@PathVariable(value = "id")Long id){
+    public String deleteClass(@PathVariable(value = "id")Long id){
         classHeroService.deleteClass(classHeroService.classHero(id));
         return "redirect:/admin/display/class";
     }
     @GetMapping("/admin/edit/class/{id}")
-    private String editClass(@PathVariable(value = "id")Long id, Model model){
+    public String editClass(@PathVariable(value = "id")Long id, Model model){
         model.addAttribute("class",classHeroService.classHero(id));
         return "menu/button2/admin/class/classEdit";
     }
     @PostMapping("/admin/edit/class/{id}")
-    private String update(@PathVariable(value = "id")Long id, @RequestParam String classHero) throws IOException {
+    public String update(@PathVariable(value = "id")Long id, @RequestParam String classHero) throws IOException {
         classHeroService.updateClassHero(classHero,id);
         return "redirect:/admin/display/class";
     }

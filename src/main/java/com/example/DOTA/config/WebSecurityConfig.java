@@ -50,6 +50,7 @@ public class WebSecurityConfig {
         return new CustomAccessDeniedHandler();
     }
 
+
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService)

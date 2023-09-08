@@ -22,7 +22,7 @@ import java.util.List;
 public class HeroController {
     private final HeroService heroService;
     private final EnergisingService energisingService;
-    private final ViewsService viewsService;
+
 
 
 
