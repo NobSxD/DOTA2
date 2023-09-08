@@ -18,6 +18,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD 
         
     - name: set up JDK 17
+      uses: actions/setup-java@v1
       with:
           java-version: 17
     - name: Maven Package
