@@ -49,9 +49,9 @@ jobs:
            
            command: |
              echo '--- START WORK ON REMOTE SERVER ---';
-             docker-compose down
-             docker rmi nobsxd/dota
-             docker-compose up -d --build
+             docker-compose down;
+             docker rmi nobsxd/dota;
+             docker-compose up -d --build;
              
             
   
