@@ -1,2 +1,5 @@
 # DOTA2
-создаю база знаний для дота2 авточез.
+Проект предназначался вести базу знаний по героям дот2 autochess.
+Так же вести стати и стратегии по игре.
+Стек:
+Java 17, Spring-Boot (патерн Spring MVC), Spring Data, HTML, CSS, timelif(шаблонизатор), Git Action(CI CD), maven
